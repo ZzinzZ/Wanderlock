@@ -1,5 +1,7 @@
 # Wanderlock
 
+[![CI](https://github.com/ZzinzZ/Wanderlock/actions/workflows/ci.yml/badge.svg)](https://github.com/ZzinzZ/Wanderlock/actions/workflows/ci.yml)
+
 > Codename — tên chính thức chưa chốt. `wanderlock` là **định danh kỹ thuật**
 > (tên package, bundle id) và được giữ ổn định kể cả khi tên thương hiệu đổi.
 > Tên hiển thị lấy từ l10n nên đổi lúc nào cũng được.
