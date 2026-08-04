@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# A new push to the same branch makes the previous run irrelevant.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: format · analyze · tokens · test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # .fvmrc is the single source of truth for the SDK version, so a local
+      # machine and CI can never drift apart.
+      - name: Read pinned Flutter version
+        id: pin
+        run: echo "version=$(jq -er .flutter .fvmrc)" >> "$GITHUB_OUTPUT"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.pin.outputs.version }}
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        working-directory: app
+        run: flutter pub get
+
+      - name: Format gate
+        working-directory: app
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze gate
+        working-directory: app
+        run: flutter analyze --fatal-infos --fatal-warnings
+
+      - name: Design-token gate
+        working-directory: app
+        run: dart run ../tool/check_design_tokens.dart
+
+      - name: Test
+        working-directory: app
+        run: flutter test

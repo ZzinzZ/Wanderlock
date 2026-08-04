@@ -1,0 +1,76 @@
+# ─────────────────────────────────────────────────────────────
+#  Secrets — nothing below this heading may ever reach a commit
+# ─────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.p8
+*.p12
+*.key
+*.jks
+*.keystore
+**/android/key.properties
+**/android/app/google-services.json
+**/ios/Runner/GoogleService-Info.plist
+**/*.mobileprovision
+
+# ── Dart / Flutter ───────────────────────────────────────────
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+**/doc/api/
+*.dill
+.flutter-plugins
+.flutter-plugins-dependencies
+coverage/
+# golden test diffs
+**/failures/
+
+# ── FVM (the pin itself, .fvmrc, IS committed) ───────────────
+.fvm/
+
+# ── Android ──────────────────────────────────────────────────
+**/android/.gradle/
+**/android/captures/
+**/android/local.properties
+**/android/.cxx/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# ── iOS / macOS ──────────────────────────────────────────────
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/xcuserdata/
+**/*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+
+# ── Supabase CLI ─────────────────────────────────────────────
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# ── Editors ──────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+.vscode/
+
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── Local scratch ────────────────────────────────────────────
+*.log
+/scratch/

@@ -1,0 +1,25 @@
+# Normalize line endings so `dart format --set-exit-if-changed` gives the same
+# result on Windows workstations and on Linux CI runners.
+* text=auto eol=lf
+
+# Windows-only scripts must keep CRLF or they will not run.
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# Binary assets: never touch.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+*.ttf   binary
+*.otf   binary
+*.woff  binary
+*.woff2 binary
+*.riv   binary
+*.mbtiles binary
+*.pmtiles binary
+*.keystore binary
+*.jks   binary
