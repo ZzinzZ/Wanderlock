@@ -1,0 +1,10 @@
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+output-class: AppLocalizations
+output-dir: lib/l10n/generated
+# Non-nullable getter: the delegate is always installed, so a null check at
+# every call site would be noise that hides a real misconfiguration.
+nullable-getter: false
+# Generated from the .arb files, never edited by hand and never committed.
+# CI regenerates before analyzing, so the .arb files stay the single source.

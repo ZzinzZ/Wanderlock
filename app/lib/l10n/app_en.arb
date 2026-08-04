@@ -1,0 +1,68 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Wanderlock",
+  "@appTitle": {
+    "description": "Application name shown in the OS task switcher."
+  },
+
+  "homeTitle": "Foundation shell",
+  "@homeTitle": {
+    "description": "Title of the placeholder home screen built in phase F1."
+  },
+
+  "homeSubtitle": "Design tokens, theming, routing and localisation. No product features yet.",
+  "@homeSubtitle": {
+    "description": "Explains that this screen is scaffolding, not a feature."
+  },
+
+  "openTypeSpecimen": "Open type specimen",
+  "@openTypeSpecimen": {
+    "description": "Button that routes to the type specimen screen."
+  },
+
+  "typeSpecimenTitle": "Type specimen",
+  "@typeSpecimenTitle": {
+    "description": "Title of the screen used to verify Vietnamese diacritics."
+  },
+
+  "typeSpecimenIntro": "Vietnamese diacritics at every bundled weight.",
+  "@typeSpecimenIntro": {
+    "description": "Subtitle of the type specimen screen."
+  },
+
+  "diacriticsSample": "ế ỡ ộ ữ ẫ",
+  "@diacriticsSample": {
+    "description": "The five stacked-diacritic characters mandated by the art direction. Not translated: these are the test characters themselves."
+  },
+
+  "diacriticsSentence": "Kiểm tra dấu tiếng Việt: ằ ọ ợ ế ỡ ộ ữ ẫ",
+  "@diacriticsSentence": {
+    "description": "A sentence exercising stacked marks. Deliberately Vietnamese in both locales, since it tests glyph rendering rather than wording."
+  },
+
+  "uiFontLabel": "Be Vietnam Pro — interface",
+  "@uiFontLabel": {
+    "description": "Section heading for the UI font specimen."
+  },
+
+  "displayFontLabel": "Baloo 2 — headings",
+  "@displayFontLabel": {
+    "description": "Section heading for the display font specimen."
+  },
+
+  "switchToDark": "Switch to dark",
+  "@switchToDark": {
+    "description": "Theme toggle label while the light theme is active."
+  },
+
+  "switchToLight": "Switch to light",
+  "@switchToLight": {
+    "description": "Theme toggle label while the dark theme is active."
+  },
+
+  "back": "Back",
+  "@back": {
+    "description": "Generic back action."
+  }
+}

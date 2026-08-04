@@ -12,7 +12,10 @@ concurrency:
 
 jobs:
   quality:
-    name: format · analyze · tokens · test
+    # Stable on purpose: this string is the required status check in the
+    # branch ruleset. Adding a gate must not rename the job, or main becomes
+    # unmergeable until the ruleset is edited to match.
+    name: quality gates
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -35,6 +38,12 @@ jobs:
         working-directory: app
         run: flutter pub get
 
+      # The .arb files are the source of truth; the generated Dart is not
+      # committed, so it has to be produced before anything analyses it.
+      - name: Generate localizations
+        working-directory: app
+        run: flutter gen-l10n
+
       - name: Format gate
         working-directory: app
         run: dart format --output=none --set-exit-if-changed .
@@ -47,6 +56,13 @@ jobs:
         working-directory: app
         run: dart run ../tool/check_design_tokens.dart
 
+      - name: Architecture gate
+        working-directory: app
+        run: dart run ../tool/check_architecture.dart
+
+      # Goldens are excluded: text rasterisation differs between a Windows
+      # workstation and this Linux runner, so byte comparison would fail for
+      # reasons unrelated to the code. They are a local review artifact.
       - name: Test
         working-directory: app
-        run: flutter test
+        run: flutter test --exclude-tags golden
