@@ -60,6 +60,10 @@ jobs:
         working-directory: app
         run: dart run ../tool/check_architecture.dart
 
+      - name: Encoding gate
+        working-directory: app
+        run: dart run ../tool/check_encoding.dart
+
       # Goldens are excluded: text rasterisation differs between a Windows
       # workstation and this Linux runner, so byte comparison would fail for
       # reasons unrelated to the code. They are a local review artifact.
