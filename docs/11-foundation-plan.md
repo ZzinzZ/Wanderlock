@@ -59,6 +59,8 @@
 - **Design token** dịch nguyên văn từ [09-art-direction.md](09-art-direction.md): màu, bo góc, thang chữ, bóng
 - Chế độ sáng + tối, đổi được trong app
 - Font đã chọn, đã kiểm tra dấu tiếng Việt
+- l10n dựng xong; không còn chuỗi hiển thị viết cứng trong widget
+- **Cổng kiến trúc** `tool/check_architecture.dart` — cưỡng chế luật phụ thuộc ở [12-engineering-guide.md](12-engineering-guide.md) §2
 
 **Definition of Done**
 - [ ] Chạy được trên **máy thật** cả 2 nền tảng, không crash
@@ -67,7 +69,22 @@
 - [ ] Ảnh chụp màn hình hiển thị đúng `ế ỡ ộ ữ ẫ` ở mọi độ đậm của font
 - [ ] Kiểm tra tương phản: nút chính, chữ trên nền màu đều ≥ 4.5:1
 - [ ] **Không có mã màu viết cứng** trong màn hình — chỉ dùng token
+- [ ] Không còn chuỗi hiển thị viết cứng — kể cả tiêu đề app (nợ từ F0)
+- [ ] Cổng kiến trúc chạy trong CI và đã **thử cho đỏ**: cho `fog` import `story` → đỏ; gỡ ra → xanh
 - [ ] Tag `foundation-f1`
+
+> **Vì sao cổng kiến trúc phải làm ở F1, không để sau:** lúc `lib/` còn rỗng thì
+> cổng luôn xanh và gần như miễn phí. Để đến khi đã có 7 feature mới bật thì
+> việc đầu tiên phải làm là đi dọn nợ. Luật "feature không import chéo nhau"
+> chính là luận điểm sản phẩm viết bằng mã — nó xứng đáng có máy canh, không
+> chỉ nằm trong tài liệu.
+
+**Cổng kiến trúc phải bắt được**
+- `domain/` import bất cứ thứ gì ngoài Dart thuần
+- `presentation/` import thẳng `data/` (phải đi qua `application/`)
+- Feature import feature khác — trừ ngoại lệ duy nhất: được phép import `unlock`
+- `unlock` import ngược lại bất kỳ feature nào
+- `design/` import `features/`
 
 ---
 
