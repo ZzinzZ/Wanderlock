@@ -1,0 +1,17 @@
+{
+  "@@locale": "vi",
+
+  "appTitle": "Wanderlock",
+  "homeTitle": "Vỏ nền tảng",
+  "homeSubtitle": "Design token, giao diện sáng tối, điều hướng và đa ngữ. Chưa có tính năng sản phẩm.",
+  "openTypeSpecimen": "Xem bảng chữ mẫu",
+  "typeSpecimenTitle": "Bảng chữ mẫu",
+  "typeSpecimenIntro": "Dấu tiếng Việt ở mọi độ đậm đã đóng gói.",
+  "diacriticsSample": "ế ỡ ộ ữ ẫ",
+  "diacriticsSentence": "Kiểm tra dấu tiếng Việt: ằ ọ ợ ế ỡ ộ ữ ẫ",
+  "uiFontLabel": "Be Vietnam Pro — giao diện",
+  "displayFontLabel": "Baloo 2 — tiêu đề",
+  "switchToDark": "Chuyển sang nền tối",
+  "switchToLight": "Chuyển sang nền sáng",
+  "back": "Quay lại"
+}

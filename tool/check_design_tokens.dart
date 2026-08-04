@@ -19,9 +19,7 @@ import 'dart:io';
 
 /// Paths (relative to repo root, POSIX separators) allowed to hold raw
 /// design values. These files ARE the source of truth.
-const allowedPathPrefixes = <String>[
-  'app/lib/design/tokens/',
-];
+const allowedPathPrefixes = <String>['app/lib/design/tokens/'];
 
 /// Generated sources are not hand-written, so they are not our problem.
 const generatedSuffixes = <String>[
@@ -93,20 +91,19 @@ void main(List<String> args) {
   final violations = <Violation>[];
   var scannedFiles = 0;
 
-  final files = root
-      .listSync(recursive: true)
-      .whereType<File>()
-      .where((f) => f.path.endsWith('.dart'))
-      .toList()
-    ..sort((a, b) => a.path.compareTo(b.path));
+  final files =
+      root
+          .listSync(recursive: true)
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.dart'))
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
 
   final rootPrefix = '${repoRoot().path.replaceAll(r'\', '/')}/';
 
   for (final file in files) {
     // Report repo-relative paths so the output is clickable in an editor.
-    final path = file.path
-        .replaceAll(r'\', '/')
-        .replaceFirst(rootPrefix, '');
+    final path = file.path.replaceAll(r'\', '/').replaceFirst(rootPrefix, '');
     if (generatedSuffixes.any(path.endsWith)) continue;
     if (allowedPathPrefixes.any(path.startsWith)) continue;
 
