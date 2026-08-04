@@ -68,7 +68,10 @@ class HomeScreen extends ConsumerWidget {
               const SizedBox(height: AppSpacing.xl),
               PrimaryButton(
                 label: l10n.openTypeSpecimen,
-                onPressed: () => context.go(AppRoutes.typeSpecimen),
+                // push, not go: `go` replaces the location, which leaves
+                // nothing on the stack for the Android back button to pop.
+                // Pressing back would exit the app instead of coming here.
+                onPressed: () => context.push(AppRoutes.typeSpecimen),
               ),
             ],
           ),

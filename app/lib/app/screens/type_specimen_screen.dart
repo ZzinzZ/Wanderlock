@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import 'package:wanderlock/app/routes.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
@@ -21,10 +19,10 @@ class TypeSpecimenScreen extends StatelessWidget {
     final colors = AppColors.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.typeSpecimenTitle),
-        leading: BackButton(onPressed: () => context.go(AppRoutes.home)),
-      ),
+      // No custom leading: the default back button pops the route, which is
+      // the same thing the Android system back button does. A hand-rolled one
+      // is how the two get out of step.
+      appBar: AppBar(title: Text(l10n.typeSpecimenTitle)),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(

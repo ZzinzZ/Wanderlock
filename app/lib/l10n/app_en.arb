@@ -59,10 +59,5 @@
   "switchToLight": "Switch to light",
   "@switchToLight": {
     "description": "Theme toggle label while the dark theme is active."
-  },
-
-  "back": "Back",
-  "@back": {
-    "description": "Generic back action."
   }
 }
