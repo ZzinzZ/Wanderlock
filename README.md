@@ -43,13 +43,18 @@ cd app && fvm flutter gen-l10n
 ## Các cổng kiểm tra (chạy đúng như CI)
 
 ```bash
-cd app && fvm flutter gen-l10n && fvm dart format --output=none --set-exit-if-changed . && fvm flutter analyze --fatal-infos --fatal-warnings && fvm dart run ../tool/check_design_tokens.dart && fvm dart run ../tool/check_architecture.dart && fvm flutter test
+cd app && fvm flutter gen-l10n && fvm dart format --output=none --set-exit-if-changed . && fvm flutter analyze --fatal-infos --fatal-warnings && fvm dart run ../tool/check_design_tokens.dart && fvm dart run ../tool/check_architecture.dart && fvm dart run ../tool/check_encoding.dart && fvm flutter test
 ```
 
 | Cổng | Chặn cái gì |
 |------|-------------|
 | [check_design_tokens](tool/check_design_tokens.dart) | Màu, bo góc, cỡ chữ, thời lượng animation viết cứng ngoài `design/tokens/`. Có lối thoát `// design-token-ignore: <lý do>` |
 | [check_architecture](tool/check_architecture.dart) | Feature import chéo nhau, `unlock` phụ thuộc ngược, `domain` dính package ngoài, `presentation` gọi thẳng `data`, `design` dính `features`. **Không có lối thoát** |
+| [check_encoding](tool/check_encoding.dart) | BOM, byte không phải UTF-8, và mojibake. **Không có lối thoát** |
+
+> ⚠️ **Trên Windows, đừng sửa file mã nguồn bằng `Set-Content` hay `Out-File`.**
+> Chúng thêm BOM và làm hỏng dấu tiếng Việt — đúng loại lỗi `check_encoding`
+> sinh ra để chặn. Dùng trình soạn thảo hoặc công cụ ghi UTF-8 không BOM.
 
 > Tên job CI là `quality gates` và **không được đổi** — nó là required status
 > check trong ruleset bảo vệ `main`. Thêm cổng thì thêm bước, đừng đổi tên job.
