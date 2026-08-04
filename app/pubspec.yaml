@@ -1,0 +1,24 @@
+name: wanderlock
+description: "Gamified sightseeing map: visit a place once, unlock it for every lens."
+# Private app, never published to pub.dev.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+# Keep alphabetical: the sort_pub_dependencies lint is a CI gate.
+# Runtime packages arrive with the phase that needs them (go_router and
+# riverpod in F1, supabase_flutter and drift in F2, maplibre_gl in F3).
+dependencies:
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

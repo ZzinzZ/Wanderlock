@@ -1,0 +1,69 @@
+# Lint contract. See docs/12-engineering-guide.md.
+#
+# CI runs `flutter analyze --fatal-infos --fatal-warnings`, so every rule below
+# is a build failure, not a suggestion. Loosen a rule here with a reason rather
+# than sprinkling `// ignore:` across the codebase.
+
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "lib/l10n/generated/**"
+
+  errors:
+    # Leftovers hide real coupling.
+    unused_import: error
+    unused_local_variable: error
+    # A dropped future is how offline sync loses a check-in.
+    unawaited_futures: error
+
+linter:
+  rules:
+    # ── Correctness ──────────────────────────────────────────
+    - avoid_dynamic_calls
+    - avoid_slow_async_io
+    - cancel_subscriptions
+    - close_sinks
+    - only_throw_errors
+    - throw_in_finally
+    - test_types_in_equals
+    - unnecessary_statements
+    - literal_only_boolean_expressions
+    - no_adjacent_strings_in_list
+    - null_check_on_nullable_type_parameter
+    - unawaited_futures
+
+    # ── Immutability (docs/12 §5: "Bất biến mặc định") ────────
+    - prefer_final_locals
+    - prefer_final_in_for_each
+    - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - avoid_setters_without_getters
+
+    # ── Boundaries ───────────────────────────────────────────
+    # Package imports make a cross-feature import visible on sight, which is
+    # how dependency rule 3 of docs/12 gets caught in review.
+    - always_use_package_imports
+    - avoid_relative_lib_imports
+
+    # ── Style ────────────────────────────────────────────────
+    - always_declare_return_types
+    - prefer_single_quotes
+    - require_trailing_commas
+    - directives_ordering
+    - sort_pub_dependencies
+    - use_super_parameters
+    - avoid_redundant_argument_values
+    - unnecessary_lambdas
+    - use_string_buffers
+
+    # ── Production hygiene ───────────────────────────────────
+    - avoid_print
