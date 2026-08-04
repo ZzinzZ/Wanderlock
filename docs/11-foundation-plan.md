@@ -63,7 +63,8 @@
 - **Cổng kiến trúc** `tool/check_architecture.dart` — cưỡng chế luật phụ thuộc ở [12-engineering-guide.md](12-engineering-guide.md) §2
 
 **Definition of Done**
-- [ ] Chạy được trên **máy thật** cả 2 nền tảng, không crash
+- [ ] Chạy được trên **máy Android thật**, không crash
+- [ ] iOS: **biên dịch được** trên CI runner macOS (`flutter build ios --no-codesign`)
 - [ ] Chuyển qua lại 2 màn giả bằng router
 - [ ] Bật/tắt chế độ tối → **mọi** màu đổi đúng, không sót thành phần
 - [ ] Ảnh chụp màn hình hiển thị đúng `ế ỡ ộ ữ ẫ` ở mọi độ đậm của font
@@ -72,6 +73,17 @@
 - [ ] Không còn chuỗi hiển thị viết cứng — kể cả tiêu đề app (nợ từ F0)
 - [ ] Cổng kiến trúc chạy trong CI và đã **thử cho đỏ**: cho `fog` import `story` → đỏ; gỡ ra → xanh
 - [ ] Tag `foundation-f1`
+
+> **Vì sao iOS chỉ cần biên dịch được, không cần chạy máy thật (chốt 2026-08-05):**
+> Build iOS bắt buộc phải có macOS + Xcode — ràng buộc của Apple, không có
+> đường vòng. Máy phát triển hiện tại là Windows. Pilot là một khu ở TP.HCM
+> nơi Android chiếm đa số, nên chặn cả phase nền tảng để chờ một máy Mac là
+> đánh đổi sai.
+>
+> **Đây là nợ kỹ thuật, không phải hạng mục đã xong.** Phải trả trước khi có
+> bản thử nghiệm cho người dùng thật trên iOS. Job build trên CI runner macOS
+> bắt sớm những lỗi kiểu thiếu khai báo quyền trong `Info.plist` — thứ sẽ cắn
+> ở F4 khi xin quyền vị trí.
 
 > **Vì sao cổng kiến trúc phải làm ở F1, không để sau:** lúc `lib/` còn rỗng thì
 > cổng luôn xanh và gần như miễn phí. Để đến khi đã có 7 feature mới bật thì
