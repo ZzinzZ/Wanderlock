@@ -13,22 +13,23 @@ Pilot: Quận 1 + rìa Chợ Lớn, TP.HCM.
 
 ## Bắt đầu
 
-Yêu cầu: Flutter **3.44.8** (ghim trong [`.fvmrc`](.fvmrc)), Android SDK, Xcode (nếu build iOS).
+Yêu cầu: Flutter **3.44.8** (ghim trong [`app/.fvmrc`](app/.fvmrc)), Android SDK,
+Xcode (nếu build iOS).
+
+Cài FVM một lần (PowerShell quyền quản trị):
 
 ```bash
-dart pub global activate fvm
+choco install fvm -y
 ```
 
+Rồi lấy đúng phiên bản đã ghim và nạp phụ thuộc:
+
 ```bash
-fvm install && fvm use
+cd app && fvm install && fvm flutter pub get
 ```
 
 ```bash
 cp .env.example .env
-```
-
-```bash
-cd app && fvm flutter pub get
 ```
 
 ## Các cổng kiểm tra (chạy đúng như CI)

@@ -19,11 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # .fvmrc is the single source of truth for the SDK version, so a local
-      # machine and CI can never drift apart.
+      # app/.fvmrc is the single source of truth for the SDK version, so a
+      # workstation and the runner can never drift apart.
       - name: Read pinned Flutter version
         id: pin
-        run: echo "version=$(jq -er .flutter .fvmrc)" >> "$GITHUB_OUTPUT"
+        run: echo "version=$(jq -er .flutter app/.fvmrc)" >> "$GITHUB_OUTPUT"
 
       - uses: subosito/flutter-action@v2
         with:
