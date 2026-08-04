@@ -54,6 +54,21 @@ cd app && fvm flutter gen-l10n && fvm dart format --output=none --set-exit-if-ch
 > Tên job CI là `quality gates` và **không được đổi** — nó là required status
 > check trong ruleset bảo vệ `main`. Thêm cổng thì thêm bước, đừng đổi tên job.
 
+## Nền tảng
+
+| | Trạng thái |
+|---|---|
+| Android | Phát triển và chạy trên máy thật |
+| iOS | **Chỉ kiểm tra biên dịch** trên CI runner macOS. Chạy trên máy iOS thật là **nợ kỹ thuật** phải trả trước bản thử nghiệm — xem [docs/11-foundation-plan.md](docs/11-foundation-plan.md) |
+
+Job [`iOS build`](.github/workflows/ios-build.yml) không chạy ở mỗi PR vì
+runner macOS tính phí gấp 10 lần trên repo private. Nó chạy khi `main` đổi,
+và chạy tay được:
+
+```bash
+gh workflow run "iOS build"
+```
+
 ## Cấu trúc
 
 | Thư mục | Nội dung |

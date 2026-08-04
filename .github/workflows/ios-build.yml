@@ -1,0 +1,48 @@
+name: iOS build
+
+# Deliberately NOT on every pull request. macOS runners bill at 10x the
+# minute rate on private repositories, so this runs when main moves and on
+# demand. It is also not a required status check — a broken iOS build must
+# be visible, but it must not block a repository that has no Mac to fix it on.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ios-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: ios build
+    runs-on: macos-latest
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Read pinned Flutter version
+        id: pin
+        run: echo "version=$(jq -er .flutter app/.fvmrc)" >> "$GITHUB_OUTPUT"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.pin.outputs.version }}
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        working-directory: app
+        run: flutter pub get
+
+      - name: Generate localizations
+        working-directory: app
+        run: flutter gen-l10n
+
+      # There is no signing certificate on a runner, so this proves the
+      # project compiles for iOS — not that it can be shipped. Running on a
+      # physical iOS device stays an open debt; see docs/11-foundation-plan.md.
+      - name: Build for iOS without signing
+        working-directory: app
+        run: flutter build ios --release --no-codesign
