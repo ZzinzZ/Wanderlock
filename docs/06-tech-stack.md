@@ -48,39 +48,70 @@
 │                        SUPABASE                              │
 │  Auth │ Postgres + PostGIS │ Realtime │ Storage │ RLS         │
 │  bảng: checkpoints · visit_state · stories · quests · stamps  │
-│         quest_progress · footprints                           │
+│         quest_steps · quest_progress · itineraries            │
 └──────────────────────────────────────────────────────────────┘
         ▲ seed từ file JSON (repo)   ▲ Claude API (soạn nháp, offline tool)
 ```
 
 ---
 
-## 3. Phác thảo schema (Postgres + PostGIS)
+## 3. Schema (Postgres + PostGIS)
+
+> Bản thi hành nằm ở [`supabase/migrations/`](../supabase/migrations/) — đó mới
+> là nguồn đúng. Mục này tóm tắt để đọc nhanh.
 
 ```sql
 checkpoints (
   id, name, geom geography(Point), radius_m,
-  category, difficulty, area_id, city_id,
-  story_id, stamp_id, quiz_id
+  category, requires_qr_fallback, address, photo_url
 )
 
 -- TẦNG NỀN: nguồn sự thật duy nhất, mọi lens đọc chung
 visit_state (
   user_id, checkpoint_id,
   status,            -- unknown | revealed | visited
-  visited_at, verify_method,   -- gps | qr | quiz
+  visited_at, verified_by,     -- gps | qr | quiz
   PRIMARY KEY (user_id, checkpoint_id)
 )
 
 fog_trail (user_id, geom geography, recorded_at)  -- vệt đã đi (Fog of War)
-stories (id, checkpoint_id, narrator_id, nodes jsonb)
-quests (id, title, steps jsonb, reward)
-quest_progress (user_id, quest_id, done_steps)
+narrators (id, name, bio, portrait_url)
+stories (id, checkpoint_id, narrator_id, title, nodes jsonb)
+quests (id, title, summary, reward)
+quest_steps (quest_id, checkpoint_id, position)
+quest_progress (user_id, quest_id, started_at, reward_claimed_at)
 stamps (id, checkpoint_id, art_url)
-footprints (checkpoint_id, user_id, message, is_first, created_at)
+itineraries (id, user_id, title)
+itinerary_items (itinerary_id, checkpoint_id, position)
 ```
 
 **Quy tắc bất biến:** không lens nào được lưu trạng thái mở khóa riêng — tất cả suy ra từ `visit_state`.
+
+### 3.1 Ba hệ quả của quy tắc trên (đã sửa so với bản phác thảo đầu)
+
+1. **`quest_progress` không có `done_steps`.** Bản phác thảo đầu có, và nó phá
+   thẳng quy tắc: hoàn thành một checkpoint sẽ phải ghi hai nơi, rồi hai nơi
+   lệch nhau. Tiến độ quest suy ra bằng cách giao `quest_steps` với
+   `visit_state`. Bảng chỉ giữ thứ **không suy được** — lúc bắt đầu, lúc nhận thưởng.
+2. **Không lưu quyền sở hữu tem.** Một con tem thuộc về bạn đúng khi checkpoint
+   của nó đã ghé. `stamps` chỉ mô tả con tem, không mô tả ai có nó.
+3. **`footprints` không tồn tại ở v1.** Nó thuộc lăng kính Xã hội, đã hoãn sang
+   v1.5 ([08-scope.md](08-scope.md)). Bảng đã tồn tại là bảng sẽ có người viết
+   code dựa vào.
+
+### 3.2 Hai tầng bảo vệ `visit_state`
+
+`visit_state` được cấp **`SELECT` và không gì khác** cho `authenticated`, đồng
+thời **không có policy insert/update/delete nào**. Client dù có session hợp lệ
+cũng bị chặn hai lần: một ở tầng quyền, một ở tầng policy. Chỉ edge function
+xác thực check-in, chạy bằng `service_role`, mới ghi được.
+
+Đây là cách biến "không tin client" từ một điều ước hẹn khi review code thành
+ràng buộc của chính database.
+
+> ⚠️ Bật RLS **không đủ**. Postgres xét `GRANT` trước, chỉ khi động từ đã được
+> phép mới xét đến policy. Thiếu `GRANT` thì mọi thứ bị chặn — kể cả bảng nội
+> dung ai cũng phải đọc được. Nhìn như đang an toàn, thực ra là app hỏng.
 Bật **RLS** cho mọi bảng có `user_id`. Check-in phải qua **Edge Function xác thực server-side** (không tin client).
 
 ---

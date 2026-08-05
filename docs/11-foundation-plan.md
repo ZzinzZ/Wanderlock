@@ -108,7 +108,12 @@
 |-------|---------------------|-----|
 | **S1 — Fog of War** | Vẽ vệt đi + mask trên MapLibre, sau 2 giờ đi bộ mô phỏng còn mượt không? | Có **số FPS đo được** ở 30/60/120 phút, trên máy tầm trung; kết luận rõ "đạt / phải đổi cách vẽ" |
 | **S2 — Geofence & pin** | Chạy nền 1 buổi tốn bao nhiêu pin? Có bắt đúng lúc vào bán kính không? | Có **% pin/giờ đo được**; tỉ lệ bắt đúng trên ≥ 20 lần vào/ra vùng |
-| **S3 — GPS thực địa** | Sai số GPS giữa nhà cao tầng Quận 1 là bao nhiêu? | Bảng sai số tại ≥ 8 điểm thật; **kết luận bán kính nên đặt bao nhiêu** và điểm nào bắt buộc cần QR |
+| **S3 — GPS thực địa** | Sai số GPS ở từng dạng địa hình — kẹt giữa nhà cao tầng trung tâm, hẻm Chợ Lớn, khoảng trống Thủ Đức — là bao nhiêu? | Bảng sai số tại ≥ 8 điểm thật, **trải đủ các dạng địa hình**; kết luận bán kính từng điểm và điểm nào bắt buộc cần QR |
+
+> **S3 nặng hơn kể từ khi pilot rải khắp thành phố (2026-08-05).** Trước đây đi
+> bộ quanh Quận 1 một buổi là đủ; giờ phải nhiều buổi, di chuyển bằng xe. Đổi
+> lại dữ liệu tốt hơn: bán kính không còn đặt một con số cho tất cả, mà đặt
+> theo từng dạng địa hình — đó vốn là câu hỏi thật mà S3 cần trả lời.
 
 **DoD chung của phase S**
 - [ ] Cả 3 spike có kết luận **bằng số**, không phải phỏng đoán
@@ -198,7 +203,7 @@
 - [ ] Không lăng kính nào lưu trạng thái mở khóa riêng (kiểm chứng bằng đọc mã + test)
 - [ ] Khoảnh khắc mở khóa chạy đủ 6 bước đặc tả, có haptic
 - [ ] Hồng `#FF48A0` **chỉ** xuất hiện trong 3 giây đó, không nơi nào khác
-- [ ] Đi bộ thật 2 giờ: không tụt khung hình, không hao pin bất thường
+- [ ] Đi bộ thật **liên tục** 2 giờ: không tụt khung hình, không hao pin bất thường — buổi đo riêng, vì pilot rải khắp thành phố không còn đi bộ hết được
 - [ ] Tag `foundation-f5`
 
 ---

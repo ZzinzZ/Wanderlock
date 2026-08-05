@@ -1,6 +1,13 @@
 # Scope dự án (ĐÃ CHỐT — v1 / MVP)
 
-> Ngày chốt: 2026-08-04 · Phạm vi: pilot **Quận 1 + rìa Chợ Lớn, TP.HCM**
+> Ngày chốt: 2026-08-04 · Phạm vi sửa ngày 2026-08-05
+> Pilot: **12 địa điểm rải khắp TP.HCM** (trung tâm · Chợ Lớn · Bình Thạnh · Tân Bình · Thủ Đức)
+>
+> **Đổi so với bản đầu:** ban đầu chốt "Quận 1 + rìa Chợ Lớn" để pilot đủ dày mà
+> đi bộ hết được. Chủ dự án đổi sang rải khắp thành phố để bao được những điểm
+> đặc sắc nhất và chứng minh app chạy ở nhiều dạng địa hình đô thị. Cái mất:
+> **không còn đi bộ hết pilot trong một buổi** — giữa các điểm phải đi xe, và
+> Fog of War mất mật độ vệt đi. Mục 6 bên dưới đã sửa theo.
 > Nguyên tắc cắt scope: **giữ đủ 3 trụ (khám phá · story · lý do quay lại), cắt mọi thứ cần kiểm duyệt hoặc cần quy mô người dùng.**
 
 ---
@@ -68,7 +75,7 @@ Lưu ý về khối lượng công việc — **hai lăng kính "dày", hai lăn
 
 | Hạng mục | Số lượng v1 |
 |----------|-------------|
-| Checkpoint | **8–12** (Quận 1 + rìa Chợ Lớn) |
+| Checkpoint | **12** (rải khắp TP.HCM) |
 | Chương truyện | **8–12** (mỗi checkpoint 1 chương, 2–4 phút đọc) |
 | Người dẫn truyện | **1** |
 | Tuyến quest | **1** (xuyên 4–6 checkpoint, có mở–thân–kết) |
@@ -152,10 +159,15 @@ Quay lại bản đồ: điểm đã sáng ở MỌI lăng kính
 
 ## 6. Tiêu chí "v1 đã xong"
 
-1. Đi thật quanh Quận 1 mở khóa được ≥ 8 checkpoint
+1. Đi thật tới ≥ 8 trong 12 checkpoint và mở khóa được — nhiều buổi, di chuyển bằng xe giữa các cụm
 2. Chuyển qua lại 5 lăng kính, trạng thái mở khóa **luôn nhất quán**
 3. Hoàn thành trọn 1 tuyến quest, và tự dựng được 1 lộ trình riêng
 4. Đọc được 8–12 chương truyện
 5. Xuất được Bản đồ ký ức để chia sẻ
 6. Hoạt động khi mất mạng, đồng bộ lại đúng
-7. Đi bộ 2 giờ: app không tụt khung hình, không ngốn pin bất thường
+7. Đi bộ liên tục 2 giờ: app không tụt khung hình, không ngốn pin bất thường
+
+> Mục 7 giờ là **bài đo riêng**, không còn là hệ quả tự nhiên của việc đi hết
+> pilot. Pilot rải khắp thành phố nên phải chủ động dành một buổi đi bộ liên
+> tục để đo — nếu không, Fog of War và mức hao pin sẽ không bao giờ bị thử ở
+> đúng điều kiện mà người dùng thật sẽ gặp.
