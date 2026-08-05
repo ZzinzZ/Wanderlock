@@ -180,6 +180,45 @@ create table public.itinerary_items (
 create index itineraries_user_idx on public.itineraries (user_id);
 
 -- ---------------------------------------------------------------------------
+-- Table privileges
+--
+-- These are not optional and they are not the same thing as the policies
+-- below. Postgres checks the GRANT first; a policy is only consulted once the
+-- verb is already permitted. Without these, every request fails with
+-- "permission denied for table" no matter how the policies are written — which
+-- looks like working security and is in fact a broken app.
+--
+-- Read the two layers together:
+--   GRANT  decides which verbs a role may attempt.
+--   POLICY decides which rows those verbs may touch.
+--
+-- visit_state gets SELECT and nothing else. That is the unlock layer expressed
+-- as a privilege: an authenticated client cannot even attempt a write, and the
+-- missing insert policy stops it a second time. Only the check-in edge
+-- function, running as service_role, may write.
+-- ---------------------------------------------------------------------------
+
+grant select on
+  public.narrators,
+  public.checkpoints,
+  public.stories,
+  public.stamps,
+  public.quests,
+  public.quest_steps
+  to authenticated;
+
+grant select on public.visit_state to authenticated;
+
+grant select, insert on public.fog_trail to authenticated;
+grant usage, select on sequence public.fog_trail_id_seq to authenticated;
+
+grant select, insert, update, delete on
+  public.quest_progress,
+  public.itineraries,
+  public.itinerary_items
+  to authenticated;
+
+-- ---------------------------------------------------------------------------
 -- Row level security
 -- ---------------------------------------------------------------------------
 
