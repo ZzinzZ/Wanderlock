@@ -65,9 +65,9 @@ class AppColors extends ThemeExtension<AppColors> {
   /// Warnings, and checkpoints that are not yet unlocked.
   final Color coral;
 
-  /// Text on [coral]. Not specified by the art direction, which never pairs
-  /// text with coral; dark ink is used in both themes because white on coral
-  /// is only 2.6:1. Flagged for sign-off.
+  /// Text on [coral]. The art direction never pairs text with coral, so this
+  /// was chosen rather than transcribed: dark ink in both themes, because
+  /// white on coral is only 2.6:1. Signed off 2026-08-05.
   final Color onCoral;
 
   /// Information and routes.
@@ -120,7 +120,7 @@ class AppColors extends ThemeExtension<AppColors> {
     primary: Color(0xFF5FD79B),
     // Deliberately identical to light. The dark table does not specify an
     // action green, and an action colour that shifts between themes makes the
-    // primary button feel like a different control. Flagged for sign-off.
+    // primary button feel like a different control. Signed off 2026-08-05.
     primaryAction: Color(0xFF17875A),
     onPrimaryAction: Color(0xFFFFFFFF),
     accentYellow: Color(0xFFFFD87A),

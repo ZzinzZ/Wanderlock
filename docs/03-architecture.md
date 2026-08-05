@@ -84,7 +84,10 @@ Lens {
 
 ### Ví dụ dữ liệu phụ theo từng lens
 - **Story:** `StoryChapter { checkpoint_id, script, narrator, media }`
-- **Quest:** `Quest { id, title, checkpoint_sequence[], reward }` + `QuestProgress { user_id, quest_id, done_steps[] }`
+- **Quest:** `Quest { id, title, checkpoint_sequence[], reward }` + `QuestProgress { user_id, quest_id, started_at, reward_claimed_at }`
+  > `QuestProgress` **không** giữ danh sách bước đã xong. Đó là bản sao thứ hai
+  > của trạng thái mở khoá; tiến độ suy ra từ `visit_state`. Xem
+  > [06-tech-stack.md §3.1](06-tech-stack.md).
 - **Sưu tầm:** `Stamp { checkpoint_id, art }` (đã mở khi VisitState = visited)
 - **Xã hội:** `Footprint { checkpoint_id, user_id, message, first_visit_flag }`
 
