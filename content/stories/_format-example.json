@@ -1,0 +1,37 @@
+{
+  "_readme": [
+    "ĐÂY LÀ VÍ DỤ ĐỊNH DẠNG, KHÔNG PHẢI BẢN THẢO NỘI DUNG.",
+    "Chữ bên dưới là chỗ giữ chỗ để minh hoạ cấu trúc. Nội dung thật do chủ",
+    "dự án viết — xem B1 Story bible trong docs/07-design-phase-plan.md.",
+    "",
+    "File bắt đầu bằng dấu gạch dưới nên seed script bỏ qua."
+  ],
+
+  "id": "example",
+  "checkpointId": "independence-palace",
+  "narratorId": "narrator-main",
+  "title": "Tiêu đề chương",
+  "coverImage": "images/stories/example-cover.jpg",
+  "estimatedMinutes": 3,
+
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Giọng người dẫn truyện, không gắn với nhân vật nào. Dùng cho mô tả, bối cảnh, chuyển cảnh."
+    },
+    {
+      "type": "speech",
+      "speakerId": "narrator-main",
+      "text": "Một nhân vật lên tiếng. speakerId trỏ tới id trong content, không phải tên hiển thị — đổi tên nhân vật thì chương truyện không hỏng."
+    },
+    {
+      "type": "image",
+      "asset": "images/stories/example-01.jpg",
+      "caption": "Ảnh thật, tỉ lệ 16:9. Địa danh không bao giờ dùng illustration."
+    },
+    {
+      "type": "narration",
+      "text": "Chương truyện v1 là tuyến tính — không có lựa chọn, không phân nhánh. Câu chuyện phân mảnh nằm ở v2 theo docs/08-scope.md."
+    }
+  ]
+}
