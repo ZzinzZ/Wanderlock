@@ -5,4 +5,5 @@ class AppRoutes {
   static const String home = '/';
   static const String typeSpecimen = '/type-specimen';
   static const String checkpoints = '/checkpoints';
+  static const String map = '/map';
 }

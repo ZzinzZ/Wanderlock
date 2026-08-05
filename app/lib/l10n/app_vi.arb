@@ -18,5 +18,7 @@
   "checkpointsRefresh": "Tải lại từ máy chủ",
   "checkpointsEmpty": "Chưa có checkpoint nào trong bộ nhớ. Kết nối mạng một lần để tải về.",
   "checkpointsError": "Không đọc được bộ nhớ cục bộ.",
-  "checkpointsOffline": "Ngoại tuyến — đang hiện dữ liệu đã lưu"
+  "checkpointsOffline": "Ngoại tuyến — đang hiện dữ liệu đã lưu",
+  "openMap": "Xem bản đồ",
+  "mapTitle": "Bản đồ"
 }
