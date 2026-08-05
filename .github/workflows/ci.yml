@@ -44,6 +44,12 @@ jobs:
         working-directory: app
         run: flutter gen-l10n
 
+      # Drift tables and other build_runner output. Not committed, same
+      # reasoning as the localisations above.
+      - name: Generate code
+        working-directory: app
+        run: dart run build_runner build
+
       - name: Format gate
         working-directory: app
         run: dart format --output=none --set-exit-if-changed .
