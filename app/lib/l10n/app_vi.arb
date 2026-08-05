@@ -12,5 +12,11 @@
   "uiFontLabel": "Be Vietnam Pro — giao diện",
   "displayFontLabel": "Baloo 2 — tiêu đề",
   "switchToDark": "Chuyển sang nền tối",
-  "switchToLight": "Chuyển sang nền sáng"
+  "switchToLight": "Chuyển sang nền sáng",
+  "openCheckpoints": "Xem danh sách checkpoint",
+  "checkpointsTitle": "Checkpoint",
+  "checkpointsRefresh": "Tải lại từ máy chủ",
+  "checkpointsEmpty": "Chưa có checkpoint nào trong bộ nhớ. Kết nối mạng một lần để tải về.",
+  "checkpointsError": "Không đọc được bộ nhớ cục bộ.",
+  "checkpointsOffline": "Ngoại tuyến — đang hiện dữ liệu đã lưu"
 }

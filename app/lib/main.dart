@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wanderlock/app/router.dart';
 import 'package:wanderlock/app/theme.dart';
 import 'package:wanderlock/app/theme_mode_controller.dart';
+import 'package:wanderlock/core/config/supabase_connection.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
 /// Bundled font licences, surfaced in the standard Flutter licence page.
@@ -18,7 +21,13 @@ const _fontLicenses = <String, String>{
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   _registerFontLicenses();
+
+  // runApp first, connect second. Nothing on the launch path may wait on a
+  // server: the app draws from its cache, and the connection catches up when
+  // it can. Awaiting the connection here left the app on a blank screen
+  // whenever the server was unreachable.
   runApp(const ProviderScope(child: WanderlockApp()));
+  unawaited(SupabaseConnection.connect());
 }
 
 void _registerFontLicenses() {

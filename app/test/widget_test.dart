@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:wanderlock/app/screens/home_screen.dart';
 import 'package:wanderlock/app/screens/type_specimen_screen.dart';
-import 'package:wanderlock/design/widgets/primary_button.dart';
 import 'package:wanderlock/main.dart';
 
 /// Delivers the same `popRoute` platform message Android sends when the user
@@ -29,7 +28,7 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: WanderlockApp()));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byType(PrimaryButton));
+    await tester.tap(find.byKey(const Key('open-type-specimen')));
     await tester.pumpAndSettle();
     expect(find.byType(TypeSpecimenScreen), findsOneWidget);
 
@@ -48,7 +47,7 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: WanderlockApp()));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byType(PrimaryButton));
+    await tester.tap(find.byKey(const Key('open-type-specimen')));
     await tester.pumpAndSettle();
     expect(find.byType(TypeSpecimenScreen), findsOneWidget);
 

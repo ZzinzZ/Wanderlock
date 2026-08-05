@@ -4,4 +4,11 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Debug only. A local Supabase stack serves plain HTTP on the developer's
+         machine, and Android has blocked cleartext by default since API 28.
+         This override lives in the debug source set so it can never reach a
+         release build: shipping it would let any network downgrade the app's
+         traffic. -->
+    <application android:usesCleartextTraffic="true" />
 </manifest>
