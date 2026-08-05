@@ -18,6 +18,32 @@ content/
 └─ image-licenses.md     # ⚠️ BẮT BUỘC — xem bên dưới
 ```
 
+## Định dạng chương truyện
+
+Xem [stories/_format-example.json](stories/_format-example.json) — file mẫu
+minh hoạ đủ mọi loại node. File bắt đầu bằng `_` được seed script bỏ qua.
+
+Một chương gồm phần đầu (`id`, `checkpointId`, `narratorId`, `title`,
+`coverImage`, `estimatedMinutes`) và một danh sách `nodes` **tuyến tính**:
+
+| Node | Dùng khi |
+|------|----------|
+| `narration` | Giọng người dẫn truyện, không gắn nhân vật — mô tả, bối cảnh, chuyển cảnh |
+| `speech` | Một nhân vật lên tiếng. `speakerId` trỏ tới id trong content, **không phải tên hiển thị** — đổi tên nhân vật thì chương truyện không hỏng |
+| `image` | Ảnh thật, tỉ lệ 16:9. Địa danh không bao giờ dùng illustration |
+
+**Không có lựa chọn, không phân nhánh.** Câu chuyện phân mảnh nằm ở v2 theo
+[../docs/08-scope.md](../docs/08-scope.md). Một định dạng cho phép rẽ nhánh
+ngay bây giờ sẽ mời gọi nội dung phụ thuộc vào nó, và người viết sẽ tới trước
+người làm.
+
+**Trình đọc rất khắt khe.** Sai chính tả một `type` là báo lỗi kèm đúng tên
+chương và số thứ tự node, chứ không âm thầm bỏ qua đoạn đó — người phát hiện
+ra sẽ là độc giả đang đứng trước một di tích, chỗ tệ nhất để biết.
+
+`estimatedMinutes` hiện ra trước khi mở chương: người đang đứng ngoài nắng
+xứng đáng được biết mình sắp cam kết bao lâu. Pilot nhắm 2–4 phút.
+
 ## Bản quyền ảnh — bắt buộc
 
 [../docs/09-art-direction.md](../docs/09-art-direction.md) chốt: địa danh dùng
