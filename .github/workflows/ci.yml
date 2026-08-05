@@ -70,9 +70,16 @@ jobs:
         working-directory: app
         run: dart run ../tool/check_encoding.dart
 
-      # Goldens are excluded: text rasterisation differs between a Windows
-      # workstation and this Linux runner, so byte comparison would fail for
-      # reasons unrelated to the code. They are a local review artifact.
+      # Two tags are excluded, for different reasons.
+      #
+      # golden: text rasterisation differs between a Windows workstation and
+      # this Linux runner, so byte comparison would fail for reasons unrelated
+      # to the code. They are a local review artifact.
+      #
+      # live: needs a running Supabase. Standing one up here would make every
+      # pull request wait on a database to prove something that is already
+      # covered by fakes; the live test exists to catch drift between our
+      # assumptions and the real server, which is a thing to run deliberately.
       - name: Test
         working-directory: app
-        run: flutter test --exclude-tags golden
+        run: flutter test --exclude-tags "golden || live"

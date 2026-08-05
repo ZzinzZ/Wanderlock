@@ -59,5 +59,35 @@
   "switchToLight": "Switch to light",
   "@switchToLight": {
     "description": "Theme toggle label while the dark theme is active."
+  },
+
+  "openCheckpoints": "Open checkpoints",
+  "@openCheckpoints": {
+    "description": "Button that routes to the checkpoint list."
+  },
+
+  "checkpointsTitle": "Checkpoints",
+  "@checkpointsTitle": {
+    "description": "Title of the checkpoint list screen."
+  },
+
+  "checkpointsRefresh": "Refresh from the server",
+  "@checkpointsRefresh": {
+    "description": "Tooltip on the refresh action."
+  },
+
+  "checkpointsEmpty": "No checkpoints cached yet. Connect once to download them.",
+  "@checkpointsEmpty": {
+    "description": "Shown when the local cache has never been filled."
+  },
+
+  "checkpointsError": "The local cache could not be read.",
+  "@checkpointsError": {
+    "description": "Shown when reading the local database itself fails. A network failure never reaches this state."
+  },
+
+  "checkpointsOffline": "Offline — showing saved checkpoints",
+  "@checkpointsOffline": {
+    "description": "Banner shown when the last refresh could not reach the server."
   }
 }

@@ -12,9 +12,17 @@ abstract interface class CheckpointRemoteSource {
 }
 
 class SupabaseCheckpointRemoteSource implements CheckpointRemoteSource {
-  const SupabaseCheckpointRemoteSource(this._client);
+  const SupabaseCheckpointRemoteSource(this._clientOf);
 
-  final SupabaseClient _client;
+  /// Resolved per call, not held. The connection is established in the
+  /// background after launch, so a source built at startup would otherwise
+  /// capture a null client forever.
+  final SupabaseClient? Function() _clientOf;
+
+  /// A query that hangs is indistinguishable from being offline to someone
+  /// walking, so it is capped and then treated as such.
+  // design-token-ignore: a network timeout is not a design value
+  static const _timeout = Duration(seconds: 10);
 
   /// `geom` is never selected. PostgREST takes column names, aliases and
   /// casts — not function calls — so `ST_Y(geom)` is read as a foreign key
@@ -26,7 +34,17 @@ class SupabaseCheckpointRemoteSource implements CheckpointRemoteSource {
 
   @override
   Future<List<Checkpoint>> fetchAll() async {
-    final rows = await _client.from('checkpoints').select(_columns);
+    final client = _clientOf();
+    // Thrown, not returned: the repository already turns every failure into
+    // "keep serving the cache", and not-connected-yet is that same case.
+    if (client == null) {
+      throw StateError('Supabase is not connected yet');
+    }
+
+    final rows = await client
+        .from('checkpoints')
+        .select(_columns)
+        .timeout(_timeout);
     return rows.map(_fromJson).toList();
   }
 

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:wanderlock/app/routes.dart';
 import 'package:wanderlock/app/screens/home_screen.dart';
 import 'package:wanderlock/app/screens/type_specimen_screen.dart';
+import 'package:wanderlock/features/checkpoint/presentation/checkpoint_list_screen.dart';
 
 /// Application router.
 ///
@@ -19,6 +20,10 @@ GoRouter buildAppRouter() {
       GoRoute(
         path: AppRoutes.typeSpecimen,
         builder: (context, state) => const TypeSpecimenScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.checkpoints,
+        builder: (context, state) => const CheckpointListScreen(),
       ),
     ],
   );

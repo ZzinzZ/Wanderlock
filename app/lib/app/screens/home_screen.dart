@@ -67,11 +67,20 @@ class HomeScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppSpacing.xl),
               PrimaryButton(
+                // Keyed so tests target this button by name rather than by
+                // position in the column.
+                key: const Key('open-type-specimen'),
                 label: l10n.openTypeSpecimen,
                 // push, not go: `go` replaces the location, which leaves
                 // nothing on the stack for the Android back button to pop.
                 // Pressing back would exit the app instead of coming here.
                 onPressed: () => context.push(AppRoutes.typeSpecimen),
+              ),
+              const SizedBox(height: AppSpacing.md),
+              PrimaryButton(
+                key: const Key('open-checkpoints'),
+                label: l10n.openCheckpoints,
+                onPressed: () => context.push(AppRoutes.checkpoints),
               ),
             ],
           ),
