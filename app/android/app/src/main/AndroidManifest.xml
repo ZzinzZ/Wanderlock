@@ -1,6 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Map tiles and Supabase both need this. The Flutter template puts
+         INTERNET in the debug manifest only, which means a release build
+         cannot reach the network at all — a failure that appears the first
+         time anyone packages the app for real and not before. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Read by the map to decide whether to attempt a tile fetch or go
+         straight to the offline cache. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
-        android:label="wanderlock"
+        android:label="Wanderlock"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

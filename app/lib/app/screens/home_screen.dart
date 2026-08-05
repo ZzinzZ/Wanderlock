@@ -82,6 +82,12 @@ class HomeScreen extends ConsumerWidget {
                 label: l10n.openCheckpoints,
                 onPressed: () => context.push(AppRoutes.checkpoints),
               ),
+              const SizedBox(height: AppSpacing.md),
+              PrimaryButton(
+                key: const Key('open-map'),
+                label: l10n.openMap,
+                onPressed: () => context.push(AppRoutes.map),
+              ),
             ],
           ),
         ),

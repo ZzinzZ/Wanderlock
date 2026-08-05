@@ -89,5 +89,15 @@
   "checkpointsOffline": "Offline — showing saved checkpoints",
   "@checkpointsOffline": {
     "description": "Banner shown when the last refresh could not reach the server."
+  },
+
+  "openMap": "Open map",
+  "@openMap": {
+    "description": "Button that routes to the base map."
+  },
+
+  "mapTitle": "Map",
+  "@mapTitle": {
+    "description": "Title of the base map screen."
   }
 }

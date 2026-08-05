@@ -30,4 +30,22 @@ class AppConfig {
   /// first query.
   static bool get hasSupabase =>
       supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty;
+
+  /// Vector tiles, in the OpenMapTiles schema the map style targets.
+  ///
+  /// Defaults to OpenFreeMap: free, no API key, no quota. Overridable so a
+  /// self-hosted or paid provider can be swapped in without a code change —
+  /// including the offline `.pmtiles` route that F3's tile-cache item will
+  /// need.
+  static const String mapTilesUrl = String.fromEnvironment(
+    'MAP_TILES_URL',
+    defaultValue: 'https://tiles.openfreemap.org/planet',
+  );
+
+  /// Label fonts. Must serve the font named in the style, or labels vanish
+  /// silently rather than erroring.
+  static const String mapGlyphsUrl = String.fromEnvironment(
+    'MAP_GLYPHS_URL',
+    defaultValue: 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
+  );
 }
