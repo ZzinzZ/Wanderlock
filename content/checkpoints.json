@@ -1,0 +1,119 @@
+{
+  "_readme": [
+    "Nguồn sự thật của nội dung pilot. Seed script đọc file này, không đọc DB.",
+    "",
+    "TOẠ ĐỘ CHƯA ĐƯỢC KIỂM CHỨNG. Mọi mục đều có verified: false.",
+    "Seed script từ chối chạy khi còn mục chưa kiểm chứng, trừ khi truyền",
+    "--allow-unverified (chỉ dùng để thử pipeline trên máy local).",
+    "",
+    "Cách kiểm chứng: mở bản đồ vệ tinh, chấm vào GIỮA công trình, dán lại",
+    "lat/lon rồi đổi verified thành true. DoD của F3 bắt buộc bước này.",
+    "",
+    "Bốn mục có coordinates: null là những chỗ tra tự động cho kết quả sai —",
+    "ghi rõ sai thế nào ở trường note, thay vì đoán bừa một con số."
+  ],
+
+  "checkpoints": [
+    {
+      "id": "independence-palace",
+      "name": "Dinh Độc Lập",
+      "category": "monument",
+      "radiusMeters": 60,
+      "address": "135 Nam Kỳ Khởi Nghĩa",
+      "coordinates": { "lat": 10.7770348, "lon": 106.695488, "verified": false, "source": "openstreetmap" }
+    },
+    {
+      "id": "central-post-office",
+      "name": "Bưu điện Trung tâm Sài Gòn",
+      "category": "architecture",
+      "radiusMeters": 45,
+      "address": "2 Công trường Công xã Paris",
+      "coordinates": { "lat": 10.7799557, "lon": 106.6999921, "verified": false, "source": "openstreetmap" }
+    },
+    {
+      "id": "ben-thanh-market",
+      "name": "Chợ Bến Thành",
+      "category": "market",
+      "radiusMeters": 50,
+      "address": "Công trường Quách Thị Trang",
+      "coordinates": { "lat": 10.7725301, "lon": 106.6980365, "verified": false, "source": "openstreetmap" }
+    },
+    {
+      "id": "war-remnants-museum",
+      "name": "Bảo tàng Chứng tích Chiến tranh",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "28 Võ Văn Tần",
+      "coordinates": { "lat": 10.7793647, "lon": 106.6922806, "verified": false, "source": "openstreetmap" }
+    },
+    {
+      "id": "vinh-nghiem-pagoda",
+      "name": "Chùa Vĩnh Nghiêm",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "339 Nam Kỳ Khởi Nghĩa",
+      "coordinates": { "lat": 10.7903966, "lon": 106.6823772, "verified": false, "source": "openstreetmap" }
+    },
+    {
+      "id": "binh-tay-market",
+      "name": "Chợ Bình Tây",
+      "category": "market",
+      "radiusMeters": 55,
+      "address": "57A Tháp Mười",
+      "coordinates": { "lat": 10.7492965, "lon": 106.650728, "verified": false, "source": "openstreetmap" }
+    },
+    {
+      "id": "le-van-duyet-tomb",
+      "name": "Lăng Ông Bà Chiểu",
+      "category": "monument",
+      "radiusMeters": 60,
+      "address": "Đường Lê Văn Duyệt",
+      "coordinates": { "lat": 10.8009837, "lon": 106.6965741, "verified": false, "source": "openstreetmap" }
+    },
+    {
+      "id": "giac-lam-pagoda",
+      "name": "Tổ đình Giác Lâm",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "565 Lạc Long Quân",
+      "coordinates": { "lat": 10.778262, "lon": 106.6492127, "verified": false, "source": "openstreetmap" }
+    },
+
+    {
+      "id": "nha-rong-wharf",
+      "name": "Bến Nhà Rồng",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "1 Nguyễn Tất Thành",
+      "coordinates": null,
+      "note": "Tra tự động không ra kết quả sau 2 lần thử. Cần chấm tay."
+    },
+    {
+      "id": "thien-hau-temple",
+      "name": "Chùa Bà Thiên Hậu",
+      "category": "religious",
+      "radiusMeters": 40,
+      "address": "710 Nguyễn Trãi",
+      "coordinates": null,
+      "note": "Tra tự động trả về một ngôi chùa cùng tên ở Thủ Dầu Một, Bình Dương — cách khoảng 30km. Cần chấm tay."
+    },
+    {
+      "id": "landmark-81",
+      "name": "Landmark 81",
+      "category": "architecture",
+      "radiusMeters": 80,
+      "address": "720A Điện Biên Phủ",
+      "coordinates": null,
+      "note": "Tra tự động trả về toà PetroVietnam Landmark ở Thủ Đức — toà nhà khác hẳn. Cần chấm tay."
+    },
+    {
+      "id": "buu-long-pagoda",
+      "name": "Thiền viện Bửu Long",
+      "category": "architecture",
+      "radiusMeters": 70,
+      "address": "81 Nguyễn Xiển",
+      "coordinates": null,
+      "note": "Tra tự động gắn nhãn hành chính Dĩ An, Bình Dương — đáng ngờ. Cần chấm tay."
+    }
+  ]
+}
