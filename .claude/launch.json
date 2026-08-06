@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "map-style-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "http-server",
+        "C:\\Users\\nhata\\AppData\\Local\\Temp\\claude\\D--Project-Idea\\3138d1bf-8a2c-4378-a4e1-e40bc3d99cbe\\scratchpad",
+        "-p",
+        "5173",
+        "--cors",
+        "-c-1"
+      ],
+      "port": 5173
+    }
+  ]
+}
