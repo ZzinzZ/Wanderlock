@@ -20,5 +20,10 @@
   "checkpointsError": "Không đọc được bộ nhớ cục bộ.",
   "checkpointsOffline": "Ngoại tuyến — đang hiện dữ liệu đã lưu",
   "openMap": "Xem bản đồ",
-  "mapTitle": "Bản đồ"
+  "mapTitle": "Bản đồ",
+  "mapCacheDownload": "Lưu vùng này để dùng khi mất mạng",
+  "mapCacheDownloading": "Đang lưu bản đồ… {percent}%",
+  "mapCacheReady": "Đã lưu bản đồ. Mất sóng vẫn xem được.",
+  "mapCacheFailed": "Chưa lưu được bản đồ. Thử lại giúp mình nhé.",
+  "mapCacheEmpty": "Chưa có checkpoint nào nên chưa biết lưu vùng nào."
 }

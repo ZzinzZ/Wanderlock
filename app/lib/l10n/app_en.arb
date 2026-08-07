@@ -99,5 +99,35 @@
   "mapTitle": "Map",
   "@mapTitle": {
     "description": "Title of the base map screen."
+  },
+
+  "mapCacheDownload": "Save this area for offline use",
+  "@mapCacheDownload": {
+    "description": "Tooltip on the action that downloads the pilot area's tiles."
+  },
+
+  "mapCacheDownloading": "Saving the map… {percent}%",
+  "@mapCacheDownloading": {
+    "description": "Banner shown while the offline download runs.",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+
+  "mapCacheReady": "The map is saved. It will work without a signal.",
+  "@mapCacheReady": {
+    "description": "Banner shown when the offline download finished."
+  },
+
+  "mapCacheFailed": "The map could not be saved. Try again.",
+  "@mapCacheFailed": {
+    "description": "Banner shown when the offline download failed."
+  },
+
+  "mapCacheEmpty": "No checkpoints yet, so there is no area to save.",
+  "@mapCacheEmpty": {
+    "description": "Banner shown when there are no checkpoints to derive a region from."
   }
 }
