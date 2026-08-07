@@ -12,6 +12,12 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<!-- Shown verbatim in the iOS permission dialog, so it is user-facing
+	     Vietnamese rather than a developer note. Foreground only: there is no
+	     NSLocationAlwaysAndWhenInUseUsageDescription because nothing in v1
+	     needs a location while the app is closed. -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Wanderlock cần vị trí để hiện bạn đang ở đâu trên bản đồ. Ứng dụng không theo dõi khi bạn đóng app.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
