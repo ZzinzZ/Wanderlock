@@ -129,5 +129,40 @@
   "mapCacheEmpty": "No checkpoints yet, so there is no area to save.",
   "@mapCacheEmpty": {
     "description": "Banner shown when there are no checkpoints to derive a region from."
+  },
+
+  "mapFollowStart": "Follow my location",
+  "@mapFollowStart": {
+    "description": "Tooltip on the button that starts centring the map on the user."
+  },
+
+  "mapFollowStop": "Stop following",
+  "@mapFollowStop": {
+    "description": "Tooltip on the same button while the camera is following."
+  },
+
+  "mapLocationAsk": "Show where I am",
+  "@mapLocationAsk": {
+    "description": "Tooltip before location permission has been granted; pressing shows the system dialog."
+  },
+
+  "mapLocationBlocked": "Open settings to allow location",
+  "@mapLocationBlocked": {
+    "description": "Tooltip when permission is permanently denied and only app settings can undo it."
+  },
+
+  "mapLocationServiceOff": "Turn on location services",
+  "@mapLocationServiceOff": {
+    "description": "Tooltip when permission is granted but location services are off device-wide."
+  },
+
+  "mapLocationBlockedBanner": "Location is turned off for this app. Open settings to allow it.",
+  "@mapLocationBlockedBanner": {
+    "description": "Banner shown when permission is permanently denied."
+  },
+
+  "mapLocationServiceOffBanner": "Location services are off on this device.",
+  "@mapLocationServiceOffBanner": {
+    "description": "Banner shown when location services are disabled device-wide."
   }
 }
