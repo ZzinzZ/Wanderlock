@@ -2,15 +2,23 @@
   "_readme": [
     "Nguồn sự thật của nội dung pilot. Seed script đọc file này, không đọc DB.",
     "",
-    "TOẠ ĐỘ CHƯA ĐƯỢC KIỂM CHỨNG. Mọi mục đều có verified: false.",
+    "TOẠ ĐỘ CHƯA ĐƯỢC KIỂM CHỨNG BẰNG MẮT. Mọi mục vẫn verified: false.",
     "Seed script từ chối chạy khi còn mục chưa kiểm chứng, trừ khi truyền",
     "--allow-unverified (chỉ dùng để thử pipeline trên máy local).",
     "",
-    "Cách kiểm chứng: mở bản đồ vệ tinh, chấm vào GIỮA công trình, dán lại",
-    "lat/lon rồi đổi verified thành true. DoD của F3 bắt buộc bước này.",
+    "Toạ độ hiện tại KHÔNG phải đoán: mỗi mục là tâm của chính đa giác công",
+    "trình trong OpenStreetMap, và trường source ghi mã đối tượng để truy",
+    "ngược — mở https://www.openstreetmap.org/<source> là ra đúng công trình.",
+    "Đã đối chứng ngược bằng reverse geocoding: 12/12 tên đường trả về khớp",
+    "với trường address ở dưới.",
     "",
-    "Bốn mục có coordinates: null là những chỗ tra tự động cho kết quả sai —",
-    "ghi rõ sai thế nào ở trường note, thay vì đoán bừa một con số."
+    "Còn thiếu đúng một bước để đổi verified thành true: mở ảnh vệ tinh và",
+    "xác nhận điểm rơi vào GIỮA công trình. Tâm đa giác lệch khỏi tâm nhìn",
+    "thấy khi công trình có sân lớn hoặc hình chữ L — xem note ở Lăng Ông.",
+    "",
+    "Vì sao tra tự động từng sai — đã tìm ra nguyên nhân, ghi ở note từng mục.",
+    "Tóm tắt: cả bốn lần đều là tra THEO TÊN. Ba trong bốn công trình mang",
+    "tên khác trong OSM so với tên người Việt gọi."
   ],
 
   "checkpoints": [
@@ -20,7 +28,7 @@
       "category": "monument",
       "radiusMeters": 60,
       "address": "135 Nam Kỳ Khởi Nghĩa",
-      "coordinates": { "lat": 10.7770348, "lon": 106.695488, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.777017, "lon": 106.6954031, "verified": false, "source": "openstreetmap:way/39598493" }
     },
     {
       "id": "central-post-office",
@@ -28,7 +36,7 @@
       "category": "architecture",
       "radiusMeters": 45,
       "address": "2 Công trường Công xã Paris",
-      "coordinates": { "lat": 10.7799557, "lon": 106.6999921, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.7799812, "lon": 106.7000211, "verified": false, "source": "openstreetmap:way/39514793" }
     },
     {
       "id": "ben-thanh-market",
@@ -36,7 +44,7 @@
       "category": "market",
       "radiusMeters": 50,
       "address": "Công trường Quách Thị Trang",
-      "coordinates": { "lat": 10.7725301, "lon": 106.6980365, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.7725707, "lon": 106.6980174, "verified": false, "source": "openstreetmap:way/39514795" }
     },
     {
       "id": "war-remnants-museum",
@@ -44,7 +52,7 @@
       "category": "museum",
       "radiusMeters": 60,
       "address": "28 Võ Văn Tần",
-      "coordinates": { "lat": 10.7793647, "lon": 106.6922806, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.7793793, "lon": 106.6921923, "verified": false, "source": "openstreetmap:way/186249226" }
     },
     {
       "id": "vinh-nghiem-pagoda",
@@ -52,7 +60,7 @@
       "category": "religious",
       "radiusMeters": 60,
       "address": "339 Nam Kỳ Khởi Nghĩa",
-      "coordinates": { "lat": 10.7903966, "lon": 106.6823772, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.7903631, "lon": 106.6822945, "verified": false, "source": "openstreetmap:way/494789249" }
     },
     {
       "id": "binh-tay-market",
@@ -60,7 +68,8 @@
       "category": "market",
       "radiusMeters": 55,
       "address": "57A Tháp Mười",
-      "coordinates": { "lat": 10.7492965, "lon": 106.650728, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.7493311, "lon": 106.6510683, "verified": false, "source": "openstreetmap:relation/2552505" },
+      "note": "Dời 37m so với giá trị cũ. Giá trị cũ là một điểm đơn lẻ; giá trị này là tâm của cả khối chợ. Vẫn nằm trong bán kính 55m."
     },
     {
       "id": "le-van-duyet-tomb",
@@ -68,7 +77,8 @@
       "category": "monument",
       "radiusMeters": 60,
       "address": "Đường Lê Văn Duyệt",
-      "coordinates": { "lat": 10.8009837, "lon": 106.6965741, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.8015951, "lon": 106.6970142, "verified": false, "source": "openstreetmap:way/474635027" },
+      "note": "CẦN XEM LẠI BÁN KÍNH. Dời 83m so với giá trị cũ — vượt cả bán kính 60m. Giá trị cũ là một điểm ở rìa khu lăng; giá trị này là tâm của toàn bộ khuôn viên có tường bao. Khuôn viên rộng khoảng 170m, nên đứng ở cổng vẫn cách tâm hơn 60m và sẽ KHÔNG mở khoá được. Đây là đúng loại câu hỏi mà spike S3 sinh ra để trả lời: bán kính đặt theo dạng địa hình, không đặt một số cho tất cả."
     },
     {
       "id": "giac-lam-pagoda",
@@ -76,7 +86,8 @@
       "category": "religious",
       "radiusMeters": 60,
       "address": "565 Lạc Long Quân",
-      "coordinates": { "lat": 10.778262, "lon": 106.6492127, "verified": false, "source": "openstreetmap" }
+      "coordinates": { "lat": 10.7780295, "lon": 106.6492296, "verified": false, "source": "openstreetmap:way/1221686026" },
+      "note": "Dời 26m so với giá trị cũ. Giá trị cũ là một điểm đơn lẻ; giá trị này là tâm đa giác chùa. Vẫn nằm trong bán kính 60m."
     },
 
     {
@@ -85,8 +96,8 @@
       "category": "museum",
       "radiusMeters": 60,
       "address": "1 Nguyễn Tất Thành",
-      "coordinates": null,
-      "note": "Tra tự động không ra kết quả sau 2 lần thử. Cần chấm tay."
+      "coordinates": { "lat": 10.7682684, "lon": 106.7068035, "verified": false, "source": "openstreetmap:way/808022726" },
+      "note": "Vì sao tra tự động trượt: trong OSM công trình mang tên 'Bảo tàng Hồ Chí Minh', không mang tên 'Bến Nhà Rồng'. Reverse geocoding trả về đường Nguyễn Tất Thành — khớp địa chỉ."
     },
     {
       "id": "thien-hau-temple",
@@ -94,8 +105,8 @@
       "category": "religious",
       "radiusMeters": 40,
       "address": "710 Nguyễn Trãi",
-      "coordinates": null,
-      "note": "Tra tự động trả về một ngôi chùa cùng tên ở Thủ Dầu Một, Bình Dương — cách khoảng 30km. Cần chấm tay."
+      "coordinates": { "lat": 10.7535423, "lon": 106.6611898, "verified": false, "source": "openstreetmap:way/1497050780" },
+      "note": "Vì sao tra tự động ra ngôi chùa ở Thủ Dầu Một: trong OSM ngôi chùa ở Chợ Lớn mang tên 'Hội quán Tuệ Thành', chỉ có alt_name là 'Miếu Bà Thiên Hậu'. Đối tượng này có sẵn addr:housenumber=710, addr:street=Đường Nguyễn Trãi — khớp đúng địa chỉ."
     },
     {
       "id": "landmark-81",
@@ -103,8 +114,8 @@
       "category": "architecture",
       "radiusMeters": 80,
       "address": "720A Điện Biên Phủ",
-      "coordinates": null,
-      "note": "Tra tự động trả về toà PetroVietnam Landmark ở Thủ Đức — toà nhà khác hẳn. Cần chấm tay."
+      "coordinates": { "lat": 10.7948334, "lon": 106.7217218, "verified": false, "source": "openstreetmap:way/622296615" },
+      "note": "Vì sao tra tự động ra PetroVietnam Landmark: trong OSM toà tháp mang tên 'Vincom Center'. Nhận ra bằng số đo chứ không bằng tên — height=461.2, building:levels=81, đúng thông số Landmark 81, và là toà cao nhất trong cả khu."
     },
     {
       "id": "buu-long-pagoda",
@@ -112,8 +123,8 @@
       "category": "architecture",
       "radiusMeters": 70,
       "address": "81 Nguyễn Xiển",
-      "coordinates": null,
-      "note": "Tra tự động gắn nhãn hành chính Dĩ An, Bình Dương — đáng ngờ. Cần chấm tay."
+      "coordinates": { "lat": 10.8786681, "lon": 106.8349651, "verified": false, "source": "openstreetmap:way/323379917" },
+      "note": "Nhãn 'Dĩ An, Bình Dương' mà lần tra trước thấy là THẬT nhưng vô hại: reverse geocoding vẫn gán nhãn hành chính đó cho điểm này, trong khi tên đường trả về là Nguyễn Xiển, phường Long Bình — khớp địa chỉ. Ranh giới hành chính ở rìa Thủ Đức chồng lấn, không phải toạ độ sai. Lưu ý có hai 'Chùa Bửu Long' khác trong OSM ở chỗ khác."
     }
   ]
 }
