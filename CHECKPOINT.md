@@ -18,25 +18,25 @@ Toàn bộ công việc của phiên 2026-08-07 (#16–#21) đã vào `main` ng�
 |-------|-----------|
 | **F0** — Kho mã & quy ước | ✅ Đóng · tag `foundation-f0` (`502c436`) |
 | **F1** — Skeleton app | ✅ Đóng · tag `foundation-f1` (`c33dfe1`) |
-| **F2** — Nền dữ liệu | 🟡 3/5 DoD · chặn ở **toạ độ** |
+| **F2** — Nền dữ liệu | 🟡 3/5 DoD · chặn ở **một chữ `true`** |
 | **S** — 3 spike | ⛔ Chưa bắt đầu · cần thực địa |
-| **F3** — Bản đồ nền | 🟡 4/6 DoD · **chỉ còn toạ độ + một lần máy thật** |
+| **F3** — Bản đồ nền | 🟡 4/6 DoD · chặn ở **ảnh + một lần máy thật** |
 | F4, F5 | Chưa |
 
 `main` được bảo vệ: **mọi thay đổi phải qua PR + CI xanh**, chủ dự án không tự
 bypass được.
 
-### F2 chi tiết — không đổi từ 2026-08-06
+### F2 chi tiết
 
 | DoD | |
 |---|---|
 | Migration chạy lại từ DB rỗng | ✅ |
 | RLS từ chối đọc `visit_state` người khác | ✅ 6 phép thử |
-| Seed 2 lần không nhân đôi | 🟡 đúng, nhưng **8/12** (4 điểm thiếu toạ độ) |
+| Seed 2 lần không nhân đôi | 🟡 **12/12 đã có toạ độ**, dry-run nạp đủ 12; còn chờ `verified: true` rồi chạy thật 2 lần |
 | App đọc từ server và hiển thị | ✅ trên Redmi Note 12 thật |
 | Tắt mạng vẫn còn dữ liệu | 🟡 tầng dữ liệu có test `live`; **chưa nhìn trên máy** |
 
-### F3 chi tiết — tiến nhiều trong phiên 2026-08-07
+### F3 chi tiết
 
 | DoD | |
 |---|---|
@@ -44,39 +44,50 @@ bypass được.
 | Nước/cây/đường/nền đúng mã màu | ✅ đối chiếu JSON sinh ra với mục 6 art direction |
 | Sáng và tối là hai bản đồ riêng | ✅ đã xem cả hai trên SDK native |
 | Tắt mạng → vùng cache vẫn hiện | ✅ chứng minh 2 lần (ambient + tải trước) |
-| 12 marker đúng toạ độ | ⛔ **chặn ở toạ độ** |
+| 12 marker đúng toạ độ | ⛔ toạ độ đã có, **còn chặn ở ảnh** |
 | Cuộn/phóng ≥ 55 FPS máy tầm trung | ⛔ **cần máy thật** — emulator dùng GPU phần mềm, số đo vô nghĩa |
 | Tag `foundation-f3` | ⛔ còn 2 mục |
 
 **Đầu ra F3**: style ✅ · cache offline ✅ · vị trí người dùng + theo dõi camera ✅
-· marker ảnh thật ⛔ (chặn toạ độ + ảnh).
+· marker ảnh thật ⛔ (chỉ còn chặn ở ảnh).
+
+> ⚠️ **Chưa ai nhìn bản đồ sau khi đổi màu tương phản (#23).** Số đúng, test
+> đúng, nhưng DoD "đụng UI → ảnh chụp cả sáng lẫn tối" chưa đạt. Mở
+> `tool/map_preview/preview.html` là thấy cả ba khung.
 
 ---
 
 ## 2. Chặn ở chủ dự án — xếp theo mức chặn
 
-1. **Toạ độ 12 checkpoint** (~15 phút) — chặn F2 đóng **và** chặn marker F3.
-   `content/checkpoints.json`: 4 điểm `coordinates: null` (Bến Nhà Rồng, Chùa Bà
-   Thiên Hậu, Landmark 81, Thiền viện Bửu Long), 8 điểm có toạ độ nhưng
-   `verified: false`.
-   Cách làm: Google Maps → chuột phải **giữa công trình** → copy `10.7770, 106.6955`.
-   Sửa xong đổi `verified` thành `true`. Seed script **từ chối chạy** khi còn
-   `verified: false`, trừ khi truyền `--allow-unverified`.
-   > Vùng cache offline (#17) **tự tính từ checkpoint**, nên nhập toạ độ xong là
-   > nó tự đúng, không ai phải sửa hằng số.
+1. **Xác nhận 12 toạ độ bằng ảnh vệ tinh** (~3 phút) — chặn F2 đóng.
+   Toạ độ **đã có đủ 12** (#24), lấy từ tâm đa giác công trình trong
+   OpenStreetMap, `source` ghi mã đối tượng để truy ngược. Reverse geocoding
+   khớp 12/12 tên đường. Chỉ còn thiếu bước nhìn ảnh vệ tinh để đổi `verified`
+   thành `true`.
+   Đã dựng sẵn trang xem 12 ảnh vệ tinh cùng lúc, bấm để dời chấm, xuất ra JSON
+   dán thẳng vào file — agent gửi qua chat, file tự chứa, mở bằng trình duyệt.
+   > ⚠️ **Lăng Ông Bà Chiểu dời 83m**, vượt bán kính 60m. Khuôn viên rộng ~170m
+   > nên đứng ở cổng sẽ **không mở khoá được**. Câu hỏi bán kính này thuộc về S3.
 2. **Một lần cầm máy thật** — đóng được **ba** thứ trong cùng một buổi mà
    emulator vĩnh viễn không trả lời được: FPS ≥ 55, nhãn bản đồ + dấu tiếng Việt,
    và chấm vị trí người dùng. Xem mục 4 để biết vì sao.
-3. **12 ảnh địa danh có bản quyền rõ** — chặn marker F3. Sổ đã mở sẵn ở
-   `content/image-licenses.md` (PR #19), 12 dòng trống chờ điền.
-   ⚠️ **Landmark 81** là công trình hiện đại còn bảo hộ quyền tác giả kiến trúc —
-   dùng ảnh thương mại hay không phụ thuộc *freedom of panorama*, nên xác minh
-   trước khi đi chụp.
-4. **Phase S** — 3 spike đo FPS / %pin / sai số GPS. Đều cần ra đường.
+3. **Chọn 12 ảnh địa danh** — chặn marker F3. `content/image-licenses.md` giờ có
+   sẵn **danh sách ứng viên trên Wikimedia Commons** cho cả 12 điểm, giấy phép
+   đọc từng ảnh (#25). Việc còn lại là **mở link nhìn và chọn**, rồi chép sang
+   bảng duyệt. Chưa ai nhìn ảnh — vài cái tên tự tố là ảnh trong nhà.
+   ⚠️ **Landmark 81 đã có kết luận:** Commons duy trì `Template:NoFoP-Vietnam`,
+   nên Việt Nam bị xếp là **không có freedom of panorama**. Giấy phép CC0 trên
+   tấm ảnh không gỡ được — đó là quyền của người chụp, không phải quyền của kiến
+   trúc sư. **Tự chụp cũng không gỡ được.** Ba đường đi ghi trong file; rẻ nhất
+   là thay bằng điểm khác, vì 11 điểm còn lại đều đủ cũ để không vướng.
+4. **Bật Docker Desktop** — engine Linux chưa lên, agent không tự bật được
+   (có thể đang chờ thao tác trong giao diện của nó). Cần nó để chạy Supabase
+   cục bộ và đóng nốt DoD "seed 2 lần không nhân đôi".
+5. **Phase S** — 3 spike đo FPS / %pin / sai số GPS. Đều cần ra đường.
    **S3 quyết định bán kính check-in, tức là F4** — không chặn phần vị trí của F3
    (đã làm xong).
-5. **12 chương truyện** — định dạng đã có, chờ nội dung.
-6. **Tên chính thức** — không gấp.
+6. **12 chương truyện** — định dạng đã có, chờ nội dung.
+7. **Tên chính thức** — không gấp.
 
 > ⚠️ Wi-Fi và dữ liệu di động trên điện thoại chủ dự án **vẫn đang tắt** từ phiên
 > 2026-08-06.
@@ -250,6 +261,22 @@ buộc phải tuần tự. Và `gh pr checks` ngay sau `update-branch` **trả v
 của lần chạy CŨ**, xanh, trong khi lần chạy mới chưa kịp đăng ký. Phải đợi
 `statusCheckRollup[0].status == COMPLETED` trên head SHA mới.
 
+**Tra theo TÊN là cái bẫy lặp lại hai lần trong cùng một phiên.** Toạ độ 4 điểm
+`null` và ảnh 12 điểm đều từng tra hỏng vì cùng một lý do: công trình mang tên
+khác trong cơ sở dữ liệu so với tên người Việt gọi.
+
+| Tra gì | Ra gì |
+|---|---|
+| `Bến Nhà Rồng` (OSM) | không có — nó tên `Bảo tàng Hồ Chí Minh` |
+| `Chùa Bà Thiên Hậu` (OSM) | chùa cùng tên ở Bình Dương — bản Chợ Lớn tên `Hội quán Tuệ Thành` |
+| `Landmark 81` (OSM) | không có — nó tên `Vincom Center` |
+| `Landmark 81` (Commons) | **Yokohama Landmark Tower**, Nhật Bản |
+| `Chùa Bửu Long` (Commons) | **Chùa Bửu Đà, Quận 10** — chùa khác |
+
+Cách thoát: tra bằng **thuộc tính** thay vì bằng tên. Landmark 81 tìm ra nhờ
+`height=461.2` + `building:levels=81`; trên Commons thì dùng `incategory:"…"`;
+và luôn đối chứng ngược bằng reverse geocoding rồi so với địa chỉ đã ghi.
+
 **Một test không thể làm cho đỏ thì không phải cổng gác.** Đã viết một test
 khẳng định "viền đường phải nằm khác phía mặt đường so với nền". Nó đậu — nhưng
 thử mọi cách vẫn không làm nó đỏ độc lập được: mặt đường sáng là `#FFFFFF` nên
@@ -262,19 +289,20 @@ khi tính nó là một cổng.**
 
 ## 9. Việc kế tiếp
 
-**Nếu chủ dự án đưa toạ độ:** gỡ `--allow-unverified`, seed đủ 12, **đóng F2**,
-rồi làm marker cho F3 (cần ảnh nữa).
+Xếp theo lượng việc mở ra được, nhiều nhất trước.
+
+**Nếu chủ dự án xác nhận 12 toạ độ** (~3 phút, trang xem ảnh vệ tinh đã gửi qua
+chat): đổi `verified` thành `true`, bật Docker, seed thật hai lần, **đóng F2**.
+
+**Nếu chủ dự án chọn xong 12 ảnh:** dựng preset xử lý ảnh rồi làm marker —
+**đầu ra cuối cùng còn thiếu của F3**.
 
 **Nếu chủ dự án chịu cầm máy thật một buổi:** đo FPS, nhìn nhãn tiếng Việt, nhìn
-chấm vị trí — ba mục cùng lúc.
+chấm vị trí — ba mục cùng lúc, và đóng nốt DoD offline của F2.
 
-**Việc không bị chặn còn lại của F3:** không còn. Marker cần toạ độ + ảnh; FPS
-cần máy thật.
-
-**Hai việc tương phản màu đã xong** (chủ dự án chốt 2026-08-08, xem mục 3). Còn
-lại **một việc chưa xác nhận bằng mắt**: bản đồ sau khi đổi màu mới chỉ được
-kiểm bằng số và bằng test, **chưa ai nhìn**. Mở
-`tool/map_preview/preview.html` là thấy cả ba khung cạnh nhau.
+**Việc không bị chặn còn lại:** không còn. Cả ba nhánh trên đều bắt đầu bằng một
+thao tác của chủ dự án.
 
 **Đừng làm F4** khi phase S chưa có số: S3 quyết định bán kính check-in và điểm
-nào bắt buộc cần QR.
+nào bắt buộc cần QR. Lăng Ông Bà Chiểu đã cho thấy câu hỏi này là thật chứ không
+phải lý thuyết — xem mục 2.
