@@ -9,6 +9,16 @@
          straight to the offline cache. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <!-- Showing the user where they are. Both are declared because Android 12
+         and later lets the user grant only the coarse one, and a coarse fix
+         still puts a usable dot on the map. Check-in accuracy is a separate
+         question for F4, with S3's field measurements behind it.
+
+         Foreground only — no ACCESS_BACKGROUND_LOCATION. Nothing in v1 needs
+         to know where anyone is while the app is closed. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
         android:label="Wanderlock"
         android:name="${applicationName}"

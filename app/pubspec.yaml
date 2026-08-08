@@ -19,6 +19,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_riverpod: ^3.4.2
+  geolocator: ^14.0.3
   go_router: ^17.3.0
   # `any`, not a caret range: flutter_localizations pins intl exactly, so any
   # constraint of ours would just fight the SDK on every Flutter upgrade.

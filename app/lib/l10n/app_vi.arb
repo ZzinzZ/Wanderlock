@@ -25,5 +25,12 @@
   "mapCacheDownloading": "Đang lưu bản đồ… {percent}%",
   "mapCacheReady": "Đã lưu bản đồ. Mất sóng vẫn xem được.",
   "mapCacheFailed": "Chưa lưu được bản đồ. Thử lại giúp mình nhé.",
-  "mapCacheEmpty": "Chưa có checkpoint nào nên chưa biết lưu vùng nào."
+  "mapCacheEmpty": "Chưa có checkpoint nào nên chưa biết lưu vùng nào.",
+  "mapFollowStart": "Bám theo vị trí của tôi",
+  "mapFollowStop": "Ngừng bám theo",
+  "mapLocationAsk": "Hiện tôi đang ở đâu",
+  "mapLocationBlocked": "Mở cài đặt để cho phép vị trí",
+  "mapLocationServiceOff": "Bật dịch vụ vị trí",
+  "mapLocationBlockedBanner": "Ứng dụng đang bị tắt quyền vị trí. Mở cài đặt để cho phép.",
+  "mapLocationServiceOffBanner": "Dịch vụ vị trí trên máy đang tắt."
 }
