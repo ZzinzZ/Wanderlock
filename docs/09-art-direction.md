@@ -119,7 +119,7 @@ Neumorphism cần **nền phẳng đồng màu** và **ánh sáng kiểm soát �
 - Nhuộm lại toàn bộ theo palette: nước `#CDE9F5`, cây xanh `#DCEFD9`, đường `#FFFFFF` viền `#E6E9EE`, nền `#F4F1EA`
 - Giảm nhãn tối đa — chỉ giữ tên đường lớn; app này không dùng để chỉ đường
 - Không đổ bóng công trình, không hiệu ứng 3D building mặc định
-- Marker checkpoint là **illustration của chính địa điểm đó**, không phải ghim chung chung
+- Marker checkpoint là **ảnh thật của chính địa điểm đó** đã qua preset xử lý ở mục 7.1, không phải ghim chung chung và không phải illustration
 
 ---
 
