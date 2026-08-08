@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- The offline map download serves the generated style to this process on
+	     127.0.0.1, because MapLibre's offline API takes a style URL and
+	     resolves it over HTTP only. This permits that and nothing else: every
+	     real endpoint stays HTTPS under App Transport Security. Untested on a
+	     device — iOS is compile-checked only, see docs/11-foundation-plan.md. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
