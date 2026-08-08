@@ -1,28 +1,14 @@
-# Checkpoint — 2026-08-07
+# Checkpoint — 2026-08-08
 
 Ảnh chụp trạng thái dự án để mở phiên mới không mất context.
 Nguồn đúng vẫn là `docs/` và mã nguồn; file này chỉ để định hướng nhanh.
 
 ---
 
-## 0. Đọc mục này trước — có 5 PR chưa merge
+## 0. Không còn PR treo
 
-`main` **chưa có** phần lớn công việc của phiên 2026-08-07. Đừng đọc `main` rồi
-kết luận là chưa ai làm gì.
-
-| PR | Nội dung | Gốc | CI |
-|----|----------|-----|-----|
-| [#16](https://github.com/ZzinzZ/Wanderlock/pull/16) | Phân cấp đường theo `class`; loại đường sắt/phà/pier/đang thi công khỏi lớp đường | `main` | ✅ |
-| [#17](https://github.com/ZzinzZ/Wanderlock/pull/17) | Tải trước vùng bản đồ để dùng offline | `main` | ✅ |
-| [#18](https://github.com/ZzinzZ/Wanderlock/pull/18) | Trang preview style về `tool/map_preview/`, gỡ mìn `launch.json` | `main` | ✅ |
-| [#19](https://github.com/ZzinzZ/Wanderlock/pull/19) | Chốt marker dùng ảnh thật + mở `content/image-licenses.md` | `main` | ✅ |
-| [#20](https://github.com/ZzinzZ/Wanderlock/pull/20) | Vị trí người dùng + theo dõi camera | **`feat/f3-offline-tiles`** | ✅ |
-
-⚠️ **#20 xếp chồng trên #17**, không phải trên `main` — hai PR cùng sửa
-`map_screen.dart`. **Merge #17 trước**, GitHub sẽ tự trỏ #20 về `main`.
-Bốn PR còn lại độc lập, thứ tự nào cũng được.
-
-Nếu chủ dự án đã merge hết thì xoá mục này.
+Toàn bộ công việc của phiên 2026-08-07 (#16–#21) đã vào `main` ngày 2026-08-08.
+`main` giờ là bức tranh đầy đủ — đọc `main` là đủ.
 
 ---
 
@@ -97,9 +83,22 @@ bypass được.
 
 ---
 
-## 3. Quyết định đã chốt (bổ sung cho phiên 2026-08-07)
+## 3. Quyết định đã chốt
 
-**Bản đồ**
+**Bản đồ — tương phản (chốt 2026-08-08)**
+- Viền đường `#E6E9EE` → **`#C9CFDB`** (sáng), `#11131A` → **`#454C5B`** (tối).
+- **Chế độ tối, viền phải SÁNG hơn mặt đường** — ngược chiều với chế độ sáng.
+  Nền tối gần đen sẵn nên viền tối hơn nữa là biến mất; không có màu nào vừa
+  tối hơn mặt đường vừa tách được khỏi nền.
+- Nhãn bản đồ có **token riêng**, không mượn `inkMuted` của UI: nhãn nằm trên
+  bốn bề mặt (nền, nước, cây xanh, mặt đường), không phải trên thẻ. Sáng dùng
+  mực `#1F2430` (chủ dự án chọn), tối giữ `#9AA3B2` vì đã đạt 7.11:1.
+- **Ranh giới hành chính tách khỏi viền đường.** Trước đây dùng chung màu; khi
+  viền đường được làm cho thấy được thì mọi ranh giới quận cũng sáng lên theo,
+  mà ranh giới vẽ dày như đường phố chính là lỗi mà phân cấp đường (#16) vừa
+  dọn cho đường sắt và phà.
+
+**Bản đồ (phiên 2026-08-07)**
 - Đường có **5 tầng** theo `class`, mỗi tầng có bề rộng và `minzoom` riêng.
   Danh sách class là **allow-list** — cái không được gọi tên thì không phải
   đường và không được vẽ.
@@ -237,9 +236,31 @@ Tổng cộng 12 mutation trong phiên, tất cả đều bị test bắt sau kh
 
 ---
 
-## 9. Việc kế tiếp
+## 8b. Bài học của phiên 2026-08-08
 
-**Trước hết: merge 5 PR** (xem mục 0 — #17 trước #20).
+**GitHub không tự trỏ PR xếp chồng về `main` nếu nhánh gốc không bị xoá.** #20
+xếp trên #17. Merge #17 xong, `gh pr view 20` vẫn báo `base=feat/f3-offline-tiles`
+— và merge #20 lúc đó thì nó vào *nhánh kia*, không vào `main`, mà vẫn báo
+MERGED. Phải mở PR mới cherry-pick sang `main` (#22) mới sửa được. **Sau khi
+merge PR gốc, đọc lại `baseRefName` của PR con trước khi merge nó.**
+
+**Nhánh được bảo vệ đòi nhánh con phải ngang bằng `main`.** Mỗi lần `main` nhích
+là các PR còn lại phải `update-branch` và chờ CI chạy lại — merge hàng loạt
+buộc phải tuần tự. Và `gh pr checks` ngay sau `update-branch` **trả về kết quả
+của lần chạy CŨ**, xanh, trong khi lần chạy mới chưa kịp đăng ký. Phải đợi
+`statusCheckRollup[0].status == COMPLETED` trên head SHA mới.
+
+**Một test không thể làm cho đỏ thì không phải cổng gác.** Đã viết một test
+khẳng định "viền đường phải nằm khác phía mặt đường so với nền". Nó đậu — nhưng
+thử mọi cách vẫn không làm nó đỏ độc lập được: mặt đường sáng là `#FFFFFF` nên
+không màu nào sáng hơn, còn nền tối gần đen nên không màu nào tối hơn mà còn
+tách được khỏi nền. Điều nó khẳng định đã bị test tương phản hàm ý sẵn. Đã gỡ
+và chuyển lý lẽ thành chú thích. **Đo mức bắt lỗi của test bằng mutation trước
+khi tính nó là một cổng.**
+
+---
+
+## 9. Việc kế tiếp
 
 **Nếu chủ dự án đưa toạ độ:** gỡ `--allow-unverified`, seed đủ 12, **đóng F2**,
 rồi làm marker cho F3 (cần ảnh nữa).
@@ -250,11 +271,10 @@ chấm vị trí — ba mục cùng lúc.
 **Việc không bị chặn còn lại của F3:** không còn. Marker cần toạ độ + ảnh; FPS
 cần máy thật.
 
-**Hai việc tương phản màu chờ chủ dự án quyết** (đều đụng token màu mà mục 6 art
-direction đã chốt cứng, nên không tự sửa):
-- Viền đường gần như vô hình: sáng **1.08:1**, tối **1.03:1** so với nền.
-- Nhãn chế độ sáng `#6B7280` trên `#F4F1EA` = **4.29:1** ở cỡ chữ 11px —
-  **dưới ngưỡng WCAG AA 4.5:1**. Chế độ tối 7.11:1, đạt.
+**Hai việc tương phản màu đã xong** (chủ dự án chốt 2026-08-08, xem mục 3). Còn
+lại **một việc chưa xác nhận bằng mắt**: bản đồ sau khi đổi màu mới chỉ được
+kiểm bằng số và bằng test, **chưa ai nhìn**. Mở
+`tool/map_preview/preview.html` là thấy cả ba khung cạnh nhau.
 
 **Đừng làm F4** khi phase S chưa có số: S3 quyết định bán kính check-in và điểm
 nào bắt buộc cần QR.
