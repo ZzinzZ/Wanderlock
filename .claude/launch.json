@@ -7,7 +7,7 @@
       "runtimeArgs": [
         "--yes",
         "http-server",
-        "C:\\Users\\nhata\\AppData\\Local\\Temp\\claude\\D--Project-Idea\\3138d1bf-8a2c-4378-a4e1-e40bc3d99cbe\\scratchpad",
+        "tool/map_preview",
         "-p",
         "5173",
         "--cors",

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Wanderlock map style preview</title>
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<style>
+  /* Normal flow rather than a fixed bar, so the bar can wrap to any height
+     without ever covering the pane labels. */
+  body { margin: 0; font-family: system-ui, sans-serif;
+         height: 100vh; display: flex; flex-direction: column; }
+  #bar { flex: none; background: #222; color: #fff; padding: 6px 10px;
+         font-size: 13px; display: flex; gap: 8px; align-items: center;
+         flex-wrap: wrap; }
+  #bar button { font: inherit; padding: 2px 8px; cursor: pointer; }
+  #status { margin-left: auto; font: 12px monospace; }
+  .row { display: flex; flex: 1; min-height: 0; }
+  .pane { flex: 1; position: relative; border-right: 1px solid #ccc; }
+  .label { position: absolute; z-index: 2; top: 6px; left: 6px;
+           background: rgba(0,0,0,.75); color: #fff; padding: 3px 8px;
+           border-radius: 4px; font-size: 12px; letter-spacing: .04em; }
+  .map { position: absolute; inset: 0; }
+  #err { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9;
+         background: #b00; color: #fff; font: 12px monospace;
+         padding: 6px; max-height: 30vh; overflow: auto; }
+  #err:empty { display: none; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <strong>Wanderlock</strong>
+  <button data-go="106.6981,10.7721,15">Bến Thành</button>
+  <button data-go="106.6520,10.7530,15">Chợ Lớn</button>
+  <button data-go="106.7218,10.7947,16">Landmark 81</button>
+  <button data-go="106.7009,10.7769,13">Toàn TP</button>
+  <button data-go="106.7009,10.7769,11">Z11</button>
+  <button data-go="106.6981,10.7721,17">Z17</button>
+  <span id="status">đang tải…</span>
+</div>
+<div class="row">
+  <div class="pane"><div class="label">MẶC ĐỊNH (OpenFreeMap Liberty)</div><div id="default" class="map"></div></div>
+  <div class="pane"><div class="label">WANDERLOCK — SÁNG</div><div id="light" class="map"></div></div>
+  <div class="pane"><div class="label">WANDERLOCK — TỐI</div><div id="dark" class="map"></div></div>
+</div>
+<div id="err"></div>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const errBox = document.getElementById('err');
+const statusBox = document.getElementById('status');
+const state = {};
+const maps = {};
+let syncing = false;
+
+function report(msg) { errBox.textContent += msg + '\n'; }
+function paint() {
+  statusBox.textContent = Object.keys(state)
+    .map(id => id + ': ' + state[id]).join('  |  ');
+}
+
+// `src` is either a URL string (provider default) or a local style file.
+async function show(id, src) {
+  const style = src.startsWith('http') ? src : await (await fetch(src)).json();
+  const map = new maplibregl.Map({
+    container: id,
+    style,
+    center: [106.7009, 10.7769],
+    zoom: 13,
+    attributionControl: { compact: true }
+  });
+  maps[id] = map;
+  state[id] = 'đang tải';
+  paint();
+
+  map.on('error', e => {
+    state[id] = 'LỖI';
+    paint();
+    report(id + ': ' + ((e.error && e.error.message) || e.type));
+  });
+  map.on('load', () => { state[id] = 'đã render'; paint(); });
+  map.on('idle', () => {
+    if (state[id] !== 'LỖI') { state[id] = 'xong'; paint(); }
+  });
+
+  // Keep every pane on the same view, or the comparison proves nothing.
+  map.on('move', () => {
+    if (syncing) return;
+    syncing = true;
+    for (const [other, m] of Object.entries(maps)) {
+      if (other === id) continue;
+      m.jumpTo({ center: map.getCenter(), zoom: map.getZoom() });
+    }
+    syncing = false;
+  });
+}
+
+document.querySelectorAll('button[data-go]').forEach(b => {
+  b.addEventListener('click', () => {
+    const [lng, lat, zoom] = b.dataset.go.split(',').map(Number);
+    for (const m of Object.values(maps)) m.jumpTo({ center: [lng, lat], zoom });
+  });
+});
+
+show('default', 'https://tiles.openfreemap.org/styles/liberty');
+show('light', 'style-light.json');
+show('dark', 'style-dark.json');
+</script>
+</body>
+</html>
