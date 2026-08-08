@@ -116,10 +116,33 @@ Neumorphism cần **nền phẳng đồng màu** và **ánh sáng kiểm soát �
 
 Đây là chỗ dễ hỏng nhất. Bản đồ **không được dùng style mặc định** của nhà cung cấp.
 
-- Nhuộm lại toàn bộ theo palette: nước `#CDE9F5`, cây xanh `#DCEFD9`, đường `#FFFFFF` viền `#E6E9EE`, nền `#F4F1EA`
+- Nhuộm lại toàn bộ theo palette: nước `#CDE9F5`, cây xanh `#DCEFD9`, đường `#FFFFFF` viền `#C9CFDB`, nền `#F4F1EA`
 - Giảm nhãn tối đa — chỉ giữ tên đường lớn; app này không dùng để chỉ đường
+- Nhãn đường dùng **mực `#1F2430`** ở chế độ sáng, `#9AA3B2` ở chế độ tối
+- Ranh giới hành chính có màu riêng (`#E6E9EE` sáng, `#11131A` tối) — **không dùng lại màu viền đường**
 - Không đổ bóng công trình, không hiệu ứng 3D building mặc định
 - Marker checkpoint là **ảnh thật của chính địa điểm đó** đã qua preset xử lý ở mục 7.1, không phải ghim chung chung và không phải illustration
+
+> **Sửa 2026-08-08 — hai màu ở trên đã đổi, đây là lý do.**
+>
+> Viền đường cũ `#E6E9EE` chỉ đạt **1.08:1** so với nền `#F4F1EA`, và bản tối
+> **1.03:1** — tức là cùng một màu với mặt đất. Đường vẽ ra thành dải phẳng
+> không viền, đúng thứ mà cái viền sinh ra để tránh. Viền mới `#C9CFDB` đạt
+> 1.56:1 so với mặt đường và 1.39:1 so với nền.
+>
+> Ở chế độ **tối, viền phải SÁNG hơn mặt đường** (`#454C5B`), ngược chiều với
+> chế độ sáng. Nền tối đã gần đen sẵn, nên một cái viền tối hơn nữa thì biến
+> mất — không màu nào tối hơn mặt đường mà còn tách được khỏi nền.
+>
+> Nhãn đường cũ mượn `#6B7280` của UI, chỉ đạt **4.29:1** trên nền bản đồ ở cỡ
+> 11px — dưới chính ngưỡng 4.5:1 mà mục 2.3 của tài liệu này bắt buộc. Nhãn bản
+> đồ giờ có token riêng vì nó nằm trên **bốn** bề mặt (nền, nước, cây xanh, mặt
+> đường), không phải trên thẻ.
+>
+> Đánh đổi đã biết: mực `#1F2430` làm nhãn nổi hơn, hơi kéo căng với luật "giảm
+> nhãn tối đa" ngay phía trên. Bù lại bằng cách giữ nguyên allow-list — chỉ
+> `motorway`, `trunk`, `primary` mới có tên. Ít nhãn hơn, nhưng nhãn nào có thì
+> đọc được.
 
 ---
 

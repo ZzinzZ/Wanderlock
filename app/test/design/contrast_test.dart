@@ -30,6 +30,15 @@ const _normalText = 4.5;
 /// Large text threshold.
 const _largeText = 3.0;
 
+/// The floor for a drawn edge on the map — a road casing, not text.
+///
+/// Deliberately not a WCAG number: WCAG has nothing to say about the outline
+/// of a road, and holding one to 3:1 would give the map an ink border it was
+/// never meant to have. This is the weaker claim that the first casings still
+/// failed: that the edge is a different colour from what it sits on at all.
+/// They measured 1.08:1 and 1.03:1, which is to say invisible.
+const _visibleEdge = 1.3;
+
 void main() {
   group('contrast', () {
     // Definition of Done for F1: "primary buttons and text on coloured
@@ -80,6 +89,55 @@ void main() {
         expect(
           contrastRatio(colors.onCoral, colors.coral),
           greaterThanOrEqualTo(_normalText),
+        );
+      });
+    }
+
+    // The map is a second palette on a second set of surfaces, and section 2.3
+    // applies there too. Nothing checked it until the labels turned out to be
+    // sitting at 4.29:1 on the land.
+    for (final theme in <(String, AppMapColors)>[
+      ('light', AppMapColors.light),
+      ('dark', AppMapColors.dark),
+    ]) {
+      final (name, map) = theme;
+
+      // A road name is placed along a road, so it crosses every surface the
+      // map draws. The halo helps, but the halo is the land colour, so the
+      // land is the case that has to hold on its own.
+      test('$name map: road labels on every surface they can cross', () {
+        for (final surface in <(String, Color)>[
+          ('land', map.land),
+          ('water', map.water),
+          ('green', map.green),
+          ('road', map.road),
+        ]) {
+          final (surfaceName, color) = surface;
+          expect(
+            contrastRatio(map.label, color),
+            greaterThanOrEqualTo(_normalText),
+            reason: '$name map: labels over $surfaceName',
+          );
+        }
+      });
+
+      // Both neighbours, because which side of the fill the casing sits on
+      // differs by theme and only one of the two comparisons catches it. In
+      // light the road is the brightest thing on the map and the edge goes
+      // darker; in dark the road is brighter than the ground, so the edge has
+      // to go the other way. The dark casing was drawn darker anyway, against
+      // a land colour already close to black — 1.03:1, and only the land
+      // comparison sees it.
+      test('$name map: the road casing is visible against both neighbours', () {
+        expect(
+          contrastRatio(map.roadCasing, map.road),
+          greaterThanOrEqualTo(_visibleEdge),
+          reason: '$name map: casing vanishes into the road it outlines',
+        );
+        expect(
+          contrastRatio(map.roadCasing, map.land),
+          greaterThanOrEqualTo(_visibleEdge),
+          reason: '$name map: casing vanishes into the ground',
         );
       });
     }

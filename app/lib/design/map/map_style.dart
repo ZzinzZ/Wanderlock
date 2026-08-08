@@ -98,9 +98,6 @@ abstract final class MapStyle {
     required Brightness brightness,
   }) {
     final palette = AppMapColors.of(brightness);
-    final label = brightness == Brightness.dark
-        ? AppColors.dark.inkMuted
-        : AppColors.light.inkMuted;
 
     return {
       'version': 8,
@@ -131,8 +128,8 @@ abstract final class MapStyle {
             color: palette.road,
             width: tier.width,
           ),
-        _line('boundary', 'boundary', palette.roadCasing, 1),
-        _roadLabels(label: label, halo: palette.land),
+        _line('boundary', 'boundary', palette.boundary, 1),
+        _roadLabels(label: palette.label, halo: palette.land),
       ],
     };
   }

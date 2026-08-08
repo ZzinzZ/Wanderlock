@@ -216,6 +216,26 @@ void main() {
     }
   });
 
+  // Same argument one layer over: an administrative line drawn in the road
+  // casing colour is a street the city never built. It shared that colour
+  // until the casing was made visible, at which point sharing would have lit
+  // up every district border.
+  test('an administrative boundary is not painted as a road', () {
+    for (final brightness in Brightness.values) {
+      final style = _style(brightness);
+      final boundary =
+          (_layer(style, 'boundary')['paint']! as Map)['line-color'];
+      final palette = AppMapColors.of(brightness);
+
+      expect(boundary, _hex(palette.boundary));
+      expect(
+        boundary,
+        isNot(_hex(palette.roadCasing)),
+        reason: '${brightness.name}: boundaries read as streets',
+      );
+    }
+  });
+
   // A road too small to walk at this scale is noise, not information.
   test('minor roads drop out before the map zooms out', () {
     final style = _style(Brightness.light);
@@ -244,7 +264,8 @@ void main() {
       _hex(AppMapColors.light.green),
       _hex(AppMapColors.light.road),
       _hex(AppMapColors.light.roadCasing),
-      _hex(AppColors.light.inkMuted),
+      _hex(AppMapColors.light.boundary),
+      _hex(AppMapColors.light.label),
     };
 
     for (final layer in _layers(style)) {
