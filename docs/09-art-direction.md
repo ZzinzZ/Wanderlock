@@ -247,6 +247,24 @@ Ràng buộc kỹ thuật vẫn đúng cho cả hai biến thể:
 - CC0 không bắt buộc ghi nguồn, nhưng vẫn ghi ở `content/icon-licenses.md` cho
   nhất quán với cách quản lý ảnh ở mục 7.1.
 
+**Mỗi địa điểm một icon riêng (chốt 2026-08-25).** Marker trên bản đồ không
+dùng chấm tròn nữa mà dùng icon 3D, và **không phải icon theo phân loại**:
+phong thư cho Bưu điện, tên lửa cho Landmark 81, va-li cho Bến Nhà Rồng, vương
+miện cho Lăng Ông, cờ cho Dinh Độc Lập, túi cho hai khu chợ, nén nhang cho bốn
+ngôi chùa. Bốn cái chợ-chợ-bảo tàng-dinh vẽ thành bốn cái ghim giống nhau là
+một bảng chú giải, không phải một tấm bản đồ — chọn thế này để **đọc được hình
+dạng thành phố trước khi đọc một chữ nào**. Bảng tra ở
+`app/lib/features/checkpoint/presentation/checkpoint_icons.dart`.
+
+**Cỡ icon tăng ~50% toàn bộ (2026-08-25).** Sau khi bỏ nền màu, icon là thứ duy
+nhất còn mang màu; ở cỡ cũ chúng đọc ra như dấu đầu dòng cạnh chữ chứ không phải
+chủ thể.
+
+**Neumorphism đã dùng đúng chỗ tài liệu chỉ định.** Màn Sưu tầm: tem đã mở
+**nổi lên** (`raised`), tem chưa mở **lún vào giấy** (`inset`) — đúng mô tả sẵn
+có trong `app_shadows.dart`. Vẫn **không** dùng trên bản đồ: marker chỉ có viền
+đặc, vì nền dưới nó là một thành phố chứ không phải mặt phẳng sáng đều.
+
 **Bộ `clay` vẫn giữ trong `content/icons/3dicons-clay/`** dù không dùng: nếu sau
 này có bề mặt cần icon một màu theo token thì đã có sẵn, khỏi tải lại.
 

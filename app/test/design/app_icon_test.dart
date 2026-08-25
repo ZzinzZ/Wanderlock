@@ -70,8 +70,16 @@ void main() {
       }
     });
 
-    test('the names have no duplicates', () {
-      expect(AppIcons.all.toSet(), hasLength(AppIcons.all.length));
+    test('every named constant resolves to a bundled file', () {
+      // Walks the constants rather than the deduplicated set, so a constant
+      // that was added and never bundled is caught even when a sibling alias
+      // already put its file there.
+      final missing = [
+        for (final name in AppIcons.named)
+          if (!File('${assets.path}/$name.png').existsSync()) name,
+      ];
+
+      expect(missing, isEmpty, reason: 'not bundled: ${missing.join(', ')}');
     });
   });
 

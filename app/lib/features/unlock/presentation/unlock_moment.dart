@@ -244,7 +244,7 @@ class _PhotoPlate extends StatelessWidget {
   final String? photoUrl;
   final double colourReturn;
 
-  static const double side = 180;
+  static const double side = 220;
 
   @override
   Widget build(BuildContext context) {
@@ -258,6 +258,10 @@ class _PhotoPlate extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: AppRadius.card,
           color: colors.card,
+          // Raised: for three seconds this plate is the object being
+          // handed over, and it should look like one thing lifted off the
+          // flood rather than a hole cut in it.
+          boxShadow: AppShadows.raised(colors),
         ),
         child: photoUrl == null
             ? Center(
@@ -311,10 +315,10 @@ class _BadgeDrop extends StatelessWidget {
 
   final double progress;
 
-  static const double side = 64;
+  static const double side = 96;
 
   /// How far above its resting place the badge starts.
-  static const double dropHeight = 48;
+  static const double dropHeight = 64;
 
   @override
   Widget build(BuildContext context) {
@@ -331,8 +335,10 @@ class _BadgeDrop extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: AppRadius.marker,
             color: colors.card,
+            boxShadow: AppShadows.raised(colors),
           ),
-          child: const AppIcon(AppIcons.reward),
+          alignment: Alignment.center,
+          child: const AppIcon(AppIcons.reward, size: AppIconSize.navigation),
         ),
       ),
     );

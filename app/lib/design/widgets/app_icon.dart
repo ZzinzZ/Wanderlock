@@ -139,13 +139,30 @@ class AppIcons {
   static const String themeLight = 'sun';
   static const String themeDark = 'moon';
 
+  // Places on the map. Section 5.4 asks the map to read before its labels do,
+  // so these are chosen for what a place *is*, not for what class it belongs
+  // to. See CheckpointIcons for which place gets which.
+  static const String placePostOffice = 'mail';
+  static const String placeTower = 'rocket';
+  static const String placeWharf = 'travel';
+  static const String placePalace = 'flag';
+  static const String placeMuseum = 'picture';
+  static const String placeMarket = 'bag';
+  static const String placeTomb = 'crown';
+  static const String placeTemple = 'fire';
+
   // Edge states, section 5.6.
   static const String offline = 'wifi';
   static const String quiz = 'puzzle';
   static const String warning = 'sheild';
 
-  /// Every icon that must exist as a bundled asset. A test walks this list.
-  static const List<String> all = <String>[
+  /// Every constant above, in order, aliases included.
+  ///
+  /// Two names may point at one file on purpose: a flag is both a quest route
+  /// and the palace that flies one, and a picture is both the memory map and
+  /// the museum full of them. The constants are named for what they mean, not
+  /// for what they draw, so the list keeps both and [all] collapses them.
+  static const List<String> named = <String>[
     lensMap,
     lensCollection,
     lensJourney,
@@ -172,5 +189,16 @@ class AppIcons {
     offline,
     quiz,
     warning,
+    placePostOffice,
+    placeTower,
+    placeWharf,
+    placePalace,
+    placeMuseum,
+    placeMarket,
+    placeTomb,
+    placeTemple,
   ];
+
+  /// The distinct files that must exist under `assets/icons/`.
+  static final Set<String> all = named.toSet();
 }

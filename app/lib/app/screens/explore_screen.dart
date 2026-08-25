@@ -11,7 +11,7 @@ import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/features/checkpoint/application/checkpoint_providers.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/checkpoint/presentation/checkpoint_map_canvas.dart';
-import 'package:wanderlock/features/checkpoint/presentation/checkpoint_marker_layer.dart';
+import 'package:wanderlock/features/checkpoint/presentation/checkpoint_marker_overlay.dart';
 import 'package:wanderlock/features/collection/presentation/stamp_album.dart';
 import 'package:wanderlock/features/fog/presentation/fog_layer.dart';
 import 'package:wanderlock/features/unlock/application/check_in_controller.dart';
@@ -49,13 +49,6 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
   /// time anything tries to add to it.
   int _styleGeneration = 0;
 
-  /// True once the fog layers are on the current style.
-  ///
-  /// The markers wait for it, because MapLibre stacks layers in the order they
-  /// are added and both widgets install asynchronously. Without the gate the
-  /// markers landed under the veil whenever they happened to win the race.
-  bool _isFogInstalled = false;
-
   Checkpoint? _selected;
 
   /// The place currently having its three seconds. Held here rather than read
@@ -85,11 +78,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
         children: [
           CheckpointMapCanvas(
             onControllerReady: (value) => setState(() => _controller = value),
-            onStyleLoaded: () => setState(() {
-              _styleGeneration++;
-              // A reloaded style has no fog on it yet, whatever the last one had.
-              _isFogInstalled = false;
-            }),
+            onStyleLoaded: () => setState(() => _styleGeneration++),
             onMapTapped: (_) => setState(() => _selected = null),
           ),
 
@@ -99,18 +88,19 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
               controller: controller,
               holes: holes,
               isVisible: lens == Lens.fog,
-              onInstalled: () {
-                if (mounted) setState(() => _isFogInstalled = true);
-              },
             ),
-            if (_isFogInstalled)
-              CheckpointMarkerLayer(
-                key: ValueKey('markers-$_styleGeneration'),
+            // Widgets, not a map layer — see CheckpointMarkerOverlay for why.
+            // They no longer wait for the fog: nothing MapLibre draws can end
+            // up on top of a Flutter widget, so the ordering race is gone.
+            Positioned.fill(
+              child: CheckpointMarkerOverlay(
                 controller: controller,
+                fallbackCamera: CheckpointMapCanvas.initialCamera,
                 checkpoints: checkpoints,
                 visitedIds: visitedIds,
                 onTap: (checkpoint) => setState(() => _selected = checkpoint),
               ),
+            ),
           ],
 
           // The collection lens. Drawn over the map rather than instead of it,
@@ -139,7 +129,10 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
             child: Center(child: LensSwitcher()),
           ),
 
-          if (_selected != null)
+          // Only over the map. The sheet describes a place you tapped on the
+          // map, and it kept floating over the album after a lens switch —
+          // a card about a pin, on a screen with no pins.
+          if (_selected != null && lens == Lens.fog)
             Positioned(
               left: AppSpacing.md,
               right: AppSpacing.md,

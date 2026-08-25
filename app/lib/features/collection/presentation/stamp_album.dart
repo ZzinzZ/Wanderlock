@@ -22,7 +22,7 @@ class StampAlbum extends StatelessWidget {
 
   /// Widest a tile may get before the grid adds a column. Chosen so a phone
   /// shows three across and a tablet more, without a breakpoint list.
-  static const double maxTileWidth = 132;
+  static const double maxTileWidth = 160;
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +64,13 @@ class StampAlbum extends StatelessWidget {
             ),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: maxTileWidth,
-              mainAxisSpacing: AppSpacing.md,
-              crossAxisSpacing: AppSpacing.sm,
+              // Wider gaps than before. A neumorphic surface needs room for
+              // its own shadow; packed tight, each tile's shadow lands on
+              // its neighbour and the whole grid reads as smudged.
+              mainAxisSpacing: AppSpacing.lg,
+              crossAxisSpacing: AppSpacing.md,
               // Room under the square for exactly two lines of name.
-              childAspectRatio: 0.72,
+              childAspectRatio: 0.74,
             ),
             itemCount: stamps.length,
             itemBuilder: (context, index) => _StampTile(stamp: stamps[index]),
@@ -106,11 +109,16 @@ class _StampTile extends StatelessWidget {
               curve: AppMotion.linearCurve,
               decoration: BoxDecoration(
                 borderRadius: AppRadius.chip,
-                // Both tiles are neutral; the stamp on top is what differs.
-                // An earned tile is the brighter card, an unearned one sinks
-                // into the quieter surface — and the gold medal against the
-                // grey padlock does the rest.
                 color: stamp.isOwned ? colors.card : colors.surfaceMuted,
+                // The one place in the app the neumorphic pair belongs, and
+                // the use `AppShadows.inset` was written for: an earned
+                // stamp is extruded off the page, an unearned one is a
+                // socket waiting for it. Allowed here and nowhere near the
+                // map, because this screen is the flat evenly lit ground
+                // the effect needs.
+                boxShadow: stamp.isOwned
+                    ? AppShadows.raised(colors)
+                    : AppShadows.inset(colors),
               ),
               alignment: Alignment.center,
               child: AppIcon(

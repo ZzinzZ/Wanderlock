@@ -20,7 +20,6 @@ class FogLayer extends StatefulWidget {
     required this.controller,
     required this.holes,
     this.isVisible = true,
-    this.onInstalled,
     super.key,
   });
 
@@ -32,15 +31,6 @@ class FogLayer extends StatefulWidget {
   final List<FogHole> holes;
 
   final bool isVisible;
-
-  /// Fires once the fog layers are on the style.
-  ///
-  /// Exists so anything that must draw *above* the fog can wait for it.
-  /// MapLibre stacks layers in the order they are added, and two widgets
-  /// installing asynchronously in the same frame have no order at all — which
-  /// showed up as checkpoint markers sitting under the veil about half the
-  /// time.
-  final VoidCallback? onInstalled;
 
   static const String veilSourceId = 'wanderlock-fog-veil';
   static const String clearedSourceId = 'wanderlock-fog-cleared';
@@ -159,7 +149,6 @@ class _FogLayerState extends State<FogLayer> {
     if (!mounted) return;
     _isInstalled = true;
     await _syncVisibility();
-    widget.onInstalled?.call();
   }
 
   Future<void> _syncData() async {

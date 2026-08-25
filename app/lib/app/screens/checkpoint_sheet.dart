@@ -7,6 +7,7 @@ import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/design/widgets/primary_button.dart';
 import 'package:wanderlock/features/checkpoint/application/location_providers.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
+import 'package:wanderlock/features/checkpoint/presentation/checkpoint_icons.dart';
 import 'package:wanderlock/features/unlock/application/check_in_controller.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
@@ -49,6 +50,15 @@ class CheckpointSheet extends ConsumerWidget {
           children: [
             Row(
               children: [
+                // The same icon the marker on the map is wearing, at the
+                // size that makes it the subject of the sheet rather than a
+                // bullet beside the title.
+                AppIcon(
+                  CheckpointIcons.of(checkpoint),
+                  size: AppIconSize.place,
+                  isMuted: !isVisited,
+                ),
+                const SizedBox(width: AppSpacing.sm),
                 Expanded(
                   child: Text(checkpoint.name, style: AppTypography.cardTitle),
                 ),
