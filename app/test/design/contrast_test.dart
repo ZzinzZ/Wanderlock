@@ -40,6 +40,31 @@ const _largeText = 3.0;
 const _visibleEdge = 1.3;
 
 void main() {
+  // Why nothing secondary is written on the muted surface.
+  //
+  // The pairing survives in dark and fails in light, and a component has to
+  // work in both — so the light measurement is the one that sets the rule. The
+  // lens switcher writes full ink on every chip because of this.
+  //
+  // Recorded rather than fixed: lightening the surface until `inkMuted` cleared
+  // 4.5:1 would have taken it to within a hair of white and left nothing to
+  // distinguish a selected chip from its bar.
+  group('the muted surface and secondary text', () {
+    test('light: fails, which is why the rule exists', () {
+      expect(
+        contrastRatio(AppColors.light.inkMuted, AppColors.light.surfaceMuted),
+        lessThan(_normalText),
+      );
+    });
+
+    test('dark: passes, and is still not relied on', () {
+      expect(
+        contrastRatio(AppColors.dark.inkMuted, AppColors.dark.surfaceMuted),
+        greaterThanOrEqualTo(_normalText),
+      );
+    });
+  });
+
   group('contrast', () {
     // Definition of Done for F1: "primary buttons and text on coloured
     // backgrounds are all >= 4.5:1". Checked here rather than by eye, because
@@ -74,6 +99,33 @@ void main() {
           contrastRatio(const Color(0xFFFFFFFF), colors.unlockMoment),
           lessThan(_normalText),
         );
+      });
+
+      // The surfaces went neutral when the green fills were dropped, so two
+      // things now have to hold at once: text stays readable on the quiet
+      // surface, and the quiet surface stays distinguishable from the card
+      // without shouting.
+      test('$name: body text on the muted surface', () {
+        expect(
+          contrastRatio(colors.ink, colors.surfaceMuted),
+          greaterThanOrEqualTo(_normalText),
+        );
+      });
+
+      test('$name: the muted surface is visibly not the card', () {
+        // A selected chip sits on it and an unearned stamp is made of it. If
+        // the two match, both distinctions vanish.
+        expect(
+          contrastRatio(colors.surfaceMuted, colors.card),
+          greaterThan(1.05),
+        );
+      });
+
+      test('$name: but it stays quieter than the icons on it', () {
+        // Deliberately capped. The brief was that icons carry the colour; a
+        // surface separated hard enough to read as its own block would be
+        // competing with them.
+        expect(contrastRatio(colors.surfaceMuted, colors.card), lessThan(1.5));
       });
 
       test('$name: body text on a card', () {

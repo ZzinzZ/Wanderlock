@@ -126,9 +126,13 @@ class MapFollowButton extends ConsumerWidget {
     return FloatingActionButton(
       onPressed: () => _onPressed(ref, availability),
       tooltip: tooltip,
-      backgroundColor: following ? colors.primary : colors.card,
+      // White whether or not it is following. The arrow carries the state:
+      // full colour while the camera is locked to the user, grey when it is
+      // not. A green disc said the same thing louder and put a second accent
+      // on a map that already has coloured markers on it.
+      backgroundColor: colors.card,
       foregroundColor: colors.ink,
-      child: AppIcon(icon, semanticLabel: tooltip),
+      child: AppIcon(icon, semanticLabel: tooltip, isMuted: !following),
     );
   }
 
@@ -208,7 +212,7 @@ class MapCacheBanner extends StatelessWidget {
         colors.accentYellow,
         colors.onAccentYellow,
       ),
-      MapCacheReady() => (l10n.mapCacheReady, colors.primary, colors.ink),
+      MapCacheReady() => (l10n.mapCacheReady, colors.surfaceMuted, colors.ink),
       MapCacheEmpty() => (
         l10n.mapCacheEmpty,
         colors.accentYellow,

@@ -51,6 +51,19 @@ Ba sợi ADN: **brochure du lịch** (khối lớn, ảnh minh hoạ, bố cục
 2. **Cấm pastel trên pastel.** Mọi cặp chữ/nền phải đạt tương phản ≥ 4.5:1 (chữ thường), ≥ 3:1 (chữ lớn).
 3. **Gradient chỉ dùng làm nền trang trí lớn**, không dùng trên chữ, nút, hay icon.
 4. Tím và bạc hà **không được mang ý nghĩa trạng thái** — chỉ làm nền minh hoạ.
+5. **Bề mặt trung tính; màu do icon và hình khối gánh** (chủ dự án chốt 2026-08-25).
+   Thẻ, ô tem, chip lăng kính, nút vị trí — tất cả dùng trắng `#FFFFFF` hoặc
+   xám trắng `#EDEFF3`, **không tô nền xanh**. Cái đổi màu là icon 3D và các
+   hình vẽ trên bản đồ.
+   - **Màu = trạng thái.** Icon đủ màu nghĩa là *đã đạt / đang bật*; icon khử
+     màu nghĩa là *chưa / đang tắt*. Cùng một ẩn dụ với Fog ở mục 8 —
+     "màu trở lại với nơi bạn đã đến".
+   - Hai bề mặt trung tính chồng nhau (chip trên thanh, ô tem trên trang) tách
+     nhau bằng `card` so với `surfaceMuted`. Chênh lệch **cố ý yếu** — mạnh hơn
+     là tranh chỗ với icon.
+   - ⚠️ Chữ phụ `#6B7280` **không đọc được** trên `#EDEFF3` (đo được 3,9:1,
+     dưới ngưỡng 4,5:1). Trên bề mặt xám trắng phải dùng mực chính. Có test ghi
+     lại phép đo này.
 
 ---
 

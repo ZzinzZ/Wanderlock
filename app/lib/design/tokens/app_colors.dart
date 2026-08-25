@@ -17,6 +17,7 @@ class AppColors extends ThemeExtension<AppColors> {
   const AppColors({
     required this.background,
     required this.card,
+    required this.surfaceMuted,
     required this.ink,
     required this.inkMuted,
     required this.primary,
@@ -40,6 +41,19 @@ class AppColors extends ThemeExtension<AppColors> {
 
   /// Card, sheet and tile surfaces.
   final Color card;
+
+  /// A surface one step quieter than [card].
+  ///
+  /// Introduced when the owner asked for the green fills to go and for the
+  /// icons to carry the colour instead. That left every surface neutral, and
+  /// two neutral surfaces sitting on each other — a selected chip on its bar,
+  /// an unearned stamp among earned ones — need to be told apart by something.
+  /// This is that something: near-white in light, a shade above the card in
+  /// dark.
+  ///
+  /// It is deliberately a weak difference. Anything stronger competes with the
+  /// icons, which are now the only thing on screen allowed to be loud.
+  final Color surfaceMuted;
 
   /// Primary text.
   final Color ink;
@@ -105,6 +119,7 @@ class AppColors extends ThemeExtension<AppColors> {
   static const light = AppColors(
     background: Color(0xFFF7F8FA),
     card: Color(0xFFFFFFFF),
+    surfaceMuted: Color(0xFFEDEFF3),
     ink: Color(0xFF1F2430),
     inkMuted: Color(0xFF6B7280),
     primary: Color(0xFF4CCB8A),
@@ -128,6 +143,7 @@ class AppColors extends ThemeExtension<AppColors> {
   static const dark = AppColors(
     background: Color(0xFF14161C),
     card: Color(0xFF1E212A),
+    surfaceMuted: Color(0xFF272B36),
     ink: Color(0xFFF2F4F7),
     inkMuted: Color(0xFF9AA3B2),
     primary: Color(0xFF5FD79B),
@@ -160,6 +176,7 @@ class AppColors extends ThemeExtension<AppColors> {
   AppColors copyWith({
     Color? background,
     Color? card,
+    Color? surfaceMuted,
     Color? ink,
     Color? inkMuted,
     Color? primary,
@@ -180,6 +197,7 @@ class AppColors extends ThemeExtension<AppColors> {
     return AppColors(
       background: background ?? this.background,
       card: card ?? this.card,
+      surfaceMuted: surfaceMuted ?? this.surfaceMuted,
       ink: ink ?? this.ink,
       inkMuted: inkMuted ?? this.inkMuted,
       primary: primary ?? this.primary,
@@ -205,6 +223,7 @@ class AppColors extends ThemeExtension<AppColors> {
     return AppColors(
       background: Color.lerp(background, other.background, t)!,
       card: Color.lerp(card, other.card, t)!,
+      surfaceMuted: Color.lerp(surfaceMuted, other.surfaceMuted, t)!,
       ink: Color.lerp(ink, other.ink, t)!,
       inkMuted: Color.lerp(inkMuted, other.inkMuted, t)!,
       primary: Color.lerp(primary, other.primary, t)!,

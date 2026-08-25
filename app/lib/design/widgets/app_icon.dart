@@ -28,6 +28,7 @@ class AppIcon extends StatelessWidget {
     this.name, {
     this.size = AppIconSize.action,
     this.semanticLabel,
+    this.isMuted = false,
     super.key,
   });
 
@@ -36,19 +37,46 @@ class AppIcon extends StatelessWidget {
 
   final double size;
 
+  /// Drains the colour out of the icon.
+  ///
+  /// The surfaces are neutral now, so colour is the only signal left for state
+  /// — and section 8 of the art direction already says what colour means here:
+  /// "colour returns to where you have been". A place not yet reached, a lens
+  /// not currently selected, a camera not currently following: grey. Reaching
+  /// it turns the colour on.
+  final bool isMuted;
+
   /// Left null for an icon that only repeats what the text beside it says.
   /// Screen readers should not read a label twice.
   final String? semanticLabel;
 
   static String assetPath(String name) => 'assets/icons/$name.png';
 
+  /// Fully desaturating colour matrix.
+  ///
+  /// sRGB luminance weights rather than a flat third each: an even split greys
+  /// a red padlock and a green medal to nearly the same value, and the icons
+  /// stop being distinguishable at a glance.
+  static const List<double> greyscaleMatrix = <double>[
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0, 0, 0, 1, 0, //
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
+    final image = Image.asset(
       assetPath(name),
       width: size,
       height: size,
       semanticLabel: semanticLabel,
+    );
+
+    if (!isMuted) return image;
+    return ColorFiltered(
+      colorFilter: const ColorFilter.matrix(greyscaleMatrix),
+      child: image,
     );
   }
 }

@@ -27,7 +27,11 @@ class LensSwitcher extends ConsumerWidget {
     // instead.
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: colors.card,
+        // The bar is the quiet surface and the selected chip is the bright
+        // one, which is the opposite of the green-fill version: with no
+        // colour left in the fills, selection reads as a card lifting out of
+        // its track rather than as a block lighting up.
+        color: colors.surfaceMuted,
         borderRadius: AppRadius.pill,
       ),
       child: Padding(
@@ -82,11 +86,11 @@ class _LensChip extends StatelessWidget {
             vertical: AppSpacing.sm,
           ),
           decoration: BoxDecoration(
-            // The selected chip is the one solid block on the bar. Green
-            // rather than the action green: this selects a view, it does not
-            // commit anything, and the art direction reserves the darker
-            // action colour for buttons that do.
-            color: isSelected ? colors.primary : colors.card,
+            // No fill colour on either chip. The icon is the only thing that
+            // changes hue, so the bar has exactly one accent on it at a time —
+            // which is what keeps the three-colour rule affordable now that
+            // every icon brings its own palette.
+            color: isSelected ? colors.card : colors.surfaceMuted,
             borderRadius: AppRadius.pill,
           ),
           child: Row(
@@ -96,13 +100,15 @@ class _LensChip extends StatelessWidget {
               // unselected chip is distinguished by its label and its ground,
               // not by a quieter icon — and two full-colour icons side by side
               // is what makes the bar read as a set of places to go.
-              AppIcon(icon),
+              AppIcon(icon, isMuted: !isSelected),
               const SizedBox(width: AppSpacing.xs),
+              // Full ink on both chips. The muted grey measures 3.9:1 on the
+              // quiet surface, under the 4.5:1 the art direction demands, and
+              // dimming the label was never carrying the state anyway — the
+              // greyed icon is.
               Text(
                 label,
-                style: AppTypography.label.copyWith(
-                  color: isSelected ? colors.ink : colors.inkMuted,
-                ),
+                style: AppTypography.label.copyWith(color: colors.ink),
               ),
             ],
           ),

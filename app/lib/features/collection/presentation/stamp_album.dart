@@ -83,13 +83,6 @@ class _StampTile extends StatelessWidget {
 
   final Stamp stamp;
 
-  /// How grey a stamp nobody has earned looks.
-  ///
-  /// Not fully transparent and not fully grey: section 8 of the art direction
-  /// asks for "desaturated, low contrast" rather than hidden. A locked stamp
-  /// has to stay legible enough to want.
-  static const double lockedOpacity = 0.38;
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -113,14 +106,20 @@ class _StampTile extends StatelessWidget {
               curve: AppMotion.linearCurve,
               decoration: BoxDecoration(
                 borderRadius: AppRadius.chip,
-                color: stamp.isOwned
-                    ? colors.primary
-                    : colors.inkMuted.withValues(alpha: lockedOpacity),
+                // Both tiles are neutral; the stamp on top is what differs.
+                // An earned tile is the brighter card, an unearned one sinks
+                // into the quieter surface — and the gold medal against the
+                // grey padlock does the rest.
+                color: stamp.isOwned ? colors.card : colors.surfaceMuted,
               ),
               alignment: Alignment.center,
               child: AppIcon(
                 stamp.isOwned ? AppIcons.lensCollection : AppIcons.locked,
                 size: AppIconSize.tile,
+                // Section 8: "colour returns to where you have been". Twelve
+                // vivid padlocks would have made the album loudest exactly
+                // where the user has done nothing.
+                isMuted: !stamp.isOwned,
               ),
             ),
           ),
