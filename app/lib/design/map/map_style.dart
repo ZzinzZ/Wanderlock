@@ -236,6 +236,22 @@ abstract final class MapStyle {
     },
   };
 
+  /// A colour token as the `#rrggbb` string MapLibre paint properties expect.
+  ///
+  /// Public because layers added at runtime — the fog veil, the checkpoint
+  /// markers — need the same conversion, and a second copy of it would be a
+  /// second chance to get the byte order wrong.
+  static String hex(Color color) => _hex(color);
+
+  /// The alpha of a colour token, as the 0–1 opacity MapLibre wants.
+  ///
+  /// MapLibre's `*-color` properties ignore alpha in a six-digit hex, so a
+  /// token that carries transparency has to be split into a colour and an
+  /// opacity. Reading it off the token keeps the transparency where every
+  /// other design value lives instead of as a number typed into a layer.
+  static double opacityOf(Color color) =>
+      ((color.toARGB32() >> 24) & 0xFF) / 255;
+
   static String _hex(Color color) {
     final value = color.toARGB32() & 0xFFFFFF;
     return '#${value.toRadixString(16).padLeft(6, '0')}';

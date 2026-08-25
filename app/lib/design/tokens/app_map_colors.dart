@@ -18,6 +18,9 @@ class AppMapColors {
     required this.roadCasing,
     required this.boundary,
     required this.label,
+    required this.fogVeil,
+    required this.fogEdge,
+    required this.fogCleared,
   });
 
   /// Ground with nothing else on it.
@@ -56,6 +59,37 @@ class AppMapColors {
   /// map rather than against a card.
   final Color label;
 
+  /// The veil laid over everywhere the user has not been, in the Fog lens.
+  ///
+  /// Section 8 of the art direction asks for "greyed out plus a cream veil" in
+  /// light and a darkened map in dark. MapLibre cannot desaturate the layers
+  /// underneath, so the veil carries the whole effect: opaque enough that the
+  /// map reads as withheld, sheer enough that the street pattern still shows
+  /// through and the unexplored city stays legible as a city.
+  ///
+  /// **Fog is a mode, not a theme.** A user in light mode gets a cream fog and
+  /// stays in their theme; they are never thrown onto a black screen.
+  final Color fogVeil;
+
+  /// The rim around a cleared area.
+  ///
+  /// Without it a hole in the veil reads as a rendering glitch. With it, the
+  /// cleared area reads as somewhere that was earned.
+  final Color fogEdge;
+
+  /// The wash laid *inside* a cleared area.
+  ///
+  /// Section 8 gives the two themes different metaphors, and they are not
+  /// mirror images. In light, "colour returns to where you have been" — the
+  /// cream veil lifting is the whole effect, so nothing is painted here and
+  /// this is transparent. In dark, "light spreads": lifting a veil off an
+  /// already-dark map changes almost nothing, so the cleared area has to be
+  /// actively lit.
+  ///
+  /// Found on the emulator, not in review: with only a veil, dark mode showed
+  /// no visible difference between explored and unexplored city at all.
+  final Color fogCleared;
+
   static const light = AppMapColors(
     land: Color(0xFFF4F1EA),
     water: Color(0xFFCDE9F5),
@@ -67,6 +101,15 @@ class AppMapColors {
     // The art direction's ink. `#6B7280` sat at 4.29:1 on the land, under the
     // 4.5:1 the same document demands.
     label: Color(0xFF1F2430),
+    // Cream at 60%, set by looking at it rather than by reasoning about it.
+    // The first attempt was 86% on the argument that fog should feel solid;
+    // on a device that erased the city entirely and read as a blank page, not
+    // as an unexplored map. Section 8 asks for "greyed out plus a cream veil",
+    // and greying something out leaves it visible.
+    fogVeil: Color(0x99F2EFE6),
+    fogEdge: Color(0x664CCB8A),
+    // Fully transparent: in light, clearing the fog *is* removing the veil.
+    fogCleared: Color(0x00000000),
   );
 
   /// Dark is **not** an inversion of light.
@@ -94,6 +137,13 @@ class AppMapColors {
     // Muted ink, unchanged: 7.11:1 on the land, already clear of 4.5:1. Dark
     // does not borrow light's answer, because it never had light's problem.
     label: Color(0xFF9AA3B2),
+    // The page background at 88%, which is section 8's "map goes dark" for
+    // the dark theme rather than a second cream.
+    fogVeil: Color(0xE014161C),
+    fogEdge: Color(0x665FD79B),
+    // Ink at 12%. Enough to read as lit, low enough that the streets under it
+    // stay streets rather than becoming a grey patch.
+    fogCleared: Color(0x1FF2F4F7),
   );
 
   static AppMapColors of(Brightness brightness) =>
