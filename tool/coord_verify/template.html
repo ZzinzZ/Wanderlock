@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wanderlock — xác nhận toạ độ checkpoint</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root {
+    --ink: #1f2430;
+    --ink-muted: #5b6474;
+    --line: #d5dae3;
+    --ok: #12805c;
+    --warn: #b3541e;
+    --bad: #b00020;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif;
+         color: var(--ink); background: #f4f6f9; }
+
+  header { position: sticky; top: 0; z-index: 500; background: #1f2430;
+           color: #fff; padding: 10px 16px; display: flex; gap: 14px;
+           align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 15px; margin: 0; letter-spacing: .02em; }
+  header .spacer { margin-left: auto; }
+  #progress { font: 13px/1 monospace; }
+  button { font: inherit; font-size: 13px; padding: 5px 11px; cursor: pointer;
+           border: 1px solid var(--line); border-radius: 5px; background: #fff;
+           color: var(--ink); }
+  button:hover { background: #eef1f6; }
+  header button { border-color: #4b5464; background: #2c3342; color: #fff; }
+  header button:hover { background: #3b4353; }
+
+  .hint { padding: 12px 16px; background: #fffbe8; border-bottom: 1px solid #e8dfae;
+          font-size: 13px; line-height: 1.55; }
+  .hint b { color: var(--warn); }
+
+  main { display: grid; gap: 14px; padding: 14px;
+         grid-template-columns: repeat(auto-fill, minmax(430px, 1fr)); }
+
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 8px;
+          overflow: hidden; display: flex; flex-direction: column; }
+  .card.done { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+
+  .card h2 { font-size: 15px; margin: 0; padding: 10px 12px 2px; }
+  .card .addr { font-size: 12px; color: var(--ink-muted); padding: 0 12px 8px; }
+
+  .map { height: 380px; }
+
+  .readout { display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+             padding: 8px 12px; font: 12px/1.5 monospace;
+             border-top: 1px solid var(--line); }
+  .readout .moved { color: var(--ink-muted); }
+  .readout .moved.far { color: var(--bad); font-weight: 700; }
+
+  .actions { display: flex; gap: 8px; padding: 0 12px 10px; flex-wrap: wrap;
+             align-items: center; }
+  .actions .ok-btn.on { background: var(--ok); border-color: var(--ok); color: #fff; }
+  .actions a { font-size: 12px; color: var(--ink-muted); margin-left: auto; }
+
+  details { padding: 0 12px 10px; font-size: 12px; line-height: 1.55;
+            color: var(--ink-muted); }
+  details summary { cursor: pointer; color: var(--warn); }
+  details p { margin: 6px 0 0; }
+
+  /* The centre pin. A div icon rather than an image, so the page has no
+     asset dependencies at all and cannot show a broken marker. */
+  .pin { width: 16px; height: 16px; margin: -8px 0 0 -8px;
+         border-radius: 50%; background: #ff48a0; border: 3px solid #fff;
+         box-shadow: 0 0 0 1px rgba(0,0,0,.5); cursor: grab; }
+  .pin-origin { width: 9px; height: 9px; margin: -4px 0 0 -4px;
+                border-radius: 50%; background: #fff; border: 2px solid #444;
+                opacity: .85; }
+
+  #export { padding: 14px 16px 40px; }
+  #export h2 { font-size: 14px; margin: 0 0 8px; }
+  #export textarea { width: 100%; height: 230px; font: 12px/1.5 monospace;
+                     padding: 10px; border: 1px solid var(--line);
+                     border-radius: 6px; background: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Xác nhận toạ độ — 12 checkpoint pilot</h1>
+  <span id="progress"></span>
+  <span class="spacer"></span>
+  <button id="zoom-out">Thu nhỏ tất cả</button>
+  <button id="zoom-in">Phóng to tất cả</button>
+  <button id="do-export">Xuất JSON</button>
+</header>
+
+<div class="hint">
+  Với mỗi ô: nhìn ảnh vệ tinh xem <b>chấm hồng có rơi vào giữa công trình không</b>.
+  Nếu lệch thì <b>bấm vào đúng chỗ</b> hoặc kéo chấm hồng sang. Chấm trắng viền đen
+  là vị trí gốc trong <code>checkpoints.json</code>; vòng tròn là bán kính check-in
+  hiện tại. Xong một ô thì bấm <b>Đúng</b>.
+  Hết 12 ô, bấm <b>Xuất JSON</b> và gửi khối kết quả lại qua chat.
+</div>
+
+<main id="grid"></main>
+
+<section id="export" hidden>
+  <h2>Kết quả — chép cả khối này gửi lại qua chat</h2>
+  <button id="copy">Chép vào clipboard</button>
+  <span id="copy-state" style="font-size:12px;color:var(--ink-muted)"></span>
+  <textarea id="out" readonly spellcheck="false"></textarea>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const CHECKPOINTS = /*__DATA__*/[];
+const GENERATED_AT = /*__GENERATED_AT__*/"";
+
+// Esri World Imagery: satellite tiles without an API key. Attribution is a
+// condition of use, so the control stays on.
+const TILE_URL =
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+const ATTRIB = 'Ảnh vệ tinh: Esri, Maxar, Earthstar Geographics';
+
+const state = new Map();
+
+// Names, addresses and notes come from a content file. They are data, so they
+// get escaped rather than trusted to contain no markup.
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[c]);
+}
+
+function metresBetween(a, b) {
+  const R = 6371008.8;
+  const toRad = d => d * Math.PI / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLon = toRad(b.lon - a.lon);
+  const lat1 = toRad(a.lat), lat2 = toRad(b.lat);
+  const h = Math.sin(dLat / 2) ** 2
+          + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+function paintProgress() {
+  let done = 0;
+  for (const s of state.values()) if (s.verified) done++;
+  document.getElementById('progress').textContent =
+    done + '/' + CHECKPOINTS.length + ' đã xác nhận';
+}
+
+function buildCard(cp) {
+  const origin = { lat: cp.lat, lon: cp.lon };
+  const s = { cp, origin, lat: cp.lat, lon: cp.lon, verified: false };
+  state.set(cp.id, s);
+
+  const card = document.createElement('div');
+  card.className = 'card';
+  const osmPath = encodeURI(cp.source.replace('openstreetmap:', ''));
+  card.innerHTML = `
+    <h2>${esc(cp.name)}</h2>
+    <div class="addr">${esc(cp.address)} · bán kính ${cp.radiusMeters} m · ${esc(cp.category)}</div>
+    <div class="map" id="map-${esc(cp.id)}"></div>
+    <div class="readout">
+      <span class="coords"></span>
+      <span class="moved"></span>
+    </div>
+    <div class="actions">
+      <button class="ok-btn">Đúng</button>
+      <button class="reset-btn">Về vị trí gốc</button>
+      <a href="https://www.openstreetmap.org/${osmPath}"
+         target="_blank" rel="noopener">nguồn OSM</a>
+    </div>
+    ${cp.note ? `<details><summary>Ghi chú cần đọc</summary><p>${esc(cp.note)}</p></details>` : ''}
+  `;
+  document.getElementById('grid').appendChild(card);
+
+  const map = L.map('map-' + cp.id, {
+    center: [cp.lat, cp.lon],
+    zoom: 18,
+    scrollWheelZoom: true,
+  });
+  L.tileLayer(TILE_URL, { maxZoom: 21, maxNativeZoom: 19, attribution: ATTRIB })
+    .addTo(map);
+
+  // Where the value in checkpoints.json currently sits — kept on screen so any
+  // move is judged against it rather than remembered.
+  L.marker([cp.lat, cp.lon], {
+    icon: L.divIcon({ className: '', html: '<div class="pin-origin"></div>' }),
+    interactive: false,
+    keyboard: false,
+  }).addTo(map);
+
+  const ring = L.circle([cp.lat, cp.lon], {
+    radius: cp.radiusMeters,
+    color: '#ff48a0', weight: 2, fillOpacity: 0.06,
+  }).addTo(map);
+
+  const pin = L.marker([cp.lat, cp.lon], {
+    icon: L.divIcon({ className: '', html: '<div class="pin"></div>' }),
+    draggable: true,
+  }).addTo(map);
+
+  const coordsEl = card.querySelector('.coords');
+  const movedEl = card.querySelector('.moved');
+  const okBtn = card.querySelector('.ok-btn');
+
+  function moveTo(lat, lon) {
+    s.lat = lat; s.lon = lon;
+    pin.setLatLng([lat, lon]);
+    ring.setLatLng([lat, lon]);
+    const d = metresBetween(origin, { lat, lon });
+    coordsEl.textContent = lat.toFixed(7) + ', ' + lon.toFixed(7);
+    movedEl.textContent = d < 0.5 ? '· chưa dời' : '· đã dời ' + d.toFixed(0) + ' m';
+    // Past the radius the gate stops being reachable from where the old value
+    // sat — the Lăng Ông case, and the reason this readout exists.
+    movedEl.classList.toggle('far', d > cp.radiusMeters);
+  }
+
+  map.on('click', e => moveTo(e.latlng.lat, e.latlng.lng));
+  pin.on('drag', e => moveTo(e.latlng.lat, e.latlng.lng));
+  pin.on('dragend', e => moveTo(e.target.getLatLng().lat, e.target.getLatLng().lng));
+
+  okBtn.addEventListener('click', () => {
+    s.verified = !s.verified;
+    okBtn.classList.toggle('on', s.verified);
+    okBtn.textContent = s.verified ? 'Đã xác nhận' : 'Đúng';
+    card.classList.toggle('done', s.verified);
+    paintProgress();
+  });
+
+  card.querySelector('.reset-btn').addEventListener('click', () => {
+    moveTo(origin.lat, origin.lon);
+    map.setView([origin.lat, origin.lon], 18);
+  });
+
+  moveTo(cp.lat, cp.lon);
+  s.map = map;
+}
+
+CHECKPOINTS.forEach(buildCard);
+paintProgress();
+
+for (const [id, delta] of [['zoom-in', 1], ['zoom-out', -1]]) {
+  document.getElementById(id).addEventListener('click', () => {
+    for (const s of state.values()) s.map.setZoom(s.map.getZoom() + delta);
+  });
+}
+
+document.getElementById('do-export').addEventListener('click', () => {
+  const out = {};
+  for (const cp of CHECKPOINTS) {
+    const s = state.get(cp.id);
+    out[cp.id] = {
+      lat: Number(s.lat.toFixed(7)),
+      lon: Number(s.lon.toFixed(7)),
+      verified: s.verified,
+    };
+  }
+  const body = {
+    _source: 'tool/coord_verify — trang sinh ngày ' + GENERATED_AT,
+    _checkedAt: new Date().toISOString().slice(0, 10),
+    coordinates: out,
+  };
+  const panel = document.getElementById('export');
+  panel.hidden = false;
+  document.getElementById('out').value = JSON.stringify(body, null, 2);
+  panel.scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('copy').addEventListener('click', async () => {
+  const text = document.getElementById('out');
+  const note = document.getElementById('copy-state');
+  try {
+    await navigator.clipboard.writeText(text.value);
+    note.textContent = 'đã chép';
+  } catch {
+    text.select();
+    note.textContent = 'clipboard bị chặn — đã bôi đen sẵn, bấm Ctrl+C';
+  }
+});
+</script>
+</body>
+</html>
