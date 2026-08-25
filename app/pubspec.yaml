@@ -42,6 +42,9 @@ flutter:
   # Bundled, never fetched at runtime: the app must work offline, and a first
   # launch without a network would fall back to a system font and break layout.
   assets:
+    # Pilot content, bundled so a first launch with no network still has a map
+    # to draw. Kept identical to the root content/ file by a test.
+    - assets/content/checkpoints.json
     - assets/fonts/OFL-BeVietnamPro.txt
     - assets/fonts/OFL-Baloo2.txt
 

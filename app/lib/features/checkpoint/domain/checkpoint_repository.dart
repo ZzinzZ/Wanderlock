@@ -41,4 +41,14 @@ abstract interface class CheckpointRepository {
   /// Never throws and never empties the cache. Losing the network mid-walk is
   /// the normal case this app is built for, not an error state.
   Future<RefreshOutcome> refresh();
+
+  /// Fills an empty cache from the pilot content bundled in the binary.
+  ///
+  /// Returns true when it wrote something. Does nothing when the cache already
+  /// holds rows, so it can never overwrite what a server said: the bundle is
+  /// a floor, not an authority.
+  ///
+  /// Without this a first launch with no reachable server draws an empty map,
+  /// and an empty map cannot be reviewed, demonstrated, or designed against.
+  Future<bool> seedFromBundleIfEmpty();
 }
