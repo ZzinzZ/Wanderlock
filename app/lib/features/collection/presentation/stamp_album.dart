@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:wanderlock/design/tokens/tokens.dart';
+import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/features/collection/domain/stamp.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
@@ -117,9 +118,9 @@ class _StampTile extends StatelessWidget {
                     : colors.inkMuted.withValues(alpha: lockedOpacity),
               ),
               alignment: Alignment.center,
-              child: Icon(
-                stamp.isOwned ? Icons.local_activity : Icons.lock_outline,
-                color: stamp.isOwned ? colors.ink : colors.card,
+              child: AppIcon(
+                stamp.isOwned ? AppIcons.lensCollection : AppIcons.locked,
+                size: AppIconSize.tile,
               ),
             ),
           ),

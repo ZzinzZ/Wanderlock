@@ -5,6 +5,7 @@ import 'package:maplibre_gl/maplibre_gl.dart';
 import 'package:wanderlock/core/config/app_config.dart';
 import 'package:wanderlock/design/map/map_style.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
+import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/features/checkpoint/application/location_providers.dart';
 import 'package:wanderlock/features/checkpoint/application/map_cache_providers.dart';
 import 'package:wanderlock/features/checkpoint/domain/user_location.dart';
@@ -106,16 +107,20 @@ class MapFollowButton extends ConsumerWidget {
 
     // Null while the first permission read is still in flight. Treated as
     // "ask", because that is what it turns out to be on a fresh install.
+    // Two clay icons rather than three Material ones. The set has no
+    // "location disabled" glyph, and inventing one from a crossed-out pin was
+    // not worth it: the shield already says "something is in the way", which
+    // is the only distinction the button needs to make.
     final (icon, tooltip) = switch (availability) {
-      LocationReady() when following => (Icons.my_location, l10n.mapFollowStop),
-      LocationReady() => (Icons.my_location, l10n.mapFollowStart),
-      LocationBlocked() => (Icons.location_disabled, l10n.mapLocationBlocked),
-      LocationServiceOff() => (
-        Icons.location_disabled,
-        l10n.mapLocationServiceOff,
+      LocationReady() when following => (
+        AppIcons.myLocation,
+        l10n.mapFollowStop,
       ),
+      LocationReady() => (AppIcons.myLocation, l10n.mapFollowStart),
+      LocationBlocked() => (AppIcons.warning, l10n.mapLocationBlocked),
+      LocationServiceOff() => (AppIcons.warning, l10n.mapLocationServiceOff),
       LocationNeedsPermission() ||
-      null => (Icons.location_searching, l10n.mapLocationAsk),
+      null => (AppIcons.myLocation, l10n.mapLocationAsk),
     };
 
     return FloatingActionButton(
@@ -123,7 +128,7 @@ class MapFollowButton extends ConsumerWidget {
       tooltip: tooltip,
       backgroundColor: following ? colors.primary : colors.card,
       foregroundColor: colors.ink,
-      child: Icon(icon),
+      child: AppIcon(icon, semanticLabel: tooltip),
     );
   }
 

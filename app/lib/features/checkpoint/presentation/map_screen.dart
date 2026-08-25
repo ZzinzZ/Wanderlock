@@ -38,6 +38,7 @@ class MapScreen extends ConsumerWidget {
                           brightness: brightness,
                         ),
                       ),
+            // clay-icon-gap: the 3dicons set has no download or cloud glyph.
             icon: const Icon(Icons.download_for_offline_outlined),
             tooltip: l10n.mapCacheDownload,
           ),

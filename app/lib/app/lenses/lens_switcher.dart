@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wanderlock/app/lenses/lens.dart';
 import 'package:wanderlock/app/lenses/lens_providers.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
+import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
 /// Picks the lens.
@@ -63,9 +64,9 @@ class _LensChip extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final colors = AppColors.of(context);
 
-    final label = switch (lens) {
-      Lens.fog => l10n.lensFog,
-      Lens.collection => l10n.lensCollection,
+    final (label, icon) = switch (lens) {
+      Lens.fog => (l10n.lensFog, AppIcons.lensMap),
+      Lens.collection => (l10n.lensCollection, AppIcons.lensCollection),
     };
 
     return Semantics(
@@ -88,11 +89,22 @@ class _LensChip extends StatelessWidget {
             color: isSelected ? colors.primary : colors.card,
             borderRadius: AppRadius.pill,
           ),
-          child: Text(
-            label,
-            style: AppTypography.label.copyWith(
-              color: isSelected ? colors.ink : colors.inkMuted,
-            ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Full colour on both chips. With no tint left to dim, an
+              // unselected chip is distinguished by its label and its ground,
+              // not by a quieter icon — and two full-colour icons side by side
+              // is what makes the bar read as a set of places to go.
+              AppIcon(icon),
+              const SizedBox(width: AppSpacing.xs),
+              Text(
+                label,
+                style: AppTypography.label.copyWith(
+                  color: isSelected ? colors.ink : colors.inkMuted,
+                ),
+              ),
+            ],
           ),
         ),
       ),

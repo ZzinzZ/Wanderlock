@@ -190,21 +190,58 @@ Cấm: phản chiếu kim loại, glow, đổ bóng gắt, chi tiết vụn.
 | Loại | SL | Cách làm | Lý do |
 |------|:--:|----------|-------|
 | **Ảnh địa danh** | 12 | **Tự chụp** (ưu tiên) hoặc kho ảnh giấy phép mở / mua stock, rồi áp preset xử lý chung | Rẻ nhất, nhận diện tốt nhất. Chi phí dồn vào khâu **xử lý đồng bộ**, không phải khâu tạo |
-| **Icon điều hướng** | ~15 | **[3dicons.co](https://3dicons.co)** (CC0) — lấy biến thể **clay**, tự nhuộm màu theo palette app | Không cần đặc thù Việt Nam — nguồn có sẵn, miễn phí, đúng chất clay mờ ở mục 7.2 |
+| **Icon điều hướng** | ~26 | **[3dicons.co](https://3dicons.co)** (CC0) — lấy biến thể **`color`**, **dùng nguyên màu gốc** | Không cần đặc thù Việt Nam — nguồn có sẵn, miễn phí, và màu sẵn có hợp hướng trẻ trung |
 | **Nhân vật dẫn truyện** | 1 | **Thuê** | Tài sản thương hiệu, phải sở hữu bản quyền |
 | **Tem / huy hiệu** | 12 | **Dẫn xuất từ ảnh địa danh** (cắt cúp + khung illustration) | Gần như miễn phí, tự động nhất quán với marker trên bản đồ |
 
-**Ghi chú nguồn icon điều hướng — đánh giá 2026-08-25**
+**Ghi chú nguồn icon điều hướng — đánh giá 2026-08-25, sửa lại cùng ngày**
 
-3dicons.co cung cấp 200 icon, mỗi icon có 4 biến thể vật liệu: `color` (bóng, gradient cam/đỏ), `clay` (mờ, đơn sắc trắng), `gradient`, `premium` (kim loại). **Chỉ biến thể `clay` được dùng** — đây là biến thể duy nhất khớp mục 7.2 (mờ không bóng, một nguồn sáng dịu trên-trái, không phản chiếu kim loại, không glow). Ba biến thể còn lại vi phạm danh sách cấm ở mục 10 và **không được dùng**.
+3dicons.co có 120 icon (không phải 200), mỗi icon 4 biến thể vật liệu: `color`,
+`clay`, `gradient`, `premium`.
 
-Ràng buộc kỹ thuật đã biết:
-- Tải về chỉ có PNG/webp dựng sẵn (tối đa 2400×2400), **không có** model glb/Blender nguồn, không nhập được mã hex tùy ý — Figma plugin cũng chỉ chèn ảnh, không đổi màu vật liệu trong Figma.
-- Vì bản `clay` chỉ có màu trắng đơn sắc, **bắt buộc thêm bước nhuộm màu** (tint/duotone overlay) để ra đúng các mã trong bảng màu app trước khi đưa vào sản phẩm — không dùng trắng nguyên bản.
-- Icon đến từ nhiều đợt vẽ khác nhau của cùng bộ — khi chọn icon, kiểm tra tỷ lệ và độ dày hình khối giữa các icon đã chọn để không bị lệch bộ.
-- License CC0 nên không bắt buộc ghi nguồn, nhưng vẫn nên ghi lại nguồn `3dicons.co` trong `content/` cho nhất quán với cách quản lý tài sản ảnh ở mục 7.1.
+> **CHỦ DỰ ÁN ĐỔI QUYẾT ĐỊNH — 2026-08-25.** Bản đánh giá buổi sáng chốt dùng
+> `clay` rồi tự nhuộm màu. Chủ dự án chọn **`color`, giữ nguyên màu gốc**, lý do:
+> app định hướng trẻ trung và nhiều màu. Mục này ghi lại quyết định đó; hai chỗ
+> nó chạm vào danh sách cấm ghi ở dưới.
 
-**Việc còn treo:** làm thử 1–2 icon nhuộm màu để duyệt hình trước khi áp dụng cho cả 15 icon.
+**Đã đo trên file tải về, không phải đọc mô tả:**
+
+| | `clay` | `color` |
+|---|---|---|
+| Kích thước | 400×400 PNG, nền trong suốt | 400×400 PNG, nền trong suốt |
+| Màu | **100% pixel đục là đơn sắc**, luma 137–239 | Bão hoà 0,55–0,84 |
+| Dải màu | không có | cam 34° · xanh lá 95° · xanh ngọc 164–190° · xanh dương 245°; riêng `key` là bạc xám |
+| Cần nhuộm không | **Bắt buộc** | **Không** — dùng nguyên bản |
+
+Mô tả cũ *"`color` = bóng, gradient cam/đỏ"* là **sai**: bộ này trải khắp vòng
+màu chứ không chỉ cam/đỏ. Ảnh chụp trang explore của 3dicons xác nhận: khiên
+xanh ngọc, sổ xanh dương, ví nâu, dấu tick xanh.
+
+**Hai chỗ chạm danh sách cấm (mục 10):**
+
+1. *"Gradient trên chữ, nút, icon"* — icon `color` có chuyển sắc trên khối 3D.
+   **Ngoại lệ được duyệt cho icon**, vì đó là đổ bóng của một vật thể ba chiều
+   chứ không phải gradient trang trí phết lên một hình phẳng. Luật vẫn giữ
+   nguyên với **chữ và nút**.
+2. *"Tối đa 3 màu nhấn trên một màn hình"* (mục 2.3) — đây mới là luật thật sự
+   bị tiêu tốn. Mỗi icon tự mang màu của nó vào màn hình, nên **phải đếm màu
+   khi chọn icon cho từng màn**, không phải chọn theo nghĩa rồi thôi.
+
+Ràng buộc kỹ thuật vẫn đúng cho cả hai biến thể:
+- Tải về chỉ có PNG/webp dựng sẵn, **không có** model glb/Blender nguồn.
+- Icon đến từ nhiều đợt vẽ khác nhau của cùng bộ — khi chọn, kiểm tra tỷ lệ và
+  độ dày hình khối giữa các icon đã chọn để không bị lệch bộ.
+- CC0 không bắt buộc ghi nguồn, nhưng vẫn ghi ở `content/icon-licenses.md` cho
+  nhất quán với cách quản lý ảnh ở mục 7.1.
+
+**Bộ `clay` vẫn giữ trong `content/icons/3dicons-clay/`** dù không dùng: nếu sau
+này có bề mặt cần icon một màu theo token thì đã có sẵn, khỏi tải lại.
+
+**⚠️ Bộ 120 icon thiếu 5 thứ dự án sẽ cần:** đóng (×), tải lại, tải bản đồ
+offline, **QR** (mục 5.6 của scope), **chia sẻ** (màn Bản đồ ký ức). Ba cái đầu
+hiện vẫn dùng Material Icons, có chú thích `clay-icon-gap` tại chỗ và có test
+đếm để con số không lặng lẽ tăng. Chưa quyết cách xử lý — xem
+`content/icon-licenses.md`.
 
 **AI dùng ở đâu:** phác thảo concept và thử bố cục để duyệt nhanh. **Không dùng AI sinh ảnh địa danh** — sai chi tiết kiến trúc là lỗi không chấp nhận được với một app dạy về địa điểm thật.
 
@@ -246,7 +283,7 @@ Cách này giữ được kịch tính khám phá mà không bắt người dùn
 
 - ❌ Bóng mềm neumorphic trên bản đồ hoặc trên nút hành động chính
 - ❌ Quá 3 màu nhấn trên một màn hình
-- ❌ Gradient trên chữ, nút, icon
+- ❌ Gradient trên chữ và nút — **icon 3D là ngoại lệ đã duyệt 2026-08-25**, xem mục 7.3
 - ❌ Map style mặc định của nhà cung cấp
 - ❌ Ảnh chưa qua preset xử lý chung (lệch tông là hỏng cả hệ thống)
 - ❌ Ảnh không rõ nguồn / không rõ giấy phép
@@ -265,4 +302,4 @@ Cách này giữ được kịch tính khám phá mà không bắt người dùn
 2. ~~Chốt cách sản xuất~~ → đã chốt: **địa danh dùng ảnh thật**, illustration chỉ cho icon/nhân vật. Còn lại: **gom 12 ảnh có bản quyền rõ ràng + dựng preset xử lý**
 3. Chốt style bản đồ tuỳ biến
 4. ~~Chốt số lăng kính cho v1~~ → đã chốt **5** (thêm Tùy chỉnh hành trình; Xã hội hoãn sang v1.5)
-5. ~~Chốt nguồn icon điều hướng~~ → đã chọn **3dicons.co** (CC0, biến thể `clay`). Còn lại: **làm thử 1–2 icon nhuộm màu theo palette để duyệt** trước khi áp dụng cho cả 15 icon (xem mục 7.3)
+5. ~~Chốt nguồn icon điều hướng~~ → đã chọn **3dicons.co** (CC0, biến thể **`color`**, giữ nguyên màu gốc — chủ dự án chốt 2026-08-25). Đã tải cả 120 icon và bundle 26 cái đang dùng. Còn lại: **quyết cách bù 5 icon bộ này không có** (đóng · tải lại · tải offline · QR · chia sẻ), và **soát lại luật 3 màu nhấn/màn hình** giờ khi icon tự mang màu (xem mục 7.3)

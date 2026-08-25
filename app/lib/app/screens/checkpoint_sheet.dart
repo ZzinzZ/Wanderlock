@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:wanderlock/core/config/app_config.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
+import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/design/widgets/primary_button.dart';
 import 'package:wanderlock/features/checkpoint/application/location_providers.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
@@ -53,6 +54,8 @@ class CheckpointSheet extends ConsumerWidget {
                 ),
                 IconButton(
                   onPressed: onDismiss,
+                  // clay-icon-gap: no close glyph in the clay set; a rotated
+                  // plus reads as a hack rather than as a control.
                   icon: const Icon(Icons.close),
                   color: colors.inkMuted,
                 ),
@@ -66,10 +69,11 @@ class CheckpointSheet extends ConsumerWidget {
             const SizedBox(height: AppSpacing.sm),
             Row(
               children: [
-                Icon(
-                  isVisited ? Icons.check_circle : Icons.lock_outline,
-                  size: _statusIconSize,
-                  color: isVisited ? colors.primary : colors.coral,
+                // The tick is green and the padlock is amber in the artwork
+                // itself, which is the same story the old tinted icons told.
+                AppIcon(
+                  isVisited ? AppIcons.visited : AppIcons.locked,
+                  size: AppIconSize.inline,
                 ),
                 const SizedBox(width: AppSpacing.xs),
                 Text(
@@ -136,5 +140,3 @@ class CheckpointSheet extends ConsumerWidget {
     );
   }
 }
-
-const double _statusIconSize = 18;

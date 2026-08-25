@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:wanderlock/design/tokens/tokens.dart';
+import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
 /// The three seconds a checkpoint opens.
@@ -331,7 +332,7 @@ class _BadgeDrop extends StatelessWidget {
             borderRadius: AppRadius.marker,
             color: colors.card,
           ),
-          child: Icon(Icons.local_activity, color: colors.unlockMoment),
+          child: const AppIcon(AppIcons.reward),
         ),
       ),
     );
