@@ -164,5 +164,98 @@
   "mapLocationServiceOffBanner": "Location services are off on this device.",
   "@mapLocationServiceOffBanner": {
     "description": "Banner shown when location services are disabled device-wide."
+  },
+  "lensTitle": "Lens",
+  "@lensTitle": {
+      "description": "Label above the lens switcher."
+  },
+  "lensFog": "Fog of war",
+  "@lensFog": {
+      "description": "Name of the fog lens."
+  },
+  "lensCollection": "Collection",
+  "@lensCollection": {
+      "description": "Name of the collection lens."
+  },
+  "exploreTitle": "Explore",
+  "@exploreTitle": {
+      "description": "Title of the main map screen."
+  },
+  "standInModeBadge": "Demo build",
+  "@standInModeBadge": {
+      "description": "Badge shown when no server is configured and a stand-in grants check-ins."
+  },
+  "standInModeHint": "No server in this build. Tap a marker, then unlock, to see every lens react.",
+  "@standInModeHint": {
+      "description": "Explains why unlocking works without walking."
+  },
+  "checkpointLockedLabel": "Not unlocked",
+  "@checkpointLockedLabel": {
+      "description": "State line on a checkpoint that has not been visited."
+  },
+  "checkpointUnlockedLabel": "Unlocked",
+  "@checkpointUnlockedLabel": {
+      "description": "State line on a visited checkpoint."
+  },
+  "checkpointUnlockAction": "Unlock this place",
+  "@checkpointUnlockAction": {
+      "description": "Button that requests a check-in."
+  },
+  "checkpointPhotoPending": "Photograph pending licensing",
+  "@checkpointPhotoPending": {
+      "description": "Placeholder caption where a landmark photograph will go."
+  },
+  "checkInTooFar": "{distance} m away — you must be within {radius} m.",
+  "@checkInTooFar": {
+      "description": "Refusal when the position is outside the radius.",
+      "placeholders": {
+          "distance": {
+              "type": "int"
+          },
+          "radius": {
+              "type": "int"
+          }
+      }
+  },
+  "checkInUnavailable": "Could not reach the server. Your position was not sent anywhere.",
+  "@checkInUnavailable": {
+      "description": "Shown when nobody could be asked."
+  },
+  "checkInRejected": "The server refused this check-in ({reason}).",
+  "@checkInRejected": {
+      "description": "Shown when the server refused for a reason walking cannot fix.",
+      "placeholders": {
+          "reason": {
+              "type": "String"
+          }
+      }
+  },
+  "unlockMomentHeading": "Unlocked",
+  "@unlockMomentHeading": {
+      "description": "Word shown during the three-second unlock moment."
+  },
+  "collectionTitle": "Collection",
+  "@collectionTitle": {
+      "description": "Title of the collection lens panel."
+  },
+  "collectionProgress": "{owned} of {total} places",
+  "@collectionProgress": {
+      "description": "Progress line in the collection.",
+      "placeholders": {
+          "owned": {
+              "type": "int"
+          },
+          "total": {
+              "type": "int"
+          }
+      }
+  },
+  "collectionEmpty": "No stamps yet. Reach a place to earn its stamp.",
+  "@collectionEmpty": {
+      "description": "Empty state of the collection."
+  },
+  "fogLegendCleared": "Colour returns to where you have been",
+  "@fogLegendCleared": {
+      "description": "Legend line for the fog lens."
   }
 }

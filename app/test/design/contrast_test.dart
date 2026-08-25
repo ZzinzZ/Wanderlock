@@ -57,6 +57,25 @@ void main() {
         );
       });
 
+      // The three-second unlock moment floods the screen with pink and writes
+      // on top of it. The first build drew that text in the pink itself and it
+      // was invisible; the fix is only a fix if it measures.
+      test('$name: text on the unlock flood', () {
+        expect(
+          contrastRatio(colors.onUnlockMoment, colors.unlockMoment),
+          greaterThanOrEqualTo(_normalText),
+        );
+      });
+
+      test('$name: white would NOT have passed on the unlock flood', () {
+        // Records why the obvious choice was rejected, so nobody "simplifies"
+        // it back to white.
+        expect(
+          contrastRatio(const Color(0xFFFFFFFF), colors.unlockMoment),
+          lessThan(_normalText),
+        );
+      });
+
       test('$name: body text on a card', () {
         expect(
           contrastRatio(colors.ink, colors.card),

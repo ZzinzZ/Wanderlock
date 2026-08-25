@@ -30,6 +30,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.decorativePurple,
     required this.decorativeMint,
     required this.unlockMoment,
+    required this.onUnlockMoment,
     required this.neumorphicShadow,
     required this.neumorphicHighlight,
   });
@@ -83,6 +84,17 @@ class AppColors extends ThemeExtension<AppColors> {
   /// See docs/09-art-direction.md section 9.
   final Color unlockMoment;
 
+  /// Text drawn on top of [unlockMoment].
+  ///
+  /// Dark ink in **both** themes, and chosen rather than transcribed: the
+  /// flood is the same pink whatever the theme, so its text cannot follow the
+  /// theme. White on `#FF48A0` measures 3.09:1 and fails the art direction's
+  /// own 4.5:1 rule for normal text; this ink measures 5.07:1.
+  ///
+  /// Found by looking at the first build, where the heading was drawn in the
+  /// pink itself and was simply invisible against the pink behind it.
+  final Color onUnlockMoment;
+
   /// Outer shadow for neumorphic surfaces. Never on the map, never on a
   /// primary action: "neumorphism for surfaces, solid blocks for actions".
   final Color neumorphicShadow;
@@ -106,6 +118,7 @@ class AppColors extends ThemeExtension<AppColors> {
     decorativePurple: Color(0xFFA26BFF),
     decorativeMint: Color(0xFF7ED6C1),
     unlockMoment: Color(0xFFFF48A0),
+    onUnlockMoment: Color(0xFF1F2430),
     neumorphicShadow: Color(0x141F2430),
     neumorphicHighlight: Color(0xE6FFFFFF),
   );
@@ -131,6 +144,9 @@ class AppColors extends ThemeExtension<AppColors> {
     decorativePurple: Color(0xFFA26BFF),
     decorativeMint: Color(0xFF7ED6C1),
     unlockMoment: Color(0xFFFF48A0),
+    // Same ink as light, deliberately: the flood does not change between
+    // themes, so nor may the text on it.
+    onUnlockMoment: Color(0xFF1F2430),
     // Neumorphism needs a flat surface and controlled light. On a dark ground
     // the highlight has to be far weaker or the surface looks plastic.
     neumorphicShadow: Color(0x4D000000),
@@ -157,6 +173,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? decorativePurple,
     Color? decorativeMint,
     Color? unlockMoment,
+    Color? onUnlockMoment,
     Color? neumorphicShadow,
     Color? neumorphicHighlight,
   }) {
@@ -176,6 +193,7 @@ class AppColors extends ThemeExtension<AppColors> {
       decorativePurple: decorativePurple ?? this.decorativePurple,
       decorativeMint: decorativeMint ?? this.decorativeMint,
       unlockMoment: unlockMoment ?? this.unlockMoment,
+      onUnlockMoment: onUnlockMoment ?? this.onUnlockMoment,
       neumorphicShadow: neumorphicShadow ?? this.neumorphicShadow,
       neumorphicHighlight: neumorphicHighlight ?? this.neumorphicHighlight,
     );
@@ -204,6 +222,7 @@ class AppColors extends ThemeExtension<AppColors> {
       )!,
       decorativeMint: Color.lerp(decorativeMint, other.decorativeMint, t)!,
       unlockMoment: Color.lerp(unlockMoment, other.unlockMoment, t)!,
+      onUnlockMoment: Color.lerp(onUnlockMoment, other.onUnlockMoment, t)!,
       neumorphicShadow: Color.lerp(
         neumorphicShadow,
         other.neumorphicShadow,

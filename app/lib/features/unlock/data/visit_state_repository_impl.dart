@@ -32,6 +32,10 @@ class VisitStateRepositoryImpl implements VisitStateRepository {
       local.replaceAll(userIdOf(), visits);
 
   @override
+  Future<void> cacheGranted(VisitState visit) =>
+      local.upsertOne(userIdOf(), visit);
+
+  @override
   Future<VisitSyncOutcome> refresh() async {
     final userId = userIdOf();
     final source = remote;
