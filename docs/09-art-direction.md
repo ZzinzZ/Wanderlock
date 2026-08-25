@@ -190,9 +190,21 @@ Cấm: phản chiếu kim loại, glow, đổ bóng gắt, chi tiết vụn.
 | Loại | SL | Cách làm | Lý do |
 |------|:--:|----------|-------|
 | **Ảnh địa danh** | 12 | **Tự chụp** (ưu tiên) hoặc kho ảnh giấy phép mở / mua stock, rồi áp preset xử lý chung | Rẻ nhất, nhận diện tốt nhất. Chi phí dồn vào khâu **xử lý đồng bộ**, không phải khâu tạo |
-| **Icon điều hướng** | ~15 | **Mua asset pack 3D** | Không cần đặc thù Việt Nam — mua là rẻ và nhanh nhất |
+| **Icon điều hướng** | ~15 | **[3dicons.co](https://3dicons.co)** (CC0) — lấy biến thể **clay**, tự nhuộm màu theo palette app | Không cần đặc thù Việt Nam — nguồn có sẵn, miễn phí, đúng chất clay mờ ở mục 7.2 |
 | **Nhân vật dẫn truyện** | 1 | **Thuê** | Tài sản thương hiệu, phải sở hữu bản quyền |
 | **Tem / huy hiệu** | 12 | **Dẫn xuất từ ảnh địa danh** (cắt cúp + khung illustration) | Gần như miễn phí, tự động nhất quán với marker trên bản đồ |
+
+**Ghi chú nguồn icon điều hướng — đánh giá 2026-08-25**
+
+3dicons.co cung cấp 200 icon, mỗi icon có 4 biến thể vật liệu: `color` (bóng, gradient cam/đỏ), `clay` (mờ, đơn sắc trắng), `gradient`, `premium` (kim loại). **Chỉ biến thể `clay` được dùng** — đây là biến thể duy nhất khớp mục 7.2 (mờ không bóng, một nguồn sáng dịu trên-trái, không phản chiếu kim loại, không glow). Ba biến thể còn lại vi phạm danh sách cấm ở mục 10 và **không được dùng**.
+
+Ràng buộc kỹ thuật đã biết:
+- Tải về chỉ có PNG/webp dựng sẵn (tối đa 2400×2400), **không có** model glb/Blender nguồn, không nhập được mã hex tùy ý — Figma plugin cũng chỉ chèn ảnh, không đổi màu vật liệu trong Figma.
+- Vì bản `clay` chỉ có màu trắng đơn sắc, **bắt buộc thêm bước nhuộm màu** (tint/duotone overlay) để ra đúng các mã trong bảng màu app trước khi đưa vào sản phẩm — không dùng trắng nguyên bản.
+- Icon đến từ nhiều đợt vẽ khác nhau của cùng bộ — khi chọn icon, kiểm tra tỷ lệ và độ dày hình khối giữa các icon đã chọn để không bị lệch bộ.
+- License CC0 nên không bắt buộc ghi nguồn, nhưng vẫn nên ghi lại nguồn `3dicons.co` trong `content/` cho nhất quán với cách quản lý tài sản ảnh ở mục 7.1.
+
+**Việc còn treo:** làm thử 1–2 icon nhuộm màu để duyệt hình trước khi áp dụng cho cả 15 icon.
 
 **AI dùng ở đâu:** phác thảo concept và thử bố cục để duyệt nhanh. **Không dùng AI sinh ảnh địa danh** — sai chi tiết kiến trúc là lỗi không chấp nhận được với một app dạy về địa điểm thật.
 
@@ -253,3 +265,4 @@ Cách này giữ được kịch tính khám phá mà không bắt người dùn
 2. ~~Chốt cách sản xuất~~ → đã chốt: **địa danh dùng ảnh thật**, illustration chỉ cho icon/nhân vật. Còn lại: **gom 12 ảnh có bản quyền rõ ràng + dựng preset xử lý**
 3. Chốt style bản đồ tuỳ biến
 4. ~~Chốt số lăng kính cho v1~~ → đã chốt **5** (thêm Tùy chỉnh hành trình; Xã hội hoãn sang v1.5)
+5. ~~Chốt nguồn icon điều hướng~~ → đã chọn **3dicons.co** (CC0, biến thể `clay`). Còn lại: **làm thử 1–2 icon nhuộm màu theo palette để duyệt** trước khi áp dụng cho cả 15 icon (xem mục 7.3)
