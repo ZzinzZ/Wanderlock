@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 
+import 'package:wanderlock/app/onboarding/onboarding_gate.dart';
 import 'package:wanderlock/app/routes.dart';
-import 'package:wanderlock/app/screens/explore_screen.dart';
 import 'package:wanderlock/app/screens/home_screen.dart';
 import 'package:wanderlock/app/screens/type_specimen_screen.dart';
 import 'package:wanderlock/features/checkpoint/presentation/checkpoint_list_screen.dart';
@@ -23,7 +23,7 @@ GoRouter buildAppRouter({String initialLocation = AppRoutes.home}) {
     routes: [
       GoRoute(
         path: AppRoutes.home,
-        builder: (context, state) => const ExploreScreen(),
+        builder: (context, state) => const OnboardingGate(),
       ),
       GoRoute(
         path: AppRoutes.shell,
