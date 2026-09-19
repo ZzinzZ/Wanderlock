@@ -77,8 +77,10 @@ máy dev** (máy thật, ra đường).
    bán kính check-in.** Lăng Ông Bà Chiểu lệch 83m so với bán kính 60m; quán ăn
    40m, công viên/TTTM tới 150m đang là số ước lượng.
 6. **Chọn 12 ảnh địa danh** — vẫn cần (chủ dự án chốt 2026-09-19: sticker trên
-   bản đồ, ảnh thật dùng ở chỗ khác). Ứng viên Commons + giấy phép có sẵn trong
+   bản đồ, ảnh thật dùng ở **màn "Đã mở khoá!"** và **thẻ chi tiết địa điểm**). Ứng viên Commons + giấy phép có sẵn trong
    `content/image-licenses.md`; chưa ai nhìn ảnh.
+   **Phạm vi: cả 277 điểm** (chủ dự án chốt) — việc gom ảnh có giấy phép rất lớn.
+   Chưa chốt: điểm chưa có ảnh thì tạm hiện gì.
    **Landmark 81** — Việt Nam không có freedom of panorama theo Commons. Rẻ
    nhất là thay bằng điểm khác.
 7. **Sticker công trình** là hình tạm — cần hoạ sĩ vẽ lại.
@@ -92,8 +94,13 @@ máy dev** (máy thật, ra đường).
 **Phiên 2026-09-19**
 - **Giao diện sticker cartoon** (docs/09 mục 0) thắng các mục cũ khi mâu thuẫn:
   viền mực, bóng cứng, màu bão hoà, sticker công trình thay icon chung, icon 3D
-  giữ cho điều khiển. **Marker trên bản đồ là sticker; ảnh thật vẫn giữ cho
-  chỗ khác** (chủ dự án chốt: "cả hai").
+  giữ cho điều khiển. **Marker trên bản đồ là sticker; ảnh thật dùng ở màn
+  "Đã mở khoá!" và thẻ chi tiết địa điểm** (chủ dự án chốt 2026-09-19).
+- **Ảnh thật — chi tiết (chốt 2026-09-19):**
+  - Màn "Đã mở khoá!" đi **hai bước**: hiện sticker trước, rồi lật/chuyển sang ảnh thật.
+  - **Tìm ảnh cho cả 265 điểm OSM**, không chỉ 12 điểm gốc.
+  - Landmark 81 (không có freedom of panorama): **để sau**.
+  - docs/09 **giữ nguyên**, không sửa các dòng cũ về ảnh thật; mục 0 thắng khi mâu thuẫn.
 - **Pilot mở rộng** (docs/08, khối "Sửa 2026-09-19"): 12 điểm gốc + 265 điểm OSM,
   5 loại mới (`park`, `shopping`, `food`, `sight`, `entertainment`) có migration
   enum ở Supabase. Bán kính theo loại.
