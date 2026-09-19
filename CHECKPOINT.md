@@ -59,7 +59,7 @@ máy dev** (máy thật, ra đường).
 | Nước/cây/đường/nền đúng mã màu | ✅ |
 | Sáng và tối là hai bản đồ riêng | ✅ |
 | Tắt mạng → vùng cache vẫn hiện | ✅ |
-| Marker đúng toạ độ | 🟡 **đổi hướng**: marker giờ là **sticker công trình** (docs/09 mục 0), không còn chờ ảnh thật. Sticker là hình tạm từ `content/landmarks/generate.py` |
+| Marker đúng toạ độ | 🟡 marker **trên bản đồ** là **sticker công trình** (docs/09 mục 0), không chờ ảnh. Sticker là hình tạm từ `content/landmarks/generate.py`. Ảnh thật vẫn cần ở chỗ khác — mục 2 |
 | Cuộn/phóng ≥ 55 FPS máy tầm trung | ⛔ **cần máy thật** |
 
 ---
@@ -76,8 +76,11 @@ máy dev** (máy thật, ra đường).
 5. **Phase S** — 3 spike FPS / %pin / sai số GPS, cần ra đường. **S3 quyết định
    bán kính check-in.** Lăng Ông Bà Chiểu lệch 83m so với bán kính 60m; quán ăn
    40m, công viên/TTTM tới 150m đang là số ước lượng.
-6. **Landmark 81** — Việt Nam không có freedom of panorama theo Commons. Rẻ
-   nhất là thay bằng điểm khác (chi tiết `content/image-licenses.md`).
+6. **Chọn 12 ảnh địa danh** — vẫn cần (chủ dự án chốt 2026-09-19: sticker trên
+   bản đồ, ảnh thật dùng ở chỗ khác). Ứng viên Commons + giấy phép có sẵn trong
+   `content/image-licenses.md`; chưa ai nhìn ảnh.
+   **Landmark 81** — Việt Nam không có freedom of panorama theo Commons. Rẻ
+   nhất là thay bằng điểm khác.
 7. **Sticker công trình** là hình tạm — cần hoạ sĩ vẽ lại.
 8. **12 chương truyện** (lăng kính Story) — định dạng đã có, chờ nội dung.
 9. **Tên chính thức** — không gấp.
@@ -89,7 +92,8 @@ máy dev** (máy thật, ra đường).
 **Phiên 2026-09-19**
 - **Giao diện sticker cartoon** (docs/09 mục 0) thắng các mục cũ khi mâu thuẫn:
   viền mực, bóng cứng, màu bão hoà, sticker công trình thay icon chung, icon 3D
-  giữ cho điều khiển. Marker **không** còn dùng ảnh thật.
+  giữ cho điều khiển. **Marker trên bản đồ là sticker; ảnh thật vẫn giữ cho
+  chỗ khác** (chủ dự án chốt: "cả hai").
 - **Pilot mở rộng** (docs/08, khối "Sửa 2026-09-19"): 12 điểm gốc + 265 điểm OSM,
   5 loại mới (`park`, `shopping`, `food`, `sight`, `entertainment`) có migration
   enum ở Supabase. Bán kính theo loại.
@@ -126,7 +130,7 @@ máy dev** (máy thật, ra đường).
   phóng to z14 cho z15-17. Điều này làm vùng cache rẻ hơn nhiều so với trực giác.
 - Vùng cache offline **tính từ hộp bao quanh checkpoint + đệm 2 km**, không viết
   cứng. Lề đo bằng **ki-lô-mét** nên phải nhân cosine vĩ độ cho kinh độ.
-- ~~Marker checkpoint dùng **ảnh thật**~~ — **đã thay 2026-09-19 bằng sticker công trình**. Ghi chú cũ: — đã sửa dòng sót ở mục 6 art direction cho
+- Marker checkpoint dùng **ảnh thật** — *sửa 2026-09-19: trên bản đồ là sticker, ảnh thật dùng ở chỗ khác*. Đã sửa dòng sót ở mục 6 art direction cho
   khớp với mục 7.1, 7.2, danh sách cấm và nhật ký quyết định (vốn đều đã nói ảnh thật).
 
 **Vị trí người dùng**
