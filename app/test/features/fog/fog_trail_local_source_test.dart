@@ -16,7 +16,7 @@ void main() {
   tearDown(() => db.close());
 
   test('a fresh install has explored nothing', () async {
-    expect(await source.watch().first, isEmpty);
+    expect(await source.readAll(), isEmpty);
   });
 
   test('the trail reads back in the order it was walked', () async {
@@ -27,11 +27,11 @@ void main() {
     await source.append([a, b]);
     await source.append([c]);
 
-    expect(await source.watch().first, [a, b, c]);
+    expect(await source.readAll(), [a, b, c]);
   });
 
   test('appending nothing writes nothing', () async {
     await source.append(const []);
-    expect(await source.watch().first, isEmpty);
+    expect(await source.readAll(), isEmpty);
   });
 }

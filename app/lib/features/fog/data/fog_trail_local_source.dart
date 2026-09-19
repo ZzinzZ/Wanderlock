@@ -13,15 +13,14 @@ class FogTrailLocalSource implements FogTrailRepository {
   final AppDatabase _db;
 
   @override
-  Stream<List<TrailPoint>> watch() {
-    return (_db.select(
+  Future<List<TrailPoint>> readAll() async {
+    final rows = await (_db.select(
       _db.exploredPointRows,
-    )..orderBy([(row) => OrderingTerm(expression: row.id)])).watch().map(
-      (rows) => [
-        for (final row in rows)
-          TrailPoint(latitude: row.latitude, longitude: row.longitude),
-      ],
-    );
+    )..orderBy([(row) => OrderingTerm(expression: row.id)])).get();
+    return [
+      for (final row in rows)
+        TrailPoint(latitude: row.latitude, longitude: row.longitude),
+    ];
   }
 
   @override

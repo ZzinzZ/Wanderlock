@@ -259,12 +259,6 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     final lens = ref.watch(lensProvider);
     final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
     final visitedIds = ref.watch(visitedCheckpointIdsProvider);
-    // Checkpoint clearings from `visit_state`, plus the trail the explorer
-    // has walked or panned. Two sources, one fog.
-    final holes = [
-      ...ref.watch(fogHolesProvider),
-      ...ref.watch(fogTrailHolesProvider),
-    ];
 
     // Content is pulled once, here, because this is the first screen. Watched
     // rather than read so the outcome is not thrown away.
@@ -290,23 +284,37 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
 
           if (canDrawLayers) ...[
             if (lens == Lens.fog)
+              // A Consumer of its own: the trail grows on every step of a pan,
+              // and rebuilding the whole screen for it was a large part of
+              // why panning stuttered.
               Positioned.fill(
-                child: FogOverlay(
-                  controller: controller,
-                  fallbackCamera: CheckpointMapCanvas.initialCamera,
-                  holes: holes,
+                child: RepaintBoundary(
+                  child: Consumer(
+                    builder: (context, ref, _) => FogOverlay(
+                      controller: controller,
+                      fallbackCamera: CheckpointMapCanvas.initialCamera,
+                      // Checkpoint clearings from `visit_state`, plus the
+                      // trail the explorer has walked or panned.
+                      holes: [
+                        ...ref.watch(fogHolesProvider),
+                        ...ref.watch(fogTrailHolesProvider),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             // Widgets, not a map layer — see CheckpointMarkerOverlay for why.
             // They no longer wait for the fog: nothing MapLibre draws can end
             // up on top of a Flutter widget, so the ordering race is gone.
             Positioned.fill(
-              child: CheckpointMarkerOverlay(
-                controller: controller,
-                fallbackCamera: CheckpointMapCanvas.initialCamera,
-                checkpoints: checkpoints,
-                visitedIds: visitedIds,
-                onTap: (checkpoint) => setState(() => _selected = checkpoint),
+              child: RepaintBoundary(
+                child: CheckpointMarkerOverlay(
+                  controller: controller,
+                  fallbackCamera: CheckpointMapCanvas.initialCamera,
+                  checkpoints: checkpoints,
+                  visitedIds: visitedIds,
+                  onTap: (checkpoint) => setState(() => _selected = checkpoint),
+                ),
               ),
             ),
             // The explorer, pinned to the centre of the map while panning

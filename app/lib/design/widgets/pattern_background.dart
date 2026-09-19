@@ -16,12 +16,15 @@ class PatternBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
 
+    // Thousands of dots: drawn once, cached, and kept out of the child's
+    // repaints by the boundary.
     return CustomPaint(
       painter: _DotPainter(
         ground: colors.patternGround,
         dot: colors.patternDot,
       ),
-      child: child,
+      isComplex: true,
+      child: RepaintBoundary(child: child),
     );
   }
 }

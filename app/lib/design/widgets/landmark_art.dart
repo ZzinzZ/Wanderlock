@@ -1,7 +1,5 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:wanderlock/design/widgets/app_icon.dart';
-
 /// A cartoon sticker of a building, drawn for the sticker pass.
 ///
 /// Provisional artwork, drawn in-house to settle the direction; sources and
@@ -37,6 +35,15 @@ class LandmarkArt {
 /// Draws one [LandmarkArt], greyed while the place is not yet reached —
 /// "colour returns to where you have been", the same rule as [AppIcon].
 class LandmarkImage extends StatelessWidget {
+  /// [AppIcon.greyscaleMatrix] with the alpha row scaled to 70 %: greyed and
+  /// faded in a single pass.
+  static const List<double> _mutedMatrix = <double>[
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0.2126, 0.7152, 0.0722, 0, 0, //
+    0, 0, 0, 0.7, 0, //
+  ];
+
   const LandmarkImage(
     this.name, {
     required this.size,
@@ -56,12 +63,11 @@ class LandmarkImage extends StatelessWidget {
       height: size,
     );
     if (!isMuted) return image;
-    return Opacity(
-      opacity: 0.7,
-      child: ColorFiltered(
-        colorFilter: const ColorFilter.matrix(AppIcon.greyscaleMatrix),
-        child: image,
-      ),
+    // One ColorFiltered doing both jobs. An Opacity around it cost a second
+    // offscreen layer per locked marker, on every frame of a pan.
+    return ColorFiltered(
+      colorFilter: const ColorFilter.matrix(_mutedMatrix),
+      child: image,
     );
   }
 }

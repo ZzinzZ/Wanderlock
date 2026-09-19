@@ -110,8 +110,13 @@ class FogTrail {
 }
 
 /// Where the trail is kept.
+///
+/// Read once and appended to — deliberately no live query. The trail grows by
+/// a point every few metres of panning, and a watched query re-reads every
+/// row on every insert: that made each step of a pan cost the whole history,
+/// and the app got slower the more it had been played.
 abstract interface class FogTrailRepository {
-  Stream<List<TrailPoint>> watch();
+  Future<List<TrailPoint>> readAll();
 
   Future<void> append(List<TrailPoint> points);
 }
