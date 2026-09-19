@@ -151,7 +151,10 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
 
     final explorer = _explorer.value;
     if (explorer == null || lastCentre == null || lastZoom == null) {
-      _walkTo(centre.latitude, centre.longitude);
+      // Setting the explorer down is not arriving. The default camera sits
+      // inside the radius of a place in the city centre, and a fresh install
+      // opened to "1 of 277" before the player had moved at all.
+      _walkTo(centre.latitude, centre.longitude, mayUnlock: false);
     } else if ((camera.zoom - lastZoom).abs() > _zoomTolerance) {
       _zoomedThisGesture = true;
     } else {
@@ -167,9 +170,11 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     }
   }
 
-  void _walkTo(double latitude, double longitude) {
-    _explorer.value = TrailPoint(latitude: latitude, longitude: longitude);
-    _explore(latitude, longitude, mayUnlock: true);
+  void _walkTo(double latitude, double longitude, {bool mayUnlock = true}) {
+    final point = TrailPoint(latitude: latitude, longitude: longitude);
+    _explorer.value = point;
+    if (!mayUnlock) _lastPanPoint = point;
+    _explore(latitude, longitude, mayUnlock: mayUnlock);
   }
 
   Future<void> _recentre(MapLibreMapController controller) async {
@@ -236,7 +241,13 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
       final nearest = isJump
           ? here
           : FogTrail.nearestOnSegment(from, here, target);
-      if (FogTrail.distanceMeters(nearest, target) > checkpoint.radiusMeters) {
+      // Arriving means crossing in from outside. A step that starts inside
+      // the radius — the explorer set down there, or lingering — is not an
+      // arrival, whatever order the camera and the content happened to load.
+      final startsInside =
+          FogTrail.distanceMeters(from, target) <= checkpoint.radiusMeters;
+      if (startsInside ||
+          FogTrail.distanceMeters(nearest, target) > checkpoint.radiusMeters) {
         _askedWhilePanning.remove(checkpoint.id);
         continue;
       }
@@ -342,7 +353,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                 child: SafeArea(
                   child: StampAlbum(
                     stamps: ref.watch(stampsProvider),
-                    landmarkOf: CheckpointIcons.landmarkOfId,
+                    landmarkOf: ref.watch(landmarkLookupProvider),
                   ),
                 ),
               ),

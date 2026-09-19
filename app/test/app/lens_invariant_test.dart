@@ -86,7 +86,7 @@ void main() {
 
     expect(container.read(fogHolesProvider), isEmpty);
     expect(container.read(stampsProvider).where((s) => s.isOwned), isEmpty);
-    expect(container.read(questRouteProvider)!.doneCount, 0);
+    expect(container.read(questRoutesProvider).single.doneCount, 0);
     expect(container.read(itineraryEntriesProvider).single.isVisited, isFalse);
   });
 
@@ -111,7 +111,7 @@ void main() {
       reason: 'the stamp was not earned',
     );
 
-    final route = container.read(questRouteProvider)!;
+    final route = container.read(questRoutesProvider).single;
     expect(route.doneCount, 1, reason: 'the quest step did not complete');
     expect(
       route.nextStep?.checkpointId,
@@ -141,7 +141,7 @@ void main() {
       container.read(stampsProvider).where((s) => s.isOwned).map((s) => s.name),
       ['Chợ Bến Thành'],
     );
-    expect(container.read(questRouteProvider)!.doneCount, 0);
+    expect(container.read(questRoutesProvider).single.doneCount, 0);
   });
 
   test('a revealed-but-not-visited state unlocks nothing', () async {
@@ -162,7 +162,7 @@ void main() {
     await _settle(container);
 
     expect(container.read(fogHolesProvider), isEmpty);
-    expect(container.read(questRouteProvider)!.doneCount, 0);
+    expect(container.read(questRoutesProvider).single.doneCount, 0);
     expect(container.read(itineraryEntriesProvider).single.isVisited, isFalse);
   });
 

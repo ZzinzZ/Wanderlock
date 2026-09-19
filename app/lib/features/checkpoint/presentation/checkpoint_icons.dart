@@ -54,6 +54,11 @@ class CheckpointIcons {
         CheckpointCategory.religious: AppIcons.placeTemple,
         CheckpointCategory.architecture: AppIcons.placeTower,
         CheckpointCategory.street: AppIcons.lensMap,
+        CheckpointCategory.park: AppIcons.themeLight,
+        CheckpointCategory.shopping: AppIcons.placeMarket,
+        CheckpointCategory.food: AppIcons.placeTemple,
+        CheckpointCategory.sight: AppIcons.camera,
+        CheckpointCategory.entertainment: AppIcons.reward,
       };
 
   static String of(Checkpoint checkpoint) =>
@@ -90,19 +95,29 @@ class CheckpointIcons {
   static const Map<CheckpointCategory, String> _landmarkByCategory =
       <CheckpointCategory, String>{
         CheckpointCategory.museum: LandmarkArt.museum,
-        CheckpointCategory.monument: LandmarkArt.palace,
+        // A statue or an obelisk, not a palace: of the monuments added from
+        // OSM, almost none are buildings.
+        CheckpointCategory.monument: LandmarkArt.obelisk,
         CheckpointCategory.market: LandmarkArt.market,
         CheckpointCategory.religious: LandmarkArt.pagoda,
         CheckpointCategory.architecture: LandmarkArt.tower,
         CheckpointCategory.street: LandmarkArt.postOffice,
+        CheckpointCategory.park: LandmarkArt.park,
+        CheckpointCategory.shopping: LandmarkArt.mall,
+        CheckpointCategory.food: LandmarkArt.food,
+        CheckpointCategory.sight: LandmarkArt.camera,
+        CheckpointCategory.entertainment: LandmarkArt.theatre,
       };
 
   static String landmarkOf(Checkpoint checkpoint) =>
       _landmarkById[checkpoint.id] ??
+      _byName(checkpoint.name) ??
       _landmarkByCategory[checkpoint.category] ??
       LandmarkArt.palace;
 
-  /// For callers that hold only an id, such as a stamp or a quest step.
-  static String landmarkOfId(String checkpointId) =>
-      _landmarkById[checkpointId] ?? LandmarkArt.palace;
+  /// "Religious" covers pagodas, temples and churches alike; the name is the
+  /// only thing that tells a church apart, and a church drawn as a pagoda is
+  /// the kind of mistake a local notices at once.
+  static String? _byName(String name) =>
+      name.startsWith('Nhà thờ') ? LandmarkArt.church : null;
 }

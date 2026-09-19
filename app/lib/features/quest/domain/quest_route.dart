@@ -1,3 +1,4 @@
+import 'package:wanderlock/features/quest/domain/quest_route_definition.dart';
 import 'package:wanderlock/features/quest/domain/quest_step.dart';
 
 /// A curated sequence of places, and the progress through it.
@@ -16,12 +17,17 @@ class QuestRoute {
     required this.name,
     required this.summary,
     required this.steps,
+    this.kind = QuestKind.route,
   });
 
   final String id;
   final String name;
   final String summary;
   final List<QuestStep> steps;
+
+  final QuestKind kind;
+
+  bool get isSet => kind == QuestKind.set;
 
   /// How many stops have been reached.
   int get doneCount => steps.where((step) => step.isDone).length;
@@ -39,8 +45,10 @@ class QuestRoute {
   /// route points at what is still missing rather than pretending the visit
   /// did not happen.
   ///
-  /// Null once every stop is done.
+  /// Null once every stop is done, and always null for a set: a collection
+  /// has no order, so it has no "next".
   QuestStep? get nextStep {
+    if (isSet) return null;
     for (final step in steps) {
       if (!step.isDone) return step;
     }

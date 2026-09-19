@@ -51,7 +51,10 @@ class QuestRouteBundledSource {
         if (id == null || id.isEmpty) continue;
         ids.add(id);
       }
-      if (ids.isEmpty) continue;
+      final categories = (entry['categories'] as List<Object?>? ?? const [])
+          .whereType<String>()
+          .toList();
+      if (ids.isEmpty && categories.isEmpty) continue;
 
       routes.add(
         QuestRouteDefinition(
@@ -59,6 +62,8 @@ class QuestRouteBundledSource {
           name: entry['name']! as String,
           summary: entry['summary'] as String? ?? '',
           checkpointIds: ids,
+          kind: QuestKind.parse(entry['kind'] as String?),
+          categories: categories,
         ),
       );
     }

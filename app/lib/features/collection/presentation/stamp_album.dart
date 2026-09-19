@@ -175,6 +175,8 @@ class _Banner extends StatelessWidget {
 class _ProgressCard extends StatelessWidget {
   const _ProgressCard({required this.stamps, required this.owned});
 
+  static const int _maxSegments = 24;
+
   final List<Stamp> stamps;
   final int owned;
 
@@ -219,13 +221,18 @@ class _ProgressCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: AppSpacing.xs + 2),
-                StickerSegments(
-                  total: stamps.length,
-                  done: {
-                    for (var i = 0; i < stamps.length; i++)
-                      if (stamps[i].isOwned) i,
-                  },
-                ),
+                // One pill per place reads at a glance up to a couple of
+                // dozen; past that it turns into a hatched stripe.
+                if (stamps.length <= _maxSegments)
+                  StickerSegments(
+                    total: stamps.length,
+                    done: {
+                      for (var i = 0; i < stamps.length; i++)
+                        if (stamps[i].isOwned) i,
+                    },
+                  )
+                else
+                  StickerProgressBar(value: owned / stamps.length),
               ],
             ),
           ),

@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
 import 'package:wanderlock/features/quest/domain/quest_route.dart';
+import 'package:wanderlock/features/quest/domain/quest_route_definition.dart';
 import 'package:wanderlock/features/quest/domain/quest_step.dart';
 
 QuestStep _step(String id, {required bool isDone}) =>
@@ -154,11 +156,24 @@ void main() {
       }
     });
 
-    test('ships exactly one route, as scope v1 specifies', () {
+    // Scope v1 first shipped one route; since 2026-09-19 it ships the
+    // original route plus a collection per kind of place (docs/08).
+    test('ships the original route and at least one collection', () {
+      final quests = QuestRouteBundledSource.parse(bundled.readAsStringSync());
       expect(
-        QuestRouteBundledSource.parse(bundled.readAsStringSync()),
-        hasLength(1),
+        quests.where((quest) => quest.kind == QuestKind.route),
+        isNotEmpty,
       );
+      expect(quests.where((quest) => quest.kind == QuestKind.set), isNotEmpty);
+    });
+
+    test('every collection names only categories that exist', () {
+      final known = {for (final c in CheckpointCategory.values) c.name};
+      for (final quest in QuestRouteBundledSource.parse(
+        bundled.readAsStringSync(),
+      )) {
+        expect(known, containsAll(quest.categories), reason: quest.id);
+      }
     });
   });
 }

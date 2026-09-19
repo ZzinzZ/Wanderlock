@@ -279,7 +279,7 @@
 
   "lensJourney": "Journey",
 
-  "journeyTabQuest": "Route",
+  "journeyTabQuest": "Quests",
 
   "journeyTabItinerary": "My plan",
 
@@ -466,5 +466,33 @@
   "onboardingLater": "Later",
   "@onboardingLater": {
     "description": "Onboarding: open the map without asking for location."
+  },
+
+  "questKindRoute": "Route",
+  "@questKindRoute": {
+    "description": "Tag on a quest played in order."
+  },
+
+  "questKindSet": "Collection",
+  "@questKindSet": {
+    "description": "Tag on a quest played in any order."
+  },
+
+  "questListProgress": "{done}/{total}",
+  "@questListProgress": {
+    "description": "Places reached out of a quest's total.",
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "questBackToList": "All quests",
+  "@questBackToList": {
+    "description": "Back from one quest to the list."
   }
 }

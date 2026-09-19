@@ -1,8 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:wanderlock/app/lenses/lens.dart';
+import 'package:wanderlock/design/widgets/landmark_art.dart';
 import 'package:wanderlock/features/checkpoint/application/checkpoint_providers.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
+import 'package:wanderlock/features/checkpoint/presentation/checkpoint_icons.dart';
 import 'package:wanderlock/features/collection/domain/stamp.dart';
 import 'package:wanderlock/features/fog/domain/fog_geometry.dart';
 import 'package:wanderlock/features/fog/domain/fog_hole.dart';
@@ -112,46 +114,70 @@ final questRouteDefinitionsProvider =
       (ref) => const QuestRouteBundledSource().readAll(),
     );
 
-/// The v1 route, joined to content and to `visit_state`.
+/// Every quest, joined to content and to `visit_state`.
 ///
-/// Scope v1 ships one route, so this exposes the first and ignores any others
-/// an author adds — the parser already reads a list, which is what makes the
-/// second route a content edit when v1.5 wants one.
+/// Scope v1 first shipped a single route; since 2026-09-19 it ships many —
+/// the original ordered route plus one set per kind of place (docs/08).
 ///
-/// A step whose id matches no checkpoint is dropped here rather than drawn as
-/// a blank row: the id is authored by hand, and a typo should cost a missing
-/// stop, not a crash.
-final questRouteProvider = Provider<QuestRoute?>((ref) {
+/// A set may name categories instead of ids: its steps are then every
+/// checkpoint of those categories, plus any ids it also lists. A step whose id
+/// matches no checkpoint is dropped here rather than drawn as a blank row —
+/// the id is authored by hand, and a typo should cost a missing stop, not a
+/// crash. A quest left with no steps is dropped too.
+final questRoutesProvider = Provider<List<QuestRoute>>((ref) {
   final definitions =
       ref.watch(questRouteDefinitionsProvider).value ?? const [];
-  if (definitions.isEmpty) return null;
-
   final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
   final visited = ref.watch(_visitedIdsProvider);
   final byId = <String, Checkpoint>{
     for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
   };
 
-  final definition = definitions.first;
-  final steps = <QuestStep>[];
-  for (final id in definition.checkpointIds) {
-    final checkpoint = byId[id];
-    if (checkpoint == null) continue;
-    steps.add(
-      QuestStep(
-        checkpointId: id,
-        name: checkpoint.name,
-        isDone: visited.contains(id),
+  final routes = <QuestRoute>[];
+  for (final definition in definitions) {
+    final ids = <String>[
+      ...definition.checkpointIds,
+      for (final checkpoint in checkpoints)
+        if (definition.categories.contains(checkpoint.category.name) &&
+            !definition.checkpointIds.contains(checkpoint.id))
+          checkpoint.id,
+    ];
+    final steps = <QuestStep>[
+      for (final id in ids)
+        if (byId[id] case final checkpoint?)
+          QuestStep(
+            checkpointId: id,
+            name: checkpoint.name,
+            isDone: visited.contains(id),
+          ),
+    ];
+    if (steps.isEmpty) continue;
+    routes.add(
+      QuestRoute(
+        id: definition.id,
+        name: definition.name,
+        summary: definition.summary,
+        steps: steps,
+        kind: definition.kind,
       ),
     );
   }
+  return routes;
+});
 
-  return QuestRoute(
-    id: definition.id,
-    name: definition.name,
-    summary: definition.summary,
-    steps: steps,
-  );
+/// Which building sticker a checkpoint wears, by id — for lenses that hold
+/// only ids (a stamp, a quest step) and may not import the checkpoint feature.
+final landmarkLookupProvider = Provider<String Function(String)>((ref) {
+  final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
+  final byId = <String, Checkpoint>{
+    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
+  };
+  return (id) {
+    final checkpoint = byId[id];
+    return checkpoint == null
+        ? LandmarkArt.palace
+        : CheckpointIcons.landmarkOf(checkpoint);
+  };
 });
 
 /// The user's plan, in their order, with names and ticks joined on.

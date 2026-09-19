@@ -54,6 +54,19 @@ class CheckpointMarkerOverlay extends StatelessWidget {
 
   final void Function(Checkpoint checkpoint)? onTap;
 
+  /// Below this zoom every place is a dot; at or above it, a sticker.
+  ///
+  /// The pilot grew from twelve places to nearly three hundred. At city zoom
+  /// that is well over a hundred stickers on screen, each a widget tree with
+  /// an image, a shadow and a name tag — rebuilt on every camera frame. Dots
+  /// are one painter for all of them, and zooming in to street level, where
+  /// only a handful are on screen, brings the stickers back.
+  static const double stickerZoom = 14.5;
+
+  /// Radius of a dot, and how far from it a tap still counts.
+  static const double dotRadius = 7;
+  static const double dotHitRadius = 18;
+
   /// Which marker, if any, a tap on the map at this coordinate landed on.
   ///
   /// The markers ignore the pointer so the map can be dragged from anywhere,
@@ -82,12 +95,14 @@ class CheckpointMarkerOverlay extends StatelessWidget {
       final at = projection.toScreen(checkpoint.latitude, checkpoint.longitude);
       final dx = tap.x - at.x;
       final dy = tap.y - at.y;
-      final isInside =
-          dx.abs() <= _CheckpointMarker.width / 2 &&
-          dy >=
-              -_CheckpointMarker.diameter / 2 -
-                  _CheckpointMarker.badgeOverhang &&
-          dy <= _CheckpointMarker.diameter / 2 + _CheckpointMarker.tagReach;
+      final isInside = camera.zoom < stickerZoom
+          ? dx * dx + dy * dy <= dotHitRadius * dotHitRadius
+          : dx.abs() <= _CheckpointMarker.width / 2 &&
+                dy >=
+                    -_CheckpointMarker.diameter / 2 -
+                        _CheckpointMarker.badgeOverhang &&
+                dy <=
+                    _CheckpointMarker.diameter / 2 + _CheckpointMarker.tagReach;
       if (!isInside) continue;
       final distance = dx * dx + dy * dy;
       if (distance < bestDistance) {
@@ -116,6 +131,22 @@ class CheckpointMarkerOverlay extends StatelessWidget {
               widthPixels: constraints.maxWidth,
               heightPixels: constraints.maxHeight,
             );
+
+            if (camera.zoom < stickerZoom) {
+              return IgnorePointer(
+                child: CustomPaint(
+                  size: Size(constraints.maxWidth, constraints.maxHeight),
+                  painter: _DotPainter(
+                    projection: projection,
+                    checkpoints: checkpoints,
+                    visitedIds: visitedIds,
+                    reached: AppColors.of(context).accentYellow,
+                    locked: AppColors.of(context).lockedSurface,
+                    outline: AppColors.of(context).outline,
+                  ),
+                ),
+              );
+            }
 
             final markers = <Widget>[];
             for (final checkpoint in checkpoints) {
@@ -285,4 +316,72 @@ class _NameTag extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Every place as a dot, in one paint: reached ones yellow, the rest grey,
+/// each outlined in the sticker ink so they read on any part of the map.
+class _DotPainter extends CustomPainter {
+  _DotPainter({
+    required this.projection,
+    required this.checkpoints,
+    required this.visitedIds,
+    required this.reached,
+    required this.locked,
+    required this.outline,
+  });
+
+  final MapProjection projection;
+  final List<Checkpoint> checkpoints;
+  final Set<String> visitedIds;
+  final Color reached;
+  final Color locked;
+  final Color outline;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final ring = Paint()
+      ..color = outline
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = AppSticker.strokeThin;
+    final reachedFill = Paint()..color = reached;
+    final lockedFill = Paint()..color = locked;
+
+    // Locked first, reached on top: the places the player has been are the
+    // ones that should never be hidden under a neighbour.
+    for (final pass in [false, true]) {
+      for (final checkpoint in checkpoints) {
+        if (visitedIds.contains(checkpoint.id) != pass) continue;
+        final at = projection.toScreen(
+          checkpoint.latitude,
+          checkpoint.longitude,
+        );
+        if (!projection.isVisible(
+          at,
+          margin: CheckpointMarkerOverlay.dotRadius,
+        )) {
+          continue;
+        }
+        final centre = Offset(at.x, at.y);
+        canvas.drawCircle(
+          centre,
+          CheckpointMarkerOverlay.dotRadius,
+          pass ? reachedFill : lockedFill,
+        );
+        canvas.drawCircle(centre, CheckpointMarkerOverlay.dotRadius, ring);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_DotPainter oldDelegate) =>
+      !identical(oldDelegate.checkpoints, checkpoints) ||
+      !identical(oldDelegate.visitedIds, visitedIds) ||
+      oldDelegate.reached != reached ||
+      oldDelegate.locked != locked ||
+      oldDelegate.outline != outline ||
+      oldDelegate.projection.centerLatitude != projection.centerLatitude ||
+      oldDelegate.projection.centerLongitude != projection.centerLongitude ||
+      oldDelegate.projection.zoom != projection.zoom ||
+      oldDelegate.projection.widthPixels != projection.widthPixels ||
+      oldDelegate.projection.heightPixels != projection.heightPixels;
 }

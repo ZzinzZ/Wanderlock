@@ -51,7 +51,7 @@
   "collectionEmpty": "Chưa có con tem nào. Đến tận nơi để nhận tem của điểm đó.",
   "fogLegendCleared": "Màu trở lại với nơi bạn đã đến",
   "lensJourney": "Hành trình",
-  "journeyTabQuest": "Tuyến",
+  "journeyTabQuest": "Nhiệm vụ",
   "journeyTabItinerary": "Lộ trình của tôi",
   "questEmpty": "Chưa có tuyến nào. Thêm tuyến trong content/quest-routes.json.",
   "questProgress": "Đã tới {done}/{total} điểm",
@@ -86,5 +86,9 @@
   "onboardingNext": "Tiếp",
   "onboardingSkip": "Bỏ qua",
   "onboardingStartWithLocation": "Bật vị trí & bắt đầu",
-  "onboardingLater": "Để sau"
+  "onboardingLater": "Để sau",
+  "questKindRoute": "Tuyến",
+  "questKindSet": "Bộ sưu tập",
+  "questListProgress": "{done}/{total}",
+  "questBackToList": "Tất cả nhiệm vụ"
 }

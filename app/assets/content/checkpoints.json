@@ -1,8 +1,14 @@
 {
   "_readme": [
+    "12 mục đầu: toạ độ đã kiểm chứng bằng mắt ngày 2026-08-15 (verified: true).",
+    "265 mục sau: nạp tự động từ OpenStreetMap ngày 2026-09-19, tâm",
+    "công trình trong OSM, verified: false. Lọc theo loại, diện tích và một danh",
+    "sách chặn đọc bằng mắt; quán ăn lấy từ danh sách quán nổi tiếng tra theo tên,",
+    "quán nào khớp nhiều hơn một chỗ (chuỗi) thì bỏ. Seed thật sẽ từ chối chúng",
+    "cho tới khi được kiểm chứng; bản trình diễn (không server) vẫn hiện.",
+    "",
     "Nguồn sự thật của nội dung pilot. Seed script đọc file này, không đọc DB.",
     "",
-    "TOẠ ĐỘ ĐÃ KIỂM CHỨNG BẰNG MẮT ngày 2026-08-15. Cả 12 mục verified: true.",
     "Seed script từ chối chạy khi còn mục chưa kiểm chứng, trừ khi truyền",
     "--allow-unverified (chỉ dùng để thử pipeline trên máy local).",
     "",
@@ -36,7 +42,6 @@
     "    ảnh đã có dòng trong image-licenses.md.",
     "Bỏ trường đi là trở lại mặc định — seed ghi đè, không dính giá trị cũ."
   ],
-
   "checkpoints": [
     {
       "id": "independence-palace",
@@ -105,7 +110,6 @@
       "coordinates": { "lat": 10.7780295, "lon": 106.6492296, "verified": true, "source": "openstreetmap:way/1221686026" },
       "note": "Dời 26m so với giá trị cũ. Giá trị cũ là một điểm đơn lẻ; giá trị này là tâm đa giác chùa. Vẫn nằm trong bán kính 60m."
     },
-
     {
       "id": "nha-rong-wharf",
       "name": "Bến Nhà Rồng",
@@ -141,6 +145,1946 @@
       "address": "81 Nguyễn Xiển",
       "coordinates": { "lat": 10.8786681, "lon": 106.8349651, "verified": true, "source": "openstreetmap:way/323379917" },
       "note": "Nhãn 'Dĩ An, Bình Dương' mà lần tra trước thấy là THẬT nhưng vô hại: reverse geocoding vẫn gán nhãn hành chính đó cho điểm này, trong khi tên đường trả về là Nguyễn Xiển, phường Long Bình — khớp địa chỉ. Ranh giới hành chính ở rìa Thủ Đức chồng lấn, không phải toạ độ sai. Lưu ý có hai 'Chùa Bửu Long' khác trong OSM ở chỗ khác."
+    },
+    {
+      "id": "bia-ghi-cong-mat-tran-cau-kieu",
+      "name": "Bia ghi công Mặt trận Cầu Kiệu",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.793201, "lon": 106.6860437, "verified": false, "source": "openstreetmap:node/411926448" }
+    },
+    {
+      "id": "bao-tang-dia-chat",
+      "name": "Bảo Tàng Địa Chất",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7849957, "lon": 106.7076753, "verified": false, "source": "openstreetmap:node/1001114513" }
+    },
+    {
+      "id": "tuong-an-duong-vuong",
+      "name": "Tượng An Dương Vương",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7598529, "lon": 106.668921, "verified": false, "source": "openstreetmap:node/1769477948" }
+    },
+    {
+      "id": "phong-truyen-thong-thanh-doan",
+      "name": "Phòng Truyền thống Thành Đoàn",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7820744, "lon": 106.6977069, "verified": false, "source": "openstreetmap:node/1770193818" }
+    },
+    {
+      "id": "ho-con-rua",
+      "name": "Hồ Con Rùa",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.782588, "lon": 106.6958888, "verified": false, "source": "openstreetmap:node/1770193841" }
+    },
+    {
+      "id": "bia-tuong-niem-tran-danh-toa-dai-su-my",
+      "name": "Bia Tưởng Niệm Trận Đánh Tòa Đại Sứ Mỹ",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7829668, "lon": 106.7008278, "verified": false, "source": "openstreetmap:node/1771088897" }
+    },
+    {
+      "id": "bao-tang-tma",
+      "name": "Bảo Tàng TMA",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8558846, "lon": 106.6314853, "verified": false, "source": "openstreetmap:node/2297794195" }
+    },
+    {
+      "id": "duc-ba-hoa-binh",
+      "name": "Đức Bà Hoà Bình",
+      "category": "monument",
+      "radiusMeters": 50,
+      "address": "Công Xã Paris",
+      "coordinates": { "lat": 10.7792555, "lon": 106.6996269, "verified": false, "source": "openstreetmap:node/2410639584" }
+    },
+    {
+      "id": "nha-hat-mua-roi-nuoc-rong-vang",
+      "name": "Nhà Hát Múa Rối Nước Rồng Vàng",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "55B Nguyễn Thị Minh Khai",
+      "coordinates": { "lat": 10.7762412, "lon": 106.6924688, "verified": false, "source": "openstreetmap:node/2667726990" }
+    },
+    {
+      "id": "tuong-tran-danh-cu-xa-brink",
+      "name": "Tượng Trận Đánh Cư Xá Brink",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7776112, "lon": 106.7037257, "verified": false, "source": "openstreetmap:node/2891024263" }
+    },
+    {
+      "id": "nghia-dung-dai",
+      "name": "Nghĩa Dũng Đài",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.8894284, "lon": 106.8097193, "verified": false, "source": "openstreetmap:node/2942308148" }
+    },
+    {
+      "id": "lang-le-van-duyet",
+      "name": "Lăng Lê Văn Duyệt",
+      "category": "monument",
+      "radiusMeters": 50,
+      "address": "Phan Đăng Lưu",
+      "coordinates": { "lat": 10.8030815, "lon": 106.706623, "verified": false, "source": "openstreetmap:node/3116339965" }
+    },
+    {
+      "id": "chua-mot-cot",
+      "name": "Chùa Một Cột",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "511 Đặng Văn Bi",
+      "coordinates": { "lat": 10.8434585, "lon": 106.7627867, "verified": false, "source": "openstreetmap:node/3230436393" }
+    },
+    {
+      "id": "xe-tang-390",
+      "name": "Xe tăng 390",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7781576, "lon": 106.6955462, "verified": false, "source": "openstreetmap:node/3482730475" }
+    },
+    {
+      "id": "banh-xeo-46a",
+      "name": "Bánh Xèo 46A",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "46A Đinh Công Tráng",
+      "coordinates": { "lat": 10.7896047, "lon": 106.6912995, "verified": false, "source": "openstreetmap:node/3506699501" }
+    },
+    {
+      "id": "banh-cuon-hai-nam",
+      "name": "Bánh Cuốn Hải Nam",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "11A Cao Thắng",
+      "coordinates": { "lat": 10.7687389, "lon": 106.6834665, "verified": false, "source": "openstreetmap:node/3641662433" }
+    },
+    {
+      "id": "banh-xeo-muoi-xiem",
+      "name": "Bánh Xèo Mười Xiềm",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "54A Nguyễn Văn Trỗi",
+      "coordinates": { "lat": 10.794319, "lon": 106.6779976, "verified": false, "source": "openstreetmap:node/3654562875" }
+    },
+    {
+      "id": "dai-ky-niem-thich-quang-duc",
+      "name": "Đài Kỷ Niệm Thích Quảng Đức",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.774988, "lon": 106.6866162, "verified": false, "source": "openstreetmap:node/3812282642" }
+    },
+    {
+      "id": "bao-tang-fito",
+      "name": "Bảo Tàng FITO",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "41 Hoàng Dư Khương",
+      "coordinates": { "lat": 10.7762825, "lon": 106.6719677, "verified": false, "source": "openstreetmap:node/4110078089" }
+    },
+    {
+      "id": "cong-vien-ven-song-an-phu-hung",
+      "name": "Công Viên Ven Sông An Phú Hưng",
+      "category": "sight",
+      "radiusMeters": 60,
+      "address": "Số 40 Tân Quy Đông",
+      "coordinates": { "lat": 10.7362462, "lon": 106.7099951, "verified": false, "source": "openstreetmap:node/4111509589" }
+    },
+    {
+      "id": "tuong-bo-tat-thich-quang-duc",
+      "name": "Tượng Bồ Tát Thích Quảng Đức",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7754475, "lon": 106.6867547, "verified": false, "source": "openstreetmap:node/4122275990" }
+    },
+    {
+      "id": "bao-tang-ao-dai",
+      "name": "Bảo Tàng Áo Dài",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8097524, "lon": 106.8497582, "verified": false, "source": "openstreetmap:node/4131348092" }
+    },
+    {
+      "id": "tara-kys-art-gallery",
+      "name": "Tara & Kys Art Gallery",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "48 Đông Du",
+      "coordinates": { "lat": 10.7764073, "lon": 106.7048655, "verified": false, "source": "openstreetmap:node/4131348295" }
+    },
+    {
+      "id": "bao-tang-tu-nhan-duc-minh",
+      "name": "Bảo Tàng Tư Nhân Đức Minh",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "31 Lê Quý Đôn",
+      "coordinates": { "lat": 10.8408403, "lon": 106.765554, "verified": false, "source": "openstreetmap:node/4131498489" }
+    },
+    {
+      "id": "dia-dao-phu-tho-hoa",
+      "name": "Địa Đạo Phú Thọ Hòa",
+      "category": "sight",
+      "radiusMeters": 60,
+      "address": "Phú Thọ Hoà",
+      "coordinates": { "lat": 10.7842199, "lon": 106.6312668, "verified": false, "source": "openstreetmap:node/4131725789" }
+    },
+    {
+      "id": "lang-truong-vinh-ky",
+      "name": "Lăng Trương Vĩnh Ký",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7556868, "lon": 106.6815644, "verified": false, "source": "openstreetmap:node/4187322590" }
+    },
+    {
+      "id": "the-workshop-coffee",
+      "name": "The Workshop Coffee",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "27 Ngô Ðức Kế",
+      "coordinates": { "lat": 10.7734061, "lon": 106.7055391, "verified": false, "source": "openstreetmap:node/4214872992" }
+    },
+    {
+      "id": "nha-hat-hang-khong-mau-ham",
+      "name": "Nhà Hát \"Hàng Không Mẫu Hạm\"",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "30 Đường Trần Hưng Ðạo",
+      "coordinates": { "lat": 10.7674358, "lon": 106.6945984, "verified": false, "source": "openstreetmap:node/4216681689" }
+    },
+    {
+      "id": "tuong-dai-cong-nong-binh",
+      "name": "Tượng đài Công Nông Binh",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7676873, "lon": 106.6743947, "verified": false, "source": "openstreetmap:node/4220779696" }
+    },
+    {
+      "id": "khu-du-lich-binh-quoi",
+      "name": "Khu Du Lịch Bình Qưới",
+      "category": "sight",
+      "radiusMeters": 60,
+      "address": "Bình Quới",
+      "coordinates": { "lat": 10.8294989, "lon": 106.7392535, "verified": false, "source": "openstreetmap:node/4223398172" }
+    },
+    {
+      "id": "dai-tuong-niem-liet-si-quan-8",
+      "name": "Đài Tưởng Niệm Liệt Sĩ Quận 8",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7065514, "lon": 106.6270767, "verified": false, "source": "openstreetmap:node/4813087459" }
+    },
+    {
+      "id": "doc-shakespeare",
+      "name": "Dốc Shakespeare",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8797549, "lon": 106.7978144, "verified": false, "source": "openstreetmap:node/4828147520" }
+    },
+    {
+      "id": "pho-hoa-pasteur",
+      "name": "Phở Hòa Pasteur",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "260C Đường Pasteur",
+      "coordinates": { "lat": 10.7868014, "lon": 106.689046, "verified": false, "source": "openstreetmap:node/5015735821" }
+    },
+    {
+      "id": "luong-son-quan",
+      "name": "Lương Sơn Quán",
+      "category": "food",
+      "radiusMeters": 40,
+      "coordinates": { "lat": 10.7796141, "lon": 106.7026193, "verified": false, "source": "openstreetmap:node/5106951924" }
+    },
+    {
+      "id": "hien-tai-la-nguyen-khi-quoc-gia",
+      "name": "Hiền tài là nguyên khí quốc gia",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7858804, "lon": 106.7026508, "verified": false, "source": "openstreetmap:node/5211390921" }
+    },
+    {
+      "id": "tuong-dai-tran-van-on",
+      "name": "Tượng đài Trần Văn Ơn",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7767077, "lon": 106.6994163, "verified": false, "source": "openstreetmap:node/5309941724" }
+    },
+    {
+      "id": "banh-mi-hoa-ma",
+      "name": "Bánh Mì Hòa Mã",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "Cao Thắng",
+      "coordinates": { "lat": 10.7703143, "lon": 106.6817473, "verified": false, "source": "openstreetmap:node/5312851022" }
+    },
+    {
+      "id": "pho-phu-vuong",
+      "name": "Phở Phú Vương",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "339 Lê Văn Sỹ",
+      "coordinates": { "lat": 10.7959638, "lon": 106.6659284, "verified": false, "source": "openstreetmap:node/5346349922" }
+    },
+    {
+      "id": "sculpture-garden",
+      "name": "Sculpture Garden",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7747342, "lon": 106.6938172, "verified": false, "source": "openstreetmap:node/5378089323" }
+    },
+    {
+      "id": "cong-vien-bo-song-sai-gon",
+      "name": "Công viên bờ sông Sài Gòn",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7716671, "lon": 106.7097359, "verified": false, "source": "openstreetmap:node/5388462723" }
+    },
+    {
+      "id": "quan-com-tam-thuan-kieu",
+      "name": "Quán Cơm Tấm Thuận Kiều",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "24 Tôn Thất Tùng",
+      "coordinates": { "lat": 10.769197, "lon": 106.689399, "verified": false, "source": "openstreetmap:node/5404230421" }
+    },
+    {
+      "id": "cau-di-bo-so-7",
+      "name": "Cầu Đi Bộ Số 7",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7458291, "lon": 106.6543332, "verified": false, "source": "openstreetmap:node/5433188023" }
+    },
+    {
+      "id": "ca-phe-bet",
+      "name": "Cà Phê Bệt",
+      "category": "food",
+      "radiusMeters": 40,
+      "coordinates": { "lat": 10.7798794, "lon": 106.6983062, "verified": false, "source": "openstreetmap:node/5467207449" }
+    },
+    {
+      "id": "quan-ca-phe-cheo-leo",
+      "name": "Quán Cà Phê Cheo Leo",
+      "category": "food",
+      "radiusMeters": 40,
+      "coordinates": { "lat": 10.7669052, "lon": 106.6798031, "verified": false, "source": "openstreetmap:node/6215109985" }
+    },
+    {
+      "id": "tuong-dai-tuong-niem-cong-vien-van-lang",
+      "name": "Tượng Đài Tượng Niệm - Công Viên Văn Lang",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7563781, "lon": 106.6672711, "verified": false, "source": "openstreetmap:node/6315671636" }
+    },
+    {
+      "id": "bun-bo-hue-dong-ba",
+      "name": "Bún Bò Huế Đông Ba",
+      "category": "food",
+      "radiusMeters": 40,
+      "coordinates": { "lat": 10.7743939, "lon": 106.6953077, "verified": false, "source": "openstreetmap:node/6699136385" }
+    },
+    {
+      "id": "tuong-quach-thi-trang",
+      "name": "Tượng Quách Thị Trang",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7762925, "lon": 106.6990208, "verified": false, "source": "openstreetmap:node/6909743958" }
+    },
+    {
+      "id": "bia-ky-niem-le-doc-lap",
+      "name": "Bia Kỷ Niệm Lễ Độc Lập",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7803181, "lon": 106.697875, "verified": false, "source": "openstreetmap:node/7501051345" }
+    },
+    {
+      "id": "duc-me-maria",
+      "name": "Đức Mẹ Maria",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7818463, "lon": 106.7033695, "verified": false, "source": "openstreetmap:node/7501164417" }
+    },
+    {
+      "id": "di-tich-chuong-chim-bo-cau-nguoi-an-tamil",
+      "name": "Di Tích Chuồng Chim Bồ Câu Người Ấn Tamil",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7740187, "lon": 106.7013967, "verified": false, "source": "openstreetmap:node/7513022915" }
+    },
+    {
+      "id": "bia-ky-niem-su-kien-dau-tranh-ngay-19-3-1950",
+      "name": "Bia Kỷ Niệm Sự Kiện Đấu Tranh Ngày 19/3/1950",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.768733, "lon": 106.6957939, "verified": false, "source": "openstreetmap:node/7532265269" }
+    },
+    {
+      "id": "khu-du-lich-van-thanh",
+      "name": "Khu du lịch Văn Thánh",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7982863, "lon": 106.7156297, "verified": false, "source": "openstreetmap:node/9587268685" }
+    },
+    {
+      "id": "okkio",
+      "name": "Okkio",
+      "category": "food",
+      "radiusMeters": 40,
+      "coordinates": { "lat": 10.7757723, "lon": 106.7032334, "verified": false, "source": "openstreetmap:node/10690009990" }
+    },
+    {
+      "id": "annam-gallery",
+      "name": "Annam Gallery",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "371/4 Hai Bà Trưng",
+      "coordinates": { "lat": 10.7900269, "lon": 106.6888392, "verified": false, "source": "openstreetmap:node/11040495502" }
+    },
+    {
+      "id": "di-tich-lich-su-go-o-moi",
+      "name": "Di tích lịch sử Gò Ô Môi",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7338497, "lon": 106.7411066, "verified": false, "source": "openstreetmap:node/11056363251" }
+    },
+    {
+      "id": "dai-tuong-niem-liet-sy-binh-thanh",
+      "name": "Đài tưởng niệm Liệt sỹ Bình Thạnh",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.8032563, "lon": 106.6952378, "verified": false, "source": "openstreetmap:node/11274966991" }
+    },
+    {
+      "id": "cbes-mini-museum",
+      "name": "CBES Mini Museum",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "7 Đường M",
+      "coordinates": { "lat": 10.7925945, "lon": 106.7718011, "verified": false, "source": "openstreetmap:node/11343699081" }
+    },
+    {
+      "id": "bia-truyen-thong-vuon-lai",
+      "name": "Bia Truyền thống Vườn Lài",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7649738, "lon": 106.6727071, "verified": false, "source": "openstreetmap:node/11700124145" }
+    },
+    {
+      "id": "hu-tieu-hong-phat",
+      "name": "Hủ Tiếu Hồng Phát",
+      "category": "food",
+      "radiusMeters": 40,
+      "coordinates": { "lat": 10.7705085, "lon": 106.6848355, "verified": false, "source": "openstreetmap:node/11782344869" }
+    },
+    {
+      "id": "secret-garden",
+      "name": "Secret Garden",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "131 Calmette",
+      "coordinates": { "lat": 10.7689156, "lon": 106.6983666, "verified": false, "source": "openstreetmap:node/11969073930" }
+    },
+    {
+      "id": "tuong-dai-chien-thang-bac-thu-duc",
+      "name": "Tượng đài chiến thắng Bắc Thủ Đức",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.8548215, "lon": 106.7393358, "verified": false, "source": "openstreetmap:node/12098937304" }
+    },
+    {
+      "id": "bia-tuong-niem-nam-bo-khang-chien",
+      "name": "Bia tưởng niệm Nam Bộ Kháng chiến",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.749041, "lon": 106.6834912, "verified": false, "source": "openstreetmap:node/12568787480" }
+    },
+    {
+      "id": "van-duong-phu-nha-cu-vuong-hong-sen",
+      "name": "Vân Đường Phủ (Nhà cụ Vương Hồng Sển)",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "11 Nguyễn Thiện Thuật",
+      "coordinates": { "lat": 10.8052246, "lon": 106.6992364, "verified": false, "source": "openstreetmap:node/12901443422" }
+    },
+    {
+      "id": "quang-san-art-museum",
+      "name": "Quang San Art Museum",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "Nguyễn Văn Hưởng",
+      "coordinates": { "lat": 10.8180655, "lon": 106.7300732, "verified": false, "source": "openstreetmap:node/13336584701" }
+    },
+    {
+      "id": "pho-binh",
+      "name": "Phở Bình",
+      "category": "food",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.790891, "lon": 106.6870771, "verified": false, "source": "openstreetmap:node/13437582047" }
+    },
+    {
+      "id": "tuong-thanh-mattheu-le-van-gam-1813-1847",
+      "name": "Tượng Thánh Mátthêu Lê Văn Gẫm (1813-1847)",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7686927, "lon": 106.6892257, "verified": false, "source": "openstreetmap:node/14159026501" }
+    },
+    {
+      "id": "thao-cam-vien-sai-gon",
+      "name": "Thảo Cầm Viên Sài Gòn",
+      "category": "park",
+      "radiusMeters": 150,
+      "address": "2 Nguyễn Bỉnh Khiêm",
+      "coordinates": { "lat": 10.7878079, "lon": 106.7064568, "verified": false, "source": "openstreetmap:way/32735038" }
+    },
+    {
+      "id": "cong-vien-le-thi-rieng",
+      "name": "Công viên Lê Thị Riêng",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7848296, "lon": 106.6646279, "verified": false, "source": "openstreetmap:way/32735042" }
+    },
+    {
+      "id": "cong-vien-van-hoa-dam-sen",
+      "name": "Công viên Văn hóa Đầm Sen",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7643335, "lon": 106.6385329, "verified": false, "source": "openstreetmap:way/32735046" }
+    },
+    {
+      "id": "cong-vien-le-van-tam",
+      "name": "Công viên Lê Văn Tám",
+      "category": "park",
+      "radiusMeters": 137,
+      "coordinates": { "lat": 10.7882407, "lon": 106.6937572, "verified": false, "source": "openstreetmap:way/32735082" }
+    },
+    {
+      "id": "khu-du-lich-ky-hoa",
+      "name": "Khu du lịch Kỳ Hòa",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.77352, "lon": 106.6721316, "verified": false, "source": "openstreetmap:way/32735084" }
+    },
+    {
+      "id": "cong-vien-phu-lam",
+      "name": "Công viên Phú Lâm",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7480109, "lon": 106.6253245, "verified": false, "source": "openstreetmap:way/32735087" }
+    },
+    {
+      "id": "cong-vien-so-1-ly-thai-to",
+      "name": "Công viên số 1 Lý Thái Tổ",
+      "category": "park",
+      "radiusMeters": 144,
+      "coordinates": { "lat": 10.7651628, "lon": 106.6794023, "verified": false, "source": "openstreetmap:way/39513493" }
+    },
+    {
+      "id": "cho-tan-dinh",
+      "name": "Chợ Tân Định",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7898998, "lon": 106.6900513, "verified": false, "source": "openstreetmap:way/39598471" }
+    },
+    {
+      "id": "nha-hat-ben-thanh",
+      "name": "Nhà hát Bến Thành",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7840945, "lon": 106.700941, "verified": false, "source": "openstreetmap:way/39598490" }
+    },
+    {
+      "id": "nha-tho-thanh-jeanne-d-arc",
+      "name": "Nhà thờ Thánh Jeanne d'Arc",
+      "category": "religious",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7570415, "lon": 106.667369, "verified": false, "source": "openstreetmap:way/39619627" }
+    },
+    {
+      "id": "lotte-mart-quan-7",
+      "name": "LOTTE Mart Quận 7",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.7410778, "lon": 106.7020916, "verified": false, "source": "openstreetmap:way/57727327" }
+    },
+    {
+      "id": "cho-tran-huu-trang",
+      "name": "Chợ Trần Hữu Trang",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Trần Hữu Trang",
+      "coordinates": { "lat": 10.7934979, "lon": 106.6718224, "verified": false, "source": "openstreetmap:way/58711783" }
+    },
+    {
+      "id": "cho-phu-nhuan",
+      "name": "Chợ Phú Nhuận",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7939272, "lon": 106.6827315, "verified": false, "source": "openstreetmap:way/59783927" }
+    },
+    {
+      "id": "nha-tho-tan-dinh",
+      "name": "Nhà thờ Tân Định",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "289 Hai Bà Trưng",
+      "coordinates": { "lat": 10.7883494, "lon": 106.6906577, "verified": false, "source": "openstreetmap:way/60118189" }
+    },
+    {
+      "id": "cho-nguyen-dinh-chieu",
+      "name": "Chợ Nguyễn Đình Chiểu",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Lê Tự Tài",
+      "coordinates": { "lat": 10.8046364, "lon": 106.6800049, "verified": false, "source": "openstreetmap:way/60431691" }
+    },
+    {
+      "id": "cho-an-dong",
+      "name": "Chợ An Đông",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7581051, "lon": 106.6721844, "verified": false, "source": "openstreetmap:way/152990635" }
+    },
+    {
+      "id": "cho-hoa-ho-thi-ky",
+      "name": "Chợ hoa Hồ Thị Kỷ",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7657014, "lon": 106.6772919, "verified": false, "source": "openstreetmap:way/152992729" }
+    },
+    {
+      "id": "nha-hat-hoa-binh",
+      "name": "Nhà hát Hòa Bình",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7723242, "lon": 106.6738282, "verified": false, "source": "openstreetmap:way/152994269" }
+    },
+    {
+      "id": "cong-vien-ho-ban-nguyet",
+      "name": "Công viên Hồ Bán Nguyệt",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7263635, "lon": 106.7169474, "verified": false, "source": "openstreetmap:way/165271919" }
+    },
+    {
+      "id": "cong-vien-kenh-dao",
+      "name": "Công viên Kênh Đào",
+      "category": "park",
+      "radiusMeters": 143,
+      "coordinates": { "lat": 10.7227933, "lon": 106.7143387, "verified": false, "source": "openstreetmap:way/165274629" }
+    },
+    {
+      "id": "cong-vien-van-lang",
+      "name": "Công viên Văn Lang",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7565933, "lon": 106.6675432, "verified": false, "source": "openstreetmap:way/165398107" }
+    },
+    {
+      "id": "trung-bay-tu-dinh-norodom-den-dinh-doc-lap",
+      "name": "Trưng bày Từ Dinh Norodom đến Dinh Độc Lập",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "106 Nguyễn Du",
+      "coordinates": { "lat": 10.7765844, "lon": 106.6972837, "verified": false, "source": "openstreetmap:way/165518961" }
+    },
+    {
+      "id": "bao-tang-chien-dich-ho-chi-minh",
+      "name": "Bảo tàng Chiến dịch Hồ Chí Minh",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "2 Lê Duẩn",
+      "coordinates": { "lat": 10.7869832, "lon": 106.7042406, "verified": false, "source": "openstreetmap:way/165887838" }
+    },
+    {
+      "id": "cho-phu-lam",
+      "name": "Chợ Phú Lâm",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7555561, "lon": 106.6314179, "verified": false, "source": "openstreetmap:way/169081595" }
+    },
+    {
+      "id": "cho-cay-da-sa",
+      "name": "Chợ Cây Da Sà",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7562248, "lon": 106.618891, "verified": false, "source": "openstreetmap:way/169081613" }
+    },
+    {
+      "id": "chung-cu-42-nguyen-hue",
+      "name": "Chung cư 42 Nguyễn Huệ",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7741102, "lon": 106.7042197, "verified": false, "source": "openstreetmap:way/187895174" }
+    },
+    {
+      "id": "den-sri-mariamman",
+      "name": "Đền Sri Mariamman",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "45 Trương Định",
+      "coordinates": { "lat": 10.772286, "lon": 106.6955579, "verified": false, "source": "openstreetmap:way/187949849" }
+    },
+    {
+      "id": "crescent-mall",
+      "name": "Crescent Mall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "101 Đường Tôn Dật Tiên",
+      "coordinates": { "lat": 10.7289866, "lon": 106.7186882, "verified": false, "source": "openstreetmap:way/188114097" }
+    },
+    {
+      "id": "cho-tan-my",
+      "name": "Chợ Tân Mỹ",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7364452, "lon": 106.7187278, "verified": false, "source": "openstreetmap:way/188114147" }
+    },
+    {
+      "id": "cho-kim-bien",
+      "name": "Chợ Kim Biên",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7500448, "lon": 106.6559414, "verified": false, "source": "openstreetmap:way/189027782" }
+    },
+    {
+      "id": "cong-vien-vo-van-kiet",
+      "name": "Công viên Võ Văn Kiệt",
+      "category": "park",
+      "radiusMeters": 118,
+      "coordinates": { "lat": 10.7501567, "lon": 106.6711691, "verified": false, "source": "openstreetmap:way/189027797" }
+    },
+    {
+      "id": "cong-vien-canh-vien",
+      "name": "Công viên Cảnh Viên",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.717429, "lon": 106.7309314, "verified": false, "source": "openstreetmap:way/189082643" }
+    },
+    {
+      "id": "cong-vien-nam-vien",
+      "name": "Công viên Nam Viên",
+      "category": "park",
+      "radiusMeters": 133,
+      "coordinates": { "lat": 10.7209712, "lon": 106.7299248, "verified": false, "source": "openstreetmap:way/189082652" }
+    },
+    {
+      "id": "nha-hat-quan-doi",
+      "name": "Nhà hát Quân đội",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.801961, "lon": 106.6564269, "verified": false, "source": "openstreetmap:way/197690845" }
+    },
+    {
+      "id": "bao-tang-khong-quan-phia-nam",
+      "name": "Bảo tàng Không quân phía Nam",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.805192, "lon": 106.6606383, "verified": false, "source": "openstreetmap:way/197995330" }
+    },
+    {
+      "id": "dai-tuong-niem-liet-si-quan-tan-binh",
+      "name": "Đài tưởng niệm liệt sĩ quận Tân Bình",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.8036382, "lon": 106.6361317, "verified": false, "source": "openstreetmap:way/198047406" }
+    },
+    {
+      "id": "cho-tan-binh",
+      "name": "Chợ Tân Bình",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "172 Lý Thường Kiệt",
+      "coordinates": { "lat": 10.7860771, "lon": 106.6532813, "verified": false, "source": "openstreetmap:way/220861324" }
+    },
+    {
+      "id": "cho-nguyen-van-troi",
+      "name": "Chợ Nguyễn Văn Trỗi",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7863437, "lon": 106.6798496, "verified": false, "source": "openstreetmap:way/220972106" }
+    },
+    {
+      "id": "cong-vien-wonderland",
+      "name": "Công viên Wonderland",
+      "category": "park",
+      "radiusMeters": 104,
+      "coordinates": { "lat": 10.7307082, "lon": 106.7113438, "verified": false, "source": "openstreetmap:way/224451400" }
+    },
+    {
+      "id": "cho-hanh-thong-tay",
+      "name": "Chợ Hạnh Thông Tây",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.835642, "lon": 106.6586789, "verified": false, "source": "openstreetmap:way/226512569" }
+    },
+    {
+      "id": "cho-an-suong",
+      "name": "Chợ An Sương",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8460021, "lon": 106.6211754, "verified": false, "source": "openstreetmap:way/230001409" }
+    },
+    {
+      "id": "san-khau-126",
+      "name": "Sân khấu 126",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "Đường Cách Mạng Tháng Tám",
+      "coordinates": { "lat": 10.7777136, "lon": 106.6824228, "verified": false, "source": "openstreetmap:way/238164361" }
+    },
+    {
+      "id": "bao-tang-khong-quan",
+      "name": "Bảo tàng Không quân",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8026404, "lon": 106.6493626, "verified": false, "source": "openstreetmap:way/238166771" }
+    },
+    {
+      "id": "cong-vien-lang-hoa-go-vap",
+      "name": "Công viên Làng Hoa Gò Vấp",
+      "category": "park",
+      "radiusMeters": 80,
+      "address": "Nguyễn Văn Khối",
+      "coordinates": { "lat": 10.8418657, "lon": 106.6560378, "verified": false, "source": "openstreetmap:way/262963870" }
+    },
+    {
+      "id": "kich-phu-nhuan",
+      "name": "Kịch Phú Nhuận",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "70-72 Nguyễn Văn Trỗi",
+      "coordinates": { "lat": 10.795552, "lon": 106.6762431, "verified": false, "source": "openstreetmap:way/262966602" }
+    },
+    {
+      "id": "cho-thi-nghe",
+      "name": "Chợ Thị Nghè",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7920425, "lon": 106.707548, "verified": false, "source": "openstreetmap:way/263311733" }
+    },
+    {
+      "id": "cho-tan-kieng-2",
+      "name": "Chợ Tân Kiểng 2",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7454228, "lon": 106.7047774, "verified": false, "source": "openstreetmap:way/263313887" }
+    },
+    {
+      "id": "san-khau-lan-anh",
+      "name": "Sân khấu Lan Anh",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7785224, "lon": 106.6777317, "verified": false, "source": "openstreetmap:way/263444610" }
+    },
+    {
+      "id": "den-tho-vua-hung",
+      "name": "Đền thờ Vua Hùng",
+      "category": "religious",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7872423, "lon": 106.7057087, "verified": false, "source": "openstreetmap:way/263505858" }
+    },
+    {
+      "id": "cho-son-ky",
+      "name": "Chợ Sơn Kỳ",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8058848, "lon": 106.6225827, "verified": false, "source": "openstreetmap:way/285859684" }
+    },
+    {
+      "id": "cau-mong",
+      "name": "Cầu Mống",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.768069, "lon": 106.7036691, "verified": false, "source": "openstreetmap:way/286297477" }
+    },
+    {
+      "id": "trung-tam-mua-sam-nowzone",
+      "name": "Trung Tâm Mua Sắm Nowzone",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "235 Nguyễn Văn Cừ",
+      "coordinates": { "lat": 10.7643362, "lon": 106.6824608, "verified": false, "source": "openstreetmap:way/289968620" }
+    },
+    {
+      "id": "cong-vien-lich-su-van-hoa-dan-toc",
+      "name": "Công viên Lịch sử - Văn hóa Dân tộc",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.8877109, "lon": 106.8246941, "verified": false, "source": "openstreetmap:way/290307115" }
+    },
+    {
+      "id": "den-tuong-niem-ben-noc",
+      "name": "Đền tưởng niệm Bến Nọc",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.849058, "lon": 106.8039813, "verified": false, "source": "openstreetmap:way/290487269" }
+    },
+    {
+      "id": "cho-dong-hoa",
+      "name": "Chợ Đông Hòa",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8902566, "lon": 106.7858188, "verified": false, "source": "openstreetmap:way/291139291" }
+    },
+    {
+      "id": "cho-tan-phu",
+      "name": "Chợ Tân Phú",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8689715, "lon": 106.8076192, "verified": false, "source": "openstreetmap:way/291672229" }
+    },
+    {
+      "id": "cho-ba-chieu",
+      "name": "Chợ Bà Chiểu",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Phan Đăng Lưu",
+      "coordinates": { "lat": 10.8016821, "lon": 106.6988175, "verified": false, "source": "openstreetmap:way/292075521" }
+    },
+    {
+      "id": "cho-dau-moi-thu-duc",
+      "name": "Chợ đầu mối Thủ Đức",
+      "category": "market",
+      "radiusMeters": 150,
+      "address": "141 Quốc lộ 1A",
+      "coordinates": { "lat": 10.8699654, "lon": 106.7275743, "verified": false, "source": "openstreetmap:way/292839313" }
+    },
+    {
+      "id": "cho-thu-duc-b",
+      "name": "Chợ Thủ Đức B",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8500827, "lon": 106.7558305, "verified": false, "source": "openstreetmap:way/293087657" }
+    },
+    {
+      "id": "cho-go-vap",
+      "name": "Chợ Gò Vấp",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Nguyễn Văn Nghi",
+      "coordinates": { "lat": 10.8235049, "lon": 106.6872202, "verified": false, "source": "openstreetmap:way/299221928" }
+    },
+    {
+      "id": "cho-cay-queo",
+      "name": "Chợ Cây Quéo",
+      "category": "market",
+      "radiusMeters": 61,
+      "coordinates": { "lat": 10.8094781, "lon": 106.6848458, "verified": false, "source": "openstreetmap:way/313539554" }
+    },
+    {
+      "id": "cho-phuoc-binh",
+      "name": "Chợ Phước Bình",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8172086, "lon": 106.7721339, "verified": false, "source": "openstreetmap:way/314210189" }
+    },
+    {
+      "id": "cho-phu-loi-2",
+      "name": "Chợ Phú Lợi 2",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7082488, "lon": 106.6224266, "verified": false, "source": "openstreetmap:way/315563039" }
+    },
+    {
+      "id": "cho-thiec",
+      "name": "Chợ Thiếc",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "129 Đường Phó Cơ Điều",
+      "coordinates": { "lat": 10.7598051, "lon": 106.6567232, "verified": false, "source": "openstreetmap:way/316633363" }
+    },
+    {
+      "id": "cong-vien-ta-quang-buu",
+      "name": "Công viên Tạ Quang Bữu",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7370607, "lon": 106.6760967, "verified": false, "source": "openstreetmap:way/317064945" }
+    },
+    {
+      "id": "cho-tu-duc",
+      "name": "Chợ Từ Đức",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8489437, "lon": 106.7656481, "verified": false, "source": "openstreetmap:way/317498945" }
+    },
+    {
+      "id": "cho-nguyen-tri-phuong",
+      "name": "Chợ Nguyễn Tri Phương",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7644473, "lon": 106.6637169, "verified": false, "source": "openstreetmap:way/319782550" }
+    },
+    {
+      "id": "cho-hoa-hau-giang",
+      "name": "Chợ Hoa Hậu Giang",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7495387, "lon": 106.6384519, "verified": false, "source": "openstreetmap:way/327192427" }
+    },
+    {
+      "id": "cho-minh-phung",
+      "name": "Chợ Minh Phụng",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7507711, "lon": 106.6428025, "verified": false, "source": "openstreetmap:way/327192428" }
+    },
+    {
+      "id": "cong-vien-binh-phu",
+      "name": "Công viên Bình Phú",
+      "category": "park",
+      "radiusMeters": 149,
+      "coordinates": { "lat": 10.7426559, "lon": 106.632167, "verified": false, "source": "openstreetmap:way/327243239" }
+    },
+    {
+      "id": "cho-thanh-xuan",
+      "name": "Chợ Thạnh Xuân",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8800564, "lon": 106.6781032, "verified": false, "source": "openstreetmap:way/327443487" }
+    },
+    {
+      "id": "tru-so-uy-ban-nhan-dan-thanh-pho-ho-chi-minh",
+      "name": "Trụ sở Ủy ban nhân dân Thành phố Hồ Chí Minh",
+      "category": "sight",
+      "radiusMeters": 60,
+      "address": "86 Lê Thánh Tôn",
+      "coordinates": { "lat": 10.7765959, "lon": 106.7009554, "verified": false, "source": "openstreetmap:way/341504305" }
+    },
+    {
+      "id": "sc-vivocity",
+      "name": "SC VivoCity",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.7299311, "lon": 106.7033873, "verified": false, "source": "openstreetmap:way/362000989" }
+    },
+    {
+      "id": "cho-xom-cui",
+      "name": "Chợ Xóm Củi",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Đường Xóm Củi",
+      "coordinates": { "lat": 10.7459362, "lon": 106.661018, "verified": false, "source": "openstreetmap:way/366664396" }
+    },
+    {
+      "id": "vincom-plaza-thu-duc",
+      "name": "Vincom Plaza Thủ Đức",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "216 Võ Văn Ngân",
+      "coordinates": { "lat": 10.8499711, "lon": 106.7651648, "verified": false, "source": "openstreetmap:way/367930334" }
+    },
+    {
+      "id": "dai-tuong-niem-liet-sy-quan-phu-nhuan",
+      "name": "Đài tưởng niệm liệt sỹ quận Phú Nhuận",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7924657, "lon": 106.6804174, "verified": false, "source": "openstreetmap:way/372306543" }
+    },
+    {
+      "id": "cho-bau-cat",
+      "name": "Chợ Bàu Cát",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7915841, "lon": 106.6420705, "verified": false, "source": "openstreetmap:way/373726328" }
+    },
+    {
+      "id": "bao-tang-luc-luong-vu-trang-mien-dong-nam-bo",
+      "name": "Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7993714, "lon": 106.6659894, "verified": false, "source": "openstreetmap:way/376923094" }
+    },
+    {
+      "id": "cho-hoa-hung",
+      "name": "Chợ Hòa Hưng",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7831905, "lon": 106.6710848, "verified": false, "source": "openstreetmap:way/418925063" }
+    },
+    {
+      "id": "cong-vien-lo-gom",
+      "name": "Công viên Lò Gốm",
+      "category": "park",
+      "radiusMeters": 124,
+      "coordinates": { "lat": 10.7401542, "lon": 106.6341862, "verified": false, "source": "openstreetmap:way/419464708" }
+    },
+    {
+      "id": "cho-pham-the-hien",
+      "name": "Chợ Phạm Thế Hiển",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Phạm Thế Hiển",
+      "coordinates": { "lat": 10.74323, "lon": 106.6711226, "verified": false, "source": "openstreetmap:way/420032375" }
+    },
+    {
+      "id": "cho-tin-nghia",
+      "name": "Chợ Tín Nghĩa",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7499283, "lon": 106.6564243, "verified": false, "source": "openstreetmap:way/420287571" }
+    },
+    {
+      "id": "cong-vien-bau-cat",
+      "name": "Công viên Bàu Cát",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7911985, "lon": 106.6429657, "verified": false, "source": "openstreetmap:way/421603553" }
+    },
+    {
+      "id": "cho-hoa-tuoi-dam-sen",
+      "name": "Chợ Hoa Tươi Đầm Sen",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Đường Nguyễn Văn Phú",
+      "coordinates": { "lat": 10.7696954, "lon": 106.642764, "verified": false, "source": "openstreetmap:way/421970913" }
+    },
+    {
+      "id": "vincom-megamall-thao-dien",
+      "name": "Vincom Megamall Thảo Điền",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "159-161 Đường Võ Nguyên Giáp",
+      "coordinates": { "lat": 10.8023666, "lon": 106.740878, "verified": false, "source": "openstreetmap:way/430290607" }
+    },
+    {
+      "id": "vincom-plaza-quang-trung",
+      "name": "Vincom Plaza Quang Trung",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.8294827, "lon": 106.6725415, "verified": false, "source": "openstreetmap:way/446047310" }
+    },
+    {
+      "id": "cho-hiep-tan",
+      "name": "Chợ Hiệp Tân",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "70 Cây Keo",
+      "coordinates": { "lat": 10.7720249, "lon": 106.6296991, "verified": false, "source": "openstreetmap:way/456464084" }
+    },
+    {
+      "id": "cho-binh-tri-dong",
+      "name": "Chợ Bình Trị Đông",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Đường Trương Phước Phan",
+      "coordinates": { "lat": 10.7635846, "lon": 106.6125787, "verified": false, "source": "openstreetmap:way/460200213" }
+    },
+    {
+      "id": "khu-du-lich-suoi-tien",
+      "name": "Khu du lịch Suối Tiên",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "120 Xa lộ Hà Nội",
+      "coordinates": { "lat": 10.8619124, "lon": 106.8037899, "verified": false, "source": "openstreetmap:way/463548000" }
+    },
+    {
+      "id": "cho-vuon-chuoi",
+      "name": "Chợ Vườn Chuối",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7735273, "lon": 106.6842638, "verified": false, "source": "openstreetmap:way/465838943" }
+    },
+    {
+      "id": "san-khau-trong-dong",
+      "name": "Sân Khấu Trống Đồng",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7726872, "lon": 106.6923237, "verified": false, "source": "openstreetmap:way/469845166" }
+    },
+    {
+      "id": "cong-vien-ben-bach-dang",
+      "name": "Công viên Bến Bạch Đằng",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7722799, "lon": 106.7064892, "verified": false, "source": "openstreetmap:way/472074784" }
+    },
+    {
+      "id": "cho-dau-moi-binh-dien",
+      "name": "Chợ đầu mối Bình Điền",
+      "category": "market",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7029112, "lon": 106.6103055, "verified": false, "source": "openstreetmap:way/489086379" }
+    },
+    {
+      "id": "cong-vien-gia-phu",
+      "name": "Công viên Gia Phú",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.8066576, "lon": 106.6077497, "verified": false, "source": "openstreetmap:way/494796956" }
+    },
+    {
+      "id": "cong-vien-son-ky",
+      "name": "Công viên Sơn Kỳ",
+      "category": "park",
+      "radiusMeters": 81,
+      "coordinates": { "lat": 10.8065843, "lon": 106.6103095, "verified": false, "source": "openstreetmap:way/494796971" }
+    },
+    {
+      "id": "san-khau-kich-hoang-thai-thanh",
+      "name": "Sân khấu kịch Hoàng Thái Thanh",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "139 Bắc Hải",
+      "coordinates": { "lat": 10.7810604, "lon": 106.6597464, "verified": false, "source": "openstreetmap:way/495698506" }
+    },
+    {
+      "id": "cho-thu-duc",
+      "name": "Chợ Thủ Đức",
+      "category": "market",
+      "radiusMeters": 65,
+      "coordinates": { "lat": 10.8502385, "lon": 106.7541973, "verified": false, "source": "openstreetmap:way/499426667" }
+    },
+    {
+      "id": "cong-vien-tao-dan",
+      "name": "Công viên Tao Đàn",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7747886, "lon": 106.6930859, "verified": false, "source": "openstreetmap:way/500888743" }
+    },
+    {
+      "id": "cho-thuoc-quan-10",
+      "name": "Chợ thuốc Quận 10",
+      "category": "market",
+      "radiusMeters": 93,
+      "coordinates": { "lat": 10.7806119, "lon": 106.6667432, "verified": false, "source": "openstreetmap:way/502252356" }
+    },
+    {
+      "id": "cho-binh-thoi",
+      "name": "Chợ Bình Thới",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Đường Xóm Đất",
+      "coordinates": { "lat": 10.7594191, "lon": 106.6425361, "verified": false, "source": "openstreetmap:way/502903942" }
+    },
+    {
+      "id": "cho-bon-xa-moi",
+      "name": "Chợ Bốn Xã mới",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "449 Hương Lộ 2",
+      "coordinates": { "lat": 10.7731894, "lon": 106.6207912, "verified": false, "source": "openstreetmap:way/503015600" }
+    },
+    {
+      "id": "cho-linh-trung",
+      "name": "Chợ Linh Trung",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8599715, "lon": 106.7731619, "verified": false, "source": "openstreetmap:way/503216454" }
+    },
+    {
+      "id": "cho-tam-binh",
+      "name": "Chợ Tam Bình",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8703032, "lon": 106.7356083, "verified": false, "source": "openstreetmap:way/503282437" }
+    },
+    {
+      "id": "chua-linh-phuoc",
+      "name": "Chùa Linh Phước",
+      "category": "religious",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8822888, "lon": 106.7669351, "verified": false, "source": "openstreetmap:way/503561771" }
+    },
+    {
+      "id": "on-mall-binh-tan",
+      "name": "AEON Mall Bình Tân",
+      "category": "shopping",
+      "radiusMeters": 115,
+      "address": "1 Đường số 17A",
+      "coordinates": { "lat": 10.742703, "lon": 106.6119346, "verified": false, "source": "openstreetmap:way/504157823" }
+    },
+    {
+      "id": "cong-vien-vinhomes-central-park",
+      "name": "Công viên Vinhomes Central Park",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7934905, "lon": 106.7242291, "verified": false, "source": "openstreetmap:way/504571792" }
+    },
+    {
+      "id": "khu-tuong-niem-ben-noc",
+      "name": "Khu tưởng niệm Bến Nọc",
+      "category": "park",
+      "radiusMeters": 90,
+      "address": "Đường Lê Văn Việt",
+      "coordinates": { "lat": 10.8486326, "lon": 106.8039761, "verified": false, "source": "openstreetmap:way/507538757" }
+    },
+    {
+      "id": "cho-tang-nhon-phu",
+      "name": "Chợ Tăng Nhơn Phú",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8443916, "lon": 106.787967, "verified": false, "source": "openstreetmap:way/507538764" }
+    },
+    {
+      "id": "vincom-plaza-ba-thang-hai",
+      "name": "Vincom Plaza Ba Tháng Hai",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.7762897, "lon": 106.680839, "verified": false, "source": "openstreetmap:way/509015321" }
+    },
+    {
+      "id": "nha-tuong-niem-nguyen-an-ninh",
+      "name": "Nhà tưởng niệm Nguyễn An Ninh",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.8567083, "lon": 106.6127741, "verified": false, "source": "openstreetmap:way/516639140" }
+    },
+    {
+      "id": "cho-trung-chanh",
+      "name": "Chợ Trung Chánh",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8603504, "lon": 106.6099327, "verified": false, "source": "openstreetmap:way/516639141" }
+    },
+    {
+      "id": "cho-tan-chanh-hiep",
+      "name": "Chợ Tân Chánh Hiệp",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8598516, "lon": 106.6181902, "verified": false, "source": "openstreetmap:way/516639176" }
+    },
+    {
+      "id": "cho-pham-van-hai",
+      "name": "Chợ Phạm Văn Hai",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "123 Phạm Văn Hai",
+      "coordinates": { "lat": 10.7947735, "lon": 106.6627004, "verified": false, "source": "openstreetmap:way/523650557" }
+    },
+    {
+      "id": "cho-thao-dien",
+      "name": "Chợ Thảo Điền",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8024021, "lon": 106.7282374, "verified": false, "source": "openstreetmap:way/529015846" }
+    },
+    {
+      "id": "cong-vien-bo-ke-gia-long",
+      "name": "Công viên Bờ kè Gia Long",
+      "category": "park",
+      "radiusMeters": 80,
+      "address": "Gia Long",
+      "coordinates": { "lat": 10.8981994, "lon": 106.7014337, "verified": false, "source": "openstreetmap:way/530247665" }
+    },
+    {
+      "id": "cho-ba-diem",
+      "name": "Chợ Bà Điểm",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8402679, "lon": 106.6001016, "verified": false, "source": "openstreetmap:way/531191859" }
+    },
+    {
+      "id": "van-hanh-mall",
+      "name": "Vạn Hạnh Mall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "11 Sư Vạn Hạnh",
+      "coordinates": { "lat": 10.770575, "lon": 106.6695631, "verified": false, "source": "openstreetmap:way/556234623" }
+    },
+    {
+      "id": "chua-an-quang",
+      "name": "Chùa Ấn Quang",
+      "category": "religious",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7658337, "lon": 106.6716779, "verified": false, "source": "openstreetmap:way/585932824" }
+    },
+    {
+      "id": "tttm-romea",
+      "name": "TTTM RomeA",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.7780347, "lon": 106.6901155, "verified": false, "source": "openstreetmap:way/587505132" }
+    },
+    {
+      "id": "cong-vien-da-cau-sai-gon",
+      "name": "Công viên dạ cầu Sài Gòn",
+      "category": "park",
+      "radiusMeters": 123,
+      "coordinates": { "lat": 10.7989431, "lon": 106.7314133, "verified": false, "source": "openstreetmap:way/596819406" }
+    },
+    {
+      "id": "sala-shopping-mall-thiso-mall",
+      "name": "SALA Shopping Mall Thiso mall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "10 Đ Mai Chí Thọ",
+      "coordinates": { "lat": 10.7720547, "lon": 106.7219492, "verified": false, "source": "openstreetmap:way/605774020" }
+    },
+    {
+      "id": "rap-xiec-va-bieu-dien-da-nang-phu-tho",
+      "name": "Rạp Xiếc và Biểu diễn đa năng Phú Thọ",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7701723, "lon": 106.6549869, "verified": false, "source": "openstreetmap:way/608552739" }
+    },
+    {
+      "id": "cong-vien-tam-vu",
+      "name": "Công viên Tầm Vu",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.8166626, "lon": 106.7152866, "verified": false, "source": "openstreetmap:way/610240418" }
+    },
+    {
+      "id": "gigamall",
+      "name": "Gigamall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "240-242 Phạm Văn Đồng",
+      "coordinates": { "lat": 10.8278719, "lon": 106.7216284, "verified": false, "source": "openstreetmap:way/665759768" }
+    },
+    {
+      "id": "cho-binh-tri-dong-b",
+      "name": "Chợ Bình Trị Đông B",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.738334, "lon": 106.6051369, "verified": false, "source": "openstreetmap:way/675758920" }
+    },
+    {
+      "id": "dai-tuong-niem-can-cu-ho-ban",
+      "name": "Đài tưởng niệm Căn cứ Hố Bần",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7350566, "lon": 106.6259823, "verified": false, "source": "openstreetmap:way/675945696" }
+    },
+    {
+      "id": "cong-vien-khanh-hoi",
+      "name": "Công viên Khánh Hội",
+      "category": "park",
+      "radiusMeters": 140,
+      "coordinates": { "lat": 10.757743, "lon": 106.6976868, "verified": false, "source": "openstreetmap:way/682412572" }
+    },
+    {
+      "id": "dinh-ly-nhon",
+      "name": "Đình Lý Nhơn",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.761629, "lon": 106.6981599, "verified": false, "source": "openstreetmap:way/683113614" }
+    },
+    {
+      "id": "centre-mall-pham-hung",
+      "name": "Centre Mall Phạm Hùng",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "C6/27 Phạm Hùng",
+      "coordinates": { "lat": 10.7335931, "lon": 106.6745624, "verified": false, "source": "openstreetmap:way/686792754" }
+    },
+    {
+      "id": "cho-binh-dong",
+      "name": "Chợ Bình Đông",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7385187, "lon": 106.6431372, "verified": false, "source": "openstreetmap:way/689167876" }
+    },
+    {
+      "id": "tuong-dai-chu-tich-ho-chi-minh",
+      "name": "Tượng đài Chủ tịch Hồ Chí Minh",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7760329, "lon": 106.701538, "verified": false, "source": "openstreetmap:way/695895031" }
+    },
+    {
+      "id": "cho-phu-tho",
+      "name": "Chợ Phú Thọ",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7629238, "lon": 106.6540533, "verified": false, "source": "openstreetmap:way/715470255" }
+    },
+    {
+      "id": "cinemax-8d",
+      "name": "Cinemax 8D",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7679218, "lon": 106.6394782, "verified": false, "source": "openstreetmap:way/715568677" }
+    },
+    {
+      "id": "cho-ban-co",
+      "name": "Chợ Bàn Cờ",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7688569, "lon": 106.6800736, "verified": false, "source": "openstreetmap:way/722916692" }
+    },
+    {
+      "id": "trung-tam-thuong-mai-estella",
+      "name": "Trung Tâm Thương Mại Estella",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.8017598, "lon": 106.7485681, "verified": false, "source": "openstreetmap:way/723041514" }
+    },
+    {
+      "id": "cantavil-mall",
+      "name": "Cantavil Mall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.8014554, "lon": 106.7469576, "verified": false, "source": "openstreetmap:way/723912448" }
+    },
+    {
+      "id": "nha-hat-thanh-pho",
+      "name": "Nhà hát Thành phố",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "7 Công trường Lam Sơn",
+      "coordinates": { "lat": 10.7767109, "lon": 106.7032186, "verified": false, "source": "openstreetmap:way/801710792" }
+    },
+    {
+      "id": "nha-tho-duc-ba-sai-gon",
+      "name": "Nhà thờ Đức Bà Sài Gòn",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "1 Công trường Công xã Paris",
+      "coordinates": { "lat": 10.779771, "lon": 106.6990579, "verified": false, "source": "openstreetmap:way/801950766" }
+    },
+    {
+      "id": "bao-tang-thanh-pho-ho-chi-minh",
+      "name": "Bảo tàng Thành phố Hồ Chí Minh",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "Lý Tự Trọng",
+      "coordinates": { "lat": 10.775916, "lon": 106.6996734, "verified": false, "source": "openstreetmap:way/802105071" }
+    },
+    {
+      "id": "toa-nha-saigon-centre",
+      "name": "Saigon Centre",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "65 Lê Lợi",
+      "coordinates": { "lat": 10.7732401, "lon": 106.7008784, "verified": false, "source": "openstreetmap:way/802125677" }
+    },
+    {
+      "id": "bao-tang-my-thuat-thanh-pho-ho-chi-minh",
+      "name": "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "97A Phó Ðức Chính",
+      "coordinates": { "lat": 10.769646, "lon": 106.6992468, "verified": false, "source": "openstreetmap:way/802157425" }
+    },
+    {
+      "id": "biet-thu-nguyen-van-hao",
+      "name": "Biệt thự Nguyễn Văn Hảo",
+      "category": "sight",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7687328, "lon": 106.6968409, "verified": false, "source": "openstreetmap:way/806860791" }
+    },
+    {
+      "id": "cho-chay",
+      "name": "Chợ Cháy",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7647807, "lon": 106.6978818, "verified": false, "source": "openstreetmap:way/807297549" }
+    },
+    {
+      "id": "nha-hat-cai-luong-tran-huu-trang",
+      "name": "Nhà hát Cải lương Trần Hữu Trang",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7650828, "lon": 106.6922968, "verified": false, "source": "openstreetmap:way/807577729" }
+    },
+    {
+      "id": "cong-vien-tan-cang",
+      "name": "Công viên Tân Cảng",
+      "category": "park",
+      "radiusMeters": 101,
+      "coordinates": { "lat": 10.7982246, "lon": 106.7227374, "verified": false, "source": "openstreetmap:way/842707445" }
+    },
+    {
+      "id": "cong-vien-ao-sen",
+      "name": "Công viên ao Sen",
+      "category": "park",
+      "radiusMeters": 90,
+      "coordinates": { "lat": 10.7647526, "lon": 106.7609694, "verified": false, "source": "openstreetmap:way/845522929" }
+    },
+    {
+      "id": "nha-tho-huyen-sy",
+      "name": "Nhà thờ Huyện Sỹ",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "1 Tôn Thất Tùng",
+      "coordinates": { "lat": 10.768614, "lon": 106.688957, "verified": false, "source": "openstreetmap:way/907280822" }
+    },
+    {
+      "id": "cong-vien-ven-song",
+      "name": "Công viên Ven sông",
+      "category": "park",
+      "radiusMeters": 106,
+      "coordinates": { "lat": 10.7379427, "lon": 106.6980828, "verified": false, "source": "openstreetmap:way/961031437" }
+    },
+    {
+      "id": "cong-vien-cau-rach-ong",
+      "name": "Công viên Cầu Rạch Ông",
+      "category": "park",
+      "radiusMeters": 138,
+      "address": "Trần Xuân Soạn",
+      "coordinates": { "lat": 10.7515853, "lon": 106.6929586, "verified": false, "source": "openstreetmap:way/961184057" }
+    },
+    {
+      "id": "bao-tang-phu-nu-nam-bo",
+      "name": "Bảo tàng Phụ nữ Nam Bộ",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7841686, "lon": 106.687398, "verified": false, "source": "openstreetmap:way/1019040791" }
+    },
+    {
+      "id": "cong-vien-giai-tri-vinwonders-grand-park",
+      "name": "Công viên giải trí VinWonders Grand Park",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.8420891, "lon": 106.845603, "verified": false, "source": "openstreetmap:way/1023126419" }
+    },
+    {
+      "id": "nha-truyen-thong-thu-duc",
+      "name": "Nhà Truyền Thống Thủ Đức",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8509752, "lon": 106.7602131, "verified": false, "source": "openstreetmap:way/1023704926" }
+    },
+    {
+      "id": "cong-vien-dang-thuy-tram",
+      "name": "Công viên Đặng Thùy Trâm",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.8333277, "lon": 106.6996477, "verified": false, "source": "openstreetmap:way/1036018818" }
+    },
+    {
+      "id": "cong-vien-bo-song-thanh-da",
+      "name": "Công viên bờ sông Thanh Đa",
+      "category": "park",
+      "radiusMeters": 95,
+      "coordinates": { "lat": 10.8181333, "lon": 106.7156763, "verified": false, "source": "openstreetmap:way/1037121093" }
+    },
+    {
+      "id": "cong-vien-thanh-da",
+      "name": "Công viên Thanh Đa",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.8164816, "lon": 106.7221217, "verified": false, "source": "openstreetmap:way/1037121097" }
+    },
+    {
+      "id": "creative-park",
+      "name": "Creative Park",
+      "category": "park",
+      "radiusMeters": 87,
+      "coordinates": { "lat": 10.7800445, "lon": 106.7125216, "verified": false, "source": "openstreetmap:way/1046197467" }
+    },
+    {
+      "id": "cong-vien-ben-bach-dang-2",
+      "name": "Công viên Bến Bạch Đằng",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7782279, "lon": 106.7076346, "verified": false, "source": "openstreetmap:way/1056572948" }
+    },
+    {
+      "id": "cong-vien-khu-50ha",
+      "name": "Công viên khu 50HA",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.769417, "lon": 106.7907527, "verified": false, "source": "openstreetmap:way/1081337937" }
+    },
+    {
+      "id": "cong-vien-van-hoa-go-vap",
+      "name": "Công viên Văn hóa Gò Vấp",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.8431008, "lon": 106.6852889, "verified": false, "source": "openstreetmap:way/1084373313" }
+    },
+    {
+      "id": "vincom-mega-mall",
+      "name": "Vincom Mega Mall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.8433729, "lon": 106.8428377, "verified": false, "source": "openstreetmap:way/1115566351" }
+    },
+    {
+      "id": "bao-tang-ton-duc-thang",
+      "name": "Bảo tàng Tôn Đức Thắng",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7774203, "lon": 106.7063661, "verified": false, "source": "openstreetmap:way/1116582922" }
+    },
+    {
+      "id": "cho-tan-tru",
+      "name": "Chợ Tân Trụ",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8188508, "lon": 106.6346129, "verified": false, "source": "openstreetmap:way/1125792005" }
+    },
+    {
+      "id": "bao-tang-quan-doan-4",
+      "name": "Bảo tàng Quân đoàn 4",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8837665, "lon": 106.7428221, "verified": false, "source": "openstreetmap:way/1139091053" }
+    },
+    {
+      "id": "pico-plaza",
+      "name": "Pico Plaza",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "20 Cộng Hoà",
+      "coordinates": { "lat": 10.800754, "lon": 106.6532198, "verified": false, "source": "openstreetmap:way/1152214346" }
+    },
+    {
+      "id": "san-khau-kich-5b",
+      "name": "Sân khấu Kịch 5B",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "5B Đường Võ Văn Tần",
+      "coordinates": { "lat": 10.7806252, "lon": 106.694387, "verified": false, "source": "openstreetmap:way/1153459806" }
+    },
+    {
+      "id": "khu-du-lich-thuy-chau",
+      "name": "Khu du lịch Thủy Châu",
+      "category": "park",
+      "radiusMeters": 150,
+      "address": "55 Đường tỉnh 743A",
+      "coordinates": { "lat": 10.9012525, "lon": 106.8192275, "verified": false, "source": "openstreetmap:way/1167526791" }
+    },
+    {
+      "id": "cong-vien-malibu",
+      "name": "Công viên Malibu",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.8325162, "lon": 106.8431029, "verified": false, "source": "openstreetmap:way/1224026989" }
+    },
+    {
+      "id": "cong-vien-mahattan",
+      "name": "Công viên Mahattan",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.8371941, "lon": 106.8443601, "verified": false, "source": "openstreetmap:way/1224027738" }
+    },
+    {
+      "id": "parc-mall",
+      "name": "Parc Mall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "547-549 Tạ Quang Bửu",
+      "coordinates": { "lat": 10.7407319, "lon": 106.679143, "verified": false, "source": "openstreetmap:way/1226734708" }
+    },
+    {
+      "id": "cong-vien-dong-thu-thiem",
+      "name": "Công viên Đông Thủ Thiêm",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7911461, "lon": 106.7775017, "verified": false, "source": "openstreetmap:way/1229027471" }
+    },
+    {
+      "id": "di-tich-lich-su-van-hoa-mo-phan-chau-trinh",
+      "name": "Di tích Lịch sử Văn hóa mộ Phan Châu Trinh",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.804298, "lon": 106.6618999, "verified": false, "source": "openstreetmap:way/1230637669" }
+    },
+    {
+      "id": "cho-hoang-hoa-tham",
+      "name": "Chợ Hoàng Hoa Thám",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.798381, "lon": 106.6467325, "verified": false, "source": "openstreetmap:way/1234026253" }
+    },
+    {
+      "id": "chua-ngoc-hoang",
+      "name": "Chùa Ngọc Hoàng",
+      "category": "religious",
+      "radiusMeters": 60,
+      "address": "73 Mai Thị Lựu",
+      "coordinates": { "lat": 10.7915281, "lon": 106.6976869, "verified": false, "source": "openstreetmap:way/1272651080" }
+    },
+    {
+      "id": "cong-vien-my-phu",
+      "name": "Công viên Mỹ Phú",
+      "category": "park",
+      "radiusMeters": 80,
+      "address": "22 Đường G",
+      "coordinates": { "lat": 10.7161372, "lon": 106.7271894, "verified": false, "source": "openstreetmap:way/1306108989" }
+    },
+    {
+      "id": "eco-green-central-park",
+      "name": "Eco Green Central Park",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.748533, "lon": 106.7243437, "verified": false, "source": "openstreetmap:way/1308559978" }
+    },
+    {
+      "id": "satra-centre-mall",
+      "name": "Satra Centre Mall",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "address": "1466 Đường Võ Văn Kiệt",
+      "coordinates": { "lat": 10.7436804, "lon": 106.6483499, "verified": false, "source": "openstreetmap:way/1354146316" }
+    },
+    {
+      "id": "cho-rach-ong",
+      "name": "Chợ Rạch Ông",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Nguyễn Thị Tần",
+      "coordinates": { "lat": 10.746806, "lon": 106.6864536, "verified": false, "source": "openstreetmap:way/1358149660" }
+    },
+    {
+      "id": "di-tich-lich-su-can-cu-vung-bung-6-xa",
+      "name": "Di tích lịch sử Căn cứ Vùng Bưng 6 xã",
+      "category": "park",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.8258207, "lon": 106.8064786, "verified": false, "source": "openstreetmap:way/1380599078" }
+    },
+    {
+      "id": "trung-tam-thuong-mai-an-dong-plaza",
+      "name": "Trung tâm Thương Mại An Đông Plaza",
+      "category": "shopping",
+      "radiusMeters": 100,
+      "coordinates": { "lat": 10.7578415, "lon": 106.67331, "verified": false, "source": "openstreetmap:way/1388259750" }
+    },
+    {
+      "id": "nha-truyen-thong-chien-khu-an-phu-dong",
+      "name": "Nhà truyền thống chiến khu An Phú Đông",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.8618109, "lon": 106.6924499, "verified": false, "source": "openstreetmap:way/1431226292" }
+    },
+    {
+      "id": "cong-vien-thuan-kieu",
+      "name": "Công viên Thuận Kiều",
+      "category": "park",
+      "radiusMeters": 101,
+      "coordinates": { "lat": 10.8243771, "lon": 106.615228, "verified": false, "source": "openstreetmap:way/1442745696" }
+    },
+    {
+      "id": "nha-den-cho-quan",
+      "name": "Nhà đèn Chợ Quán",
+      "category": "monument",
+      "radiusMeters": 50,
+      "coordinates": { "lat": 10.7532811, "lon": 106.6859086, "verified": false, "source": "openstreetmap:way/1457808651" }
+    },
+    {
+      "id": "thien-duong-giai-tri-tho-trang",
+      "name": "Thiên đường giải trí Thỏ Trắng",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "coordinates": { "lat": 10.7850349, "lon": 106.6652763, "verified": false, "source": "openstreetmap:way/1491439860" }
+    },
+    {
+      "id": "di-tich-luu-niem-chu-tich-ho-chi-minh",
+      "name": "Di tích lưu niệm Chủ tịch Hồ Chí Minh",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "5 Đường Châu Văn Liêm",
+      "coordinates": { "lat": 10.7511496, "lon": 106.6588948, "verified": false, "source": "openstreetmap:way/1518080727" }
+    },
+    {
+      "id": "bot-day-thep",
+      "name": "Bót Dây Thép",
+      "category": "museum",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.8443318, "lon": 106.7934593, "verified": false, "source": "openstreetmap:way/1518107504" }
+    },
+    {
+      "id": "cho-hoa-binh",
+      "name": "Chợ Hòa Bình",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "37 Bach Van",
+      "coordinates": { "lat": 10.7520483, "lon": 106.6756482, "verified": false, "source": "openstreetmap:way/1523591691" }
+    },
+    {
+      "id": "nha-hat-nghe-thuat-phuong-nam",
+      "name": "Nhà hát Nghệ thuật Phương Nam",
+      "category": "entertainment",
+      "radiusMeters": 80,
+      "address": "372-374 Đường Trần Phú",
+      "coordinates": { "lat": 10.7536417, "lon": 106.668771, "verified": false, "source": "openstreetmap:way/1524297432" }
+    },
+    {
+      "id": "pho-le",
+      "name": "Phở Lệ",
+      "category": "food",
+      "radiusMeters": 40,
+      "address": "413-415 Đường Nguyễn Trãi",
+      "coordinates": { "lat": 10.7552488, "lon": 106.6735279, "verified": false, "source": "openstreetmap:way/1536912862" }
+    },
+    {
+      "id": "cho-xom-chieu",
+      "name": "Chợ Xóm Chiếu",
+      "category": "market",
+      "radiusMeters": 60,
+      "coordinates": { "lat": 10.7635086, "lon": 106.7060968, "verified": false, "source": "openstreetmap:way/1538947028" }
+    },
+    {
+      "id": "the-commons-thu-thiem",
+      "name": "The Commons Thu Thiem",
+      "category": "sight",
+      "radiusMeters": 60,
+      "address": "33/10 Lương Định Của",
+      "coordinates": { "lat": 10.7820902, "lon": 106.7135045, "verified": false, "source": "openstreetmap:way/1540771314" }
+    },
+    {
+      "id": "cong-vien-duong-so-25",
+      "name": "Công viên Đường số 25",
+      "category": "park",
+      "radiusMeters": 80,
+      "address": "Đường số 25",
+      "coordinates": { "lat": 10.7545209, "lon": 106.6132973, "verified": false, "source": "openstreetmap:way/1545696508" }
+    },
+    {
+      "id": "cho-an-lac",
+      "name": "Chợ An Lạc",
+      "category": "market",
+      "radiusMeters": 60,
+      "address": "Đường Kinh Dương Vương",
+      "coordinates": { "lat": 10.7418176, "lon": 106.6201119, "verified": false, "source": "openstreetmap:way/1546456899" }
+    },
+    {
+      "id": "cong-vien-30-thang-4",
+      "name": "Công viên 30 Tháng 4",
+      "category": "park",
+      "radiusMeters": 131,
+      "coordinates": { "lat": 10.7792539, "lon": 106.6973459, "verified": false, "source": "openstreetmap:relation/11084516" }
+    },
+    {
+      "id": "cho-cu-ton-that-dam",
+      "name": "Chợ cũ Tôn Thất Đạm",
+      "category": "market",
+      "radiusMeters": 63,
+      "coordinates": { "lat": 10.7719499, "lon": 106.7029683, "verified": false, "source": "openstreetmap:relation/11102209" }
+    },
+    {
+      "id": "cong-vien-23-thang-9",
+      "name": "Công viên 23 tháng 9",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.7695676, "lon": 106.6939415, "verified": false, "source": "openstreetmap:relation/14939719" }
+    },
+    {
+      "id": "cong-vien-gia-dinh",
+      "name": "Công viên Gia Định",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.8125387, "lon": 106.6752341, "verified": false, "source": "openstreetmap:relation/17583696" }
+    },
+    {
+      "id": "cong-vien-hoang-van-thu",
+      "name": "Công viên Hoàng Văn Thụ",
+      "category": "park",
+      "radiusMeters": 150,
+      "coordinates": { "lat": 10.8025098, "lon": 106.6645157, "verified": false, "source": "openstreetmap:relation/17583697" }
+    },
+    {
+      "id": "bao-tang-lich-su-thanh-pho-ho-chi-minh",
+      "name": "Bảo tàng Lịch sử Thành phố Hồ Chí Minh",
+      "category": "museum",
+      "radiusMeters": 60,
+      "address": "2 Nguyễn Thị Minh Khai",
+      "coordinates": { "lat": 10.7879621, "lon": 106.7049183, "verified": false, "source": "openstreetmap:relation/17758150" }
+    },
+    {
+      "id": "nha-dau-xe-aeon-mall-tan-phu-celadon-commercial",
+      "name": "AEON Mall Tân Phú Celadon",
+      "category": "shopping",
+      "radiusMeters": 150,
+      "address": "30 Bờ Bao Tân Thắng",
+      "coordinates": { "lat": 10.8014231, "lon": 106.6168632, "verified": false, "source": "openstreetmap:relation/20675274" }
     }
   ]
 }

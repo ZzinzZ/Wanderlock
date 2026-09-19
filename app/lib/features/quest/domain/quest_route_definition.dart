@@ -5,13 +5,39 @@
 /// `visit_state`. Keeping them apart is what lets the quest feature parse and
 /// test its own content without importing `checkpoint` or `unlock`, which the
 /// dependency rule forbids.
+/// How a quest is played.
+enum QuestKind {
+  /// Stops in an authored order, with one "next stop" at a time.
+  route,
+
+  /// A collection to complete in any order — every market, every park.
+  set;
+
+  /// Anything unknown reads as a route: that is what every quest was before
+  /// sets existed, so an older file means what it always meant.
+  static QuestKind parse(String? value) =>
+      value == 'set' ? QuestKind.set : QuestKind.route;
+}
+
 class QuestRouteDefinition {
   const QuestRouteDefinition({
     required this.id,
     required this.name,
     required this.summary,
     required this.checkpointIds,
+    this.kind = QuestKind.route,
+    this.categories = const [],
   });
+
+  final QuestKind kind;
+
+  /// Checkpoint categories whose every place belongs to this quest, by name.
+  ///
+  /// Lets a set be "all the markets" rather than a hand-kept list of sixty
+  /// ids: a market added to the content file joins the set with no edit here.
+  /// Resolved against the content where the quest is assembled — this layer
+  /// cannot see checkpoints.
+  final List<String> categories;
 
   final String id;
   final String name;
@@ -22,5 +48,6 @@ class QuestRouteDefinition {
   final List<String> checkpointIds;
 
   @override
-  String toString() => 'QuestRouteDefinition($id, ${checkpointIds.length})';
+  String toString() =>
+      'QuestRouteDefinition($id, ${kind.name}, ${checkpointIds.length})';
 }

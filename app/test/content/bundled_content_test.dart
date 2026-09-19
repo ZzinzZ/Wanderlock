@@ -42,8 +42,32 @@ void main() {
       checkpoints = CheckpointBundledSource.parse(bundled.readAsStringSync());
     });
 
-    test('yields the twelve pilot places', () {
-      expect(checkpoints, hasLength(12));
+    // The pilot grew from twelve landmarks to the city's markets, parks,
+    // malls and places to eat on 2026-09-19 (docs/08). The twelve are still
+    // the ones checked by eye, and that is what this pins down.
+    test('keeps the twelve verified landmarks among the places', () {
+      const landmarks = {
+        'independence-palace',
+        'central-post-office',
+        'ben-thanh-market',
+        'war-remnants-museum',
+        'vinh-nghiem-pagoda',
+        'binh-tay-market',
+        'le-van-duyet-tomb',
+        'giac-lam-pagoda',
+        'nha-rong-wharf',
+        'thien-hau-temple',
+        'landmark-81',
+        'buu-long-pagoda',
+      };
+      final ids = {for (final checkpoint in checkpoints) checkpoint.id};
+      expect(ids, containsAll(landmarks));
+      expect(checkpoints.length, greaterThan(landmarks.length));
+    });
+
+    test('no two places share an id', () {
+      final ids = [for (final checkpoint in checkpoints) checkpoint.id];
+      expect(ids.toSet(), hasLength(ids.length));
     });
 
     test('every place lands in Ho Chi Minh City', () {

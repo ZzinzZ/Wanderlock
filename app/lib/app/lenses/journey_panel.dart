@@ -5,9 +5,9 @@ import 'package:wanderlock/app/lenses/lens_providers.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/design/widgets/sticker_surface.dart';
-import 'package:wanderlock/features/checkpoint/presentation/checkpoint_icons.dart';
 import 'package:wanderlock/features/itinerary/application/itinerary_providers.dart';
 import 'package:wanderlock/features/itinerary/presentation/itinerary_editor.dart';
+import 'package:wanderlock/features/quest/presentation/quest_list.dart';
 import 'package:wanderlock/features/quest/presentation/quest_panel.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
@@ -30,6 +30,11 @@ class _JourneyPanelState extends ConsumerState<JourneyPanel> {
   /// is a poor first impression of a tab; the authored route at least shows
   /// what the tab is for.
   _JourneyTab _tab = _JourneyTab.quest;
+
+  /// The quest opened from the list, by id; null shows the list. An id
+  /// rather than the route itself, so progress keeps updating while it is
+  /// open.
+  String? _openQuestId;
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +78,7 @@ class _JourneyPanelState extends ConsumerState<JourneyPanel> {
         ),
         Expanded(
           child: switch (_tab) {
-            _JourneyTab.quest => QuestPanel(
-              route: ref.watch(questRouteProvider),
-              landmarkOf: CheckpointIcons.landmarkOfId,
-            ),
+            _JourneyTab.quest => _quests(),
             _JourneyTab.itinerary => ItineraryEditor(
               entries: ref.watch(itineraryEntriesProvider),
               onReorder: (ids) =>
@@ -94,6 +96,47 @@ class _JourneyPanelState extends ConsumerState<JourneyPanel> {
         // that height plus its offset.
         const SizedBox(height: AppSpacing.xxl + AppSpacing.xxl + AppSpacing.lg),
       ],
+    );
+  }
+
+  /// The list of quests, or the one that was opened, with a way back.
+  Widget _quests() {
+    final routes = ref.watch(questRoutesProvider);
+    final landmarkOf = ref.watch(landmarkLookupProvider);
+    final open = routes.where((route) => route.id == _openQuestId).firstOrNull;
+
+    if (open == null) {
+      return QuestList(
+        routes: routes,
+        landmarkOf: landmarkOf,
+        onOpen: (route) => setState(() => _openQuestId = route.id),
+      );
+    }
+
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) setState(() => _openQuestId = null);
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              AppSpacing.md,
+              0,
+              AppSpacing.md,
+              AppSpacing.sm,
+            ),
+            child: _BackChip(
+              onPressed: () => setState(() => _openQuestId = null),
+            ),
+          ),
+          Expanded(
+            child: QuestPanel(route: open, landmarkOf: landmarkOf),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -169,6 +212,56 @@ class _TabPill extends StatelessWidget {
                 ),
               ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Back from one quest to the list of them.
+class _BackChip extends StatelessWidget {
+  const _BackChip({required this.onPressed});
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final colors = AppColors.of(context);
+
+    return Semantics(
+      button: true,
+      child: GestureDetector(
+        onTap: onPressed,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: colors.card,
+            borderRadius: AppRadius.pill,
+            border: Border.all(
+              color: colors.outline,
+              width: AppSticker.strokeThin,
+            ),
+            boxShadow: AppShadows.sticker(colors, depth: AppSticker.depthSmall),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+              AppSpacing.xs,
+              AppSpacing.xs / 2,
+              AppSpacing.md - 4,
+              AppSpacing.xs / 2,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const AppIcon(AppIcons.back, size: AppIconSize.inline),
+                const SizedBox(width: AppSpacing.xs),
+                Text(
+                  l10n.questBackToList,
+                  style: AppTypography.tab.copyWith(color: colors.ink),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

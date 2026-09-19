@@ -18,6 +18,15 @@ class LandmarkArt {
   static const String wharf = 'wharf';
   static const String tower = 'tower';
 
+  // Added when the pilot grew beyond landmarks (2026-09-19).
+  static const String park = 'park';
+  static const String mall = 'mall';
+  static const String food = 'food';
+  static const String camera = 'camera';
+  static const String theatre = 'theatre';
+  static const String obelisk = 'obelisk';
+  static const String church = 'church';
+
   static const List<String> all = <String>[
     palace,
     postOffice,
@@ -27,6 +36,13 @@ class LandmarkArt {
     temple,
     wharf,
     tower,
+    park,
+    mall,
+    food,
+    camera,
+    theatre,
+    obelisk,
+    church,
   ];
 
   static String assetPath(String name) => 'assets/landmarks/$name.png';
