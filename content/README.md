@@ -18,6 +18,38 @@ content/
 └─ image-licenses.md     # ⚠️ BẮT BUỘC — xem bên dưới
 ```
 
+## Sửa danh sách địa điểm
+
+**Danh sách 12 điểm chưa chốt.** Thêm, sửa, hay bỏ một điểm đều là sửa
+`checkpoints.json` rồi seed lại — không đụng mã nguồn.
+
+| Việc | Làm gì |
+|------|--------|
+| Sửa toạ độ, bán kính, tên, địa chỉ | Sửa mục đó rồi seed lại. Upsert ghi đè |
+| Thêm điểm | Thêm mục mới. Toạ độ phải `verified: true` — dùng [../tool/coord_verify](../tool/coord_verify) |
+| Gắn ảnh marker | Điền `photoUrl`, sau khi ảnh đã có dòng trong `image-licenses.md` |
+| Đánh dấu cần QR | Đặt `requiresQrFallback: true` — kết luận của spike S3 |
+| **Bỏ một điểm** | Xoá khỏi file **rồi chạy `--prune`**. Xem cảnh báo dưới |
+
+### Bỏ một điểm: vì sao phải có thêm một bước
+
+Seed là **upsert**, nên xoá một mục khỏi file chỉ khiến nó *thôi được ghi* —
+dòng cũ nằm lại trong database vĩnh viễn và điểm đó vẫn hiện trên bản đồ. Chạy
+seed thường sẽ **báo cáo** những điểm thừa như vậy nhưng không tự xoá.
+
+```
+dart run tool/seed_content.dart --prune
+```
+
+Xoá một checkpoint sẽ **CASCADE sang `visit_state`** — tức là xoá luôn lịch sử
+mở khoá của người chơi ở điểm đó, thứ duy nhất không dựng lại được. Nên
+`--prune` **từ chối** động vào điểm đã có người ghé, trừ khi thêm `--force`.
+
+Thêm `--dry-run` để xem trước mà không ghi gì.
+
+> Nếu chỉ muốn **đổi tên hiển thị**, sửa `name` — đừng đổi `id`. Đổi `id` bị
+> hiểu là xoá điểm cũ và thêm điểm mới, và sẽ mất lượt mở khoá.
+
 ## Định dạng chương truyện
 
 Xem [stories/_format-example.json](stories/_format-example.json) — file mẫu

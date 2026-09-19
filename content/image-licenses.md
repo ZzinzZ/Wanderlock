@@ -71,7 +71,10 @@ Chưa điền dòng nào. Thứ tự theo `checkpoints.json`.
 | Bến Nhà Rồng | [Ho Chi Minh Museum, Saigon](https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_Museum,_Saigon.jpg) | CC0 | Gary Todd | 5184×3456 |
 | ↳ | [Ho Chi Minh Museum, in Saigon](https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_Museum,_in_Saigon.jpg) | CC0 | Syced | 4080×3072 |
 | Chùa Bà Thiên Hậu | [Thien Hau Temple (Unsplash)](https://commons.wikimedia.org/wiki/File:Thien_Hau_Temple,_Ho_Chi_Minh_City,_Vietnam_(Unsplash).jpg) | CC0 | Chinh Le Duc | 5878×3919 |
-| Landmark 81 | [DJI 0325-HDR-Pano](https://commons.wikimedia.org/wiki/File:DJI_0325-HDR-Pano.jpg) | CC BY 2.0 | Lê Minh Phát | 5823×8211 |
+| Landmark 81 | [Landmark 81 view from Saigon River](https://commons.wikimedia.org/wiki/File:Landmark_81_view_from_Saigon_River.jpg) | CC BY-SA 4.0 + `FoP-Vietnam` | Josemite | 1552×3264 |
+| ↳ | [Tòa nhà Landmark 81 (52353066123)](https://commons.wikimedia.org/wiki/File:T%C3%B2a_nh%C3%A0_Landmark_81_(52353066123).jpg) | Public domain | Kien Mike | 3024×4032 |
+| ↳ | [Landmark81 (49739070616)](https://commons.wikimedia.org/wiki/File:Landmark81_(49739070616).png) | Public domain | Cuong Tran | 3720×5978 |
+| ↳ | [DJI 0325-HDR-Pano](https://commons.wikimedia.org/wiki/File:DJI_0325-HDR-Pano.jpg) | CC BY 2.0 | Lê Minh Phát | 5823×8211 |
 | Thiền viện Bửu Long | [Bửu Long Pagoda, Thủ Đức (14537196651)](https://commons.wikimedia.org/wiki/File:B%E1%BB%ADu_Long_Pagoda,_Th%E1%BB%A7_%C4%90%E1%BB%A9c,_HCM_City,_Vietnam_(14537196651).jpeg) | Public domain | minhphuc_99kdd | 4514×2871 |
 | ↳ | [Tháp chính chùa Bửu Long](https://commons.wikimedia.org/wiki/File:Th%C3%A1p_ch%C3%ADnh_ch%C3%B9a_B%E1%BB%ADu_Long.jpg) | CC BY-SA 4.0 | Thienn | 1024×768 |
 
@@ -96,25 +99,62 @@ có dòng ở đây. Thêm vào bảng dưới khi có.
 
 Công trình hiện đại, còn trong thời hạn bảo hộ quyền tác giả kiến trúc. Ảnh
 chụp công trình như vậy ở nơi công cộng có được dùng thương mại hay không tuỳ
-thuộc quy định *freedom of panorama* — đừng mặc định là được. Nếu không chắc,
-tự chụp và giữ lại ghi chú, hoặc thay bằng một điểm khác.
+thuộc quy định *freedom of panorama* — đừng mặc định là được.
 
-**Tra thêm được ngày 2026-08-08 — mối lo này CÓ CƠ SỞ, và giấy phép ảnh không
-gỡ được nó.** Wikimedia Commons duy trì bản mẫu `Template:NoFoP-Vietnam`, tức
-là Commons xếp Việt Nam vào nhóm **không có freedom of panorama** đầy đủ.
+**Tra thêm được ngày 2026-08-08 — mối lo này CÓ CƠ SỞ.** Wikimedia Commons duy
+trì bản mẫu `Template:NoFoP-Vietnam`. Luật Sở hữu trí tuệ sửa đổi
+(Luật 07/2022/QH15, Điều 25.1(h)) thêm chữ **"không nhằm mục đích thương mại"**
+vào quyền chụp ảnh công trình kiến trúc nơi công cộng.
 
-Hệ quả phải hiểu cho đúng: giấy phép `CC BY` hay `CC0` trên một tấm ảnh
-Landmark 81 là giấy phép của **người chụp** cho **bức ảnh**. Nó không nói gì về
-quyền tác giả của **công trình** nằm trong khung hình. Hai quyền khác nhau, và
-tấm ảnh có giấy phép mở vẫn có thể vướng quyền thứ hai.
+Phải hiểu cho đúng: giấy phép `CC BY` hay `CC0` trên một tấm ảnh Landmark 81 là
+giấy phép của **người chụp** cho **bức ảnh**. Nó không nói gì về quyền tác giả
+của **công trình** nằm trong khung hình. Hai quyền khác nhau.
 
-Tự chụp cũng **không** gỡ được: không có freedom of panorama thì vấn đề nằm ở
-công trình, không nằm ở ai bấm máy.
+### Sửa lại ngày 2026-09-08 — điều khoản này KHÔNG hồi tố
 
-Đây là ranh giới pháp lý, không phải quyết định kỹ thuật — tôi không kết luận
-thay. Ba đường đi, chủ dự án chọn:
+Kết luận trước đó ("không có đường nào ngoài thay điểm, tự chụp cũng không gỡ
+được") **nói quá**. Đọc kỹ chính bản mẫu `NoFoP-Vietnam` thì Commons ghi rõ:
 
-1. Hỏi luật sư sở hữu trí tuệ. Chắc chắn nhất, chậm nhất.
+> Ảnh tải lên **đến hết 2022-12-31** vẫn hợp lệ, vì áp theo freedom of panorama
+> cũ của Việt Nam — bản cũ **không** hạn chế dùng thương mại.
+
+Bản sửa đổi có hiệu lực **2023-01-01** và không hồi tố. Vậy nên:
+
+- Ảnh Landmark 81 **xuất bản/tải lên trước 2023** — dùng được, kể cả thương mại.
+- Ảnh chụp **từ 2023 trở đi** — vướng. **Tự chụp bây giờ (2026) vẫn vướng**, vì
+  vấn đề nằm ở công trình chứ không ở ai bấm máy. Chỗ này kết luận cũ đúng.
+- Category `Landmark 81` trên Commons gắn `{{NoFoP-category}}`: chặn ảnh mới,
+  **không** xoá 70 ảnh cũ đã có sẵn trong đó.
+
+Bằng chứng mạnh nhất là [Landmark 81 view from Saigon River](https://commons.wikimedia.org/wiki/File:Landmark_81_view_from_Saigon_River.jpg)
+(tải lên 2021): Commons gắn thẳng `{{Licensed-FoP|{{FoP-Vietnam}}|{{self|cc-by-sa-4.0}}}}`
+— tức chính Commons đứng ra khẳng định FoP bản cũ áp cho tấm này. Đây là tấm
+**an toàn nhất** vì lập luận pháp lý được ghi ngay trên trang ảnh, không phải
+suy ra.
+
+Ba ứng viên còn lại trong bảng trên đều tải lên trước 2023 và đều là `Public
+domain` hoặc `CC BY`, nhưng chúng chỉ mang giấy phép của **bức ảnh** — phần
+công trình vẫn phải dựa vào lập luận không-hồi-tố ở trên.
+
+**Kết luận: giữ Landmark 81, chọn ảnh tải lên trước 2023.** Không cần thay điểm.
+
+### Vì sao thay điểm cũng không cứu được "Sài Gòn hiện đại"
+
+Nếu vẫn muốn tuyệt đối không mơ hồ thì phải biết cái giá: bảo hộ kiến trúc ở
+Việt Nam hết hạn **50 năm sau khi kiến trúc sư mất**. Nghĩa là **mọi** công
+trình hiện đại của thành phố đều vướng y hệt — Bitexco, cầu Ba Son, cầu Thủ
+Thiêm. Thay Landmark 81 bằng một công trình hiện đại khác không giải quyết gì;
+thay bằng một công trình đủ cũ thì pilot thành **12 công trình cũ**, mất hẳn
+điểm đối trọng đương đại. Đó là quyết định sản phẩm, không phải quyết định
+pháp lý.
+
+### Ba đường đi cũ — vẫn còn giá trị nếu muốn chắc hơn
+
+1. Hỏi luật sư sở hữu trí tuệ. Chắc chắn nhất, chậm nhất. Câu cần hỏi giờ hẹp
+   hơn nhiều: *"điều khoản không hồi tố có bảo vệ bên dùng lại ảnh, hay chỉ bảo
+   vệ người chụp?"*
 2. Xin phép chủ sở hữu công trình bằng văn bản.
-3. **Thay Landmark 81 bằng một điểm khác.** Rẻ nhất, và 11 điểm còn lại đều là
-   công trình đủ cũ để không còn vướng — nên đây là điểm duy nhất phải xử lý.
+3. Thay Landmark 81 bằng một điểm khác — xem mục ngay trên về cái giá phải trả.
+
+> Tôi không phải luật sư. Phần trên là đọc bản mẫu và điều luật mà Commons dẫn,
+> cùng chính sách lưu trữ của Commons — không phải ý kiến pháp lý.

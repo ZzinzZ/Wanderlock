@@ -44,7 +44,7 @@ abstract final class MapStyle {
     _RoadTier(
       id: 'path',
       classes: ['path', 'track'],
-      width: 1,
+      width: 1.6,
       minZoom: 15,
       // A footpath has no edge to draw; a casing at this width would swallow
       // the fill entirely.
@@ -53,25 +53,29 @@ abstract final class MapStyle {
     _RoadTier(
       id: 'minor',
       classes: ['minor', 'service', 'busway'],
-      width: 1.4,
+      width: 2.4,
       minZoom: 14,
     ),
-    _RoadTier(id: 'tertiary', classes: ['tertiary'], width: 2.2, minZoom: 13),
-    _RoadTier(id: 'secondary', classes: ['secondary'], width: 3, minZoom: 11),
+    _RoadTier(id: 'tertiary', classes: ['tertiary'], width: 3.6, minZoom: 13),
+    _RoadTier(id: 'secondary', classes: ['secondary'], width: 4.8, minZoom: 11),
     // The only tier drawn at every zoom: at city scale these are the whole
     // map, and below zoom 11 nothing else is legible anyway.
     _RoadTier(
       id: 'major',
       classes: ['motorway', 'trunk', 'primary'],
-      width: 4.2,
+      width: 6.4,
       minZoom: 0,
+      isMajor: true,
     ),
   ];
 
   /// How much wider the casing is than the fill it sits under, in the same
   /// units as [_RoadTier.width]. Constant rather than proportional so the
   /// drawn edge stays the same visual weight across the hierarchy.
-  static const _casingBleed = 1.6;
+  static const _casingBleed = 2.4;
+
+  /// Width of the drawn edge round water and parks, at zoom 16.
+  static const _edgeWidth = 1.6;
 
   /// A complete style document, ready to hand to MapLibre as a JSON string.
   ///
@@ -111,6 +115,10 @@ abstract final class MapStyle {
         _sourceFill('water', 'water', palette.water),
         _sourceFill('landcover-green', 'landcover', palette.green),
         _sourceFill('park', 'park', palette.green),
+        // Drawn edges round water and grass: the cartoon map outlines its
+        // shapes the way the stickers on it are outlined.
+        _line('water-edge', 'water', palette.waterEdge, _edgeWidth),
+        _line('park-edge', 'park', palette.greenEdge, _edgeWidth),
         // Casing under the fill is what gives roads a drawn edge rather than a
         // flat ribbon. Every casing first, then every fill — see [_roadTiers].
         for (final tier in _roadTiers)
@@ -118,14 +126,16 @@ abstract final class MapStyle {
             _roadLine(
               id: 'road-casing-${tier.id}',
               tier: tier,
-              color: palette.roadCasing,
+              color: tier.isMajor
+                  ? palette.roadMajorCasing
+                  : palette.roadCasing,
               width: tier.width + _casingBleed,
             ),
         for (final tier in _roadTiers)
           _roadLine(
             id: 'road-fill-${tier.id}',
             tier: tier,
-            color: palette.road,
+            color: tier.isMajor ? palette.roadMajor : palette.road,
             width: tier.width,
           ),
         _line('boundary', 'boundary', palette.boundary, 1),
@@ -236,6 +246,22 @@ abstract final class MapStyle {
     },
   };
 
+  /// A colour token as the `#rrggbb` string MapLibre paint properties expect.
+  ///
+  /// Public because layers added at runtime — the fog veil, the checkpoint
+  /// markers — need the same conversion, and a second copy of it would be a
+  /// second chance to get the byte order wrong.
+  static String hex(Color color) => _hex(color);
+
+  /// The alpha of a colour token, as the 0–1 opacity MapLibre wants.
+  ///
+  /// MapLibre's `*-color` properties ignore alpha in a six-digit hex, so a
+  /// token that carries transparency has to be split into a colour and an
+  /// opacity. Reading it off the token keeps the transparency where every
+  /// other design value lives instead of as a number typed into a layer.
+  static double opacityOf(Color color) =>
+      ((color.toARGB32() >> 24) & 0xFF) / 255;
+
   static String _hex(Color color) {
     final value = color.toARGB32() & 0xFFFFFF;
     return '#${value.toRadixString(16).padLeft(6, '0')}';
@@ -252,6 +278,7 @@ class _RoadTier {
     required this.width,
     required this.minZoom,
     this.hasCasing = true,
+    this.isMajor = false,
   });
 
   /// Suffix for the layer ids, so a style inspector names the tier.
@@ -268,4 +295,7 @@ class _RoadTier {
 
   /// Whether a casing is drawn under the fill.
   final bool hasCasing;
+
+  /// Painted in the boulevard yellow rather than street white.
+  final bool isMajor;
 }

@@ -3,9 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wanderlock/core/config/app_config.dart';
 import 'package:wanderlock/core/config/supabase_connection.dart';
 import 'package:wanderlock/core/database/database_provider.dart';
+import 'package:wanderlock/features/unlock/data/stand_in_check_in_service.dart';
+import 'package:wanderlock/features/unlock/data/supabase_check_in_service.dart';
 import 'package:wanderlock/features/unlock/data/visit_state_local_source.dart';
 import 'package:wanderlock/features/unlock/data/visit_state_remote_source.dart';
 import 'package:wanderlock/features/unlock/data/visit_state_repository_impl.dart';
+import 'package:wanderlock/features/unlock/domain/check_in_service.dart';
+import 'package:wanderlock/features/unlock/domain/checkpoint_geofence.dart';
 import 'package:wanderlock/features/unlock/domain/visit_state.dart';
 import 'package:wanderlock/features/unlock/domain/visit_state_repository.dart';
 
@@ -43,3 +47,30 @@ bool isCheckpointVisited(Ref ref, String checkpointId) {
   final visits = ref.watch(visitStateProvider).value;
   return visits?[checkpointId]?.isVisited ?? false;
 }
+
+/// Where a checkpoint is, for the stand-in authority to measure against.
+///
+/// A seam, not a feature: `unlock` may not import the checkpoint feature, and
+/// this is how the composition layer supplies the three numbers without one.
+/// The default answers "no such place" for everything, so a build that forgets
+/// to override it degrades to refusing check-ins rather than to granting them.
+final checkpointGeofenceLookupProvider =
+    Provider<CheckpointGeofence? Function(String checkpointId)>(
+      (ref) =>
+          (_) => null,
+    );
+
+/// The authority that answers a check-in.
+///
+/// With Supabase configured this is the edge function, which measures the
+/// distance in SQL under the service role. Without it, the stand-in — see the
+/// note on [StandInCheckInService] for why that is a substitution rather than
+/// a bypass. The two are never both reachable.
+final checkInServiceProvider = Provider<CheckInService>((ref) {
+  if (AppConfig.hasSupabase) {
+    return SupabaseCheckInService(() => SupabaseConnection.clientOrNull);
+  }
+  return StandInCheckInService(
+    geofenceOf: ref.watch(checkpointGeofenceLookupProvider),
+  );
+});

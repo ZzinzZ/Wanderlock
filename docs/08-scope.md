@@ -9,6 +9,20 @@
 > **không còn đi bộ hết pilot trong một buổi** — giữa các điểm phải đi xe, và
 > Fog of War mất mật độ vệt đi. Mục 6 bên dưới đã sửa theo.
 > Nguyên tắc cắt scope: **giữ đủ 3 trụ (khám phá · story · lý do quay lại), cắt mọi thứ cần kiểm duyệt hoặc cần quy mô người dùng.**
+>
+> **Sửa 2026-09-19 — chủ dự án mở rộng pilot và Quest.**
+> - Pilot không còn là 12 điểm: thêm ~265 điểm từ OpenStreetMap (chợ, công
+>   viên, trung tâm thương mại, bảo tàng, tượng đài, nhà thờ/chùa/đền, góc
+>   check-in, sân khấu, quán ăn nổi tiếng). 12 điểm gốc vẫn là 12 điểm đã kiểm
+>   chứng bằng mắt; số mới `verified: false` cho tới khi được xem trên ảnh vệ
+>   tinh. 5 loại mới: `park`, `shopping`, `food`, `sight`, `entertainment`.
+> - **F7 Quest không còn "1 tuyến duy nhất"**: có hai kiểu — *tuyến* (có thứ
+>   tự) và *bộ sưu tập* (thứ tự nào cũng được), khai báo theo loại địa điểm.
+>   Tuyến "Lõi Sài Gòn xưa" giữ nguyên.
+> - Không đổi: Xã hội vẫn v1.5; một tầng mở khoá duy nhất — mọi nhiệm vụ đọc
+>   `visit_state`, không lưu tiến độ riêng.
+> - Hệ quả phải nhớ: ~277 điểm là quá nhiều để kiểm chứng tay từng cái, và
+>   tiêu chí "đi thật ≥ 8/12" ở mục 6 vẫn tính trên 12 điểm gốc.
 
 ---
 

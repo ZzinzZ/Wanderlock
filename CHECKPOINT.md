@@ -1,14 +1,21 @@
-# Checkpoint — 2026-08-08
+# Checkpoint — 2026-09-19
 
 Ảnh chụp trạng thái dự án để mở phiên mới không mất context.
 Nguồn đúng vẫn là `docs/` và mã nguồn; file này chỉ để định hướng nhanh.
 
 ---
 
-## 0. Không còn PR treo
+## 0. Một PR treo: #27
 
-Toàn bộ công việc của phiên 2026-08-07 (#16–#21) đã vào `main` ngày 2026-08-08.
-`main` giờ là bức tranh đầy đủ — đọc `main` là đủ.
+Nhánh `feat/f2-seed-sync-and-check-in` giữ **mọi thứ từ 2026-08-08 tới nay**
+(19 commit trên `main`), gói trong **PR #27** — CI `quality gates` xanh,
+208 test, mergeable. `main` vẫn đứng ở 2026-08-08: **đọc nhánh này, đừng đọc
+`main`**, cho tới khi #27 được merge.
+
+Trong #27: kiểm chứng 12 toạ độ · seed `--prune` · đo khoảng cách check-in ở
+server · nội dung đóng gói sẵn · cổng check-in + bản đứng thay · lăng kính Fog,
+Sưu tầm, Hành trình (Quest + Lộ trình) · giao diện sticker cartoon · onboarding ·
+tối ưu sương mù · 265 điểm OSM + nhiệm vụ dạng bộ sưu tập.
 
 ---
 
@@ -16,85 +23,98 @@ Toàn bộ công việc của phiên 2026-08-07 (#16–#21) đã vào `main` ng�
 
 | Phase | Trạng thái |
 |-------|-----------|
-| **F0** — Kho mã & quy ước | ✅ Đóng · tag `foundation-f0` (`502c436`) |
-| **F1** — Skeleton app | ✅ Đóng · tag `foundation-f1` (`c33dfe1`) |
-| **F2** — Nền dữ liệu | 🟡 3/5 DoD · chặn ở **một chữ `true`** |
+| **F0** — Kho mã & quy ước | ✅ Đóng · tag `foundation-f0` |
+| **F1** — Skeleton app | ✅ Đóng · tag `foundation-f1` |
+| **F2** — Nền dữ liệu | 🟡 4/5 DoD · còn **tắt mạng trên máy thật** |
 | **S** — 3 spike | ⛔ Chưa bắt đầu · cần thực địa |
-| **F3** — Bản đồ nền | 🟡 4/6 DoD · chặn ở **ảnh + một lần máy thật** |
-| F4, F5 | Chưa |
+| **F3** — Bản đồ nền | 🟡 còn **FPS trên máy thật** + chốt lại DoD marker |
+| **F4** — Tầng mở khoá | 🟡 phần lớn mã đã có trong #27; **bán kính chờ S3** |
+| **F5** — Lát cắt dọc | 🟡 Fog + chuyển lăng kính đã chạy trong #27; chưa đo trên máy thật |
 
-`main` được bảo vệ: **mọi thay đổi phải qua PR + CI xanh**, chủ dự án không tự
-bypass được.
+Mã đã chạy **trước** kế hoạch; cái còn thiếu hầu hết là việc phải làm **ngoài
+máy dev** (máy thật, ra đường).
+
+`main` được bảo vệ: **mọi thay đổi phải qua PR + CI xanh**.
 
 ### F2 chi tiết
 
 | DoD | |
 |---|---|
-| Migration chạy lại từ DB rỗng | ✅ |
+| Migration chạy lại từ DB rỗng | ✅ lại lần nữa 2026-09-19: `supabase db reset` áp đủ 5 migration |
 | RLS từ chối đọc `visit_state` người khác | ✅ 6 phép thử |
-| Seed 2 lần không nhân đôi | 🟡 **12/12 đã có toạ độ**, dry-run nạp đủ 12; còn chờ `verified: true` rồi chạy thật 2 lần |
+| Seed 2 lần không nhân đôi | ✅ 2026-09-19 trên Supabase local: 277 dòng sau cả 2 lần (cần `--allow-unverified` vì 265 điểm OSM) |
 | App đọc từ server và hiển thị | ✅ trên Redmi Note 12 thật |
 | Tắt mạng vẫn còn dữ liệu | 🟡 tầng dữ liệu có test `live`; **chưa nhìn trên máy** |
+| Tag `foundation-f2` | ⛔ chờ mục trên |
+
+> ⚠️ **Seed production sẽ từ chối** chừng nào còn điểm `verified: false` trong
+> `content/checkpoints.json`. Hoặc kiểm chứng 265 điểm, hoặc chỉ seed với cờ và
+> chấp nhận rủi ro toạ độ — **quyết định của chủ dự án**.
 
 ### F3 chi tiết
 
 | DoD | |
 |---|---|
-| Khác biệt rõ so với map mặc định | ✅ 3 khung đồng bộ camera + đối chứng Liberty trên native |
-| Nước/cây/đường/nền đúng mã màu | ✅ đối chiếu JSON sinh ra với mục 6 art direction |
-| Sáng và tối là hai bản đồ riêng | ✅ đã xem cả hai trên SDK native |
-| Tắt mạng → vùng cache vẫn hiện | ✅ chứng minh 2 lần (ambient + tải trước) |
-| 12 marker đúng toạ độ | ⛔ toạ độ đã có, **còn chặn ở ảnh** |
-| Cuộn/phóng ≥ 55 FPS máy tầm trung | ⛔ **cần máy thật** — emulator dùng GPU phần mềm, số đo vô nghĩa |
-| Tag `foundation-f3` | ⛔ còn 2 mục |
-
-**Đầu ra F3**: style ✅ · cache offline ✅ · vị trí người dùng + theo dõi camera ✅
-· marker ảnh thật ⛔ (chỉ còn chặn ở ảnh).
-
-> ⚠️ **Chưa ai nhìn bản đồ sau khi đổi màu tương phản (#23).** Số đúng, test
-> đúng, nhưng DoD "đụng UI → ảnh chụp cả sáng lẫn tối" chưa đạt. Mở
-> `tool/map_preview/preview.html` là thấy cả ba khung.
+| Khác biệt rõ so với map mặc định | ✅ (style giờ là cartoon, sinh từ `design/map/map_style.dart`) |
+| Nước/cây/đường/nền đúng mã màu | ✅ |
+| Sáng và tối là hai bản đồ riêng | ✅ |
+| Tắt mạng → vùng cache vẫn hiện | ✅ |
+| Marker đúng toạ độ | 🟡 marker **trên bản đồ** là **sticker công trình** (docs/09 mục 0), không chờ ảnh. Sticker là hình tạm từ `content/landmarks/generate.py`. Ảnh thật vẫn cần ở chỗ khác — mục 2 |
+| Cuộn/phóng ≥ 55 FPS máy tầm trung | ⛔ **cần máy thật** |
 
 ---
 
 ## 2. Chặn ở chủ dự án — xếp theo mức chặn
 
-1. **Xác nhận 12 toạ độ bằng ảnh vệ tinh** (~3 phút) — chặn F2 đóng.
-   Toạ độ **đã có đủ 12** (#24), lấy từ tâm đa giác công trình trong
-   OpenStreetMap, `source` ghi mã đối tượng để truy ngược. Reverse geocoding
-   khớp 12/12 tên đường. Chỉ còn thiếu bước nhìn ảnh vệ tinh để đổi `verified`
-   thành `true`.
-   Đã dựng sẵn trang xem 12 ảnh vệ tinh cùng lúc, bấm để dời chấm, xuất ra JSON
-   dán thẳng vào file — agent gửi qua chat, file tự chứa, mở bằng trình duyệt.
-   > ⚠️ **Lăng Ông Bà Chiểu dời 83m**, vượt bán kính 60m. Khuôn viên rộng ~170m
-   > nên đứng ở cổng sẽ **không mở khoá được**. Câu hỏi bán kính này thuộc về S3.
-2. **Một lần cầm máy thật** — đóng được **ba** thứ trong cùng một buổi mà
-   emulator vĩnh viễn không trả lời được: FPS ≥ 55, nhãn bản đồ + dấu tiếng Việt,
-   và chấm vị trí người dùng. Xem mục 4 để biết vì sao.
-3. **Chọn 12 ảnh địa danh** — chặn marker F3. `content/image-licenses.md` giờ có
-   sẵn **danh sách ứng viên trên Wikimedia Commons** cho cả 12 điểm, giấy phép
-   đọc từng ảnh (#25). Việc còn lại là **mở link nhìn và chọn**, rồi chép sang
-   bảng duyệt. Chưa ai nhìn ảnh — vài cái tên tự tố là ảnh trong nhà.
-   ⚠️ **Landmark 81 đã có kết luận:** Commons duy trì `Template:NoFoP-Vietnam`,
-   nên Việt Nam bị xếp là **không có freedom of panorama**. Giấy phép CC0 trên
-   tấm ảnh không gỡ được — đó là quyền của người chụp, không phải quyền của kiến
-   trúc sư. **Tự chụp cũng không gỡ được.** Ba đường đi ghi trong file; rẻ nhất
-   là thay bằng điểm khác, vì 11 điểm còn lại đều đủ cũ để không vướng.
-4. **Bật Docker Desktop** — engine Linux chưa lên, agent không tự bật được
-   (có thể đang chờ thao tác trong giao diện của nó). Cần nó để chạy Supabase
-   cục bộ và đóng nốt DoD "seed 2 lần không nhân đôi".
-5. **Phase S** — 3 spike đo FPS / %pin / sai số GPS. Đều cần ra đường.
-   **S3 quyết định bán kính check-in, tức là F4** — không chặn phần vị trí của F3
-   (đã làm xong).
-6. **12 chương truyện** — định dạng đã có, chờ nội dung.
-7. **Tên chính thức** — không gấp.
-
-> ⚠️ Wi-Fi và dữ liệu di động trên điện thoại chủ dự án **vẫn đang tắt** từ phiên
-> 2026-08-06.
+1. **Review + merge PR #27.** Mọi thứ khác xếp sau nó.
+2. **Một lần cầm máy thật** — đóng cùng lúc: FPS ≥ 55 (F3), nhãn bản đồ + dấu
+   tiếng Việt, chấm vị trí, và DoD tắt mạng của F2. Emulator vĩnh viễn không trả
+   lời được mấy thứ này (mục 4).
+3. **Ảnh chụp chế độ tối** cho giao diện sticker — DoD còn thiếu của #27.
+4. **265 điểm OSM `verified: false`** — kiểm chứng (quá nhiều để xem tay từng
+   cái) hay seed kèm cờ? Chặn seed production.
+5. **Phase S** — 3 spike FPS / %pin / sai số GPS, cần ra đường. **S3 quyết định
+   bán kính check-in.** Lăng Ông Bà Chiểu lệch 83m so với bán kính 60m; quán ăn
+   40m, công viên/TTTM tới 150m đang là số ước lượng.
+6. **Chọn 12 ảnh địa danh** — vẫn cần (chủ dự án chốt 2026-09-19: sticker trên
+   bản đồ, ảnh thật dùng ở **màn "Đã mở khoá!"** và **thẻ chi tiết địa điểm**). Ứng viên Commons + giấy phép có sẵn trong
+   `content/image-licenses.md`; chưa ai nhìn ảnh.
+   **Phạm vi: cả 277 điểm** (chủ dự án chốt) — việc gom ảnh có giấy phép rất lớn.
+   Chưa chốt: điểm chưa có ảnh thì tạm hiện gì.
+   **Landmark 81** — Việt Nam không có freedom of panorama theo Commons. Rẻ
+   nhất là thay bằng điểm khác.
+7. **Sticker công trình** là hình tạm — cần hoạ sĩ vẽ lại.
+8. **12 chương truyện** (lăng kính Story) — định dạng đã có, chờ nội dung.
+9. **Tên chính thức** — không gấp.
 
 ---
 
 ## 3. Quyết định đã chốt
+
+**Phiên 2026-09-19**
+- **Giao diện sticker cartoon** (docs/09 mục 0) thắng các mục cũ khi mâu thuẫn:
+  viền mực, bóng cứng, màu bão hoà, sticker công trình thay icon chung, icon 3D
+  giữ cho điều khiển. **Marker trên bản đồ là sticker; ảnh thật dùng ở màn
+  "Đã mở khoá!" và thẻ chi tiết địa điểm** (chủ dự án chốt 2026-09-19).
+- **Ảnh thật — chi tiết (chốt 2026-09-19):**
+  - Màn "Đã mở khoá!" đi **hai bước**: hiện sticker trước, rồi lật/chuyển sang ảnh thật.
+  - **Tìm ảnh cho cả 265 điểm OSM**, không chỉ 12 điểm gốc.
+  - Landmark 81 (không có freedom of panorama): **để sau**.
+  - docs/09 **giữ nguyên**, không sửa các dòng cũ về ảnh thật; mục 0 thắng khi mâu thuẫn.
+- **Pilot mở rộng** (docs/08, khối "Sửa 2026-09-19"): 12 điểm gốc + 265 điểm OSM,
+  5 loại mới (`park`, `shopping`, `food`, `sight`, `entertainment`) có migration
+  enum ở Supabase. Bán kính theo loại.
+- **Quest có hai kiểu**: `route` (có thứ tự) và `set` (bộ sưu tập, khai được
+  `categories` thay vì liệt kê id). 11 nhiệm vụ. Tiến độ luôn suy ra từ `visit_state`.
+- **Vệt đã đi không phải trạng thái mở khoá** — chỉ làm sáng bản đồ (bảng
+  `explored_point_rows`).
+- **Bản trình diễn** (không Supabase): kéo bản đồ là đi, zoom không đi; chỉ mở
+  khoá khi **đi từ ngoài vào** bán kính. Không bao giờ bật khi có server.
+- **Sương vẽ ở ảnh 1/4 độ phân giải** rồi phóng lên; các phương án đã thử và bỏ
+  ghi trong `fog_overlay.dart`. Zoom < 14.5 vẽ chấm bằng một painter.
+- **Marker không nhận chạm** (overlay `IgnorePointer`); chạm được suy ra từ toạ
+  độ trên bản đồ. Cần `trackCameraPosition: true`.
+- Onboarding 3 trang, hiện một lần; **quyền vị trí chỉ xin từ nút bấm**.
 
 **Bản đồ — tương phản (chốt 2026-08-08)**
 - Viền đường `#E6E9EE` → **`#C9CFDB`** (sáng), `#11131A` → **`#454C5B`** (tối).
@@ -117,7 +137,7 @@ bypass được.
   phóng to z14 cho z15-17. Điều này làm vùng cache rẻ hơn nhiều so với trực giác.
 - Vùng cache offline **tính từ hộp bao quanh checkpoint + đệm 2 km**, không viết
   cứng. Lề đo bằng **ki-lô-mét** nên phải nhân cosine vĩ độ cho kinh độ.
-- Marker checkpoint dùng **ảnh thật** — đã sửa dòng sót ở mục 6 art direction cho
+- Marker checkpoint dùng **ảnh thật** — *sửa 2026-09-19: trên bản đồ là sticker, ảnh thật dùng ở chỗ khác*. Đã sửa dòng sót ở mục 6 art direction cho
   khớp với mục 7.1, 7.2, danh sách cấm và nhật ký quyết định (vốn đều đã nói ảnh thật).
 
 **Vị trí người dùng**
@@ -211,7 +231,7 @@ cd app && fvm flutter gen-l10n && fvm dart run build_runner build && fvm dart fo
 > ⚠️ `dart format --output=none` **chỉ kiểm tra, không ghi**. Muốn sửa thật phải
 > chạy `dart format .` trước rồi mới kiểm.
 
-Số test theo nhánh: `main` 55 · +#16 = 59 · +#17 = 61 · +#20 = 67.
+Số test theo nhánh: `main` 55 · +#16 = 59 · +#17 = 61 · +#20 = 67 · #27 = 208.
 
 ---
 
@@ -287,22 +307,33 @@ khi tính nó là một cổng.**
 
 ---
 
+## 8c. Bài học của phiên 2026-09-19
+
+**Đo hiệu năng trên emulator chỉ có nghĩa ở dạng tỉ lệ.** Emulator raster bằng
+CPU nên số tuyệt đối vô nghĩa, nhưng **cùng một kịch bản vuốt** chạy trên hai bản
+build cho ra tỉ lệ đáng tin (sương: raster p50 khi zoom gần 610ms → 77ms).
+
+**Một truy vấn "watch" đọc lại cả bảng mỗi lần insert** — mỗi bước kéo bản đồ
+trả giá bằng toàn bộ lịch sử vệt. Nạp một lần, giữ trong bộ nhớ.
+
+**Blur trên save layer `dstOut` bị bỏ qua im lặng.** Lại một thất bại im lặng.
+
+**Camera mặc định nằm trong bán kính Hội trường Thành phố** — bản cài mới mở ra
+đã "1/277". Sửa: chỉ mở khoá khi *đi vào* bán kính, không phải khi *đang ở trong*.
+
+---
+
 ## 9. Việc kế tiếp
 
 Xếp theo lượng việc mở ra được, nhiều nhất trước.
 
-**Nếu chủ dự án xác nhận 12 toạ độ** (~3 phút, trang xem ảnh vệ tinh đã gửi qua
-chat): đổi `verified` thành `true`, bật Docker, seed thật hai lần, **đóng F2**.
+1. **Merge #27** → `main` bắt kịp; mọi PR sau đó nhỏ và tách được.
+2. **Buổi máy thật** → đóng F2 (tag `foundation-f2`) và mục FPS của F3.
+3. **Chủ dự án quyết 265 điểm OSM** → seed production được.
+4. **Phase S** → có bán kính thật → đóng F4.
 
-**Nếu chủ dự án chọn xong 12 ảnh:** dựng preset xử lý ảnh rồi làm marker —
-**đầu ra cuối cùng còn thiếu của F3**.
+**Việc agent làm được mà không bị chặn:** chụp ảnh chế độ tối trên emulator
+(nhớ: RAM không đủ chạy emulator cùng Docker — `npx supabase stop` trước);
+xử lý marker chồng nhau ở Quận 1 khi ở zoom thành phố.
 
-**Nếu chủ dự án chịu cầm máy thật một buổi:** đo FPS, nhìn nhãn tiếng Việt, nhìn
-chấm vị trí — ba mục cùng lúc, và đóng nốt DoD offline của F2.
-
-**Việc không bị chặn còn lại:** không còn. Cả ba nhánh trên đều bắt đầu bằng một
-thao tác của chủ dự án.
-
-**Đừng làm F4** khi phase S chưa có số: S3 quyết định bán kính check-in và điểm
-nào bắt buộc cần QR. Lăng Ông Bà Chiểu đã cho thấy câu hỏi này là thật chứ không
-phải lý thuyết — xem mục 2.
+**Đừng chốt bán kính** khi phase S chưa có số.

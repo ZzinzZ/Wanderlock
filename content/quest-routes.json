@@ -1,0 +1,122 @@
+{
+  "_readme": [
+    "Nhiệm vụ của pilot. Từ 2026-09-19 có nhiều nhiệm vụ, hai kiểu:",
+    "  kind: \"route\" (mặc định) — tuyến có thứ tự, có 'điểm kế tiếp'.",
+    "  kind: \"set\" — bộ sưu tập, đi theo thứ tự nào cũng được.",
+    "",
+    "Một bộ có thể liệt kê từng checkpointId trong steps, hoặc gọi tên loại",
+    "trong categories (museum, monument, market, religious, architecture,",
+    "street, park, shopping, food, sight, entertainment): mọi checkpoint thuộc",
+    "loại đó tự vào bộ. Thêm một chợ vào checkpoints.json là bộ Chợ có thêm",
+    "chợ đó, không cần sửa file này. Có thể dùng cả hai cùng lúc.",
+    "",
+    "NỘI DUNG LÀ TẠM. Tên, lời dẫn và thứ tự tuyến do agent đặt — chưa qua",
+    "tay biên tập. Sửa file này rồi chạy lại app là xong, không đụng mã.",
+    "",
+    "Nhiệm vụ KHÔNG lưu tiến độ. Tiến độ suy ra từ visit_state: điểm nào đã",
+    "ghé thì bước đó xong — một lần đến, mọi lăng kính, mọi nhiệm vụ chứa nó.",
+    "",
+    "checkpointId phải khớp id trong checkpoints.json. Id lạ bị bỏ qua khi",
+    "đọc, không làm app chết — nhưng có test bắt, nên đừng dựa vào đó.",
+    "",
+    "Bản sao ở app/assets/content/ phải giống hệt file này; có test canh."
+  ],
+
+  "routes": [
+    {
+      "id": "colonial-core",
+      "name": "Lõi Sài Gòn xưa",
+      "summary": "Năm công trình thời thuộc địa trong bán kính đi bộ, theo thứ tự từ Dinh ra bến sông.",
+      "steps": [
+        { "checkpointId": "independence-palace" },
+        { "checkpointId": "central-post-office" },
+        { "checkpointId": "ben-thanh-market" },
+        { "checkpointId": "war-remnants-museum" },
+        { "checkpointId": "nha-rong-wharf" }
+      ]
+    },
+    {
+      "id": "saigon-landmarks",
+      "kind": "set",
+      "name": "12 dấu mốc Sài Gòn",
+      "summary": "Mười hai địa danh mở đầu Wanderlock, từ Dinh Độc Lập tới Landmark 81.",
+      "steps": [
+        { "checkpointId": "independence-palace" },
+        { "checkpointId": "central-post-office" },
+        { "checkpointId": "ben-thanh-market" },
+        { "checkpointId": "war-remnants-museum" },
+        { "checkpointId": "vinh-nghiem-pagoda" },
+        { "checkpointId": "binh-tay-market" },
+        { "checkpointId": "le-van-duyet-tomb" },
+        { "checkpointId": "giac-lam-pagoda" },
+        { "checkpointId": "nha-rong-wharf" },
+        { "checkpointId": "thien-hau-temple" },
+        { "checkpointId": "landmark-81" },
+        { "checkpointId": "buu-long-pagoda" }
+      ]
+    },
+    {
+      "id": "saigon-food",
+      "kind": "set",
+      "name": "Ăn gì ở Sài Gòn",
+      "summary": "Phở, bánh mì, cơm tấm, bánh xèo, cà phê vợt — những quán người Sài Gòn chỉ cho nhau.",
+      "categories": ["food"]
+    },
+    {
+      "id": "saigon-markets",
+      "kind": "set",
+      "name": "Chợ Sài Gòn",
+      "summary": "Từ Bến Thành, Bình Tây tới chợ phường — nơi thành phố mua bán mỗi sáng.",
+      "categories": ["market"]
+    },
+    {
+      "id": "saigon-parks",
+      "kind": "set",
+      "name": "Công viên xanh",
+      "summary": "Những khoảng xanh giữa phố: Tao Đàn, Lê Văn Tám, bờ sông Sài Gòn và hơn thế nữa.",
+      "categories": ["park"]
+    },
+    {
+      "id": "saigon-malls",
+      "kind": "set",
+      "name": "Trung tâm thương mại",
+      "summary": "Máy lạnh, mua sắm và ăn uống — từ Saigon Centre tới Crescent Mall.",
+      "categories": ["shopping"]
+    },
+    {
+      "id": "saigon-museums",
+      "kind": "set",
+      "name": "Bảo tàng & phòng tranh",
+      "summary": "Lịch sử, mỹ thuật, áo dài, không quân — mỗi nơi giữ một phần câu chuyện thành phố.",
+      "categories": ["museum"]
+    },
+    {
+      "id": "saigon-memorials",
+      "kind": "set",
+      "name": "Tượng đài & di tích",
+      "summary": "Tượng, bia, đài tưởng niệm và những dấu tích nằm lặng giữa phố.",
+      "categories": ["monument"]
+    },
+    {
+      "id": "saigon-worship",
+      "kind": "set",
+      "name": "Chùa, đền & nhà thờ",
+      "summary": "Nơi thờ tự của nhiều cộng đồng — Việt, Hoa, Ấn, Công giáo.",
+      "categories": ["religious"]
+    },
+    {
+      "id": "saigon-photo-spots",
+      "kind": "set",
+      "name": "Góc check-in",
+      "summary": "Cây cầu, bờ sông, con dốc, khu chung cư cũ — những chỗ đáng một tấm ảnh.",
+      "categories": ["sight"]
+    },
+    {
+      "id": "saigon-stages",
+      "kind": "set",
+      "name": "Sân khấu & giải trí",
+      "summary": "Nhà hát, múa rối nước, sân khấu kịch và công viên giải trí.",
+      "categories": ["entertainment"]
+    }
+  ]
+}

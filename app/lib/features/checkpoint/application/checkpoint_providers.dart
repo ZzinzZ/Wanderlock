@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wanderlock/core/config/app_config.dart';
 import 'package:wanderlock/core/config/supabase_connection.dart';
 import 'package:wanderlock/core/database/database_provider.dart';
+import 'package:wanderlock/features/checkpoint/data/checkpoint_bundled_source.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_local_source.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_remote_source.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_repository_impl.dart';
@@ -22,7 +23,11 @@ final checkpointRepositoryProvider = Provider<CheckpointRepository>((ref) {
       ? SupabaseCheckpointRemoteSource(() => SupabaseConnection.clientOrNull)
       : null;
 
-  return CheckpointRepositoryImpl(local, remote);
+  return CheckpointRepositoryImpl(
+    local,
+    remote,
+    const CheckpointBundledSource(),
+  );
 });
 
 /// The checkpoint list, always sourced from the local cache.
@@ -53,3 +58,15 @@ final checkpointRefreshProvider =
     NotifierProvider<CheckpointRefresher, RefreshOutcome?>(
       CheckpointRefresher.new,
     );
+
+/// Fills an empty cache from the bundled pilot content, then asks the server.
+///
+/// Ordered that way on purpose: the bundle draws the map in milliseconds so
+/// nobody watches an empty screen, and the server — when there is one —
+/// replaces it moments later. A build with no Supabase simply stops after the
+/// first step and is fully usable.
+final contentBootstrapProvider = FutureProvider<RefreshOutcome>((ref) async {
+  final repository = ref.watch(checkpointRepositoryProvider);
+  await repository.seedFromBundleIfEmpty();
+  return repository.refresh();
+});

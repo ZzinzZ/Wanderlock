@@ -1,3 +1,4 @@
+import 'package:wanderlock/features/checkpoint/data/checkpoint_bundled_source.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_local_source.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_remote_source.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
@@ -9,13 +10,17 @@ import 'package:wanderlock/features/checkpoint/domain/checkpoint_repository.dart
 /// call. [refresh] is the only thing that touches the network, and it is the
 /// one place that decides what a failure means.
 class CheckpointRepositoryImpl implements CheckpointRepository {
-  const CheckpointRepositoryImpl(this._local, [this._remote]);
+  const CheckpointRepositoryImpl(this._local, [this._remote, this._bundled]);
 
   final CheckpointLocalSource _local;
 
   /// Absent in tests and in any build without Supabase configured. The app
   /// still works: it serves whatever the cache holds.
   final CheckpointRemoteSource? _remote;
+
+  /// The pilot content compiled into the binary. Absent in tests that want to
+  /// observe an empty cache.
+  final CheckpointBundledSource? _bundled;
 
   @override
   Stream<List<Checkpoint>> watchAll() => _local.watchAll();
@@ -50,5 +55,29 @@ class CheckpointRepositoryImpl implements CheckpointRepository {
 
     await _local.replaceAll(fetched);
     return RefreshOutcome.refreshed;
+  }
+
+  @override
+  Future<bool> seedFromBundleIfEmpty() async {
+    final bundle = _bundled;
+    if (bundle == null) return false;
+
+    // Read before write, every time. The check is what makes this safe to
+    // call on every launch: once a server has answered, the cache is not
+    // empty and the bundle never speaks again.
+    if ((await _local.readAll()).isNotEmpty) return false;
+
+    final List<Checkpoint> bundled;
+    try {
+      bundled = await bundle.readAll();
+    } on Object {
+      // A missing or malformed asset must not stop the app from starting. An
+      // empty map is a poor first launch; a crash is a worse one.
+      return false;
+    }
+
+    if (bundled.isEmpty) return false;
+    await _local.replaceAll(bundled);
+    return true;
   }
 }

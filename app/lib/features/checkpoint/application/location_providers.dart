@@ -50,6 +50,15 @@ class UserLocationController extends AsyncNotifier<LocationAvailability> {
     return availability is LocationReady;
   }
 
+  /// Asks the device where it is, once.
+  ///
+  /// Returns null when it cannot say. Callers must treat that as "unknown"
+  /// and never as "wherever would be convenient".
+  Future<UserPosition?> readPosition() async {
+    if (state.value is! LocationReady) return null;
+    return ref.read(deviceLocationProvider).currentPosition();
+  }
+
   Future<void> openAppSettings() =>
       ref.read(deviceLocationProvider).openAppSettings();
 
