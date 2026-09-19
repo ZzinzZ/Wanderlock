@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:wanderlock/features/checkpoint/domain/map_projection.dart';
+import 'package:wanderlock/core/map/map_projection.dart';
 
 /// The markers are Flutter widgets now, so this arithmetic is the only thing
 /// standing between a place and being drawn in the wrong part of the city.

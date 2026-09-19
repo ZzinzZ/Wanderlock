@@ -101,9 +101,22 @@ void main() {
     });
 
     test('scales with the radius once past the floor', () {
+      // Derived from the floor rather than written as a number, so raising
+      // the floor cannot quietly turn this into a second test of the floor —
+      // which is what happened when it moved from 260 m to 900 m and a
+      // hard-coded 200 m checkpoint stopped being past it.
+      final pastFloor =
+          (FogGeometry.minimumRevealMeters / FogGeometry.revealMultiplier)
+              .ceil() +
+          1;
+
       expect(
-        FogGeometry.revealRadiusMeters(200),
-        200 * FogGeometry.revealMultiplier,
+        FogGeometry.revealRadiusMeters(pastFloor),
+        pastFloor * FogGeometry.revealMultiplier,
+      );
+      expect(
+        FogGeometry.revealRadiusMeters(pastFloor),
+        greaterThan(FogGeometry.minimumRevealMeters),
       );
     });
   });
@@ -123,4 +136,122 @@ void main() {
       expect(FogGeometry.clearedEdges(const [])['features'], isEmpty);
     });
   });
+
+  group('ring winding — the rule the renderer never reports', () {
+    // A hole wound the same way as its outer ring is not a hole. Nothing
+    // throws, nothing logs; the tessellator simply fills it in, and the fog
+    // covers the places already visited. That shipped once, and every test
+    // above stayed green through it, because they only ever checked that the
+    // ring existed, was a circle, and was the right size.
+    test('the world ring turns counterclockwise', () {
+      final rings = _ringsOf(FogGeometry.veil(const []));
+
+      expect(FogGeometry.signedArea(rings.first), greaterThan(0));
+    });
+
+    test('a hole turns clockwise, against the world ring', () {
+      final rings = _ringsOf(
+        FogGeometry.veil(const [
+          FogHole(
+            latitude: 10.7768,
+            longitude: 106.6951,
+            revealRadiusMeters: 260,
+          ),
+        ]),
+      );
+
+      expect(rings, hasLength(2));
+      expect(
+        FogGeometry.signedArea(rings.first),
+        greaterThan(0),
+        reason: 'the world ring must stay counterclockwise',
+      );
+      expect(
+        FogGeometry.signedArea(rings.last),
+        lessThan(0),
+        reason: 'a hole wound counterclockwise is filled in, not cut out',
+      );
+    });
+
+    test('every hole turns clockwise, not just the first', () {
+      final rings = _ringsOf(
+        FogGeometry.veil(const [
+          FogHole(
+            latitude: 10.7768,
+            longitude: 106.6951,
+            revealRadiusMeters: 260,
+          ),
+          FogHole(
+            latitude: 10.7799,
+            longitude: 106.6999,
+            revealRadiusMeters: 300,
+          ),
+        ]),
+      );
+
+      for (final ring in rings.skip(1)) {
+        expect(FogGeometry.signedArea(ring), lessThan(0));
+      }
+    });
+
+    test('a cleared area is an outer ring, so it turns the other way', () {
+      // Same circle, opposite job: in `veil` it cuts a hole, in
+      // `clearedAreas` it is a shape of its own.
+      final feature =
+          (FogGeometry.clearedAreas(const [
+                    FogHole(
+                      latitude: 10.7768,
+                      longitude: 106.6951,
+                      revealRadiusMeters: 260,
+                    ),
+                  ])['features']!
+                  as List<Object?>)
+              .single;
+      final coordinates =
+          ((feature! as Map<String, Object?>)['geometry']!
+                  as Map<String, Object?>)['coordinates']!
+              as List<Object?>;
+      final ring = (coordinates.single! as List<Object?>)
+          .map((point) => (point! as List<Object?>).cast<double>())
+          .toList();
+
+      expect(FogGeometry.signedArea(ring), greaterThan(0));
+    });
+
+    test('the shoelace helper agrees with a hand-wound square', () {
+      // Guards the guard: a sign error here would let every test above pass
+      // while asserting the opposite of the rule.
+      const counterclockwise = <List<double>>[
+        [0, 0],
+        [1, 0],
+        [1, 1],
+        [0, 1],
+        [0, 0],
+      ];
+      const clockwise = <List<double>>[
+        [0, 0],
+        [0, 1],
+        [1, 1],
+        [1, 0],
+        [0, 0],
+      ];
+
+      expect(FogGeometry.signedArea(counterclockwise), greaterThan(0));
+      expect(FogGeometry.signedArea(clockwise), lessThan(0));
+    });
+  });
+}
+
+/// The rings of the single polygon `veil` produces.
+List<List<List<double>>> _ringsOf(Map<String, Object?> veil) {
+  final feature = (veil['features']! as List<Object?>).single;
+  final geometry =
+      (feature! as Map<String, Object?>)['geometry']! as Map<String, Object?>;
+  return (geometry['coordinates']! as List<Object?>)
+      .map(
+        (ring) => (ring! as List<Object?>)
+            .map((point) => (point! as List<Object?>).cast<double>())
+            .toList(),
+      )
+      .toList();
 }

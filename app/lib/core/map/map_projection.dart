@@ -54,6 +54,18 @@ class MapProjection {
   /// [margin] keeps a marker alive slightly off screen, so one does not pop
   /// into existence at the moment its centre crosses the edge — its artwork is
   /// wider than its centre point.
+  /// Earth's equatorial circumference in metres, as Web Mercator uses it.
+  static const double earthCircumferenceMeters = 40075016.686;
+
+  /// How many metres one screen pixel covers at [latitude].
+  ///
+  /// For anything sized in metres on the ground — a reveal radius — rather
+  /// than in pixels on the screen.
+  double metersPerPixel(double latitude) =>
+      earthCircumferenceMeters *
+      math.cos(latitude * math.pi / 180) /
+      _worldPixels;
+
   bool isVisible(({double x, double y}) screen, {double margin = 64}) =>
       screen.x >= -margin &&
       screen.x <= widthPixels + margin &&

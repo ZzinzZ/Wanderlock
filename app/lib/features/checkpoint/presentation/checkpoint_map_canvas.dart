@@ -22,6 +22,7 @@ class CheckpointMapCanvas extends ConsumerWidget {
     this.onControllerReady,
     this.onStyleLoaded,
     this.onMapTapped,
+    this.onUserLocationUpdated,
     super.key,
   });
 
@@ -35,6 +36,9 @@ class CheckpointMapCanvas extends ConsumerWidget {
   final void Function(MapLibreMapController controller)? onControllerReady;
   final VoidCallback? onStyleLoaded;
   final void Function(LatLng position)? onMapTapped;
+
+  /// Every fix the map receives for the device, as plain coordinates.
+  final void Function(double latitude, double longitude)? onUserLocationUpdated;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -65,6 +69,11 @@ class CheckpointMapCanvas extends ConsumerWidget {
             // correctly.
             tiltGesturesEnabled: false,
             rotateGesturesEnabled: false,
+            // Without this the controller never reports the camera, and
+            // everything drawn over the map in Flutter — markers, fog, the
+            // pan explorer — stays pinned where the map first opened while
+            // the tiles slide away underneath. Found on the first real pan.
+            trackCameraPosition: true,
             // Drawing the dot needs permission in hand. Asking the map to
             // show it without permission gets a silent nothing.
             myLocationEnabled: location is LocationReady,
@@ -83,6 +92,10 @@ class CheckpointMapCanvas extends ConsumerWidget {
             onMapCreated: onControllerReady,
             onStyleLoadedCallback: onStyleLoaded,
             onMapClick: (point, latLng) => onMapTapped?.call(latLng),
+            onUserLocationUpdated: (location) => onUserLocationUpdated?.call(
+              location.position.latitude,
+              location.position.longitude,
+            ),
           ),
         ),
       ],
@@ -123,16 +136,35 @@ class MapFollowButton extends ConsumerWidget {
       null => (AppIcons.myLocation, l10n.mapLocationAsk),
     };
 
-    return FloatingActionButton(
-      onPressed: () => _onPressed(ref, availability),
-      tooltip: tooltip,
-      // White whether or not it is following. The arrow carries the state:
-      // full colour while the camera is locked to the user, grey when it is
-      // not. A green disc said the same thing louder and put a second accent
-      // on a map that already has coloured markers on it.
-      backgroundColor: colors.card,
-      foregroundColor: colors.ink,
-      child: AppIcon(icon, semanticLabel: tooltip, isMuted: !following),
+    // A square sticker rather than a Material FAB: outline and hard shadow,
+    // like every other control floating on the map (section 0). The icon
+    // carries the state — full colour while the camera is locked to the
+    // user, grey when it is not.
+    return Tooltip(
+      message: tooltip,
+      child: Semantics(
+        button: true,
+        label: tooltip,
+        excludeSemantics: true,
+        child: GestureDetector(
+          onTap: () => _onPressed(ref, availability),
+          child: Container(
+            width: AppIconSize.place,
+            height: AppIconSize.place,
+            decoration: BoxDecoration(
+              color: colors.card,
+              borderRadius: AppRadius.chip,
+              border: Border.all(
+                color: colors.outline,
+                width: AppSticker.stroke,
+              ),
+              boxShadow: AppShadows.sticker(colors),
+            ),
+            alignment: Alignment.center,
+            child: AppIcon(icon, isMuted: !following),
+          ),
+        ),
+      ),
     );
   }
 

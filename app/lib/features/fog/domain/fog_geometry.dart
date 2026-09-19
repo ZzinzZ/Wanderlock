@@ -27,7 +27,19 @@ class FogGeometry {
   ///
   /// A tight temple gate and a wide plaza should not open wildly different
   /// amounts of city just because their check-in radii differ by 40 m.
-  static const double minimumRevealMeters = 260;
+  ///
+  /// **Raised from 260 m on 2026-09-08, because 260 m was invisible.** The
+  /// checkpoint marker is a fixed 141 logical pixels wide, while the hole
+  /// scales with zoom — and at the zoom the map opens on, 260 m came to 139
+  /// pixels across. Every arrival opened a circle slightly smaller than the
+  /// pin sitting on top of it, so the fog looked like it had never cleared at
+  /// all. Nothing was wrong with the geometry or the rendering; the hole was
+  /// simply hidden underneath its own marker.
+  ///
+  /// 900 m is about three and a half marker widths at that zoom, which reads
+  /// as a neighbourhood opening rather than as a hole around a pin — and
+  /// matches what [revealMultiplier] is already reaching for.
+  static const double minimumRevealMeters = 900;
 
   /// Metres per degree of latitude. Constant enough at pilot scale; the pilot
   /// spans about 25 km and the error over that distance is centimetres.
@@ -51,7 +63,15 @@ class FogGeometry {
   static Map<String, Object?> veil(List<FogHole> holes) {
     final rings = <List<List<double>>>[
       _worldRing(),
-      for (final hole in holes) _circleRing(hole),
+      // Holes wind **clockwise**, against the world ring's counterclockwise.
+      // RFC 7946 requires it, and it is not decoration: given two rings that
+      // turn the same way, the tessellator reads the second as another area
+      // to fill rather than as an area to cut out. The fog then covered the
+      // whole map including the places already visited — which is exactly
+      // what shipped, and what nothing in this file's tests could see,
+      // because the ring was present and the right shape and in the right
+      // position. Only its direction was wrong.
+      for (final hole in holes) _circleRing(hole, clockwise: true),
     ];
 
     return <String, Object?>{
@@ -84,6 +104,8 @@ class FogGeometry {
             'properties': <String, Object?>{},
             'geometry': <String, Object?>{
               'type': 'Polygon',
+              // An outer ring of its own here, so counterclockwise — the
+              // opposite of the same circle's role in `veil`.
               'coordinates': <Object?>[_circleRing(hole)],
             },
           },
@@ -131,7 +153,12 @@ class FogGeometry {
   /// by the cosine of the latitude. Skipping that is what turns a circle into
   /// an ellipse: at the pilot's latitude of about 10.8° the error is only 1.8%,
   /// small enough to look almost right and therefore easy to ship by accident.
-  static List<List<double>> _circleRing(FogHole hole) {
+  /// [clockwise] picks the winding. Counterclockwise is an outer ring;
+  /// clockwise is a hole. See the note in [veil].
+  static List<List<double>> _circleRing(
+    FogHole hole, {
+    bool clockwise = false,
+  }) {
     final latitudeRadians = hole.latitude * math.pi / 180;
     final deltaLatitude = hole.revealRadiusMeters / metresPerDegreeLatitude;
     final deltaLongitude =
@@ -139,7 +166,8 @@ class FogGeometry {
 
     final ring = <List<double>>[];
     for (var i = 0; i < circleVertices; i++) {
-      final angle = 2 * math.pi * i / circleVertices;
+      final step = clockwise ? circleVertices - i : i;
+      final angle = 2 * math.pi * step / circleVertices;
       ring.add(<double>[
         hole.longitude + deltaLongitude * math.cos(angle),
         hole.latitude + deltaLatitude * math.sin(angle),
@@ -147,5 +175,19 @@ class FogGeometry {
     }
     ring.add(ring.first);
     return ring;
+  }
+
+  /// Twice the signed area of a closed ring — positive counterclockwise,
+  /// negative clockwise (the shoelace formula).
+  ///
+  /// Exposed so tests can assert the winding rule that the renderer depends
+  /// on but never reports: a hole wound the wrong way draws no error, it just
+  /// quietly stops being a hole.
+  static double signedArea(List<List<double>> ring) {
+    var total = 0.0;
+    for (var i = 0; i < ring.length - 1; i++) {
+      total += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1];
+    }
+    return total;
   }
 }
