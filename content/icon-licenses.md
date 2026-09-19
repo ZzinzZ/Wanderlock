@@ -81,6 +81,7 @@ màu nhuộm phải là màu trung tính hoặc sáng — nhuộm bằng mực �
 | Lăng kính: Bản đồ · Sưu tầm · Hành trình | `map-pin` `medal` `explorer` |
 | Trạng thái checkpoint (mục 5.3) | `lock` `tick` `pin` |
 | Hành động trên checkpoint | `key` `plus` `notebook` `target` |
+| Sửa lộ trình (F11) | `trash-can` |
 | Điều khiển bản đồ | `location` |
 | Story player | `play` `pause` `next` `back` |
 | Quest và phần thưởng | `flag` `trophy` `star` |
@@ -92,7 +93,7 @@ màu nhuộm phải là màu trung tính hoặc sáng — nhuộm bằng mực �
 
 ## ⚠️ Bộ 120 icon KHÔNG có những cái này
 
-Đã tra hết 120 slug. Ba chỗ dưới đây vẫn đang dùng Material Icons, mỗi chỗ có
+Đã tra hết 120 slug. Bốn chỗ dưới đây vẫn đang dùng Material Icons, mỗi chỗ có
 chú thích `clay-icon-gap` ngay tại dòng mã, và có test đếm chúng để con số
 không lặng lẽ tăng lên:
 
@@ -101,6 +102,11 @@ không lặng lẽ tăng lên:
 | Đóng (×) | Thẻ checkpoint | Không có glyph close. Xoay `plus` 45° đọc ra là mẹo vặt, không phải nút |
 | Tải lại | Danh sách checkpoint | Không có glyph refresh/reload |
 | Tải bản đồ offline | Màn bản đồ | Không có glyph download/cloud |
+| Tay nắm kéo thả | Lộ trình của tôi (F11) | Không có glyph drag handle. Đây là nút mà cả công việc của nó là trông giống quy ước hệ điều hành |
+
+> Nút **bỏ khỏi lộ trình** từng nằm trong bảng này lúc còn dùng `Icons.close`.
+> Bộ icon có `trash-can`, và bỏ một điểm khỏi kế hoạch là **xoá** chứ không
+> phải **đóng** — nên icon clay vừa hợp nghĩa hơn vừa gỡ được một lỗ hổng.
 
 Ngoài ra còn hai thứ **sẽ cần** khi làm tới, và cũng không có sẵn:
 

@@ -59,3 +59,57 @@ class VisitStateRows extends Table {
   @override
   Set<Column> get primaryKey => {userId, checkpointId};
 }
+
+/// The user's own ordering of places — the itinerary lens.
+///
+/// The only table in the app a lens writes to, and the reason that does not
+/// break rule 1: a row here says "I plan to go", never "I have been". What has
+/// been is [VisitStateRows], it arrives from the server, and nothing in this
+/// table can change it.
+///
+/// Stores an id and a rank, nothing else. Name, position and visited flag all
+/// have owners already; duplicating them here would be a second copy to keep
+/// in step, and the composition layer can join them back for free.
+///
+/// Local only in v1 — there is no `userId` because there is no sync. When F9
+/// lifts this to the server, that column arrives with the migration that needs
+/// it rather than sitting here unused and always holding the same value.
+class ItineraryRows extends Table {
+  TextColumn get checkpointId => text()();
+
+  /// Zero-based, contiguous, rewritten wholesale on every reorder. Not unique
+  /// at the schema level: a reorder writes the new ranks inside one
+  /// transaction, and a uniqueness constraint would reject the halfway state
+  /// where two rows briefly share a number.
+  IntColumn get position => integer()();
+
+  @override
+  Set<Column> get primaryKey => {checkpointId};
+}
+
+/// Where the fog lens has been cleared by moving through the city.
+///
+/// Belongs to the fog lens alone, and is deliberately not unlock state: a row
+/// here reveals map, it never opens a checkpoint. See `TrailPoint`.
+class ExploredPointRows extends Table {
+  IntColumn get id => integer().autoIncrement()();
+
+  RealColumn get latitude => real()();
+
+  RealColumn get longitude => real()();
+
+  DateTimeColumn get recordedAt => dateTime()();
+}
+
+/// One-off facts about this install, such as whether the welcome has been
+/// shown. A table rather than a second storage library: drift is already the
+/// app's local store (docs/10-libraries.md), and two stores is two things to
+/// migrate, back up and reason about.
+class AppFlagRows extends Table {
+  TextColumn get key => text()();
+
+  BoolColumn get value => boolean()();
+
+  @override
+  Set<Column> get primaryKey => {key};
+}

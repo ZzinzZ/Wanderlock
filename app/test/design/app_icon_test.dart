@@ -86,11 +86,15 @@ void main() {
   group('Material icon budget', () {
     /// Every remaining `Icons.` use, with the reason it survives.
     ///
-    /// Raising this number is a decision about the art direction. The three
+    /// Raising this number is a decision about the art direction. The four
     /// here are controls the 120-icon set simply does not contain — close,
-    /// refresh, and download — and each is marked at its line with a
-    /// `clay-icon-gap` comment. See content/icon-licenses.md.
-    const budget = 3;
+    /// refresh, download, and the drag handle — and each is marked at its
+    /// line with a `clay-icon-gap` comment. See content/icon-licenses.md.
+    ///
+    /// The itinerary's remove button is deliberately **not** among them: the
+    /// set does have a bin, and removing a place from a plan is a deletion
+    /// rather than a dismissal, so the clay icon was the better fit anyway.
+    const budget = 4;
 
     test('no more Material icons than the ones we could not replace', () {
       final uses = <String>[];

@@ -6,6 +6,12 @@ import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/collection/domain/stamp.dart';
 import 'package:wanderlock/features/fog/domain/fog_geometry.dart';
 import 'package:wanderlock/features/fog/domain/fog_hole.dart';
+import 'package:wanderlock/features/itinerary/application/itinerary_providers.dart';
+import 'package:wanderlock/features/itinerary/domain/itinerary_entry.dart';
+import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
+import 'package:wanderlock/features/quest/domain/quest_route.dart';
+import 'package:wanderlock/features/quest/domain/quest_route_definition.dart';
+import 'package:wanderlock/features/quest/domain/quest_step.dart';
 import 'package:wanderlock/features/unlock/application/visit_state_providers.dart';
 import 'package:wanderlock/features/unlock/domain/checkpoint_geofence.dart';
 
@@ -99,3 +105,92 @@ CheckpointGeofence? Function(String) buildGeofenceLookup(Ref ref) {
     );
   };
 }
+
+/// The authored routes, read once from the bundle.
+final questRouteDefinitionsProvider =
+    FutureProvider<List<QuestRouteDefinition>>(
+      (ref) => const QuestRouteBundledSource().readAll(),
+    );
+
+/// The v1 route, joined to content and to `visit_state`.
+///
+/// Scope v1 ships one route, so this exposes the first and ignores any others
+/// an author adds — the parser already reads a list, which is what makes the
+/// second route a content edit when v1.5 wants one.
+///
+/// A step whose id matches no checkpoint is dropped here rather than drawn as
+/// a blank row: the id is authored by hand, and a typo should cost a missing
+/// stop, not a crash.
+final questRouteProvider = Provider<QuestRoute?>((ref) {
+  final definitions =
+      ref.watch(questRouteDefinitionsProvider).value ?? const [];
+  if (definitions.isEmpty) return null;
+
+  final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
+  final visited = ref.watch(_visitedIdsProvider);
+  final byId = <String, Checkpoint>{
+    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
+  };
+
+  final definition = definitions.first;
+  final steps = <QuestStep>[];
+  for (final id in definition.checkpointIds) {
+    final checkpoint = byId[id];
+    if (checkpoint == null) continue;
+    steps.add(
+      QuestStep(
+        checkpointId: id,
+        name: checkpoint.name,
+        isDone: visited.contains(id),
+      ),
+    );
+  }
+
+  return QuestRoute(
+    id: definition.id,
+    name: definition.name,
+    summary: definition.summary,
+    steps: steps,
+  );
+});
+
+/// The user's plan, in their order, with names and ticks joined on.
+///
+/// An id with no matching checkpoint is dropped for the same reason as above.
+/// Here it is a likelier case than a typo: content can lose a place between
+/// releases, and a plan made last month should quietly shrink rather than
+/// render a row with no name.
+final itineraryEntriesProvider = Provider<List<ItineraryEntry>>((ref) {
+  final order = ref.watch(itineraryOrderProvider).value ?? const [];
+  final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
+  final visited = ref.watch(_visitedIdsProvider);
+  final byId = <String, Checkpoint>{
+    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
+  };
+
+  final entries = <ItineraryEntry>[];
+  for (final id in order) {
+    final checkpoint = byId[id];
+    if (checkpoint == null) continue;
+    entries.add(
+      ItineraryEntry(
+        checkpointId: id,
+        name: checkpoint.name,
+        // Rebuilt from the surviving rows, so a dropped place cannot leave a
+        // gap in what the screen numbers.
+        position: entries.length,
+        isVisited: visited.contains(id),
+      ),
+    );
+  }
+  return entries;
+});
+
+/// Whether a place is already on the plan — for the add button on the sheet.
+final isOnItineraryProvider = Provider.family<bool, String>((
+  ref,
+  checkpointId,
+) {
+  final order = ref.watch(itineraryOrderProvider).value ?? const [];
+  return order.contains(checkpointId);
+});

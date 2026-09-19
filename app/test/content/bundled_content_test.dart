@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_bundled_source.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
+import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
 
 /// Guards the copy of the pilot content that ships inside the binary.
 ///
@@ -11,6 +12,8 @@ import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 /// truth is a bug waiting to happen — this is the thing that stops it, and it
 /// is the only reason the duplication is acceptable.
 void main() {
+  _assetManifestTests();
+
   final root = File('pubspec.yaml').absolute.parent.parent;
   final authored = File('${root.path}/content/checkpoints.json');
   final bundled = File('assets/content/checkpoints.json');
@@ -118,5 +121,56 @@ void main() {
     test('an empty file is empty, not an error', () {
       expect(CheckpointBundledSource.parse('{"checkpoints": []}'), isEmpty);
     });
+  });
+}
+
+/// Catches the gap between "the file exists" and "the file ships".
+///
+/// Every other test in this file reads the asset **from disk**, which is what
+/// let a quest route sit in `assets/content/`, pass its parser tests, and then
+/// render an empty screen on a real device: the file was never listed in
+/// `pubspec.yaml`, so it was not in the bundle for `rootBundle` to find.
+///
+/// Lives here rather than beside each feature because the failure is about the
+/// manifest, and the manifest is one file for the whole app.
+void _assetManifestTests() {
+  // Entries, not raw text. Matching the file as one string made the check
+  // useless: `- assets/content/checkpoints.json` contains the substring
+  // `- assets/content/`, so a directory test written that way passed for
+  // every sibling file the manifest had never heard of.
+  final entries = File('pubspec.yaml')
+      .readAsLinesSync()
+      .map((line) => line.trim())
+      .where((line) => line.startsWith('- '))
+      .map((line) => line.substring(2).trim())
+      .toSet();
+
+  group('every content asset the code names is declared in pubspec', () {
+    for (final assetPath in const [
+      CheckpointBundledSource.defaultAssetPath,
+      QuestRouteBundledSource.defaultAssetPath,
+    ]) {
+      test(assetPath, () {
+        expect(
+          File(assetPath).existsSync(),
+          isTrue,
+          reason: '$assetPath is named in code but not on disk',
+        );
+
+        // A directory entry covers every file inside it, so either the exact
+        // path or its directory counts — but each has to be an entry of its
+        // own, not a substring of a longer one.
+        final directory =
+            '${assetPath.substring(0, assetPath.lastIndexOf('/'))}/';
+        expect(
+          entries.contains(assetPath) || entries.contains(directory),
+          isTrue,
+          reason:
+              '$assetPath is not listed under flutter/assets in pubspec.yaml, '
+              'so rootBundle cannot load it — the screen that reads it will '
+              'be empty on a device while every disk-reading test passes',
+        );
+      });
+    }
   });
 }

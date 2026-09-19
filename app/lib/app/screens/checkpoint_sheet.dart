@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:wanderlock/app/lenses/lens_providers.dart';
 import 'package:wanderlock/core/config/app_config.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
+import 'package:wanderlock/design/widgets/landmark_art.dart';
 import 'package:wanderlock/design/widgets/primary_button.dart';
+import 'package:wanderlock/design/widgets/sticker_button.dart';
+import 'package:wanderlock/design/widgets/sticker_surface.dart';
 import 'package:wanderlock/features/checkpoint/application/location_providers.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/checkpoint/presentation/checkpoint_icons.dart';
+import 'package:wanderlock/features/itinerary/application/itinerary_providers.dart';
 import 'package:wanderlock/features/unlock/application/check_in_controller.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
@@ -39,69 +44,91 @@ class CheckpointSheet extends ConsumerWidget {
     final checkIn = ref.watch(checkInControllerProvider);
     final isBusy = checkIn.isInFlight && checkIn.checkpointId == checkpoint.id;
 
+    // A sticker card, not a Material sheet: outline and hard shadow, so it
+    // holds its own on top of the map — section 0 of the art direction.
     return Material(
-      color: colors.card,
-      borderRadius: AppRadius.card,
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.md),
+      type: MaterialType.transparency,
+      child: StickerSurface(
+        borderRadius: AppRadius.hero,
+        depth: AppSticker.depthLarge,
+        padding: const EdgeInsets.fromLTRB(
+          AppSpacing.md,
+          AppSpacing.md,
+          AppSpacing.md,
+          AppSpacing.sm,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // The same icon the marker on the map is wearing, at the
-                // size that makes it the subject of the sheet rather than a
-                // bullet beside the title.
-                AppIcon(
-                  CheckpointIcons.of(checkpoint),
-                  size: AppIconSize.place,
-                  isMuted: !isVisited,
+                // The same building sticker the marker wears, larger: the
+                // subject of the card rather than a bullet beside the title.
+                Container(
+                  width: AppIconSize.tile,
+                  height: AppIconSize.tile,
+                  decoration: BoxDecoration(
+                    color: isVisited
+                        ? colors.highlightSurface
+                        : colors.lockedSurface,
+                    borderRadius: AppRadius.chip,
+                    border: Border.all(
+                      color: colors.outline,
+                      width: AppSticker.stroke,
+                    ),
+                  ),
+                  alignment: Alignment.center,
+                  child: LandmarkImage(
+                    CheckpointIcons.landmarkOf(checkpoint),
+                    size: AppIconSize.place + AppSpacing.xs,
+                    isMuted: !isVisited,
+                  ),
                 ),
-                const SizedBox(width: AppSpacing.sm),
+                const SizedBox(width: AppSpacing.md - 4),
                 Expanded(
-                  child: Text(checkpoint.name, style: AppTypography.cardTitle),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        checkpoint.name,
+                        style: AppTypography.placeTitle.copyWith(
+                          color: colors.ink,
+                        ),
+                      ),
+                      const SizedBox(height: AppSpacing.xs + 2),
+                      _StatusChip(isVisited: isVisited),
+                    ],
+                  ),
                 ),
-                IconButton(
-                  onPressed: onDismiss,
-                  // clay-icon-gap: no close glyph in the clay set; a rotated
-                  // plus reads as a hack rather than as a control.
-                  icon: const Icon(Icons.close),
-                  color: colors.inkMuted,
-                ),
+                _CloseButton(onPressed: onDismiss),
               ],
             ),
-            if (checkpoint.address != null)
+            if (checkpoint.address != null) ...[
+              const SizedBox(height: AppSpacing.sm),
               Text(
                 checkpoint.address!,
                 style: AppTypography.label.copyWith(color: colors.inkMuted),
               ),
-            const SizedBox(height: AppSpacing.sm),
-            Row(
-              children: [
-                // The tick is green and the padlock is amber in the artwork
-                // itself, which is the same story the old tinted icons told.
-                AppIcon(
-                  isVisited ? AppIcons.visited : AppIcons.locked,
-                  size: AppIconSize.inline,
-                ),
-                const SizedBox(width: AppSpacing.xs),
-                Text(
-                  isVisited
-                      ? l10n.checkpointUnlockedLabel
-                      : l10n.checkpointLockedLabel,
-                  style: AppTypography.label.copyWith(color: colors.inkMuted),
-                ),
-              ],
-            ),
+            ],
             if (!isVisited) ...[
               const SizedBox(height: AppSpacing.md),
               PrimaryButton(
                 key: const Key('unlock-checkpoint'),
                 label: l10n.checkpointUnlockAction,
+                icon: AppIcons.unlock,
+                isLarge: true,
                 onPressed: isBusy ? null : () => _requestCheckIn(ref),
               ),
             ],
+
+            // Offered whether or not the place is visited. A finished stop
+            // still belongs on a plan someone is building for a friend, and
+            // hiding the button once it is unlocked would make the plan a
+            // to-do list rather than an itinerary.
+            const SizedBox(height: AppSpacing.sm),
+            _AddToPlanButton(checkpointId: checkpoint.id),
           ],
         ),
       ),
@@ -147,6 +174,112 @@ class CheckpointSheet extends ConsumerWidget {
       checkpointId: checkpoint.id,
       latitude: position.latitude,
       longitude: position.longitude,
+    );
+  }
+}
+
+/// Puts a place on the user's plan, or says it is already there.
+///
+/// A separate widget so the sheet does not rebuild its whole body when the
+/// plan changes underneath it.
+class _AddToPlanButton extends ConsumerWidget {
+  const _AddToPlanButton({required this.checkpointId});
+
+  final String checkpointId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final isOnPlan = ref.watch(isOnItineraryProvider(checkpointId));
+
+    return StickerButton(
+      variant: StickerButtonVariant.secondary,
+      onPressed: isOnPlan
+          ? null
+          : () => ref.read(itineraryControllerProvider).add(checkpointId),
+      icon: isOnPlan ? AppIcons.visited : AppIcons.addToItinerary,
+      label: isOnPlan ? l10n.itineraryAdded : l10n.itineraryAdd,
+    );
+  }
+}
+
+/// Locked or reached, as a small sticker under the name.
+class _StatusChip extends StatelessWidget {
+  const _StatusChip({required this.isVisited});
+
+  final bool isVisited;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final colors = AppColors.of(context);
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: isVisited ? colors.card : colors.lockedSurface,
+        borderRadius: AppRadius.pill,
+        border: Border.all(color: colors.outline, width: AppSticker.strokeThin),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(
+          AppSpacing.xs,
+          AppSpacing.xs / 2,
+          AppSpacing.sm + 2,
+          AppSpacing.xs / 2,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // The tick is green and the padlock amber in the artwork itself.
+            AppIcon(
+              isVisited ? AppIcons.visited : AppIcons.locked,
+              size: AppIconSize.inline,
+            ),
+            const SizedBox(width: AppSpacing.xs),
+            Text(
+              isVisited
+                  ? l10n.checkpointUnlockedLabel
+                  : l10n.checkpointLockedLabel,
+              style: AppTypography.tag.copyWith(color: colors.ink),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A round sticker with a cross.
+class _CloseButton extends StatelessWidget {
+  const _CloseButton({required this.onPressed});
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+
+    return Semantics(
+      button: true,
+      label: MaterialLocalizations.of(context).closeButtonLabel,
+      excludeSemantics: true,
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          width: AppIconSize.navigation,
+          height: AppIconSize.navigation,
+          decoration: BoxDecoration(
+            color: colors.card,
+            shape: BoxShape.circle,
+            border: Border.all(color: colors.outline, width: AppSticker.stroke),
+            boxShadow: AppShadows.sticker(colors, depth: AppSticker.depthSmall),
+          ),
+          alignment: Alignment.center,
+          // clay-icon-gap: no close glyph in the clay set; a rotated
+          // plus reads as a hack rather than as a control.
+          child: Icon(Icons.close, color: colors.ink, size: AppIconSize.inline),
+        ),
+      ),
     );
   }
 }

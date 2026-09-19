@@ -108,6 +108,10 @@ class AppIcons {
   // Actions on a checkpoint.
   static const String unlock = 'key';
   static const String addToItinerary = 'plus';
+
+  /// Removing a place from a plan. Deletion rather than dismissal, which is
+  /// why this is a bin and not a cross.
+  static const String removeFromItinerary = 'trash-can';
   static const String story = 'notebook';
   static const String questStep = 'target';
 
@@ -171,6 +175,7 @@ class AppIcons {
     revealed,
     unlock,
     addToItinerary,
+    removeFromItinerary,
     story,
     questStep,
     myLocation,

@@ -1,0 +1,34 @@
+{
+  "_readme": [
+    "Tuyến Quest của pilot. Scope v1 chốt MỘT tuyến duy nhất (F7).",
+    "",
+    "NỘI DUNG TUYẾN LÀ TẠM. Mã đọc được nhiều tuyến, nhưng tuyến ở dưới do",
+    "agent xếp theo địa lý — chưa qua tay biên tập. Thứ tự, tên và lời dẫn",
+    "đều nên được chủ dự án viết lại. Sửa file này rồi chạy lại app là xong,",
+    "không đụng mã.",
+    "",
+    "Tuyến KHÔNG lưu tiến độ. Tiến độ suy ra từ visit_state: bước nào có",
+    "checkpoint đã ghé thì bước đó xong. Đó là lý do đi tuyến này mở khoá",
+    "luôn cho Fog và Sưu tầm, và ngược lại — một lần đến, mọi lăng kính.",
+    "",
+    "checkpointId phải khớp id trong checkpoints.json. Id lạ bị bỏ qua khi",
+    "đọc, không làm app chết — nhưng có test bắt, nên đừng dựa vào đó.",
+    "",
+    "Bản sao ở app/assets/content/ phải giống hệt file này; có test canh."
+  ],
+
+  "routes": [
+    {
+      "id": "colonial-core",
+      "name": "Lõi Sài Gòn xưa",
+      "summary": "Năm công trình thời thuộc địa trong bán kính đi bộ, theo thứ tự từ Dinh ra bến sông.",
+      "steps": [
+        { "checkpointId": "independence-palace" },
+        { "checkpointId": "central-post-office" },
+        { "checkpointId": "ben-thanh-market" },
+        { "checkpointId": "war-remnants-museum" },
+        { "checkpointId": "nha-rong-wharf" }
+      ]
+    }
+  ]
+}
