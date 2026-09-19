@@ -1,4 +1,5 @@
 import 'package:wanderlock/design/widgets/app_icon.dart';
+import 'package:wanderlock/design/widgets/landmark_art.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 
 /// Which 3D icon stands for a place.
@@ -67,4 +68,41 @@ class CheckpointIcons {
     ..._byCategory.values,
     AppIcons.lensMap,
   };
+
+  /// The building sticker a place wears on the map, in the album and in the
+  /// unlock moment — section 0 of the art direction. Same two layers as the
+  /// icon: the twelve by name, everything else by category.
+  static const Map<String, String> _landmarkById = <String, String>{
+    'independence-palace': LandmarkArt.palace,
+    'central-post-office': LandmarkArt.postOffice,
+    'ben-thanh-market': LandmarkArt.market,
+    'binh-tay-market': LandmarkArt.market,
+    'war-remnants-museum': LandmarkArt.museum,
+    'vinh-nghiem-pagoda': LandmarkArt.pagoda,
+    'giac-lam-pagoda': LandmarkArt.pagoda,
+    'buu-long-pagoda': LandmarkArt.pagoda,
+    'le-van-duyet-tomb': LandmarkArt.temple,
+    'thien-hau-temple': LandmarkArt.temple,
+    'nha-rong-wharf': LandmarkArt.wharf,
+    'landmark-81': LandmarkArt.tower,
+  };
+
+  static const Map<CheckpointCategory, String> _landmarkByCategory =
+      <CheckpointCategory, String>{
+        CheckpointCategory.museum: LandmarkArt.museum,
+        CheckpointCategory.monument: LandmarkArt.palace,
+        CheckpointCategory.market: LandmarkArt.market,
+        CheckpointCategory.religious: LandmarkArt.pagoda,
+        CheckpointCategory.architecture: LandmarkArt.tower,
+        CheckpointCategory.street: LandmarkArt.postOffice,
+      };
+
+  static String landmarkOf(Checkpoint checkpoint) =>
+      _landmarkById[checkpoint.id] ??
+      _landmarkByCategory[checkpoint.category] ??
+      LandmarkArt.palace;
+
+  /// For callers that hold only an id, such as a stamp or a quest step.
+  static String landmarkOfId(String checkpointId) =>
+      _landmarkById[checkpointId] ?? LandmarkArt.palace;
 }

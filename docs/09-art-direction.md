@@ -5,6 +5,46 @@
 
 ---
 
+## 0. Sticker cartoon (ĐÃ CHỐT 2026-09-19) — thay các mục bên dưới khi mâu thuẫn
+
+> Chủ dự án thấy giao diện cũ "quá bình thường, như app hàn lâm" và chọn hướng
+> **sticker cartoon + icon 3D**. Mockup đã duyệt: canvas "Wanderlock Sticker UI".
+> Mục này **thắng** mọi quy tắc cũ bên dưới khi hai bên nói khác nhau.
+
+**Câu định nghĩa mới:** mọi thứ trông như sticker dán lên màn hình — viền mực đậm,
+bóng cứng đổ thẳng xuống, màu bão hoà, chữ Baloo 2 đậm cho mọi thứ mang tính game.
+
+| Thành phần | Quy tắc | Token |
+|---|---|---|
+| Viền | Mực `#2B2140` (sáng) / oải hương `#8C80B8` (tối — **sáng hơn thẻ**, đo được 1,33:1 nếu dùng màu tối) | `AppColors.outline`, `AppSticker.stroke*` |
+| Bóng | Cứng, không blur, đổ thẳng xuống 3–9px | `AppShadows.sticker`, `AppSticker.depth*` |
+| Nền trang | Kem `#FFF4DE`; lăng kính toàn màn hình dùng **nền bạc hà chấm bi** | `PatternBackground` |
+| Nút chính | Viên thuốc vàng `#FFC93C`, chữ mực, bấm là lún xuống bóng của nó | `StickerButton` / `PrimaryButton` |
+| Tem | Nghiêng nhẹ xen kẽ, răng cưa đứt nét bên trong | `AppSticker.tilt`, `isPerforated` |
+| Địa điểm | **Sticker công trình** (vẽ tạm, nguồn ở `content/landmarks/`) thay icon chung; icon 3D giữ cho điều khiển và trạng thái | `LandmarkArt` |
+| Bản đồ | Cartoon: nước xanh ngọc và cỏ có viền vẽ, đường trắng viền nâu nhạt, **đại lộ vàng**, đường dày hơn | `AppMapColors.roadMajor`, `waterEdge`, `greenEdge` |
+| HUD | Chỉ những gì v1 có: X/12 địa điểm và số tem. **Không** cấp độ, tiền tệ, xếp hạng | `ExploreHud` |
+| Sương mù | Kiểu Liên Minh: vùng sáng **loang**, viền mờ, các vùng chảy vào nhau — không còn đĩa tròn viền cứng. Sáng theo **cả đường đã đi** (vệt 160 m), không chỉ tại điểm. Vẽ bằng Flutter vì lớp fill của MapLibre không làm mờ được | `FogOverlay`, `FogTrail` |
+
+**Vệt đường đi không phải trạng thái mở khoá.** Vệt chỉ làm sáng bản đồ, lưu trên máy
+(`explored_point_rows`); checkpoint vẫn chỉ mở qua check-in và `visit_state`.
+Ở bản không có máy chủ, **vuốt bản đồ là đi**: vuốt tới đâu sáng tới đó, đi qua
+bán kính một điểm thì gửi check-in như khi đến thật. **Zoom không phải là đi** — người
+chơi đứng yên khi zoom, zoom xong camera trượt về chỗ họ. Vuốt được từ bất cứ đâu, kể
+cả bắt đầu trên marker (marker không nhận chạm; bấm marker được nhận ra từ toạ độ chạm
+trên bản đồ). Bản có máy chủ không bao giờ dùng camera làm vị trí.
+
+**Quy tắc cũ bị thay:**
+- Mục 2.3 luật 1 (tối đa 3 màu nhấn) và luật 5 (bề mặt trung tính) — **bỏ**. Nhiều màu
+  được phép; bù lại mọi cặp chữ/nền vẫn phải ≥ 4.5:1, có test trong `contrast_test.dart`.
+- Mục 5 (neumorphism) — **bỏ**. Bóng cứng dùng được cả trên bản đồ vì nó là nét vẽ,
+  không phải hiệu ứng ánh sáng.
+
+**Giữ nguyên:** hồng `#FF48A0` chỉ trong 3 giây mở khoá (tia sáng `unlockRay` cũng bị
+cấm như vậy — test canh), màu = trạng thái (chưa đến thì khử màu), font đóng gói offline.
+
+---
+
 ## 1. Câu định nghĩa phong cách
 
 > **Neumorphism nhẹ trên nền kem, bo góc lớn, màu pastel tươi trẻ, illustration 3D mềm.**
@@ -280,19 +320,43 @@ hiện vẫn dùng Material Icons, có chú thích `clay-icon-gap` tại chỗ v
 
 ---
 
-## 8. Fog of War trong hệ màu sáng
+## 8. Fog of War — luôn tối
 
-**Vấn đề:** bản tham khảo để màn Fog tối trong khi 5 màn còn lại sáng → trông như hai app.
+**Luật chốt (chủ dự án, 2026-09-08): Fog tối ở CẢ HAI theme.**
 
-**Luật chốt:** Fog là **chế độ**, không phải theme. Cả hai theme đều phải có bản Fog riêng.
+Ẩn dụ là **cắm mắt trong LMHT**: chỗ chưa tới thì thật sự tối, chỗ đã tới thì
+sáng lên. Tương phản đó *chính là* lăng kính. Đổi theme đổi bản đồ nền, không
+đổi việc sương thì tối.
 
-| | Chế độ sáng | Chế độ tối |
-|---|---|---|
-| Vùng chưa đi | Bản đồ **xám hoá + phủ kem mờ**, ảnh địa danh **khử màu, độ tương phản thấp** | Bản đồ tối `#14161C`, ảnh khử màu và tối đi |
-| Vùng đã đi | Bản đồ đủ màu, ảnh địa danh **hiện đủ màu** | Bản đồ sáng lên, ảnh hiện đủ màu |
-| Ẩn dụ | **Màu trở lại với nơi bạn đã đến** | Ánh sáng lan ra |
+| | Cả hai theme |
+|---|---|
+| Vùng chưa đi | Phủ `#14161C` ở 82% — đủ tối để đọc ra là chưa biết, đủ mỏng để còn thấy dạng phố |
+| Vùng đã đi | Nhấc lớp phủ, cộng một lớp sáng nhẹ 12%; viền xanh `#5FD79B` 40% |
+| Ẩn dụ | **Ánh sáng lan ra** |
 
-Cách này giữ được kịch tính khám phá mà không bắt người dùng đang ở theme sáng phải nhảy sang màn đen.
+### Vì sao lật luật cũ
+
+Luật cũ ghi *"Fog là chế độ, không phải theme"* — chế độ sáng dùng **phủ kem
+mờ** để không quăng người dùng vào màn đen. Ý tốt, nhưng đo trên máy thì nó
+**bằng không về mặt số học**:
+
+```
+đất       #F4F1EA = (244, 241, 234)
+phủ kem   #F2EFE6 @ 60%
+kết quả           = (243, 240, 232)
+```
+
+Chênh **1–2 trên 255**. Không phải mờ nhẹ — là không có gì. Không thể làm xám
+một bản đồ kem bằng cách phủ kem lên nó; muốn xám hoá thì lớp phủ phải tối hơn
+hoặc nhạt màu hơn hẳn nền.
+
+Có một ghi chú cũ nói 86% "xoá sạch thành phố, đọc ra như trang giấy trắng" nên
+hạ xuống 60%. Chẩn đoán đó nhắm sai chỗ: vấn đề nằm ở **màu**, không phải ở
+**độ mờ**. 82% của một màu tối thì vẫn thấy phố, vì nó tối hơn nền chứ không
+trùng nền.
+
+> Ảnh địa danh trong vùng chưa đi vẫn **khử màu, tương phản thấp** như luật cũ.
+> Phần đó không đổi — chỉ lớp phủ bản đồ đổi.
 
 ---
 

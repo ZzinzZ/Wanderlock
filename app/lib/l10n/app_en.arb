@@ -165,97 +165,306 @@
   "@mapLocationServiceOffBanner": {
     "description": "Banner shown when location services are disabled device-wide."
   },
+
   "lensTitle": "Lens",
   "@lensTitle": {
-      "description": "Label above the lens switcher."
+    "description": "Label above the lens switcher."
   },
+
   "lensFog": "Fog of war",
   "@lensFog": {
-      "description": "Name of the fog lens."
+    "description": "Name of the fog lens."
   },
+
   "lensCollection": "Collection",
   "@lensCollection": {
-      "description": "Name of the collection lens."
+    "description": "Name of the collection lens."
   },
+
   "exploreTitle": "Explore",
   "@exploreTitle": {
-      "description": "Title of the main map screen."
+    "description": "Title of the main map screen."
   },
+
   "standInModeBadge": "Demo build",
   "@standInModeBadge": {
-      "description": "Badge shown when no server is configured and a stand-in grants check-ins."
+    "description": "Badge shown when no server is configured and a stand-in grants check-ins."
   },
+
   "standInModeHint": "No server in this build. Tap a marker, then unlock, to see every lens react.",
   "@standInModeHint": {
-      "description": "Explains why unlocking works without walking."
+    "description": "Explains why unlocking works without walking."
   },
+
   "checkpointLockedLabel": "Not unlocked",
   "@checkpointLockedLabel": {
-      "description": "State line on a checkpoint that has not been visited."
+    "description": "State line on a checkpoint that has not been visited."
   },
+
   "checkpointUnlockedLabel": "Unlocked",
   "@checkpointUnlockedLabel": {
-      "description": "State line on a visited checkpoint."
+    "description": "State line on a visited checkpoint."
   },
+
   "checkpointUnlockAction": "Unlock this place",
   "@checkpointUnlockAction": {
-      "description": "Button that requests a check-in."
+    "description": "Button that requests a check-in."
   },
+
   "checkpointPhotoPending": "Photograph pending licensing",
   "@checkpointPhotoPending": {
-      "description": "Placeholder caption where a landmark photograph will go."
+    "description": "Placeholder caption where a landmark photograph will go."
   },
+
   "checkInTooFar": "{distance} m away — you must be within {radius} m.",
   "@checkInTooFar": {
-      "description": "Refusal when the position is outside the radius.",
-      "placeholders": {
-          "distance": {
-              "type": "int"
-          },
-          "radius": {
-              "type": "int"
-          }
+    "description": "Refusal when the position is outside the radius.",
+    "placeholders": {
+      "distance": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "int"
       }
+    }
   },
+
   "checkInUnavailable": "Could not reach the server. Your position was not sent anywhere.",
   "@checkInUnavailable": {
-      "description": "Shown when nobody could be asked."
+    "description": "Shown when nobody could be asked."
   },
+
   "checkInRejected": "The server refused this check-in ({reason}).",
   "@checkInRejected": {
-      "description": "Shown when the server refused for a reason walking cannot fix.",
-      "placeholders": {
-          "reason": {
-              "type": "String"
-          }
+    "description": "Shown when the server refused for a reason walking cannot fix.",
+    "placeholders": {
+      "reason": {
+        "type": "String"
       }
+    }
   },
+
   "unlockMomentHeading": "Unlocked",
   "@unlockMomentHeading": {
-      "description": "Word shown during the three-second unlock moment."
+    "description": "Word shown during the three-second unlock moment."
   },
+
   "collectionTitle": "Collection",
   "@collectionTitle": {
-      "description": "Title of the collection lens panel."
+    "description": "Title of the collection lens panel."
   },
+
   "collectionProgress": "{owned} of {total} places",
   "@collectionProgress": {
-      "description": "Progress line in the collection.",
-      "placeholders": {
-          "owned": {
-              "type": "int"
-          },
-          "total": {
-              "type": "int"
-          }
+    "description": "Progress line in the collection.",
+    "placeholders": {
+      "owned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
       }
+    }
   },
+
   "collectionEmpty": "No stamps yet. Reach a place to earn its stamp.",
   "@collectionEmpty": {
-      "description": "Empty state of the collection."
+    "description": "Empty state of the collection."
   },
+
   "fogLegendCleared": "Colour returns to where you have been",
   "@fogLegendCleared": {
-      "description": "Legend line for the fog lens."
+    "description": "Legend line for the fog lens."
+  },
+
+  "lensJourney": "Journey",
+
+  "journeyTabQuest": "Route",
+
+  "journeyTabItinerary": "My plan",
+
+  "questEmpty": "No route yet. Add one in content/quest-routes.json.",
+
+  "questProgress": "Reached {done} of {total}",
+  "@questProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "questComplete": "Route complete",
+
+  "itineraryEmpty": "Your plan is empty",
+
+  "itineraryEmptyHint": "Tap a place on the map, then Add to plan.",
+
+  "itineraryCount": "{count} places planned",
+  "@itineraryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "itineraryClear": "Clear all",
+
+  "itineraryRemove": "Remove from plan",
+
+  "itineraryAdd": "Add to plan",
+
+  "itineraryAdded": "Already on your plan",
+
+  "hudExplorerTitle": "Explorer",
+  "@hudExplorerTitle": {
+    "description": "Name line of the map HUD."
+  },
+
+  "hudProgress": "{visited}/{total}",
+  "@hudProgress": {
+    "description": "Places reached out of the pilot total, in the HUD.",
+    "placeholders": {
+      "visited": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hudStampsLabel": "Collection: {count} stamps",
+  "@hudStampsLabel": {
+    "description": "Screen-reader label of the HUD stamp button.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "collectionReached": "places reached",
+  "@collectionReached": {
+    "description": "Under the big count on the album progress card."
+  },
+
+  "collectionFilterAll": "All · {count}",
+  "@collectionFilterAll": {
+    "description": "Album filter chip.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "collectionFilterOwned": "Got · {count}",
+  "@collectionFilterOwned": {
+    "description": "Album filter chip.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "collectionFilterMissing": "Missing · {count}",
+  "@collectionFilterMissing": {
+    "description": "Album filter chip.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "stampNotYet": "Not yet",
+  "@stampNotYet": {
+    "description": "Caption on a stamp not yet earned."
+  },
+
+  "unlockMomentHero": "UNLOCKED!",
+  "@unlockMomentHero": {
+    "description": "Headline of the three-second unlock moment."
+  },
+
+  "unlockRewardFog": "The fog lifts here",
+  "@unlockRewardFog": {
+    "description": "Unlock moment: what changed in the fog lens."
+  },
+
+  "unlockRewardStamp": "A new stamp in your collection",
+  "@unlockRewardStamp": {
+    "description": "Unlock moment: what changed in the collection lens."
+  },
+
+  "questStepDone": "Reached",
+  "@questStepDone": {
+    "description": "Status of a reached quest step."
+  },
+
+  "questStepNext": "Next stop",
+  "@questStepNext": {
+    "description": "Status of the next quest step."
+  },
+
+  "questStepTodo": "Not yet",
+  "@questStepTodo": {
+    "description": "Status of a quest step still to go."
+  },
+
+  "onboardingFogTitle": "The city sleeps under fog",
+  "@onboardingFogTitle": {
+    "description": "Onboarding page 1 title."
+  },
+
+  "onboardingFogBody": "Every street you actually walk lights up on the map, and stays lit.",
+  "@onboardingFogBody": {
+    "description": "Onboarding page 1 body."
+  },
+
+  "onboardingUnlockTitle": "Be there to unlock it",
+  "@onboardingUnlockTitle": {
+    "description": "Onboarding page 2 title."
+  },
+
+  "onboardingUnlockBody": "Twelve landmarks are locked. They open only when you are standing right there.",
+  "@onboardingUnlockBody": {
+    "description": "Onboarding page 2 body."
+  },
+
+  "onboardingLensesTitle": "One visit, every way to play",
+  "@onboardingLensesTitle": {
+    "description": "Onboarding page 3 title."
+  },
+
+  "onboardingLensesBody": "The fog lifts, a stamp lands in your album, your route moves on — all at once.",
+  "@onboardingLensesBody": {
+    "description": "Onboarding page 3 body."
+  },
+
+  "onboardingNext": "Next",
+  "@onboardingNext": {
+    "description": "Onboarding: go to the next page."
+  },
+
+  "onboardingSkip": "Skip",
+  "@onboardingSkip": {
+    "description": "Onboarding: jump to the last page."
+  },
+
+  "onboardingStartWithLocation": "Turn on location & start",
+  "@onboardingStartWithLocation": {
+    "description": "Onboarding: ask for location, then open the map."
+  },
+
+  "onboardingLater": "Later",
+  "@onboardingLater": {
+    "description": "Onboarding: open the map without asking for location."
   }
 }

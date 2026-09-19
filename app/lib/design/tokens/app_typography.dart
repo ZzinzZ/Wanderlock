@@ -117,4 +117,70 @@ class AppTypography {
     height: 1.1,
     fontFeatures: const [FontFeature.tabularFigures()],
   );
+
+  // Sticker type — section 0 of the art direction. Baloo 2 at its heaviest
+  // for anything that should read as game UI: titles on banners, the HUD,
+  // button labels. Body copy stays in Be Vietnam Pro.
+
+  /// Name line in the HUD, a place name in a list row.
+  static TextStyle hudTitle = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 17,
+    fontWeight: FontWeight.w800,
+    fontVariations: _wght(800),
+    height: 1.1,
+  );
+
+  /// Banner title at the top of a full-screen lens.
+  static TextStyle banner = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
+    fontVariations: _wght(800),
+    height: 1.1,
+    letterSpacing: 0.6,
+  );
+
+  /// Place name as the subject of a sheet.
+  static TextStyle placeTitle = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 28,
+    fontWeight: FontWeight.w800,
+    fontVariations: _wght(800),
+    height: 1.05,
+  );
+
+  /// Label on a sticker button.
+  static TextStyle stickerButton = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    fontVariations: _wght(800),
+    height: 1.1,
+  );
+
+  /// The heading of the unlock moment.
+  static TextStyle hero = TextStyle(
+    fontFamily: displayFamily,
+    fontSize: 44,
+    fontWeight: FontWeight.w800,
+    fontVariations: _wght(800),
+    height: 1.05,
+  );
+
+  /// Chips, pills and the name tag under a map marker.
+  static const TextStyle tag = TextStyle(
+    fontFamily: uiFamily,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    height: 1.25,
+  );
+
+  /// Lens chip label.
+  static const TextStyle tab = TextStyle(
+    fontFamily: uiFamily,
+    fontSize: 13,
+    fontWeight: FontWeight.w700,
+    height: 1.1,
+  );
 }

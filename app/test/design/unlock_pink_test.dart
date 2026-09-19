@@ -26,7 +26,10 @@ void main() {
   /// seconds — and the duration is meant to be referenced freely. Matching the
   /// bare word flagged `app_motion.dart` and would have flagged every future
   /// screen that merely animates for the right length of time.
-  final colourRead = RegExp(r'(\w+)\.unlockMoment');
+  ///
+  /// `unlockRay` is covered too: it is the lighter pink of the spinning rays
+  /// added in the sticker pass, and the same ban applies to it.
+  final colourRead = RegExp(r'(\w+)\.(?:unlockMoment|unlockRay)\b');
 
   test('pink appears only in the unlock moment', () {
     final offenders = <String>[];

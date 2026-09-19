@@ -40,26 +40,65 @@ const _largeText = 3.0;
 const _visibleEdge = 1.3;
 
 void main() {
-  // Why nothing secondary is written on the muted surface.
-  //
-  // The pairing survives in dark and fails in light, and a component has to
-  // work in both — so the light measurement is the one that sets the rule. The
-  // lens switcher writes full ink on every chip because of this.
-  //
-  // Recorded rather than fixed: lightening the surface until `inkMuted` cleared
-  // 4.5:1 would have taken it to within a hair of white and left nothing to
-  // distinguish a selected chip from its bar.
+  // The neutral palette of 2026-08-25 put secondary text on the muted surface
+  // at 3.9:1 in light, so nothing secondary was ever written there. The
+  // sticker palette (2026-09-19) moved both colours and the pairing now
+  // clears 4.5:1 in both themes — measured here so the old workaround can be
+  // retired on evidence rather than on memory.
   group('the muted surface and secondary text', () {
-    test('light: fails, which is why the rule exists', () {
-      expect(
-        contrastRatio(AppColors.light.inkMuted, AppColors.light.surfaceMuted),
-        lessThan(_normalText),
-      );
-    });
+    for (final (name, colors) in <(String, AppColors)>[
+      ('light', AppColors.light),
+      ('dark', AppColors.dark),
+    ]) {
+      test('$name: secondary text is readable on the muted surface', () {
+        expect(
+          contrastRatio(colors.inkMuted, colors.surfaceMuted),
+          greaterThanOrEqualTo(_normalText),
+        );
+      });
+    }
+  });
 
-    test('dark: passes, and is still not relied on', () {
+  // The sticker look is an ink outline round a fill. Every fill a sticker
+  // can wear has to carry ink text, and the outline has to show against the
+  // card it surrounds or the whole look collapses into flat panels.
+  group('stickers', () {
+    for (final (name, colors) in <(String, AppColors)>[
+      ('light', AppColors.light),
+      ('dark', AppColors.dark),
+    ]) {
+      test('$name: ink reads on every sticker fill', () {
+        for (final (fillName, fill) in <(String, Color)>[
+          ('card', colors.card),
+          ('locked', colors.lockedSurface),
+          ('info', colors.infoSurface),
+          ('highlight', colors.highlightSurface),
+          ('mint', colors.decorativeMint),
+        ]) {
+          expect(
+            contrastRatio(colors.ink, fill),
+            greaterThanOrEqualTo(_normalText),
+            reason: '$name: ink on the $fillName sticker',
+          );
+        }
+      });
+
+      test('$name: the outline stands off the card', () {
+        expect(
+          contrastRatio(colors.outline, colors.card),
+          greaterThanOrEqualTo(_largeText),
+        );
+      });
+    }
+
+    // Stamps cycle through these fills in the album. The palette is chosen per
+    // theme, so this is the one place a light-only fill could hide.
+    test('the unlock plate carries its ink in both themes', () {
       expect(
-        contrastRatio(AppColors.dark.inkMuted, AppColors.dark.surfaceMuted),
+        contrastRatio(
+          AppColors.dark.onAccentYellow,
+          AppColors.dark.accentYellow,
+        ),
         greaterThanOrEqualTo(_normalText),
       );
     });
@@ -182,6 +221,7 @@ void main() {
           ('water', map.water),
           ('green', map.green),
           ('road', map.road),
+          ('boulevard', map.roadMajor),
         ]) {
           final (surfaceName, color) = surface;
           expect(

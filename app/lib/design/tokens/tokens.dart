@@ -14,4 +14,5 @@ export 'package:wanderlock/design/tokens/app_motion.dart';
 export 'package:wanderlock/design/tokens/app_radius.dart';
 export 'package:wanderlock/design/tokens/app_shadows.dart';
 export 'package:wanderlock/design/tokens/app_spacing.dart';
+export 'package:wanderlock/design/tokens/app_sticker.dart';
 export 'package:wanderlock/design/tokens/app_typography.dart';

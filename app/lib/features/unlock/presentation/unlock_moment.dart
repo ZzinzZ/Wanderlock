@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
+import 'package:wanderlock/design/widgets/landmark_art.dart';
+import 'package:wanderlock/design/widgets/sticker_surface.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
 /// The three seconds a checkpoint opens.
@@ -25,6 +27,7 @@ class UnlockMoment extends StatefulWidget {
     required this.placeName,
     required this.onCompleted,
     this.photoUrl,
+    this.landmark,
     this.origin = Alignment.center,
     super.key,
   });
@@ -36,6 +39,10 @@ class UnlockMoment extends StatefulWidget {
   final Alignment origin;
 
   final String? photoUrl;
+
+  /// A `LandmarkArt` name, drawn on the plate while there is no photograph.
+  /// A name rather than a checkpoint, for the same reason as [placeName].
+  final String? landmark;
 
   /// Called once, after the last beat.
   final VoidCallback onCompleted;
@@ -142,46 +149,51 @@ class _UnlockMomentState extends State<UnlockMoment>
                   colour: colors.unlockMoment,
                 ),
               ),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Beat 2.
-                    _PhotoPlate(
-                      photoUrl: widget.photoUrl,
-                      colourReturn: _saturation.value,
-                    ),
-                    const SizedBox(height: AppSpacing.lg),
-                    // Beat 3.
-                    Opacity(
-                      opacity: _name.value.clamp(0, 1),
-                      child: Column(
-                        children: [
-                          Text(
-                            l10n.unlockMomentHeading,
-                            style: AppTypography.label.copyWith(
-                              color: colors.onUnlockMoment,
-                            ),
-                          ),
-                          const SizedBox(height: AppSpacing.xs),
-                          Text(
-                            widget.placeName,
-                            textAlign: TextAlign.center,
-                            // Not the theme's ink: the flood is the same pink
-                            // in both themes, so the name on it must be too,
-                            // or dark mode would put near-white on pink at
-                            // 3.09:1.
-                            style: AppTypography.display.copyWith(
-                              color: colors.onUnlockMoment,
-                            ),
-                          ),
+              // The spinning sunburst of the sticker pass. It rides on the
+              // flood rather than on its own beat: it is the flood's texture.
+              CustomPaint(
+                painter: _RayPainter(
+                  turn: _controller.value,
+                  opacity: _flood.value,
+                  colour: colors.unlockRay,
+                ),
+              ),
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.lg,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Beat 3, heading first: the headline lands with the
+                      // name so the screen reads top to bottom.
+                      Opacity(
+                        opacity: _name.value.clamp(0, 1),
+                        child: _OutlinedHeading(text: l10n.unlockMomentHero),
+                      ),
+                      const SizedBox(height: AppSpacing.lg),
+                      // Beat 2.
+                      Transform.scale(
+                        scale: 0.6 + 0.4 * _flood.value,
+                        child: _Plate(
+                          photoUrl: widget.photoUrl,
+                          landmark: widget.landmark,
+                          placeName: widget.placeName,
+                          colourReturn: _saturation.value,
+                        ),
+                      ),
+                      const SizedBox(height: AppSpacing.xl),
+                      // Beat 4.
+                      _BadgeDrop(
+                        progress: _badge.value,
+                        lines: [
+                          (AppIcons.revealed, l10n.unlockRewardFog),
+                          (AppIcons.lensCollection, l10n.unlockRewardStamp),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: AppSpacing.xl),
-                    // Beat 4.
-                    _BadgeDrop(progress: _badge.value),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -192,7 +204,7 @@ class _UnlockMomentState extends State<UnlockMoment>
   }
 }
 
-/// Beat 1 — a disc of colour opening from where the user is standing.
+/// Beat 1 — the colour, flooding out from where the user stands.
 class _FloodPainter extends CustomPainter {
   const _FloodPainter({
     required this.progress,
@@ -233,59 +245,205 @@ class _FloodPainter extends CustomPainter {
       oldDelegate.colour != colour;
 }
 
-/// Beat 2 — the landmark, arriving in colour.
+/// Alternating wedges of a lighter pink, turning slowly behind the plate.
+class _RayPainter extends CustomPainter {
+  const _RayPainter({
+    required this.turn,
+    required this.opacity,
+    required this.colour,
+  });
+
+  /// 0 to 1 over the three seconds.
+  final double turn;
+  final double opacity;
+  final Color colour;
+
+  static const int rays = 20;
+
+  /// How far the rays turn over the whole moment, in radians.
+  static const double sweep = math.pi / 6;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (opacity <= 0) return;
+
+    final centre = Offset(size.width / 2, size.height * 0.42);
+    final reach = size.longestSide;
+    final paint = Paint()..color = colour.withValues(alpha: opacity * colour.a);
+    const wedge = math.pi / rays;
+
+    for (var i = 0; i < rays; i++) {
+      final start = i * 2 * wedge + turn * sweep;
+      final path = Path()
+        ..moveTo(centre.dx, centre.dy)
+        ..lineTo(
+          centre.dx + reach * math.cos(start),
+          centre.dy + reach * math.sin(start),
+        )
+        ..lineTo(
+          centre.dx + reach * math.cos(start + wedge),
+          centre.dy + reach * math.sin(start + wedge),
+        )
+        ..close();
+      canvas.drawPath(path, paint);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_RayPainter oldDelegate) =>
+      oldDelegate.turn != turn ||
+      oldDelegate.opacity != opacity ||
+      oldDelegate.colour != colour;
+}
+
+/// The headline, in cream with a thick ink outline and a hard shadow — the
+/// sticker look applied to type.
 ///
-/// With no photograph yet, what returns to colour is the plate itself. The
-/// beat is real either way, and the day a licensed photograph exists it drops
-/// into the same box behind the same animation.
-class _PhotoPlate extends StatelessWidget {
-  const _PhotoPlate({required this.photoUrl, required this.colourReturn});
+/// The fill is cream, not the theme's ink, and that is only legible because
+/// of the outline: cream on this pink alone measures about 3:1. The outline
+/// is what carries the contrast, which is why it is drawn at a heavy stroke.
+class _OutlinedHeading extends StatelessWidget {
+  const _OutlinedHeading({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    final style = AppTypography.hero;
+
+    return Stack(
+      children: [
+        Transform.translate(
+          offset: const Offset(0, AppSticker.depth + 1),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: style.copyWith(
+              foreground: Paint()
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = AppSticker.strokeHeavy * 2
+                ..strokeJoin = StrokeJoin.round
+                ..color = colors.outline,
+            ),
+          ),
+        ),
+        Text(
+          text,
+          textAlign: TextAlign.center,
+          style: style.copyWith(
+            foreground: Paint()
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = AppSticker.strokeHeavy * 2
+              ..strokeJoin = StrokeJoin.round
+              ..color = colors.outline,
+          ),
+        ),
+        Text(
+          text,
+          textAlign: TextAlign.center,
+          style: style.copyWith(color: colors.card),
+        ),
+      ],
+    );
+  }
+}
+
+/// Beat 2 — the place, as the stamp being handed over, arriving in colour.
+///
+/// A licensed photograph when one exists; until then the building sticker,
+/// which is the same art the map and the album show, so the stamp is
+/// recognisably the one that is about to appear in the collection.
+class _Plate extends StatelessWidget {
+  const _Plate({
+    required this.photoUrl,
+    required this.landmark,
+    required this.placeName,
+    required this.colourReturn,
+  });
 
   final String? photoUrl;
+  final String? landmark;
+  final String placeName;
   final double colourReturn;
 
-  static const double side = 220;
+  static const double width = 232;
+  static const double artSide = 150;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final colors = AppColors.of(context);
 
-    final plate = SizedBox(
-      width: side,
-      height: side,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: AppRadius.card,
-          color: colors.card,
-          // Raised: for three seconds this plate is the object being
-          // handed over, and it should look like one thing lifted off the
-          // flood rather than a hole cut in it.
-          boxShadow: AppShadows.raised(colors),
+    final Widget art;
+    if (photoUrl != null) {
+      art = ClipRRect(
+        borderRadius: AppRadius.chip,
+        child: Image.network(
+          photoUrl!,
+          width: artSide,
+          height: artSide,
+          fit: BoxFit.cover,
         ),
-        child: photoUrl == null
-            ? Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(AppSpacing.md),
-                  child: Text(
-                    l10n.checkpointPhotoPending,
-                    textAlign: TextAlign.center,
-                    style: AppTypography.label.copyWith(color: colors.inkMuted),
-                  ),
-                ),
-              )
-            : Image.network(photoUrl!, fit: BoxFit.cover),
-      ),
-    );
+      );
+    } else if (landmark != null) {
+      art = LandmarkImage(landmark!, size: artSide);
+    } else {
+      art = SizedBox(
+        width: artSide,
+        height: artSide,
+        child: Center(
+          child: Text(
+            l10n.checkpointPhotoPending,
+            textAlign: TextAlign.center,
+            style: AppTypography.label.copyWith(color: colors.inkMuted),
+          ),
+        ),
+      );
+    }
 
-    // Grey at the start, full colour by the end of the beat: the art
-    // direction's "colour returns to where you have been", applied to the
-    // landmark rather than to the map.
-    return ClipRRect(
-      borderRadius: AppRadius.card,
-      child: ColorFiltered(
-        colorFilter: ColorFilter.matrix(_saturationMatrix(colourReturn)),
-        child: plate,
+    return Transform.rotate(
+      angle: AppSticker.heroTilt,
+      child: SizedBox(
+        width: width,
+        child: StickerSurface(
+          // Yellow, and the same in both themes: the flood does not change
+          // with the theme, so nor does the object floating on it.
+          color: colors.accentYellow,
+          borderRadius: AppRadius.hero,
+          depth: AppSticker.depthHero,
+          stroke: AppSticker.strokeHeavy,
+          isPerforated: true,
+          padding: const EdgeInsets.fromLTRB(
+            AppSpacing.md,
+            AppSpacing.md + 2,
+            AppSpacing.md,
+            AppSpacing.md,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Grey at the start, full colour by the end of the beat: "colour
+              // returns to where you have been", applied to the place itself.
+              ColorFiltered(
+                colorFilter: ColorFilter.matrix(
+                  _saturationMatrix(colourReturn),
+                ),
+                child: art,
+              ),
+              const SizedBox(height: AppSpacing.xs),
+              Text(
+                placeName,
+                textAlign: TextAlign.center,
+                style: AppTypography.placeTitle.copyWith(
+                  // Theme-independent ink on a theme-independent plate.
+                  color: colors.onAccentYellow,
+                  fontSize: AppTypography.banner.fontSize,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -309,15 +467,17 @@ class _PhotoPlate extends StatelessWidget {
   }
 }
 
-/// Beat 4 — the badge falling into the collection.
+/// Beat 4 — what the arrival just changed, dropping in as one sticker.
+///
+/// Says in words what the architecture does silently: one arrival, and every
+/// lens has already moved.
 class _BadgeDrop extends StatelessWidget {
-  const _BadgeDrop({required this.progress});
+  const _BadgeDrop({required this.progress, required this.lines});
 
   final double progress;
+  final List<(String, String)> lines;
 
-  static const double side = 96;
-
-  /// How far above its resting place the badge starts.
+  /// How far above its resting place the card starts.
   static const double dropHeight = 64;
 
   @override
@@ -329,16 +489,35 @@ class _BadgeDrop extends StatelessWidget {
       offset: Offset(0, dropHeight * (1 - settled)),
       child: Opacity(
         opacity: settled,
-        child: Container(
-          width: side,
-          height: side,
-          decoration: BoxDecoration(
-            borderRadius: AppRadius.marker,
-            color: colors.card,
-            boxShadow: AppShadows.raised(colors),
+        child: StickerSurface(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.md - 2,
+            vertical: AppSpacing.sm + 2,
           ),
-          alignment: Alignment.center,
-          child: const AppIcon(AppIcons.reward, size: AppIconSize.navigation),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final (icon, text) in lines)
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: AppSpacing.xs / 2,
+                  ),
+                  child: Row(
+                    children: [
+                      AppIcon(icon, size: AppIconSize.inline + 6),
+                      const SizedBox(width: AppSpacing.sm + 2),
+                      Expanded(
+                        child: Text(
+                          text,
+                          style: AppTypography.tab.copyWith(color: colors.ink),
+                        ),
+                      ),
+                      const AppIcon(AppIcons.visited, size: AppIconSize.inline),
+                    ],
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
