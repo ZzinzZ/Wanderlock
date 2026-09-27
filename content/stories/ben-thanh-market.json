@@ -1,0 +1,21 @@
+{
+  "id": "ben-thanh-market",
+  "checkpointId": "ben-thanh-market",
+  "title": "Cái chợ mang tên một bến sông",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Chợ Bến Thành",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bến Thành có trước cả khi người Pháp chiếm Gia Định. Ban đầu nó nằm bên bờ sông Bến Nghé, cạnh một bến dùng cho khách vãng lai và quân nhân ra vào thành — bến ấy tên là Bến Thành, và cái chợ mọc lên bên cạnh mang luôn tên đó."
+    },
+    {
+      "type": "narration",
+      "text": "Ngôi chợ như ta thấy hôm nay được khởi công năm 1912, trên khu đất rộng hơn 13.000 mét vuông giữa bốn con đường. Tháp đồng hồ ở cửa nam từ lâu đã thành biểu tượng không chính thức của thành phố, dù chưa ai ra quyết định nào phong cho nó danh hiệu ấy."
+    },
+    {
+      "type": "narration",
+      "text": "Bên trong chợ chia thành từng khu rõ rệt: vải sợi và quần áo, giày dép, hàng thủ công mỹ nghệ, rồi thực phẩm tươi sống, trái cây và hoa. Buổi tối, các quầy hàng rong bày ra hai bên hông chợ và khu này đổi hẳn nhịp."
+    }
+  ]
+}

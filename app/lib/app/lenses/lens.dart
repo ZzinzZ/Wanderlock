@@ -1,9 +1,14 @@
 /// A way of experiencing the same unlocked map.
 ///
-/// A lens changes what you see and never what you have unlocked. Four of the
-/// five are built: Fog of War, Collection, and — behind the Journey tab —
-/// Quest and the itinerary. Story is the one still missing, and it is blocked
-/// on content rather than on code.
+/// A lens changes what you see and never what you have unlocked.
+///
+/// Only three of the five appear here. Fog of War, Collection and — behind the
+/// Journey tab — Quest and the itinerary are places the bar switches between.
+/// Story is the fifth, and it is deliberately **not** in this enum: sections
+/// 5.2 and 5.4 of the scope put the story player on its own full screen,
+/// opened from a checkpoint you have already unlocked, and fix the bar at
+/// three chips. A fourth chip would give the rarest destination the same
+/// weight as the map.
 ///
 /// Lives in `app/` rather than in a feature because knowing that both fog and
 /// collection exist is exactly the knowledge no lens is allowed to have. The

@@ -39,10 +39,10 @@ abstract final class StoryChapterDto {
     return StoryChapter(
       id: id,
       checkpointId: _requireString(json, 'checkpointId', chapterId: id),
-      narratorId: _requireString(json, 'narratorId', chapterId: id),
       title: _requireString(json, 'title', chapterId: id),
+      source: json['source'] as String?,
       coverImage: json['coverImage'] as String?,
-      estimatedMinutes: (json['estimatedMinutes'] as num?)?.toInt() ?? 3,
+      estimatedMinutes: (json['estimatedMinutes'] as num?)?.toInt() ?? 2,
       nodes: [
         for (var i = 0; i < rawNodes.length; i++)
           _nodeFromJson(rawNodes[i], chapterId: id, index: i),
@@ -68,20 +68,6 @@ abstract final class StoryChapterDto {
       'narration' => Narration(
         _requireString(raw, 'text', chapterId: chapterId, nodeIndex: index),
       ),
-      'speech' => Speech(
-        speakerId: _requireString(
-          raw,
-          'speakerId',
-          chapterId: chapterId,
-          nodeIndex: index,
-        ),
-        text: _requireString(
-          raw,
-          'text',
-          chapterId: chapterId,
-          nodeIndex: index,
-        ),
-      ),
       'image' => StoryImage(
         asset: _requireString(
           raw,
@@ -92,7 +78,7 @@ abstract final class StoryChapterDto {
         caption: raw['caption'] as String?,
       ),
       _ => throw StoryFormatException(
-        'không biết node type "$type" — chỉ có narration, speech, image',
+        'không biết node type "$type" — chỉ có narration và image',
         chapterId: chapterId,
         nodeIndex: index,
       ),

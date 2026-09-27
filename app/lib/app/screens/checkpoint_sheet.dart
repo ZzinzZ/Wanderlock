@@ -13,6 +13,7 @@ import 'package:wanderlock/features/checkpoint/application/location_providers.da
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/checkpoint/presentation/checkpoint_icons.dart';
 import 'package:wanderlock/features/itinerary/application/itinerary_providers.dart';
+import 'package:wanderlock/features/story/domain/story_chapter.dart';
 import 'package:wanderlock/features/unlock/application/check_in_controller.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
@@ -26,6 +27,7 @@ class CheckpointSheet extends ConsumerWidget {
     required this.checkpoint,
     required this.isVisited,
     required this.onDismiss,
+    required this.onReadStory,
     super.key,
   });
 
@@ -37,11 +39,16 @@ class CheckpointSheet extends ConsumerWidget {
 
   final VoidCallback onDismiss;
 
+  /// Opens the story player. Passed in rather than pushed from here, because
+  /// the screen owns navigation and the sheet owns the card.
+  final void Function(StoryChapter chapter) onReadStory;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final colors = AppColors.of(context);
     final checkIn = ref.watch(checkInControllerProvider);
+    final chapter = ref.watch(storyChapterLookupProvider)(checkpoint.id);
     final isBusy = checkIn.isInFlight && checkIn.checkpointId == checkpoint.id;
 
     // A sticker card, not a Material sheet: outline and hard shadow, so it
@@ -120,6 +127,21 @@ class CheckpointSheet extends ConsumerWidget {
                 icon: AppIcons.unlock,
                 isLarge: true,
                 onPressed: isBusy ? null : () => _requestCheckIn(ref),
+              ),
+            ],
+
+            // The chapter, once the place has actually been visited. Shown
+            // as a disabled promise beforehand rather than hidden: knowing
+            // there is something to read here is a reason to walk over, and
+            // hiding it would make the reward invisible until it is spent.
+            if (chapter != null) ...[
+              const SizedBox(height: AppSpacing.sm),
+              StickerButton(
+                key: const Key('read-story'),
+                variant: StickerButtonVariant.secondary,
+                icon: AppIcons.story,
+                label: isVisited ? l10n.storyOpen : l10n.storyLocked,
+                onPressed: isVisited ? () => onReadStory(chapter) : null,
               ),
             ],
 

@@ -4,24 +4,19 @@
 /// puts fragmented, branching stories in v2; a format that allows branches now
 /// would invite content that depends on them, and the reader would arrive
 /// before the player did.
+///
+/// **Dialogue was removed on 2026-09-27** (owner's decision). A chapter is a
+/// written introduction to a place, in one voice — so the only beats are prose
+/// and photographs. The `speech` node it had, and the character file it would
+/// have needed, are gone with it; nothing in the pilot content used them.
 sealed class StoryNode {
   const StoryNode();
 }
 
-/// The narrator speaking, unattributed.
+/// A paragraph of prose.
 final class Narration extends StoryNode {
   const Narration(this.text);
 
-  final String text;
-}
-
-/// A named character speaking. [speakerId] refers to a narrator or character
-/// defined in content, not a display name, so the same chapter survives that
-/// character being renamed.
-final class Speech extends StoryNode {
-  const Speech({required this.speakerId, required this.text});
-
-  final String speakerId;
   final String text;
 }
 
@@ -37,18 +32,17 @@ final class StoryImage extends StoryNode {
 /// A chapter of the Story lens: what a checkpoint has to say once you have
 /// stood in front of it.
 ///
-/// Content lives in `content/stories/*.json`, is version-controlled, and is
-/// loaded by the seed script. The database stores the node list as jsonb
-/// because a chapter is authored, reviewed and shipped as one unit.
+/// Content lives in `content/stories/*.json`, is version-controlled, and ships
+/// inside the binary the way the checkpoints and the quests do.
 class StoryChapter {
   const StoryChapter({
     required this.id,
     required this.checkpointId,
-    required this.narratorId,
     required this.title,
     required this.nodes,
+    this.source,
     this.coverImage,
-    this.estimatedMinutes = 3,
+    this.estimatedMinutes = 2,
   });
 
   final String id;
@@ -56,24 +50,25 @@ class StoryChapter {
   /// The checkpoint this chapter belongs to. One chapter per checkpoint in v1.
   final String checkpointId;
 
-  final String narratorId;
   final String title;
+
+  /// Where the facts came from, shown at the end of the chapter.
+  ///
+  /// The pilot chapters are written from Wikipedia articles. Facts are not
+  /// anybody's property, but saying where they were checked is what lets the
+  /// next person check them again — and it is the same discipline the photo
+  /// ledger applies to pictures.
+  final String? source;
 
   /// 16:9, per the image ratios fixed by the art direction.
   final String? coverImage;
 
   /// Roughly how long it takes to read. Shown before opening, because
   /// somebody standing in the sun deserves to know what they are committing
-  /// to. The pilot targets two to four minutes.
+  /// to. The pilot targets one to three minutes.
   final int estimatedMinutes;
 
   final List<StoryNode> nodes;
 
   bool get isEmpty => nodes.isEmpty;
-
-  /// Every distinct speaker, so the player can preload their portraits.
-  Set<String> get speakerIds => {
-    for (final node in nodes)
-      if (node is Speech) node.speakerId,
-  };
 }

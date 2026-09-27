@@ -1,0 +1,21 @@
+{
+  "id": "binh-tay-market",
+  "checkpointId": "binh-tay-market",
+  "title": "Chợ Lớn Mới",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Chợ Bình Tây",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bình Tây, quen gọi là Chợ Lớn Mới, nằm trong khuôn viên rộng hai mươi lăm nghìn mét vuông giữa bốn con đường của khu Chợ Lớn. Mặt bằng hình chữ nhật, mười hai cổng lớn nhỏ, và toàn bộ được thiết kế theo lối kiến trúc Á Đông."
+    },
+    {
+      "type": "narration",
+      "text": "Khác với Bến Thành vốn quen thuộc với khách du lịch, Bình Tây trước hết là một đầu mối bán sỉ. Hàng từ đây đi khắp cả nước và xuất sang thị trường nước ngoài, nên nhịp chợ mạnh nhất lại rơi vào lúc sáng sớm."
+    },
+    {
+      "type": "narration",
+      "text": "Năm 2015, chợ được công nhận là di tích kiến trúc nghệ thuật của thành phố — một cách nói rằng nơi này vừa là chỗ buôn bán, vừa là công trình đáng giữ."
+    }
+  ]
+}

@@ -8,7 +8,6 @@ import 'package:wanderlock/features/story/domain/story_chapter.dart';
 Map<String, Object?> _chapter({List<Object?>? nodes}) => {
   'id': 'chapter-1',
   'checkpointId': 'independence-palace',
-  'narratorId': 'narrator-main',
   'title': 'Tiêu đề',
   'nodes':
       nodes ??
@@ -23,35 +22,34 @@ void main() {
       _chapter(
         nodes: [
           {'type': 'narration', 'text': 'Bối cảnh.'},
-          {'type': 'speech', 'speakerId': 'co-ba', 'text': 'Chào bạn.'},
           {'type': 'image', 'asset': 'a.jpg', 'caption': 'Chú thích'},
         ],
       ),
     );
 
-    expect(chapter.nodes, hasLength(3));
+    expect(chapter.nodes, hasLength(2));
     expect(chapter.nodes[0], isA<Narration>());
-    expect((chapter.nodes[1] as Speech).speakerId, 'co-ba');
-    expect((chapter.nodes[2] as StoryImage).caption, 'Chú thích');
+    expect((chapter.nodes[1] as StoryImage).caption, 'Chú thích');
   });
 
-  test('collects speakers so portraits can be preloaded', () {
-    final chapter = StoryChapterDto.fromJson(
-      _chapter(
-        nodes: [
-          {'type': 'speech', 'speakerId': 'co-ba', 'text': 'Một.'},
-          {'type': 'speech', 'speakerId': 'ong-tu', 'text': 'Hai.'},
-          {'type': 'speech', 'speakerId': 'co-ba', 'text': 'Ba.'},
-          {'type': 'narration', 'text': 'Không phải người nói.'},
-        ],
+  // Dialogue was dropped on 2026-09-27: a chapter is an introduction to a
+  // place, written in one voice. Content still carrying a `speech` node must
+  // fail loudly rather than lose the line it was meant to say.
+  test('the dialogue node that was removed is now an error', () {
+    expect(
+      () => StoryChapterDto.fromJson(
+        _chapter(
+          nodes: [
+            {'type': 'speech', 'speakerId': 'co-ba', 'text': 'Chào bạn.'},
+          ],
+        ),
       ),
+      throwsA(isA<StoryFormatException>()),
     );
-
-    expect(chapter.speakerIds, {'co-ba', 'ong-tu'});
   });
 
   test('defaults the reading time rather than guessing at zero', () {
-    expect(StoryChapterDto.fromJson(_chapter()).estimatedMinutes, 3);
+    expect(StoryChapterDto.fromJson(_chapter()).estimatedMinutes, 2);
   });
 
   // A typo in a node type must not silently drop a paragraph. The reader would
@@ -88,7 +86,7 @@ void main() {
         _chapter(
           nodes: [
             {'type': 'narration', 'text': 'Ổn.'},
-            {'type': 'speech', 'text': 'Thiếu speakerId.'},
+            {'type': 'image', 'caption': 'Thiếu asset.'},
           ],
         ),
       );

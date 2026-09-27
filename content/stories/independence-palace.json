@@ -1,0 +1,21 @@
+{
+  "id": "independence-palace",
+  "checkpointId": "independence-palace",
+  "title": "Toà nhà của một bước ngoặt",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Dinh Độc Lập",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Giữa một khuôn viên rộng đầy cây xanh ngay trung tâm thành phố, Dinh Độc Lập đứng tách hẳn khỏi nhịp xe cộ bên ngoài. Đây từng là nơi ở và nơi làm việc của Tổng thống Việt Nam Cộng hoà, cho tới ngày 30 tháng 4 năm 1975."
+    },
+    {
+      "type": "narration",
+      "text": "Cái tên gắn với toà nhà này không phải vì kiến trúc, mà vì một buổi sáng. Hình ảnh chiếc xe tăng húc đổ cổng dinh đã trở thành một trong những khung hình được nhắc lại nhiều nhất của lịch sử Việt Nam hiện đại."
+    },
+    {
+      "type": "narration",
+      "text": "Hôm nay dinh mang tên hành chính là Hội trường Thống Nhất, và đã được xếp hạng di tích quốc gia đặc biệt. Bên trong vẫn giữ phòng họp, phòng khánh tiết và hầm chỉ huy như thời điểm chúng ngừng được sử dụng."
+    }
+  ]
+}
