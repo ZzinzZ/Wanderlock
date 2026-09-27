@@ -10,8 +10,13 @@ import 'dart:math' as math;
 ///
 /// Pure numbers, no Flutter types: the architecture gate keeps `domain/` on
 /// plain Dart, and a projection is arithmetic rather than drawing.
+///
+/// One instance is built per frame and then asked about hundreds of points —
+/// every checkpoint, every trail point — so the two quantities that depend
+/// only on the camera are worked out once per instance rather than once per
+/// point. Deliberately not `const`: that is what buys the caching.
 class MapProjection {
-  const MapProjection({
+  MapProjection({
     required this.centerLatitude,
     required this.centerLongitude,
     required this.zoom,
@@ -34,28 +39,27 @@ class MapProjection {
   /// Latitude beyond which Mercator stops being finite.
   static const double maxLatitude = 85.05112878;
 
-  double get _worldPixels => tileSize * math.pow(2, zoom).toDouble();
+  /// Earth's equatorial circumference in metres, as Web Mercator uses it.
+  static const double earthCircumferenceMeters = 40075016.686;
+
+  late final double _worldPixels = tileSize * math.pow(2, zoom).toDouble();
+
+  late final ({double x, double y}) _centre = _project(
+    centerLatitude,
+    centerLongitude,
+    _worldPixels,
+  );
 
   /// Screen position of [latitude], [longitude], in logical pixels from the
   /// top-left of the map.
   ({double x, double y}) toScreen(double latitude, double longitude) {
-    final world = _worldPixels;
-    final point = _project(latitude, longitude, world);
-    final centre = _project(centerLatitude, centerLongitude, world);
+    final point = _project(latitude, longitude, _worldPixels);
 
     return (
-      x: point.x - centre.x + widthPixels / 2,
-      y: point.y - centre.y + heightPixels / 2,
+      x: point.x - _centre.x + widthPixels / 2,
+      y: point.y - _centre.y + heightPixels / 2,
     );
   }
-
-  /// Whether a marker at this position is worth building.
-  ///
-  /// [margin] keeps a marker alive slightly off screen, so one does not pop
-  /// into existence at the moment its centre crosses the edge — its artwork is
-  /// wider than its centre point.
-  /// Earth's equatorial circumference in metres, as Web Mercator uses it.
-  static const double earthCircumferenceMeters = 40075016.686;
 
   /// How many metres one screen pixel covers at [latitude].
   ///
@@ -66,6 +70,11 @@ class MapProjection {
       math.cos(latitude * math.pi / 180) /
       _worldPixels;
 
+  /// Whether a marker at this position is worth building.
+  ///
+  /// [margin] keeps a marker alive slightly off screen, so one does not pop
+  /// into existence at the moment its centre crosses the edge — its artwork is
+  /// wider than its centre point.
   bool isVisible(({double x, double y}) screen, {double margin = 64}) =>
       screen.x >= -margin &&
       screen.x <= widthPixels + margin &&
@@ -87,4 +96,28 @@ class MapProjection {
       y: (0.5 - math.log((1 + sin) / (1 - sin)) / (4 * math.pi)) * worldPixels,
     );
   }
+
+  /// A value, so a painter can ask "is this the same camera?" in one line.
+  ///
+  /// Every overlay's `shouldRepaint` used to compare the five fields by hand,
+  /// which meant a new field on this class silently stopped being a reason to
+  /// repaint in every painter that had not been updated.
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MapProjection &&
+          other.centerLatitude == centerLatitude &&
+          other.centerLongitude == centerLongitude &&
+          other.zoom == zoom &&
+          other.widthPixels == widthPixels &&
+          other.heightPixels == heightPixels;
+
+  @override
+  int get hashCode => Object.hash(
+    centerLatitude,
+    centerLongitude,
+    zoom,
+    widthPixels,
+    heightPixels,
+  );
 }

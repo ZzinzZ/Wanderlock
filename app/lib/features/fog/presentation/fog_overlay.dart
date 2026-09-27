@@ -213,9 +213,5 @@ class _FogPainter extends CustomPainter {
   bool shouldRepaint(_FogPainter oldDelegate) =>
       !identical(oldDelegate.holes, holes) ||
       oldDelegate.veil != veil ||
-      oldDelegate.projection.centerLatitude != projection.centerLatitude ||
-      oldDelegate.projection.centerLongitude != projection.centerLongitude ||
-      oldDelegate.projection.zoom != projection.zoom ||
-      oldDelegate.projection.widthPixels != projection.widthPixels ||
-      oldDelegate.projection.heightPixels != projection.heightPixels;
+      oldDelegate.projection != projection;
 }

@@ -133,6 +133,7 @@ class CheckpointMarkerOverlay extends StatelessWidget {
             );
 
             if (camera.zoom < stickerZoom) {
+              final colors = AppColors.of(context);
               return IgnorePointer(
                 child: CustomPaint(
                   size: Size(constraints.maxWidth, constraints.maxHeight),
@@ -140,9 +141,9 @@ class CheckpointMarkerOverlay extends StatelessWidget {
                     projection: projection,
                     checkpoints: checkpoints,
                     visitedIds: visitedIds,
-                    reached: AppColors.of(context).accentYellow,
-                    locked: AppColors.of(context).lockedSurface,
-                    outline: AppColors.of(context).outline,
+                    reached: colors.accentYellow,
+                    locked: colors.lockedSurface,
+                    outline: colors.outline,
                   ),
                 ),
               );
@@ -156,8 +157,15 @@ class CheckpointMarkerOverlay extends StatelessWidget {
               );
               if (!projection.isVisible(screen)) continue;
 
+              // Keyed by the place, not by its position in the list. A
+              // `Stack` matches keyless children by index, and the list
+              // changes length as markers scroll in and out of view — so
+              // index 3 became a different checkpoint mid-pan, the
+              // `AnimatedContainer` inside saw its colour change, and every
+              // marker animated for the whole drag over nothing.
               markers.add(
                 Positioned(
+                  key: ValueKey(checkpoint.id),
                   left: screen.x - _CheckpointMarker.width / 2,
                   top: screen.y - _CheckpointMarker.diameter / 2,
                   child: _CheckpointMarker(
@@ -346,27 +354,33 @@ class _DotPainter extends CustomPainter {
     final reachedFill = Paint()..color = reached;
     final lockedFill = Paint()..color = locked;
 
+    // Projected once, drawn twice. The two-pass ordering below used to be two
+    // passes over the whole list, which at city zoom — the zoom this painter
+    // exists for, and the one the app opens on — meant projecting every one
+    // of the pilot's places twice per frame to draw each once.
+    final lockedCentres = <Offset>[];
+    final reachedCentres = <Offset>[];
+    for (final checkpoint in checkpoints) {
+      final at = projection.toScreen(checkpoint.latitude, checkpoint.longitude);
+      if (!projection.isVisible(
+        at,
+        margin: CheckpointMarkerOverlay.dotRadius,
+      )) {
+        continue;
+      }
+      (visitedIds.contains(checkpoint.id) ? reachedCentres : lockedCentres).add(
+        Offset(at.x, at.y),
+      );
+    }
+
     // Locked first, reached on top: the places the player has been are the
     // ones that should never be hidden under a neighbour.
-    for (final pass in [false, true]) {
-      for (final checkpoint in checkpoints) {
-        if (visitedIds.contains(checkpoint.id) != pass) continue;
-        final at = projection.toScreen(
-          checkpoint.latitude,
-          checkpoint.longitude,
-        );
-        if (!projection.isVisible(
-          at,
-          margin: CheckpointMarkerOverlay.dotRadius,
-        )) {
-          continue;
-        }
-        final centre = Offset(at.x, at.y);
-        canvas.drawCircle(
-          centre,
-          CheckpointMarkerOverlay.dotRadius,
-          pass ? reachedFill : lockedFill,
-        );
+    for (final (centres, fill) in [
+      (lockedCentres, lockedFill),
+      (reachedCentres, reachedFill),
+    ]) {
+      for (final centre in centres) {
+        canvas.drawCircle(centre, CheckpointMarkerOverlay.dotRadius, fill);
         canvas.drawCircle(centre, CheckpointMarkerOverlay.dotRadius, ring);
       }
     }
@@ -379,9 +393,5 @@ class _DotPainter extends CustomPainter {
       oldDelegate.reached != reached ||
       oldDelegate.locked != locked ||
       oldDelegate.outline != outline ||
-      oldDelegate.projection.centerLatitude != projection.centerLatitude ||
-      oldDelegate.projection.centerLongitude != projection.centerLongitude ||
-      oldDelegate.projection.zoom != projection.zoom ||
-      oldDelegate.projection.widthPixels != projection.widthPixels ||
-      oldDelegate.projection.heightPixels != projection.heightPixels;
+      oldDelegate.projection != projection;
 }

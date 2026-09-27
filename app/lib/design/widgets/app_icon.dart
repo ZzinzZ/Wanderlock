@@ -52,15 +52,21 @@ class AppIcon extends StatelessWidget {
 
   static String assetPath(String name) => 'assets/icons/$name.png';
 
-  /// Fully desaturating colour matrix.
+  /// sRGB luminance weights, the one copy.
   ///
-  /// sRGB luminance weights rather than a flat third each: an even split greys
-  /// a red padlock and a green medal to nearly the same value, and the icons
-  /// stop being distinguishable at a glance.
+  /// A flat third each greys a red padlock and a green medal to nearly the
+  /// same value, and the icons stop being distinguishable at a glance. Named
+  /// because [LandmarkImage] needs the same three numbers with a different
+  /// alpha, and a colour matrix has to stay `const` to be used in one.
+  static const double luminanceRed = 0.2126;
+  static const double luminanceGreen = 0.7152;
+  static const double luminanceBlue = 0.0722;
+
+  /// Fully desaturating colour matrix.
   static const List<double> greyscaleMatrix = <double>[
-    0.2126, 0.7152, 0.0722, 0, 0, //
-    0.2126, 0.7152, 0.0722, 0, 0, //
-    0.2126, 0.7152, 0.0722, 0, 0, //
+    luminanceRed, luminanceGreen, luminanceBlue, 0, 0, //
+    luminanceRed, luminanceGreen, luminanceBlue, 0, 0, //
+    luminanceRed, luminanceGreen, luminanceBlue, 0, 0, //
     0, 0, 0, 1, 0, //
   ];
 

@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import 'package:wanderlock/design/widgets/app_icon.dart';
+
 /// A cartoon sticker of a building, drawn for the sticker pass.
 ///
 /// Provisional artwork, drawn in-house to settle the direction; sources and
@@ -53,10 +55,25 @@ class LandmarkArt {
 class LandmarkImage extends StatelessWidget {
   /// [AppIcon.greyscaleMatrix] with the alpha row scaled to 70 %: greyed and
   /// faded in a single pass.
+  ///
+  /// The weights are [AppIcon]'s, not a second copy of them. The matrix has
+  /// to be written out because it has to stay `const`.
   static const List<double> _mutedMatrix = <double>[
-    0.2126, 0.7152, 0.0722, 0, 0, //
-    0.2126, 0.7152, 0.0722, 0, 0, //
-    0.2126, 0.7152, 0.0722, 0, 0, //
+    AppIcon.luminanceRed,
+    AppIcon.luminanceGreen,
+    AppIcon.luminanceBlue,
+    0,
+    0, //
+    AppIcon.luminanceRed,
+    AppIcon.luminanceGreen,
+    AppIcon.luminanceBlue,
+    0,
+    0, //
+    AppIcon.luminanceRed,
+    AppIcon.luminanceGreen,
+    AppIcon.luminanceBlue,
+    0,
+    0, //
     0, 0, 0, 0.7, 0, //
   ];
 

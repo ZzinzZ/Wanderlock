@@ -71,8 +71,6 @@ class CheckInState {
   final String? checkpointId;
   final CheckInOutcome? outcome;
   final bool isInFlight;
-
-  bool get isGranted => outcome is CheckInGranted;
 }
 
 final checkInControllerProvider =

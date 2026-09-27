@@ -15,4 +15,13 @@ class AppSpacing {
 
   /// Default horizontal page padding.
   static const double pageGutter = 20;
+
+  /// Room to leave at the bottom of a lens for the lens switcher, which
+  /// floats over every one of them.
+  ///
+  /// The bar is roughly 52dp tall and sits [lg] above the safe area. Three
+  /// screens used to work this out for themselves and two of them landed on a
+  /// different answer, so one of the three had the wrong gap — which is only
+  /// visible on the last row of a full list.
+  static const double aboveLensBar = xxl + xxl + xl;
 }

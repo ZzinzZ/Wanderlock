@@ -23,8 +23,6 @@ class AppMapColors {
     required this.boundary,
     required this.label,
     required this.fogVeil,
-    required this.fogEdge,
-    required this.fogCleared,
   });
 
   /// Ground with nothing else on it.
@@ -94,22 +92,6 @@ class AppMapColors {
   /// must stay legible as a city, not become a black rectangle.
   final Color fogVeil;
 
-  /// The rim around a cleared area.
-  ///
-  /// Without it a hole in the veil reads as a rendering glitch. With it, the
-  /// cleared area reads as somewhere that was earned.
-  final Color fogEdge;
-
-  /// The wash laid *inside* a cleared area.
-  ///
-  /// "Light spreads": lifting a dark veil off the map is most of the effect,
-  /// but the cleared ground is also warmed slightly so that where you have
-  /// been reads as lit rather than merely as a gap. Kept low — the streets
-  /// underneath have to stay streets, not become a pale patch.
-  ///
-  /// Now identical in both themes, because the veil above it is.
-  final Color fogCleared;
-
   /// The cartoon map of the sticker pass (2026-09-19) — docs/09, section 0.
   /// Saturated water and grass with drawn edges, warm paper land, white
   /// streets with a tan casing and yellow boulevards.
@@ -129,16 +111,10 @@ class AppMapColors {
     // as well as on the paper, which rules out anything lighter.
     label: Color(0xFF3F3020),
     fogVeil: _fogVeil,
-    fogEdge: _fogEdge,
-    fogCleared: _fogCleared,
   );
 
   /// Plum, like the outline ink: fog is the same night sky in both themes.
   static const Color _fogVeil = Color(0xDB3A2E5C);
-
-  static const Color _fogEdge = Color(0x88FFC93C);
-
-  static const Color _fogCleared = Color(0x1FFBF0D5);
 
   static const dark = AppMapColors(
     land: Color(0xFF1E1A2E),
@@ -156,8 +132,6 @@ class AppMapColors {
     boundary: Color(0xFF15121F),
     label: Color(0xFFD9CFEA),
     fogVeil: _fogVeil,
-    fogEdge: _fogEdge,
-    fogCleared: _fogCleared,
   );
 
   static AppMapColors of(Brightness brightness) =>

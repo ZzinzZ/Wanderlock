@@ -312,33 +312,27 @@ class _OutlinedHeading extends StatelessWidget {
     final colors = AppColors.of(context);
     final style = AppTypography.hero;
 
+    // The outline, drawn twice: once dropped by the sticker depth as the
+    // shadow, once in place. Written once so the two cannot drift apart.
+    final outlined = Text(
+      text,
+      textAlign: TextAlign.center,
+      style: style.copyWith(
+        foreground: Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = AppSticker.strokeHeavy * 2
+          ..strokeJoin = StrokeJoin.round
+          ..color = colors.outline,
+      ),
+    );
+
     return Stack(
       children: [
         Transform.translate(
           offset: const Offset(0, AppSticker.depth + 1),
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-              foreground: Paint()
-                ..style = PaintingStyle.stroke
-                ..strokeWidth = AppSticker.strokeHeavy * 2
-                ..strokeJoin = StrokeJoin.round
-                ..color = colors.outline,
-            ),
-          ),
+          child: outlined,
         ),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: style.copyWith(
-            foreground: Paint()
-              ..style = PaintingStyle.stroke
-              ..strokeWidth = AppSticker.strokeHeavy * 2
-              ..strokeJoin = StrokeJoin.round
-              ..color = colors.outline,
-          ),
-        ),
+        outlined,
         Text(
           text,
           textAlign: TextAlign.center,

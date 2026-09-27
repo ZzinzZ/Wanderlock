@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/design/widgets/landmark_art.dart';
+import 'package:wanderlock/design/widgets/step_bubble.dart';
 import 'package:wanderlock/design/widgets/sticker_progress.dart';
 import 'package:wanderlock/design/widgets/sticker_surface.dart';
 import 'package:wanderlock/features/quest/domain/quest_route.dart';
@@ -18,8 +19,9 @@ import 'package:wanderlock/l10n/generated/app_localizations.dart';
 class QuestPanel extends StatelessWidget {
   const QuestPanel({required this.route, required this.landmarkOf, super.key});
 
-  /// Null while the content is still loading, or if the author left no routes.
-  final QuestRoute? route;
+  /// The route to show. The caller decides there is one — `JourneyPanel`
+  /// shows the list of routes until one is opened.
+  final QuestRoute route;
 
   /// Which building sticker a step shows. Passed in: the mapping belongs to
   /// the checkpoint feature, which this one may not import.
@@ -27,33 +29,34 @@ class QuestPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final next = route.nextStep;
 
-    final current = route;
-    if (current == null) {
-      return _QuestEmpty(message: l10n.questEmpty);
-    }
-
-    final next = current.nextStep;
-
-    return ListView(
+    // Built lazily rather than all at once: a category set is as large as its
+    // category, and markets alone is 68 places — of which four are on screen.
+    return ListView.builder(
       padding: const EdgeInsets.fromLTRB(
         AppSpacing.md,
         AppSpacing.xs,
         AppSpacing.md,
         AppSpacing.lg,
       ),
-      children: [
-        _RouteCard(route: current),
-        const SizedBox(height: AppSpacing.md),
-        for (var index = 0; index < current.steps.length; index++)
-          _StepRow(
-            step: current.steps[index],
-            ordinal: index + 1,
-            isNext: current.steps[index] == next,
-            art: landmarkOf(current.steps[index].checkpointId),
-          ),
-      ],
+      itemCount: route.steps.length + 1,
+      itemBuilder: (context, index) {
+        if (index == 0) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: AppSpacing.md),
+            child: _RouteCard(route: route),
+          );
+        }
+
+        final step = route.steps[index - 1];
+        return _StepRow(
+          step: step,
+          ordinal: index,
+          isNext: step == next,
+          art: landmarkOf(step.checkpointId),
+        );
+      },
     );
   }
 }
@@ -223,26 +226,7 @@ class _StepRow extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(
-                width: AppIconSize.inline + 6,
-                height: AppIconSize.inline + 6,
-                decoration: BoxDecoration(
-                  color: bubble,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: colors.outline,
-                    width: AppSticker.stroke,
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  '$ordinal',
-                  style: AppTypography.badge.copyWith(
-                    color: bubbleInk,
-                    fontSize: AppTypography.tab.fontSize! + 2,
-                  ),
-                ),
-              ),
+              StepBubble(ordinal: ordinal, fill: bubble, ink: bubbleInk),
               const SizedBox(width: AppSpacing.sm + 2),
               Container(
                 width: AppIconSize.place - 4,
@@ -294,35 +278,6 @@ class _StepRow extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _QuestEmpty extends StatelessWidget {
-  const _QuestEmpty({required this.message});
-
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
-
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.pageGutter),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const AppIcon(AppIcons.questRoute, size: AppIconSize.tile),
-            const SizedBox(height: AppSpacing.md),
-            Text(
-              message,
-              textAlign: TextAlign.center,
-              style: AppTypography.body.copyWith(color: colors.inkMuted),
-            ),
-          ],
         ),
       ),
     );
