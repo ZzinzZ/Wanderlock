@@ -2,3 +2,8 @@
 # Generated output is not committed — the licence ledger is the source of
 # truth, and a committed copy would be a second one.
 picker.html
+
+# Generated from Wikimedia Commons by find_commons_photos.dart. A cache of
+# what Commons held on the day it ran, not a decision — re-run it rather than
+# trusting a committed copy. What ships is decided in content/image-licenses.md.
+commons_candidates.json

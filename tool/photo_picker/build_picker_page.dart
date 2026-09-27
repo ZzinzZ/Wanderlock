@@ -17,15 +17,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../support/repo_root.dart';
+
 /// This script sits one directory deeper than the other tools, so it climbs
 /// two levels rather than one.
-Directory repoRoot() {
-  final scriptPath = Platform.script.toFilePath().replaceAll(r'\', '/');
-  final scriptDir = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
-  final toolDir = scriptDir.substring(0, scriptDir.lastIndexOf('/'));
-  return Directory(toolDir.substring(0, toolDir.lastIndexOf('/')));
-}
-
 const candidateHeading = '## Ứng viên tìm được trên Wikimedia Commons';
 
 /// Heading prefix for a per-place legal note, as used for Landmark 81. Any
@@ -174,11 +169,36 @@ Map<String, String> parseWarnings(List<String> lines) {
   return warnings;
 }
 
+/// Reshapes one row of `commons_candidates.json` into what the page expects.
+///
+/// The two sources describe the same thing in different words because one was
+/// typed by a person into a markdown table and the other came out of an API.
+/// The page should not have to know that.
+Map<String, dynamic> commonsCandidate(Map<String, dynamic> raw) {
+  final title = raw['title'] as String;
+  final file = title.startsWith('File:') ? title.substring(5) : title;
+  final dot = file.lastIndexOf('.');
+  final label = (dot < 0 ? file : file.substring(0, dot)).replaceAll('_', ' ');
+  final author = (raw['author'] as String? ?? '').trim();
+
+  return <String, dynamic>{
+    'label': label,
+    'file': file,
+    'page':
+        raw['page'] as String? ??
+        'https://commons.wikimedia.org/wiki/${Uri.encodeComponent(title)}',
+    'license': raw['licence'] as String? ?? '',
+    'author': author.isEmpty ? 'không rõ' : author,
+    'size': '${raw['width']}×${raw['height']}',
+  };
+}
+
 void main() {
-  final root = repoRoot().path.replaceAll(r'\', '/');
+  final root = repoRootPath();
   final licenceFile = File('$root/content/image-licenses.md');
   final checkpointFile = File('$root/content/checkpoints.json');
   final templateFile = File('$root/tool/photo_picker/template.html');
+  final commonsFile = File('$root/tool/photo_picker/commons_candidates.json');
   final outputFile = File('$root/tool/photo_picker/picker.html');
 
   for (final file in [licenceFile, checkpointFile, templateFile]) {
@@ -211,14 +231,47 @@ void main() {
     exit(1);
   }
 
+  // The coordinate search, when it has been run. Its results are appended to
+  // whatever the ledger already lists rather than replacing it: the ledger's
+  // rows were found by hand for the original twelve and are the better
+  // candidates, so they stay at the top of each card.
+  final nearby = <String, List<Map<String, dynamic>>>{};
+  if (commonsFile.existsSync()) {
+    final found =
+        jsonDecode(commonsFile.readAsStringSync()) as Map<String, dynamic>;
+    final byId = found['places'] as Map<String, dynamic>;
+    for (final entry in byId.entries) {
+      nearby[entry.key] = [
+        for (final raw
+            in (entry.value as Map<String, dynamic>)['candidates'] as List)
+          commonsCandidate(raw as Map<String, dynamic>),
+      ];
+    }
+  } else {
+    stdout.writeln(
+      'build_picker_page: chưa có commons_candidates.json — trang chỉ hiện '
+      'ứng viên trong sổ giấy phép. Chạy find_commons_photos.dart trước.',
+    );
+  }
+
   final places = <Map<String, dynamic>>[];
   for (final cp in checkpoints) {
     final name = cp['name'] as String;
+    final id = cp['id'] as String;
+
+    // Same file listed in both places would show twice on one card.
+    final fromLedger = candidates[name] ?? const <Map<String, String>>[];
+    final already = {for (final c in fromLedger) c['file']};
+    final fromSearch = [
+      for (final c in nearby[id] ?? const <Map<String, dynamic>>[])
+        if (!already.contains(c['file'])) c,
+    ];
+
     places.add({
-      'id': cp['id'],
+      'id': id,
       'name': name,
       'warning': warnings[name],
-      'candidates': candidates[name] ?? const [],
+      'candidates': [...fromLedger, ...fromSearch],
     });
   }
 

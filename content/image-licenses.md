@@ -41,6 +41,21 @@ Chưa điền dòng nào. Thứ tự theo `checkpoints.json`.
 | | Landmark 81 | | | | |
 | | Thiền viện Bửu Long | | | | |
 
+## Ứng viên cho cả 272 địa điểm — tra theo toạ độ
+
+> Bảng ứng viên bên dưới chỉ phủ 12 điểm gốc và được tra **theo tên**. Pilot đã
+> lên 272 điểm, nên có thêm một mẻ tra nữa, lần này **theo toạ độ**: xem
+> [../tool/photo_picker/README.md](../tool/photo_picker/README.md).
+>
+> Kết quả mẻ đó nằm ở `tool/photo_picker/commons_candidates.json` — file sinh
+> ra, không commit, chạy lại bằng
+> `dart run tool/photo_picker/find_commons_photos.dart`. Nó **không phải** sổ
+> này và không cho phép ảnh nào vào app: luật ở đầu file vẫn nguyên — ảnh không
+> có dòng trong bảng duyệt thì không được đưa vào.
+>
+> Lần chạy gần nhất: 182/272 địa điểm có ứng viên, 90 điểm chưa có ảnh nào
+> dùng được trên Commons.
+
 ## Ứng viên tìm được trên Wikimedia Commons — **CHƯA DUYỆT**
 
 > Bảng này **không phải** bảng duyệt ở trên. Không ảnh nào ở đây được phép vào
