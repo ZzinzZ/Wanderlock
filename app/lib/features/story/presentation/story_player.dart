@@ -82,6 +82,7 @@ class StoryPlayer extends StatelessWidget {
                     placeName: placeName,
                     landmark: landmark,
                     coverImage: chapter.coverImage,
+                    coverCredit: chapter.coverCredit,
                   ),
                   const SizedBox(height: AppSpacing.lg),
                   for (final node in chapter.nodes) ...[
@@ -116,12 +117,14 @@ class _Heading extends StatelessWidget {
     required this.placeName,
     required this.landmark,
     required this.coverImage,
+    required this.coverCredit,
   });
 
   final String title;
   final String placeName;
   final String landmark;
   final String? coverImage;
+  final String? coverCredit;
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +142,15 @@ class _Heading extends StatelessWidget {
                     child: Image.asset(coverImage!, fit: BoxFit.cover),
                   ),
           ),
+          // Not decoration: CC BY and CC BY-SA require the author to be named
+          // where the picture is seen, and the picture is seen here.
+          if (coverCredit case final credit?) ...[
+            const SizedBox(height: AppSpacing.xs),
+            Text(
+              credit,
+              style: AppTypography.label.copyWith(color: colors.inkMuted),
+            ),
+          ],
           const SizedBox(height: AppSpacing.md),
           Text(
             placeName.toUpperCase(),

@@ -42,6 +42,7 @@ class StoryChapter {
     required this.nodes,
     this.source,
     this.coverImage,
+    this.coverCredit,
     this.estimatedMinutes = 2,
   });
 
@@ -62,6 +63,14 @@ class StoryChapter {
 
   /// 16:9, per the image ratios fixed by the art direction.
   final String? coverImage;
+
+  /// The line the photograph's licence requires to be shown beside it.
+  ///
+  /// CC BY and CC BY-SA are free to ship and not free of obligation: the
+  /// author has to be named where the picture is seen. Empty only for CC0 and
+  /// public domain, where nothing is required. A chapter with a cover and no
+  /// credit is refused by a test rather than by a lawyer.
+  final String? coverCredit;
 
   /// Roughly how long it takes to read. Shown before opening, because
   /// somebody standing in the sun deserves to know what they are committing

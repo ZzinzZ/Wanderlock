@@ -3,6 +3,8 @@
   "checkpointId": "giac-lam-pagoda",
   "title": "Ngôi chùa cổ nhất thành phố",
   "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/giac-lam-pagoda.jpg",
+  "coverCredit": "Ảnh: Phan Ba at vi.wikipedia / Wikimedia Commons",
   "source": "Wikipedia tiếng Việt — Chùa Giác Lâm",
   "nodes": [
     {

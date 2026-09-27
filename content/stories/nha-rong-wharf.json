@@ -3,6 +3,8 @@
   "checkpointId": "nha-rong-wharf",
   "title": "Bến tàu của một chuyến đi",
   "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/nha-rong-wharf.jpg",
+  "coverCredit": "Ảnh: Syced / Wikimedia Commons",
   "source": "Wikipedia tiếng Việt — Bến Nhà Rồng",
   "nodes": [
     {

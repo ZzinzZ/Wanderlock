@@ -3,6 +3,8 @@
   "checkpointId": "binh-tay-market",
   "title": "Chợ Lớn Mới",
   "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/binh-tay-market.jpg",
+  "coverCredit": "Ảnh: Ken Marshall / Wikimedia Commons — CC BY 2.0",
   "source": "Wikipedia tiếng Việt — Chợ Bình Tây",
   "nodes": [
     {

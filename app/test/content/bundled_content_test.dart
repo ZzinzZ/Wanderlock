@@ -116,6 +116,25 @@ void main() {
       }
     });
 
+    // A CC BY or CC BY-SA photograph may be shipped and may not be shipped
+    // anonymously. This is the difference between the two, as a test.
+    test('a chapter with a cover photograph names its photographer', () {
+      for (final file in jsonIn(bundledDir)) {
+        final chapter = StoryChapterBundledSource.parse(
+          file.readAsStringSync(),
+        );
+        if (chapter.coverImage == null) continue;
+        expect(
+          chapter.coverCredit,
+          isNotNull,
+          reason:
+              '${nameOf(file)} có ảnh bìa nhưng không ghi nguồn ảnh — giấy '
+              'phép CC BY/CC BY-SA bắt buộc nêu tên tác giả ở nơi hiện ảnh',
+        );
+        expect(chapter.coverCredit, isNotEmpty, reason: nameOf(file));
+      }
+    });
+
     test('no two chapters claim the same checkpoint', () {
       final claimed = <String, String>{};
       for (final file in jsonIn(bundledDir)) {

@@ -42,6 +42,7 @@ abstract final class StoryChapterDto {
       title: _requireString(json, 'title', chapterId: id),
       source: json['source'] as String?,
       coverImage: json['coverImage'] as String?,
+      coverCredit: json['coverCredit'] as String?,
       estimatedMinutes: (json['estimatedMinutes'] as num?)?.toInt() ?? 2,
       nodes: [
         for (var i = 0; i < rawNodes.length; i++)

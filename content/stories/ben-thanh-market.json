@@ -3,6 +3,8 @@
   "checkpointId": "ben-thanh-market",
   "title": "Cái chợ mang tên một bến sông",
   "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/ben-thanh-market.jpg",
+  "coverCredit": "Ảnh: Diego Delso / Wikimedia Commons — CC BY-SA 3.0",
   "source": "Wikipedia tiếng Việt — Chợ Bến Thành",
   "nodes": [
     {

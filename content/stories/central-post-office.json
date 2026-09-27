@@ -3,6 +3,8 @@
   "checkpointId": "central-post-office",
   "title": "Nhà bưu điện của một thành phố thuộc địa",
   "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/central-post-office.jpg",
+  "coverCredit": "Ảnh: Diego Delso / Wikimedia Commons — CC BY-SA 3.0",
   "source": "Wikipedia tiếng Việt — Bưu điện Sài Gòn",
   "nodes": [
     {

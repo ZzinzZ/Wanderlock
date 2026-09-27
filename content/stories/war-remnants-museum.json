@@ -3,6 +3,8 @@
   "checkpointId": "war-remnants-museum",
   "title": "Một bảo tàng vì hoà bình",
   "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/war-remnants-museum.jpg",
+  "coverCredit": "Ảnh: Prenn / Wikimedia Commons — CC BY-SA 3.0",
   "source": "Wikipedia tiếng Việt — Bảo tàng Chứng tích chiến tranh",
   "nodes": [
     {
