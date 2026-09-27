@@ -41,3 +41,33 @@ phạm vi `docs/10-libraries.md`.
 
 Esri World Imagery, không cần khoá API. Ghi nguồn là điều kiện sử dụng nên
 control ghi nguồn luôn bật — đừng tắt.
+
+## Hai nguồn đối chiếu, và vì sao trang này cần cả hai
+
+Trang xếp điểm đáng ngờ lên trước, dựa trên hai file cạnh nó. Cả hai đều
+**không** tự đặt `verified` — đồng ý với một nguồn chỉ chứng minh hai bên trùng
+nhau, không chứng minh bên nào đúng. Người nhìn ảnh vệ tinh mới là người quyết.
+
+**`osm_recheck.json`** — sinh bằng `dart run tool/coord_verify/recheck_osm.dart`.
+Hỏi lại chính OpenStreetMap, nơi toạ độ được nhập về: điểm đã dời chưa, nó là
+một chấm ai đó thả tay hay là tâm của một hình, tên có khớp không. Đây là phép
+thử "bản nhập có sao đúng không".
+
+**`gmaps_recheck.json`** — đối chiếu với Google Maps, tức một nguồn *độc lập*.
+Với mỗi tên, tìm trên Google rồi đo khoảng cách từ ghim của Google tới toạ độ
+đang lưu. Bốn kết luận:
+
+| | |
+|---|---|
+| `agree` | ghim Google nằm trong bán kính check-in — hai nguồn trùng nhau |
+| `near` | lệch dưới 250 m — thường là nơi rộng, mỗi bên ghim một góc |
+| `conflict` | lệch trên 250 m — **một trong hai sai**, phải nhìn |
+| `unknown` | Google không có địa điểm nào mang tên đó — chỉ còn cách nhìn ảnh |
+
+> **File này chưa có script sinh lại.** Nó được làm bằng cách điều khiển trình
+> duyệt tra từng tên trên Google Maps rồi đọc toạ độ ghim từ địa chỉ trang, nên
+> nó được commit thay vì bị bỏ qua như `osm_recheck.json`. Muốn làm lại sau khi
+> nội dung đổi thì phải chạy lại việc đó. Cần nhớ: tra theo **tên** là cái bẫy
+> đã cắn dự án này vài lần (Chùa Bà Thiên Hậu ra bản ở Bình Dương, Landmark 81
+> ra toà nhà ở Yokohama) — nên khoảng cách, chứ không phải cái tên Google trả
+> về, mới là thứ đáng tin ở đây.

@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_bundled_source.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
+import 'package:wanderlock/features/unlock/domain/geo_distance.dart';
 
 /// Guards the copy of the pilot content that ships inside the binary.
 ///
@@ -88,6 +89,62 @@ void main() {
     test('ids are unique, so no place can shadow another', () {
       final ids = checkpoints.map((c) => c.id).toSet();
       expect(ids, hasLength(checkpoints.length));
+    });
+
+    test('no two places share a name', () {
+      final names = [for (final checkpoint in checkpoints) checkpoint.name];
+      final repeated = names.toSet().where(
+        (name) => names.where((other) => other == name).length > 1,
+      );
+      expect(
+        repeated,
+        isEmpty,
+        reason:
+            'two places with one name are indistinguishable in a quest list '
+            'and in the collection — give each its own',
+      );
+    });
+
+    // OpenStreetMap maps a statue in a churchyard and the church itself as
+    // separate features. Imported as two checkpoints they sit metres apart,
+    // and one visit unlocks both — which is the one thing "you have to
+    // actually go there" is supposed to rule out.
+    //
+    // The exceptions below are real containment, not an import artefact: the
+    // temple genuinely stands inside the zoo, so unlocking both is the truth.
+    test('standing at one place does not unlock another', () {
+      const containedOnPurpose = {
+        'den-tho-vua-hung|thao-cam-vien-sai-gon',
+        'cong-vien-van-lang|nha-tho-thanh-jeanne-d-arc',
+        'nha-tho-thanh-jeanne-d-arc|cong-vien-van-lang',
+        'cho-kim-bien|cho-tin-nghia',
+        'cho-tin-nghia|cho-kim-bien',
+        'cong-vien-le-thi-rieng|thien-duong-giai-tri-tho-trang',
+        'thien-duong-giai-tri-tho-trang|cong-vien-le-thi-rieng',
+      };
+
+      final offenders = <String>[];
+      for (final standing in checkpoints) {
+        for (final other in checkpoints) {
+          if (identical(standing, other)) continue;
+          if (containedOnPurpose.contains('${standing.id}|${other.id}')) {
+            continue;
+          }
+          final metres = metresBetween(
+            fromLatitude: standing.latitude,
+            fromLongitude: standing.longitude,
+            toLatitude: other.latitude,
+            toLongitude: other.longitude,
+          );
+          if (metres < other.radiusMeters) {
+            offenders.add(
+              '${standing.id} -> ${other.id} '
+              '(${metres.round()} m, radius ${other.radiusMeters} m)',
+            );
+          }
+        }
+      }
+      expect(offenders, isEmpty, reason: offenders.join('\n'));
     });
   });
 
