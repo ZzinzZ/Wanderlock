@@ -1,0 +1,23 @@
+{
+  "id": "central-post-office",
+  "checkpointId": "central-post-office",
+  "title": "Nhà bưu điện của một thành phố thuộc địa",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/central-post-office.jpg",
+  "coverCredit": "Ảnh: Diego Delso / Wikimedia Commons — CC BY-SA 3.0",
+  "source": "Wikipedia tiếng Việt — Bưu điện Sài Gòn",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bưu điện Trung tâm Sài Gòn được người Pháp xây trong khoảng 1886–1891, theo đồ án của kiến trúc sư Marie-Alfred Foulhoux. Toà nhà theo phong cách chiết trung: khung sườn và mái vòm kiểu phương Tây, còn hoạ tiết trang trí lại mang nét phương Đông."
+    },
+    {
+      "type": "narration",
+      "text": "Bước vào trong, thứ giữ chân người ta lâu nhất là mái vòm thép cong suốt chiều dài sảnh, và hai tấm bản đồ lớn vẽ tay trên tường — một bản đồ đường dây điện tín Nam Kỳ, một bản đồ Sài Gòn và vùng phụ cận cuối thế kỷ 19."
+    },
+    {
+      "type": "narration",
+      "text": "Đây vẫn là một bưu điện đang hoạt động, không phải bảo tàng. Người dân tới gửi thư và đóng gói bưu kiện ngay bên cạnh khách tham quan đang ngẩng đầu nhìn trần nhà."
+    }
+  ]
+}

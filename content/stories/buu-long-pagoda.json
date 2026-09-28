@@ -1,0 +1,23 @@
+{
+  "id": "buu-long-pagoda",
+  "checkpointId": "buu-long-pagoda",
+  "title": "Bảo tháp trên đồi bên sông Đồng Nai",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/buu-long-pagoda.jpg",
+  "coverCredit": "Ảnh: minhphuc_99kdd / Wikimedia Commons",
+  "source": "Wikipedia tiếng Việt — Chùa Bửu Long",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chùa Bửu Long — tên chính thức là Thiền viện Tổ đình Bửu Long — nằm trên một ngọn đồi bên sông Đồng Nai, ở số 81 đường Nguyễn Xiển. Chùa thuộc hệ phái Phật giáo nguyên thuỷ Nam tông, do cư sĩ Võ Hà Thuật thành lập năm 1942."
+    },
+    {
+      "type": "narration",
+      "text": "Kiến trúc ở đây không giống phần lớn chùa Việt: nó pha nét chùa Thái Lan và Ấn Độ với nét chùa thời Nguyễn. Người lần đầu tới thường tưởng mình đang xem ảnh chụp ở nước khác."
+    },
+    {
+      "type": "narration",
+      "text": "Điểm nhấn là bảo tháp Gotama Cetiya, xây từ năm 2007 và mất sáu năm mới xong. Tháp rộng trên hai nghìn mét vuông, cao 70 mét, làm theo nét văn hoá Phù Nam, là bảo tháp quy mô lớn nhất Việt Nam — nơi thờ xá lợi Phật và chư vị thánh tăng, với các tháp nhỏ bằng đồng vàng óng vây quanh."
+    }
+  ]
+}

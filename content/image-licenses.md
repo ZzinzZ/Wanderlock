@@ -22,24 +22,43 @@ Ghi **đúng tên giấy phép** (`CC BY-SA 4.0`, `CC0`, `Tự chụp — sở h
 Cột *Yêu cầu ghi nguồn* chép nguyên văn dòng phải hiện trong app, hoặc `—` nếu
 giấy phép không đòi.
 
-## 12 checkpoint pilot
+## 12 checkpoint pilot — ĐÃ DUYỆT
 
-Chưa điền dòng nào. Thứ tự theo `checkpoints.json`.
+Ảnh nằm ở `content/images/places/`, bản sao đóng gói ở
+`app/assets/photos/places/`. Dùng làm **ảnh bìa chương truyện**; các chỗ khác
+(màn "Đã mở khoá!", thẻ chi tiết) chưa nối.
+
+> **Mỗi ảnh dưới đây đã được mở ra nhìn ở cỡ đủ lớn trước khi ghi vào bảng.**
+> Đó không phải chuyện thừa: xếp hạng tự động theo tên tệp đã chọn phải ảnh
+> bên trong chợ Bến Thành, ảnh bảo tàng quân sự ở **Hà Nội** cho bảo tàng
+> chiến tranh ở Sài Gòn, và một bức tranh treo tường cho Dinh Độc Lập. Tiêu
+> chí: mặt ngoài công trình, nhận ra ngay, không nội thất, không chi tiết,
+> không bảng chữ.
+>
+> Lựa chọn ghi ở `tool/photo_picker/chosen.json`; đổi tên tệp ở đó rồi chạy
+> `dart run tool/photo_picker/fetch_photos.dart` là thay được ảnh. Giấy phép
+> bên dưới đọc thẳng từ Commons lúc tải, không chép tay.
+>
+> Ảnh phục vụ ở bề rộng 900 px — vừa cho màn điện thoại, và giữ mỗi tệp quanh
+> 250 KB thay vì vài megabyte bản gốc. Tổng 12 ảnh: 3,1 MB.
 
 | Tệp | Địa điểm | Nguồn | Giấy phép | Yêu cầu ghi nguồn | Ngày lấy |
 |-----|----------|-------|-----------|-------------------|----------|
-| | Dinh Độc Lập | | | | |
-| | Bưu điện Trung tâm Sài Gòn | | | | |
-| | Chợ Bến Thành | | | | |
-| | Bảo tàng Chứng tích Chiến tranh | | | | |
-| | Chùa Vĩnh Nghiêm | | | | |
-| | Chợ Bình Tây | | | | |
-| | Lăng Ông Bà Chiểu | | | | |
-| | Tổ đình Giác Lâm | | | | |
-| | Bến Nhà Rồng | | | | |
-| | Chùa Bà Thiên Hậu | | | | |
-| | Landmark 81 | | | | |
-| | Thiền viện Bửu Long | | | | |
+| `images/places/independence-palace.jpg` | Dinh Độc Lập | [Commons](https://commons.wikimedia.org/wiki/File%3AReunification%20Palace%20front%20view.jpg) | CC BY-SA 3.0 | Amore Mio / Wikimedia Commons — CC BY-SA 3.0 | 2026-09-27 |
+| `images/places/central-post-office.jpg` | Bưu điện Trung tâm Sài Gòn | [Commons](https://commons.wikimedia.org/wiki/File%3AOficina%20Central%20de%20Correos%2C%20Ciudad%20Ho%20Chi%20Minh%2C%20Vietnam%2C%202013-08-14%2C%20DD%2006.JPG) | CC BY-SA 3.0 | Diego Delso / Wikimedia Commons — CC BY-SA 3.0 | 2026-09-27 |
+| `images/places/ben-thanh-market.jpg` | Chợ Bến Thành | [Commons](https://commons.wikimedia.org/wiki/File%3ABen%20Thanh%2C%20Ciudad%20Ho%20Chi%20Minh%2C%20Vietnam%2C%202013-08-14%2C%20DD%2001.JPG) | CC BY-SA 3.0 | Diego Delso / Wikimedia Commons — CC BY-SA 3.0 | 2026-09-27 |
+| `images/places/war-remnants-museum.jpg` | Bảo tàng Chứng tích Chiến tranh | [Commons](https://commons.wikimedia.org/wiki/File%3AWar%20Remnants%20Museum%2C%20HCMC%2C%20front.JPG) | CC BY-SA 3.0 | Prenn / Wikimedia Commons — CC BY-SA 3.0 | 2026-09-27 |
+| `images/places/vinh-nghiem-pagoda.jpg` | Chùa Vĩnh Nghiêm | [Commons](https://commons.wikimedia.org/wiki/File%3ATu%20vi%E1%BB%87n%20V%C4%A9nh%20Nghi%C3%AAm%2C%20h%E1%BA%ADu%20%C4%91%C6%B0%E1%BB%9Dng%20(khung%20c%E1%BA%A3nh)%20(24).jpg) | CC BY-SA 4.0 | Phương Huy / Wikimedia Commons — CC BY-SA 4.0 | 2026-09-27 |
+| `images/places/binh-tay-market.jpg` | Chợ Bình Tây | [Commons](https://commons.wikimedia.org/wiki/File%3ABinh%20Tay%20Market%202011.jpg) | CC BY 2.0 | Ken Marshall / Wikimedia Commons — CC BY 2.0 | 2026-09-27 |
+| `images/places/le-van-duyet-tomb.jpg` | Lăng Ông Bà Chiểu | [Commons](https://commons.wikimedia.org/wiki/File%3AC%E1%BB%95ng%20ch%C3%ADnh%20L%C4%83ng%20%C3%94ng%20B%C3%A0%20Chi%E1%BB%83u.jpg) | CC BY-SA 3.0 | Bùi Thụy Đào Nguyên / Wikimedia Commons — CC BY-SA 3.0 | 2026-09-27 |
+| `images/places/giac-lam-pagoda.jpg` | Tổ đình Giác Lâm | [Commons](https://commons.wikimedia.org/wiki/File%3AChuaGiacLam02.jpg) | Public domain | — | 2026-09-27 |
+| `images/places/nha-rong-wharf.jpg` | Bến Nhà Rồng | [Commons](https://commons.wikimedia.org/wiki/File%3AHo%20Chi%20Minh%20Museum%2C%20in%20Saigon.jpg) | CC0 | — | 2026-09-27 |
+| `images/places/thien-hau-temple.jpg` | Chùa Bà Thiên Hậu | [Commons](https://commons.wikimedia.org/wiki/File%3ACh%C3%B9a%20B%C3%A0%20Thi%C3%AAn%20H%E1%BA%ADu%2C%20Ch%E1%BB%A3%20L%E1%BB%9Bn.jpg) | CC BY-SA 2.0 | SiSi Ro / Wikimedia Commons — CC BY-SA 2.0 | 2026-09-27 |
+| `images/places/landmark-81.jpg` | Landmark 81 | [Commons](https://commons.wikimedia.org/wiki/File%3AT%C3%B2a%20nh%C3%A0%20Landmark%2081%20(52353066123).jpg) | Public domain | — | 2026-09-27 |
+| `images/places/buu-long-pagoda.jpg` | Thiền viện Bửu Long | [Commons](https://commons.wikimedia.org/wiki/File%3AB%E1%BB%ADu%20Long%20Pagoda%2C%20Th%E1%BB%A7%20%C4%90%E1%BB%A9c%2C%20HCM%20City%2C%20Vietnam%20(14537196651).jpeg) | Public domain | — | 2026-09-27 |
+
+**Bộ xử lý ảnh vẫn chưa dựng.** Ảnh hiện là bản Commons phục vụ sẵn ở 900 px,
+chưa qua preset màu/cắt cúp nào của dự án.
 
 ## Ứng viên cho cả 272 địa điểm — tra theo toạ độ
 

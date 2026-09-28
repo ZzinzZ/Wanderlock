@@ -1,0 +1,23 @@
+{
+  "id": "vinh-nghiem-pagoda",
+  "checkpointId": "vinh-nghiem-pagoda",
+  "title": "Ngôi chùa miền Bắc dựng ở miền Nam",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/vinh-nghiem-pagoda.jpg",
+  "coverCredit": "Ảnh: Phương Huy / Wikimedia Commons — CC BY-SA 4.0",
+  "source": "Wikipedia tiếng Việt — Chùa Vĩnh Nghiêm (Thành phố Hồ Chí Minh)",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chùa Vĩnh Nghiêm ở số 339 Nam Kỳ Khởi Nghĩa do hai hoà thượng Thích Tâm Giác và Thích Thanh Kiểm từ miền Bắc vào Nam xây dựng. Họ lấy nguyên mẫu từ một ngôi chùa gỗ cùng tên ở làng Đức La, Bắc Giang — vốn là trung tâm truyền bá của Thiền phái Trúc Lâm."
+    },
+    {
+      "type": "narration",
+      "text": "Công trình khởi công năm 1964 trên khu đất thấp bên rạch Thị Nghè, phải chở về khoảng bốn mươi nghìn mét khối đất để san lấp mặt bằng. Người vẽ kiểu là kiến trúc sư Nguyễn Bá Lăng."
+    },
+    {
+      "type": "narration",
+      "text": "Đến năm 1971 chùa cơ bản hoàn thành với toà nhà trung tâm, Bảo tháp Quán Thế Âm và khu dành cho hoạt động xã hội. Về sau chùa xây thêm Bảo tháp Xá Lợi Cộng đồng và tháp đá, nên khuôn viên hôm nay là nhiều lớp công trình của nhiều thời điểm khác nhau."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "war-remnants-museum",
+  "checkpointId": "war-remnants-museum",
+  "title": "Một bảo tàng vì hoà bình",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/war-remnants-museum.jpg",
+  "coverCredit": "Ảnh: Prenn / Wikimedia Commons — CC BY-SA 3.0",
+  "source": "Wikipedia tiếng Việt — Bảo tàng Chứng tích chiến tranh",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Chứng tích Chiến tranh ở số 28 Võ Văn Tần là thành viên của hệ thống Bảo tàng vì hoà bình thế giới và của Hội đồng các bảo tàng thế giới. Nó không kể chuyện chiến thắng; nó trưng bày hậu quả."
+    },
+    {
+      "type": "narration",
+      "text": "Bảo tàng lưu giữ hơn hai mươi nghìn tài liệu, hiện vật và phim ảnh. Khoảng một nghìn năm trăm trong số đó được đưa vào chín chuyên đề trưng bày thường xuyên — trong đó khu ảnh phóng sự chiến tranh và khu về chất độc da cam là hai nơi người xem thường đứng lại lâu nhất."
+    },
+    {
+      "type": "narration",
+      "text": "Đây là một trong những điểm tham quan đông khách nhất thành phố, hiện đón trên một triệu lượt mỗi năm. Rất nhiều người bước ra im lặng hơn lúc bước vào."
+    }
+  ]
+}

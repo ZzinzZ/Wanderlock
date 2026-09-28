@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:wanderlock/features/checkpoint/data/checkpoint_bundled_source.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
+import 'package:wanderlock/features/story/data/story_chapter_bundled_source.dart';
 import 'package:wanderlock/features/unlock/domain/geo_distance.dart';
 
 /// Guards the copy of the pilot content that ships inside the binary.
@@ -34,6 +35,122 @@ void main() {
           'assets/content/checkpoints.json has drifted from '
           'content/checkpoints.json — copy the root file over it',
     );
+  });
+
+  group('story chapters', () {
+    final authoredDir = Directory('${root.path}/content/stories');
+    final bundledDir = Directory('assets/content/stories');
+
+    String nameOf(File file) => file.uri.pathSegments.last;
+
+    // A leading underscore marks a file that documents the format rather than
+    // holding content — the same rule the loader applies, so the example is
+    // neither shipped nor counted. It claims a real checkpoint id, which is
+    // what makes it a useful example and a bad chapter.
+    List<File> jsonIn(Directory dir) =>
+        dir
+            .listSync()
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.json'))
+            .where((f) => !nameOf(f).startsWith('_'))
+            .toList()
+          ..sort((a, b) => a.path.compareTo(b.path));
+
+    test('every authored chapter is bundled, and nothing extra is', () {
+      final authoredNames = jsonIn(authoredDir).map(nameOf).toSet();
+      final bundledNames = jsonIn(bundledDir).map(nameOf).toSet();
+
+      expect(
+        bundledNames,
+        authoredNames,
+        reason:
+            'assets/content/stories has drifted from content/stories — '
+            'copy the authored folder over it',
+      );
+    });
+
+    test('each bundled chapter is byte-for-byte the authored one', () {
+      for (final authoredFile in jsonIn(authoredDir)) {
+        final bundledFile = File('${bundledDir.path}/${nameOf(authoredFile)}');
+        expect(bundledFile.existsSync(), isTrue);
+        expect(
+          bundledFile.readAsBytesSync(),
+          authoredFile.readAsBytesSync(),
+          reason: '${nameOf(authoredFile)} đã lệch khỏi bản gốc',
+        );
+      }
+    });
+
+    test('every chapter parses, and belongs to a real checkpoint', () {
+      final ids = {
+        for (final checkpoint in CheckpointBundledSource.parse(
+          bundled.readAsStringSync(),
+        ))
+          checkpoint.id,
+      };
+
+      for (final file in jsonIn(bundledDir)) {
+        final chapter = StoryChapterBundledSource.parse(
+          file.readAsStringSync(),
+        );
+        expect(
+          ids,
+          contains(chapter.checkpointId),
+          reason:
+              '${nameOf(file)} trỏ tới checkpoint "${chapter.checkpointId}" '
+              'không có trong checkpoints.json',
+        );
+        expect(chapter.nodes, isNotEmpty, reason: nameOf(file));
+      }
+    });
+
+    // A chapter is written from a source, and saying which one is what lets
+    // the next person check the facts again.
+    test('every chapter says where its facts came from', () {
+      for (final file in jsonIn(bundledDir)) {
+        final chapter = StoryChapterBundledSource.parse(
+          file.readAsStringSync(),
+        );
+        expect(chapter.source, isNotNull, reason: nameOf(file));
+        expect(chapter.source, isNotEmpty, reason: nameOf(file));
+      }
+    });
+
+    // A CC BY or CC BY-SA photograph may be shipped and may not be shipped
+    // anonymously. This is the difference between the two, as a test.
+    test('a chapter with a cover photograph names its photographer', () {
+      for (final file in jsonIn(bundledDir)) {
+        final chapter = StoryChapterBundledSource.parse(
+          file.readAsStringSync(),
+        );
+        if (chapter.coverImage == null) continue;
+        expect(
+          chapter.coverCredit,
+          isNotNull,
+          reason:
+              '${nameOf(file)} có ảnh bìa nhưng không ghi nguồn ảnh — giấy '
+              'phép CC BY/CC BY-SA bắt buộc nêu tên tác giả ở nơi hiện ảnh',
+        );
+        expect(chapter.coverCredit, isNotEmpty, reason: nameOf(file));
+      }
+    });
+
+    test('no two chapters claim the same checkpoint', () {
+      final claimed = <String, String>{};
+      for (final file in jsonIn(bundledDir)) {
+        final chapter = StoryChapterBundledSource.parse(
+          file.readAsStringSync(),
+        );
+        expect(
+          claimed,
+          isNot(contains(chapter.checkpointId)),
+          reason:
+              '${nameOf(file)} và ${claimed[chapter.checkpointId]} cùng nhận '
+              'checkpoint "${chapter.checkpointId}" — v1 chỉ một chương mỗi nơi',
+        );
+        claimed[chapter.checkpointId] = nameOf(file);
+      }
+    });
   });
 
   group('parsing the authored content', () {

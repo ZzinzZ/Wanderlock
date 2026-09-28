@@ -1,0 +1,27 @@
+{
+  "id": "thien-hau-temple",
+  "checkpointId": "thien-hau-temple",
+  "title": "Hội quán của người Tuệ Thành",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/thien-hau-temple.jpg",
+  "coverCredit": "Ảnh: SiSi Ro / Wikimedia Commons — CC BY-SA 2.0",
+  "source": "Wikipedia tiếng Việt — Hội quán Tuệ Thành",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tên chính thức của nơi này là Hội quán Tuệ Thành, nhưng người Sài Gòn quen gọi là Chùa Bà Chợ Lớn hoặc Miếu Thiên Hậu. Đây là cơ sở tín ngưỡng thờ Thiên Hậu Thánh mẫu, ở số 710 đường Nguyễn Trãi."
+    },
+    {
+      "type": "narration",
+      "text": "Hội quán do nhóm người Hoa gốc Tuệ Thành — tức Quảng Châu, tỉnh Quảng Đông — góp vốn và góp công dựng lên, rồi trùng tu nhiều lần. Vì quá lâu đời và không còn tài liệu rõ ràng nên không ai biết chắc năm xây; một số ý kiến cho là khoảng năm 1760."
+    },
+    {
+      "type": "narration",
+      "text": "Trong hội quán còn giữ một đại hồng chung đề niên hiệu Đạo Quang năm thứ 10, tức năm 1830, và một bộ lư pháp lam cùng niên hiệu. Sách Gia Định thành thông chí soạn khoảng năm 1820 đã nhắc tới ngôi miếu Thiên Hậu này."
+    },
+    {
+      "type": "narration",
+      "text": "Thứ khiến người ta nhớ nhất là những vòng nhang khoanh tròn treo kín trần sân giữa, cháy chậm suốt nhiều ngày, thả khói xuống thành từng luồng."
+    }
+  ]
+}

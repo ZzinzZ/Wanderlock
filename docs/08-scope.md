@@ -23,6 +23,23 @@
 >   `visit_state`, không lưu tiến độ riêng.
 > - Hệ quả phải nhớ: ~277 điểm là quá nhiều để kiểm chứng tay từng cái, và
 >   tiêu chí "đi thật ≥ 8/12" ở mục 6 vẫn tính trên 12 điểm gốc.
+>
+> **Sửa 2026-09-27 — chủ dự án bỏ đối thoại khỏi lăng kính Story.**
+> - Một chương không còn là kịch bản có nhân vật nói chuyện. Nó là **bài giới
+>   thiệu về một nơi, viết bằng một giọng**. Định dạng chương vì thế chỉ còn
+>   hai loại đoạn: `narration` (văn xuôi) và `image` (ảnh thật).
+> - Bỏ theo: node `speech`, trường `narratorId`, và file khai nhân vật mà
+>   `speakerId` lẽ ra phải trỏ tới — file đó chưa từng được viết.
+> - Cái mất: mất trụ "nhân vật dẫn dắt" mà mục 3 nhắc tới. Cái được: một
+>   chương giờ viết được từ tư liệu công khai trong nửa giờ, thay vì cần một
+>   người viết kịch bản — đó là điều khiến 12 chương đầu tồn tại thật thay vì
+>   nằm trong kế hoạch.
+> - 12 chương đầu viết tóm lược từ Wikipedia tiếng Việt. Mỗi chương khai
+>   trường `source` và **hiện dòng ghi nguồn ở cuối chương**; có test bắt buộc
+>   trường này không được rỗng.
+> - **Story player vẫn không phải nút thứ tư trên thanh lăng kính.** Mục 5.2
+>   và 5.4 đã chốt thanh 3 mục và Story player là màn hình toàn màn mở ra từ
+>   một điểm đã mở khoá; phần này giữ nguyên, không đổi.
 
 ---
 

@@ -22,6 +22,8 @@ import 'package:wanderlock/features/collection/presentation/stamp_album.dart';
 import 'package:wanderlock/features/fog/application/fog_trail_providers.dart';
 import 'package:wanderlock/features/fog/domain/fog_trail.dart';
 import 'package:wanderlock/features/fog/presentation/fog_overlay.dart';
+import 'package:wanderlock/features/story/domain/story_chapter.dart';
+import 'package:wanderlock/features/story/presentation/story_player.dart';
 import 'package:wanderlock/features/unlock/application/check_in_controller.dart';
 import 'package:wanderlock/features/unlock/domain/check_in_service.dart';
 import 'package:wanderlock/features/unlock/presentation/unlock_moment.dart';
@@ -260,6 +262,23 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     }
   }
 
+  /// Opens the story player over the whole screen.
+  ///
+  /// A route rather than another overlay in the Stack: the chapter is a
+  /// destination you leave the map for and come back from, and the system
+  /// back gesture should close it, which a route gets for free.
+  void _openStory(StoryChapter chapter, Checkpoint checkpoint) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => StoryPlayer(
+          chapter: chapter,
+          placeName: checkpoint.name,
+          landmark: ref.read(landmarkLookupProvider)(checkpoint.id),
+        ),
+      ),
+    );
+  }
+
   /// A full-screen lens laid over the map rather than instead of it, which is
   /// what keeps a switch instant and the camera underneath untouched.
   ///
@@ -431,6 +450,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                 checkpoint: _selected!,
                 isVisited: visitedIds.contains(_selected!.id),
                 onDismiss: () => setState(() => _selected = null),
+                onReadStory: (chapter) => _openStory(chapter, _selected!),
               ),
             ),
 

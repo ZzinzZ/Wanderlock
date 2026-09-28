@@ -53,16 +53,30 @@ Thêm `--dry-run` để xem trước mà không ghi gì.
 ## Định dạng chương truyện
 
 Xem [stories/_format-example.json](stories/_format-example.json) — file mẫu
-minh hoạ đủ mọi loại node. File bắt đầu bằng `_` được seed script bỏ qua.
+minh hoạ đủ mọi loại node. File bắt đầu bằng `_` bị bỏ qua khi nạp, **kể cả
+trong app**: file mẫu nhận một `checkpointId` có thật, nên nếu không bỏ qua thì
+người đứng trước Dinh Độc Lập sẽ đọc phải chữ giữ chỗ.
 
-Một chương gồm phần đầu (`id`, `checkpointId`, `narratorId`, `title`,
-`coverImage`, `estimatedMinutes`) và một danh sách `nodes` **tuyến tính**:
+Một chương là **bài giới thiệu về một nơi, viết bằng một giọng** — không có
+đối thoại (chủ dự án chốt 2026-09-27). Phần đầu gồm `id`, `checkpointId`,
+`title`, `estimatedMinutes`, `source`, `coverImage` (tuỳ chọn), rồi một danh
+sách `nodes` **tuyến tính**:
 
 | Node | Dùng khi |
 |------|----------|
-| `narration` | Giọng người dẫn truyện, không gắn nhân vật — mô tả, bối cảnh, chuyển cảnh |
-| `speech` | Một nhân vật lên tiếng. `speakerId` trỏ tới id trong content, **không phải tên hiển thị** — đổi tên nhân vật thì chương truyện không hỏng |
+| `narration` | Một đoạn văn xuôi — toàn bộ phần chữ của chương |
 | `image` | Ảnh thật, tỉ lệ 16:9. Địa danh không bao giờ dùng illustration |
+
+**`source` là bắt buộc**, có test bắt. Chương viết từ tư liệu của người khác
+thì phải nói ra mình lấy ở đâu — dòng đó hiện ở cuối chương trong app, không
+chỉ nằm trong file. 12 chương đầu tóm lược từ Wikipedia tiếng Việt.
+
+**Mỗi checkpoint tối đa một chương**, và tên file nên trùng `checkpointId` cho
+dễ tìm. Có test chặn hai chương cùng nhận một nơi.
+
+Mỗi chương là một file riêng, và danh sách chương không được ghi ở đâu cả —
+app tự dò từ danh mục tài nguyên lúc chạy. Thêm chương chỉ cần thêm file, rồi
+chép sang `app/assets/content/stories/` (có test so hai bên).
 
 **Không có lựa chọn, không phân nhánh.** Câu chuyện phân mảnh nằm ở v2 theo
 [../docs/08-scope.md](../docs/08-scope.md). Một định dạng cho phép rẽ nhánh

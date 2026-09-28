@@ -90,5 +90,24 @@
   "questKindRoute": "Tuyến",
   "questKindSet": "Bộ sưu tập",
   "questListProgress": "{done}/{total}",
-  "questBackToList": "Tất cả nhiệm vụ"
+  "questBackToList": "Tất cả nhiệm vụ",
+  "storyClose": "Đóng",
+  "storyMinutes": "Đọc khoảng {minutes} phút",
+  "@storyMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "storySource": "Tư liệu: {source}",
+  "@storySource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "storyOpen": "Đọc chương",
+  "storyLocked": "Đến nơi để mở chương truyện"
 }

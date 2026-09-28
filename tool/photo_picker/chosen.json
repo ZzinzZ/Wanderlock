@@ -1,0 +1,33 @@
+{
+  "_readme": [
+    "Ảnh đã được CHỌN cho từng địa điểm — tên tệp trên Wikimedia Commons.",
+    "",
+    "Khác với commons_candidates.json (máy tìm) và fetched_photos.json (máy tải),",
+    "file này là KẾT QUẢ CỦA VIỆC NHÌN. Mỗi dòng dưới đây đã được mở ra xem ở cỡ",
+    "đủ lớn trước khi ghi vào. Đó là việc mà không công cụ nào làm thay được:",
+    "xếp hạng theo tên tệp chọn phải ảnh bên trong chợ Bến Thành, ảnh bảo tàng",
+    "quân sự ở Hà Nội cho bảo tàng chiến tranh ở Sài Gòn, và ảnh một bức tranh",
+    "treo tường cho Dinh Độc Lập.",
+    "",
+    "Tiêu chí: mặt ngoài công trình, nhận ra được ngay, không phải ảnh nội thất,",
+    "chi tiết trang trí, bảng chữ hay người.",
+    "",
+    "Đổi ảnh: sửa tên tệp ở đây rồi chạy lại fetch_photos.dart.",
+    "Giấy phép được đọc lại từ Commons lúc tải, không chép tay."
+  ],
+
+  "files": {
+    "independence-palace": "Reunification Palace front view.jpg",
+    "central-post-office": "Oficina Central de Correos, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 06.JPG",
+    "ben-thanh-market": "Ben Thanh, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 01.JPG",
+    "war-remnants-museum": "War Remnants Museum, HCMC, front.JPG",
+    "vinh-nghiem-pagoda": "Tu viện Vĩnh Nghiêm, hậu đường (khung cảnh) (24).jpg",
+    "binh-tay-market": "Binh Tay Market 2011.jpg",
+    "le-van-duyet-tomb": "Cổng chính Lăng Ông Bà Chiểu.jpg",
+    "giac-lam-pagoda": "ChuaGiacLam02.jpg",
+    "nha-rong-wharf": "Ho Chi Minh Museum, in Saigon.jpg",
+    "thien-hau-temple": "Chùa Bà Thiên Hậu, Chợ Lớn.jpg",
+    "landmark-81": "Tòa nhà Landmark 81 (52353066123).jpg",
+    "buu-long-pagoda": "Bửu Long Pagoda, Thủ Đức, HCM City, Vietnam (14537196651).jpeg"
+  }
+}

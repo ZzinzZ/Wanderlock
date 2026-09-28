@@ -14,6 +14,8 @@ import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
 import 'package:wanderlock/features/quest/domain/quest_route.dart';
 import 'package:wanderlock/features/quest/domain/quest_route_definition.dart';
 import 'package:wanderlock/features/quest/domain/quest_step.dart';
+import 'package:wanderlock/features/story/data/story_chapter_bundled_source.dart';
+import 'package:wanderlock/features/story/domain/story_chapter.dart';
 import 'package:wanderlock/features/unlock/application/visit_state_providers.dart';
 import 'package:wanderlock/features/unlock/domain/checkpoint_geofence.dart';
 
@@ -119,6 +121,29 @@ final questRouteDefinitionsProvider =
     FutureProvider<List<QuestRouteDefinition>>(
       (ref) => const QuestRouteBundledSource().readAll(),
     );
+
+/// The authored chapters, keyed by the checkpoint they belong to.
+///
+/// Content only — whether a chapter may be *read* is a question about
+/// `visit_state`, and it is answered where both are visible: the checkpoint
+/// sheet already knows whether the place is unlocked. Putting the rule here
+/// would be fine too; putting it inside the story feature would not, because
+/// that feature would then hold unlock state of its own.
+final storyChaptersProvider = FutureProvider<Map<String, StoryChapter>>((
+  ref,
+) async {
+  final chapters = await const StoryChapterBundledSource().readAll();
+  return {for (final chapter in chapters) chapter.checkpointId: chapter};
+});
+
+/// Which chapter a checkpoint has, by id — for widgets that hold an id and
+/// may not import the story feature.
+final storyChapterLookupProvider = Provider<StoryChapter? Function(String)>((
+  ref,
+) {
+  final byCheckpoint = ref.watch(storyChaptersProvider).value ?? const {};
+  return (checkpointId) => byCheckpoint[checkpointId];
+});
 
 /// Every quest, joined to content and to `visit_state`.
 ///
