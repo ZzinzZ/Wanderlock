@@ -46,6 +46,7 @@ class _CheckpointListScreenState extends ConsumerState<CheckpointListScreen> {
           IconButton(
             onPressed: () =>
                 ref.read(checkpointRefreshProvider.notifier).refresh(),
+            // clay-icon-gap: no refresh glyph in the clay set.
             icon: const Icon(Icons.refresh),
             tooltip: l10n.checkpointsRefresh,
           ),

@@ -5,6 +5,46 @@
 
 ---
 
+## 0. Sticker cartoon (ĐÃ CHỐT 2026-09-19) — thay các mục bên dưới khi mâu thuẫn
+
+> Chủ dự án thấy giao diện cũ "quá bình thường, như app hàn lâm" và chọn hướng
+> **sticker cartoon + icon 3D**. Mockup đã duyệt: canvas "Wanderlock Sticker UI".
+> Mục này **thắng** mọi quy tắc cũ bên dưới khi hai bên nói khác nhau.
+
+**Câu định nghĩa mới:** mọi thứ trông như sticker dán lên màn hình — viền mực đậm,
+bóng cứng đổ thẳng xuống, màu bão hoà, chữ Baloo 2 đậm cho mọi thứ mang tính game.
+
+| Thành phần | Quy tắc | Token |
+|---|---|---|
+| Viền | Mực `#2B2140` (sáng) / oải hương `#8C80B8` (tối — **sáng hơn thẻ**, đo được 1,33:1 nếu dùng màu tối) | `AppColors.outline`, `AppSticker.stroke*` |
+| Bóng | Cứng, không blur, đổ thẳng xuống 3–9px | `AppShadows.sticker`, `AppSticker.depth*` |
+| Nền trang | Kem `#FFF4DE`; lăng kính toàn màn hình dùng **nền bạc hà chấm bi** | `PatternBackground` |
+| Nút chính | Viên thuốc vàng `#FFC93C`, chữ mực, bấm là lún xuống bóng của nó | `StickerButton` / `PrimaryButton` |
+| Tem | Nghiêng nhẹ xen kẽ, răng cưa đứt nét bên trong | `AppSticker.tilt`, `isPerforated` |
+| Địa điểm | **Sticker công trình** (vẽ tạm, nguồn ở `content/landmarks/`) thay icon chung; icon 3D giữ cho điều khiển và trạng thái | `LandmarkArt` |
+| Bản đồ | Cartoon: nước xanh ngọc và cỏ có viền vẽ, đường trắng viền nâu nhạt, **đại lộ vàng**, đường dày hơn | `AppMapColors.roadMajor`, `waterEdge`, `greenEdge` |
+| HUD | Chỉ những gì v1 có: X/12 địa điểm và số tem. **Không** cấp độ, tiền tệ, xếp hạng | `ExploreHud` |
+| Sương mù | Kiểu Liên Minh: vùng sáng **loang**, viền mờ, các vùng chảy vào nhau — không còn đĩa tròn viền cứng. Sáng theo **cả đường đã đi** (vệt 160 m), không chỉ tại điểm. Vẽ bằng Flutter vì lớp fill của MapLibre không làm mờ được | `FogOverlay`, `FogTrail` |
+
+**Vệt đường đi không phải trạng thái mở khoá.** Vệt chỉ làm sáng bản đồ, lưu trên máy
+(`explored_point_rows`); checkpoint vẫn chỉ mở qua check-in và `visit_state`.
+Ở bản không có máy chủ, **vuốt bản đồ là đi**: vuốt tới đâu sáng tới đó, đi qua
+bán kính một điểm thì gửi check-in như khi đến thật. **Zoom không phải là đi** — người
+chơi đứng yên khi zoom, zoom xong camera trượt về chỗ họ. Vuốt được từ bất cứ đâu, kể
+cả bắt đầu trên marker (marker không nhận chạm; bấm marker được nhận ra từ toạ độ chạm
+trên bản đồ). Bản có máy chủ không bao giờ dùng camera làm vị trí.
+
+**Quy tắc cũ bị thay:**
+- Mục 2.3 luật 1 (tối đa 3 màu nhấn) và luật 5 (bề mặt trung tính) — **bỏ**. Nhiều màu
+  được phép; bù lại mọi cặp chữ/nền vẫn phải ≥ 4.5:1, có test trong `contrast_test.dart`.
+- Mục 5 (neumorphism) — **bỏ**. Bóng cứng dùng được cả trên bản đồ vì nó là nét vẽ,
+  không phải hiệu ứng ánh sáng.
+
+**Giữ nguyên:** hồng `#FF48A0` chỉ trong 3 giây mở khoá (tia sáng `unlockRay` cũng bị
+cấm như vậy — test canh), màu = trạng thái (chưa đến thì khử màu), font đóng gói offline.
+
+---
+
 ## 1. Câu định nghĩa phong cách
 
 > **Neumorphism nhẹ trên nền kem, bo góc lớn, màu pastel tươi trẻ, illustration 3D mềm.**
@@ -51,6 +91,19 @@ Ba sợi ADN: **brochure du lịch** (khối lớn, ảnh minh hoạ, bố cục
 2. **Cấm pastel trên pastel.** Mọi cặp chữ/nền phải đạt tương phản ≥ 4.5:1 (chữ thường), ≥ 3:1 (chữ lớn).
 3. **Gradient chỉ dùng làm nền trang trí lớn**, không dùng trên chữ, nút, hay icon.
 4. Tím và bạc hà **không được mang ý nghĩa trạng thái** — chỉ làm nền minh hoạ.
+5. **Bề mặt trung tính; màu do icon và hình khối gánh** (chủ dự án chốt 2026-08-25).
+   Thẻ, ô tem, chip lăng kính, nút vị trí — tất cả dùng trắng `#FFFFFF` hoặc
+   xám trắng `#EDEFF3`, **không tô nền xanh**. Cái đổi màu là icon 3D và các
+   hình vẽ trên bản đồ.
+   - **Màu = trạng thái.** Icon đủ màu nghĩa là *đã đạt / đang bật*; icon khử
+     màu nghĩa là *chưa / đang tắt*. Cùng một ẩn dụ với Fog ở mục 8 —
+     "màu trở lại với nơi bạn đã đến".
+   - Hai bề mặt trung tính chồng nhau (chip trên thanh, ô tem trên trang) tách
+     nhau bằng `card` so với `surfaceMuted`. Chênh lệch **cố ý yếu** — mạnh hơn
+     là tranh chỗ với icon.
+   - ⚠️ Chữ phụ `#6B7280` **không đọc được** trên `#EDEFF3` (đo được 3,9:1,
+     dưới ngưỡng 4,5:1). Trên bề mặt xám trắng phải dùng mực chính. Có test ghi
+     lại phép đo này.
 
 ---
 
@@ -190,9 +243,76 @@ Cấm: phản chiếu kim loại, glow, đổ bóng gắt, chi tiết vụn.
 | Loại | SL | Cách làm | Lý do |
 |------|:--:|----------|-------|
 | **Ảnh địa danh** | 12 | **Tự chụp** (ưu tiên) hoặc kho ảnh giấy phép mở / mua stock, rồi áp preset xử lý chung | Rẻ nhất, nhận diện tốt nhất. Chi phí dồn vào khâu **xử lý đồng bộ**, không phải khâu tạo |
-| **Icon điều hướng** | ~15 | **Mua asset pack 3D** | Không cần đặc thù Việt Nam — mua là rẻ và nhanh nhất |
+| **Icon điều hướng** | ~26 | **[3dicons.co](https://3dicons.co)** (CC0) — lấy biến thể **`color`**, **dùng nguyên màu gốc** | Không cần đặc thù Việt Nam — nguồn có sẵn, miễn phí, và màu sẵn có hợp hướng trẻ trung |
 | **Nhân vật dẫn truyện** | 1 | **Thuê** | Tài sản thương hiệu, phải sở hữu bản quyền |
 | **Tem / huy hiệu** | 12 | **Dẫn xuất từ ảnh địa danh** (cắt cúp + khung illustration) | Gần như miễn phí, tự động nhất quán với marker trên bản đồ |
+
+**Ghi chú nguồn icon điều hướng — đánh giá 2026-08-25, sửa lại cùng ngày**
+
+3dicons.co có 120 icon (không phải 200), mỗi icon 4 biến thể vật liệu: `color`,
+`clay`, `gradient`, `premium`.
+
+> **CHỦ DỰ ÁN ĐỔI QUYẾT ĐỊNH — 2026-08-25.** Bản đánh giá buổi sáng chốt dùng
+> `clay` rồi tự nhuộm màu. Chủ dự án chọn **`color`, giữ nguyên màu gốc**, lý do:
+> app định hướng trẻ trung và nhiều màu. Mục này ghi lại quyết định đó; hai chỗ
+> nó chạm vào danh sách cấm ghi ở dưới.
+
+**Đã đo trên file tải về, không phải đọc mô tả:**
+
+| | `clay` | `color` |
+|---|---|---|
+| Kích thước | 400×400 PNG, nền trong suốt | 400×400 PNG, nền trong suốt |
+| Màu | **100% pixel đục là đơn sắc**, luma 137–239 | Bão hoà 0,55–0,84 |
+| Dải màu | không có | cam 34° · xanh lá 95° · xanh ngọc 164–190° · xanh dương 245°; riêng `key` là bạc xám |
+| Cần nhuộm không | **Bắt buộc** | **Không** — dùng nguyên bản |
+
+Mô tả cũ *"`color` = bóng, gradient cam/đỏ"* là **sai**: bộ này trải khắp vòng
+màu chứ không chỉ cam/đỏ. Ảnh chụp trang explore của 3dicons xác nhận: khiên
+xanh ngọc, sổ xanh dương, ví nâu, dấu tick xanh.
+
+**Hai chỗ chạm danh sách cấm (mục 10):**
+
+1. *"Gradient trên chữ, nút, icon"* — icon `color` có chuyển sắc trên khối 3D.
+   **Ngoại lệ được duyệt cho icon**, vì đó là đổ bóng của một vật thể ba chiều
+   chứ không phải gradient trang trí phết lên một hình phẳng. Luật vẫn giữ
+   nguyên với **chữ và nút**.
+2. *"Tối đa 3 màu nhấn trên một màn hình"* (mục 2.3) — đây mới là luật thật sự
+   bị tiêu tốn. Mỗi icon tự mang màu của nó vào màn hình, nên **phải đếm màu
+   khi chọn icon cho từng màn**, không phải chọn theo nghĩa rồi thôi.
+
+Ràng buộc kỹ thuật vẫn đúng cho cả hai biến thể:
+- Tải về chỉ có PNG/webp dựng sẵn, **không có** model glb/Blender nguồn.
+- Icon đến từ nhiều đợt vẽ khác nhau của cùng bộ — khi chọn, kiểm tra tỷ lệ và
+  độ dày hình khối giữa các icon đã chọn để không bị lệch bộ.
+- CC0 không bắt buộc ghi nguồn, nhưng vẫn ghi ở `content/icon-licenses.md` cho
+  nhất quán với cách quản lý ảnh ở mục 7.1.
+
+**Mỗi địa điểm một icon riêng (chốt 2026-08-25).** Marker trên bản đồ không
+dùng chấm tròn nữa mà dùng icon 3D, và **không phải icon theo phân loại**:
+phong thư cho Bưu điện, tên lửa cho Landmark 81, va-li cho Bến Nhà Rồng, vương
+miện cho Lăng Ông, cờ cho Dinh Độc Lập, túi cho hai khu chợ, nén nhang cho bốn
+ngôi chùa. Bốn cái chợ-chợ-bảo tàng-dinh vẽ thành bốn cái ghim giống nhau là
+một bảng chú giải, không phải một tấm bản đồ — chọn thế này để **đọc được hình
+dạng thành phố trước khi đọc một chữ nào**. Bảng tra ở
+`app/lib/features/checkpoint/presentation/checkpoint_icons.dart`.
+
+**Cỡ icon tăng ~50% toàn bộ (2026-08-25).** Sau khi bỏ nền màu, icon là thứ duy
+nhất còn mang màu; ở cỡ cũ chúng đọc ra như dấu đầu dòng cạnh chữ chứ không phải
+chủ thể.
+
+**Neumorphism đã dùng đúng chỗ tài liệu chỉ định.** Màn Sưu tầm: tem đã mở
+**nổi lên** (`raised`), tem chưa mở **lún vào giấy** (`inset`) — đúng mô tả sẵn
+có trong `app_shadows.dart`. Vẫn **không** dùng trên bản đồ: marker chỉ có viền
+đặc, vì nền dưới nó là một thành phố chứ không phải mặt phẳng sáng đều.
+
+**Bộ `clay` vẫn giữ trong `content/icons/3dicons-clay/`** dù không dùng: nếu sau
+này có bề mặt cần icon một màu theo token thì đã có sẵn, khỏi tải lại.
+
+**⚠️ Bộ 120 icon thiếu 5 thứ dự án sẽ cần:** đóng (×), tải lại, tải bản đồ
+offline, **QR** (mục 5.6 của scope), **chia sẻ** (màn Bản đồ ký ức). Ba cái đầu
+hiện vẫn dùng Material Icons, có chú thích `clay-icon-gap` tại chỗ và có test
+đếm để con số không lặng lẽ tăng. Chưa quyết cách xử lý — xem
+`content/icon-licenses.md`.
 
 **AI dùng ở đâu:** phác thảo concept và thử bố cục để duyệt nhanh. **Không dùng AI sinh ảnh địa danh** — sai chi tiết kiến trúc là lỗi không chấp nhận được với một app dạy về địa điểm thật.
 
@@ -200,19 +320,43 @@ Cấm: phản chiếu kim loại, glow, đổ bóng gắt, chi tiết vụn.
 
 ---
 
-## 8. Fog of War trong hệ màu sáng
+## 8. Fog of War — luôn tối
 
-**Vấn đề:** bản tham khảo để màn Fog tối trong khi 5 màn còn lại sáng → trông như hai app.
+**Luật chốt (chủ dự án, 2026-09-08): Fog tối ở CẢ HAI theme.**
 
-**Luật chốt:** Fog là **chế độ**, không phải theme. Cả hai theme đều phải có bản Fog riêng.
+Ẩn dụ là **cắm mắt trong LMHT**: chỗ chưa tới thì thật sự tối, chỗ đã tới thì
+sáng lên. Tương phản đó *chính là* lăng kính. Đổi theme đổi bản đồ nền, không
+đổi việc sương thì tối.
 
-| | Chế độ sáng | Chế độ tối |
-|---|---|---|
-| Vùng chưa đi | Bản đồ **xám hoá + phủ kem mờ**, ảnh địa danh **khử màu, độ tương phản thấp** | Bản đồ tối `#14161C`, ảnh khử màu và tối đi |
-| Vùng đã đi | Bản đồ đủ màu, ảnh địa danh **hiện đủ màu** | Bản đồ sáng lên, ảnh hiện đủ màu |
-| Ẩn dụ | **Màu trở lại với nơi bạn đã đến** | Ánh sáng lan ra |
+| | Cả hai theme |
+|---|---|
+| Vùng chưa đi | Phủ `#14161C` ở 82% — đủ tối để đọc ra là chưa biết, đủ mỏng để còn thấy dạng phố |
+| Vùng đã đi | Nhấc lớp phủ, cộng một lớp sáng nhẹ 12%; viền xanh `#5FD79B` 40% |
+| Ẩn dụ | **Ánh sáng lan ra** |
 
-Cách này giữ được kịch tính khám phá mà không bắt người dùng đang ở theme sáng phải nhảy sang màn đen.
+### Vì sao lật luật cũ
+
+Luật cũ ghi *"Fog là chế độ, không phải theme"* — chế độ sáng dùng **phủ kem
+mờ** để không quăng người dùng vào màn đen. Ý tốt, nhưng đo trên máy thì nó
+**bằng không về mặt số học**:
+
+```
+đất       #F4F1EA = (244, 241, 234)
+phủ kem   #F2EFE6 @ 60%
+kết quả           = (243, 240, 232)
+```
+
+Chênh **1–2 trên 255**. Không phải mờ nhẹ — là không có gì. Không thể làm xám
+một bản đồ kem bằng cách phủ kem lên nó; muốn xám hoá thì lớp phủ phải tối hơn
+hoặc nhạt màu hơn hẳn nền.
+
+Có một ghi chú cũ nói 86% "xoá sạch thành phố, đọc ra như trang giấy trắng" nên
+hạ xuống 60%. Chẩn đoán đó nhắm sai chỗ: vấn đề nằm ở **màu**, không phải ở
+**độ mờ**. 82% của một màu tối thì vẫn thấy phố, vì nó tối hơn nền chứ không
+trùng nền.
+
+> Ảnh địa danh trong vùng chưa đi vẫn **khử màu, tương phản thấp** như luật cũ.
+> Phần đó không đổi — chỉ lớp phủ bản đồ đổi.
 
 ---
 
@@ -234,7 +378,7 @@ Cách này giữ được kịch tính khám phá mà không bắt người dùn
 
 - ❌ Bóng mềm neumorphic trên bản đồ hoặc trên nút hành động chính
 - ❌ Quá 3 màu nhấn trên một màn hình
-- ❌ Gradient trên chữ, nút, icon
+- ❌ Gradient trên chữ và nút — **icon 3D là ngoại lệ đã duyệt 2026-08-25**, xem mục 7.3
 - ❌ Map style mặc định của nhà cung cấp
 - ❌ Ảnh chưa qua preset xử lý chung (lệch tông là hỏng cả hệ thống)
 - ❌ Ảnh không rõ nguồn / không rõ giấy phép
@@ -253,3 +397,4 @@ Cách này giữ được kịch tính khám phá mà không bắt người dùn
 2. ~~Chốt cách sản xuất~~ → đã chốt: **địa danh dùng ảnh thật**, illustration chỉ cho icon/nhân vật. Còn lại: **gom 12 ảnh có bản quyền rõ ràng + dựng preset xử lý**
 3. Chốt style bản đồ tuỳ biến
 4. ~~Chốt số lăng kính cho v1~~ → đã chốt **5** (thêm Tùy chỉnh hành trình; Xã hội hoãn sang v1.5)
+5. ~~Chốt nguồn icon điều hướng~~ → đã chọn **3dicons.co** (CC0, biến thể **`color`**, giữ nguyên màu gốc — chủ dự án chốt 2026-08-25). Đã tải cả 120 icon và bundle 26 cái đang dùng. Còn lại: **quyết cách bù 5 icon bộ này không có** (đóng · tải lại · tải offline · QR · chia sẻ), và **soát lại luật 3 màu nhấn/màn hình** giờ khi icon tự mang màu (xem mục 7.3)

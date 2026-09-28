@@ -42,6 +42,17 @@ class VisitStateLocalSource {
     });
   }
 
+  /// Writes one visit, replacing any earlier row for the same pair.
+  ///
+  /// The primary key is (user, checkpoint), so an insert-or-replace is what
+  /// makes unlocking the same place twice leave one row — the same rule the
+  /// server keeps, kept here too so the two never disagree.
+  Future<void> upsertOne(String userId, VisitState visit) {
+    return _db
+        .into(_db.visitStateRows)
+        .insertOnConflictUpdate(_toRow(userId, visit));
+  }
+
   static Map<String, VisitState> _toMap(List<VisitStateRow> rows) {
     return {
       for (final row in rows)

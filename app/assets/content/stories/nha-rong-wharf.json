@@ -1,0 +1,23 @@
+{
+  "id": "nha-rong-wharf",
+  "checkpointId": "nha-rong-wharf",
+  "title": "Bến tàu của một chuyến đi",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/nha-rong-wharf.jpg",
+  "coverCredit": "Ảnh: Syced / Wikimedia Commons",
+  "source": "Wikipedia tiếng Việt — Bến Nhà Rồng",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Toà nhà bên sông Sài Gòn này từng là trụ sở hãng vận tải biển Messageries maritimes, từ năm 1864 đến 1955. Phần mái trang trí đôi rồng khiến người Sài Gòn gọi luôn nó là Nhà Rồng, và cái tên dân gian ấy sống lâu hơn tên công ty."
+    },
+    {
+      "type": "narration",
+      "text": "Ngày 5 tháng 6 năm 1911, người thanh niên Nguyễn Tất Thành xuống con tàu Amiral Latouche-Tréville tại đây, làm phụ bếp, để có điều kiện sang châu Âu. Ngày đó về sau được chọn làm Ngày Bác Hồ ra đi tìm đường cứu nước."
+    },
+    {
+      "type": "narration",
+      "text": "Từ năm 1975, cụm di tích được xây dựng lại thành khu lưu niệm, nay mang tên chính thức là Bảo tàng Hồ Chí Minh — Chi nhánh Thành phố Hồ Chí Minh. Đứng ở bến nhìn ra, con sông vẫn là con đường duy nhất để rời thành phố hồi đó."
+    }
+  ]
+}

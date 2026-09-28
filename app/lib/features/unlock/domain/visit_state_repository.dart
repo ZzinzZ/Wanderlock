@@ -26,6 +26,17 @@ abstract interface class VisitStateRepository {
   /// we: a visit that only exists on one phone is not a visit.
   Future<void> cacheAll(List<VisitState> visits);
 
+  /// Stores one visit the authority has just granted.
+  ///
+  /// Still a cache write, not a decision: the argument is the record the
+  /// server answered with, so this is the same act as [cacheAll] narrowed to
+  /// one row. It exists because re-fetching the whole list to see the unlock
+  /// the user is watching happen would put a network round trip inside a
+  /// three-second animation.
+  ///
+  /// Safe to run twice: the same visit written again leaves one row.
+  Future<void> cacheGranted(VisitState visit);
+
   /// Pulls the user's visits from the server.
   ///
   /// Never throws and never empties the cache, for the same reason the

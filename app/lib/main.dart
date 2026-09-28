@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:wanderlock/app/lenses/lens_providers.dart';
 import 'package:wanderlock/app/router.dart';
+import 'package:wanderlock/app/routes.dart';
 import 'package:wanderlock/app/theme.dart';
 import 'package:wanderlock/app/theme_mode_controller.dart';
 import 'package:wanderlock/core/config/supabase_connection.dart';
+import 'package:wanderlock/features/unlock/application/visit_state_providers.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
 /// Bundled font licences, surfaced in the standard Flutter licence page.
@@ -26,7 +29,17 @@ void main() {
   // server: the app draws from its cache, and the connection catches up when
   // it can. Awaiting the connection here left the app on a blank screen
   // whenever the server was unreachable.
-  runApp(const ProviderScope(child: WanderlockApp()));
+  runApp(
+    ProviderScope(
+      overrides: [
+        // Fills the seam `unlock` leaves open rather than importing the
+        // checkpoint feature. This is the composition root, and the only
+        // place allowed to know that both features exist.
+        checkpointGeofenceLookupProvider.overrideWith(buildGeofenceLookup),
+      ],
+      child: const WanderlockApp(),
+    ),
+  );
   unawaited(SupabaseConnection.connect());
 }
 
@@ -40,7 +53,10 @@ void _registerFontLicenses() {
 }
 
 class WanderlockApp extends ConsumerStatefulWidget {
-  const WanderlockApp({super.key});
+  const WanderlockApp({super.key, this.initialLocation = AppRoutes.home});
+
+  /// Where the app opens. Overridden only by tests — see [buildAppRouter].
+  final String initialLocation;
 
   @override
   ConsumerState<WanderlockApp> createState() => _WanderlockAppState();
@@ -49,7 +65,7 @@ class WanderlockApp extends ConsumerStatefulWidget {
 class _WanderlockAppState extends ConsumerState<WanderlockApp> {
   // Built once: rebuilding a GoRouter on every theme change would reset the
   // navigation stack.
-  late final _router = buildAppRouter();
+  late final _router = buildAppRouter(initialLocation: widget.initialLocation);
 
   @override
   Widget build(BuildContext context) {

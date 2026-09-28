@@ -85,17 +85,22 @@ void main() {
       (_layer(style, 'park')['paint']! as Map)['fill-color'],
       _hex(AppMapColors.light.green),
     );
+    // Boulevards are yellow in the sticker map; every other street is white.
     for (final layer in _roadLayers(style, 'road-fill-')) {
       expect(
         (layer['paint']! as Map)['line-color'],
-        _hex(AppMapColors.light.road),
+        layer['id'] == 'road-fill-major'
+            ? _hex(AppMapColors.light.roadMajor)
+            : _hex(AppMapColors.light.road),
         reason: '${layer['id']} is off palette',
       );
     }
     for (final layer in _roadLayers(style, 'road-casing-')) {
       expect(
         (layer['paint']! as Map)['line-color'],
-        _hex(AppMapColors.light.roadCasing),
+        layer['id'] == 'road-casing-major'
+            ? _hex(AppMapColors.light.roadMajorCasing)
+            : _hex(AppMapColors.light.roadCasing),
         reason: '${layer['id']} is off palette',
       );
     }
@@ -264,6 +269,10 @@ void main() {
       _hex(AppMapColors.light.green),
       _hex(AppMapColors.light.road),
       _hex(AppMapColors.light.roadCasing),
+      _hex(AppMapColors.light.roadMajor),
+      _hex(AppMapColors.light.roadMajorCasing),
+      _hex(AppMapColors.light.waterEdge),
+      _hex(AppMapColors.light.greenEdge),
       _hex(AppMapColors.light.boundary),
       _hex(AppMapColors.light.label),
     };

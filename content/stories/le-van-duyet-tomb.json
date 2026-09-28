@@ -1,0 +1,27 @@
+{
+  "id": "le-van-duyet-tomb",
+  "checkpointId": "le-van-duyet-tomb",
+  "title": "Lăng của một Tả quân",
+  "estimatedMinutes": 3,
+  "coverImage": "assets/photos/places/le-van-duyet-tomb.jpg",
+  "coverCredit": "Ảnh: Bùi Thụy Đào Nguyên / Wikimedia Commons — CC BY-SA 3.0",
+  "source": "Wikipedia tiếng Việt — Lăng Ông (Bà Chiểu)",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tên chữ của nơi này là Thượng Công Miếu, nhưng hầu như không ai gọi thế. Vì khu lăng nằm sát chợ Bà Chiểu nên dân gian ghép luôn thành Lăng Ông Bà Chiểu — và cái tên ghép ấy giờ dùng cho cả vùng xung quanh."
+    },
+    {
+      "type": "narration",
+      "text": "Đây là quần thể lăng mộ và miếu thờ Tả quân Lê Văn Duyệt, kèm phần mộ song táng của phu nhân Đỗ Thị Phẫn. Bố cục chạy theo một trục chính: tam quan, nhà bia, khu mộ, rồi tới miếu thờ gồm tiền điện, trung điện và chính điện, hai bên là Đông lang và Tây lang đối xứng."
+    },
+    {
+      "type": "narration",
+      "text": "Mộ được lập năm 1832 khi ông mất, bị san bằng dưới triều Minh Mạng sau biến cố thành Phiên An năm 1835, rồi được đắp lại từ năm 1841 thời Thiệu Trị. Nhiều mảng trang trí khảm sành sứ còn lại mang phong cách mỹ thuật triều Nguyễn."
+    },
+    {
+      "type": "narration",
+      "text": "Khu di tích được xếp hạng cấp quốc gia năm 1988. Lễ hội Khai hạ — Cầu an tổ chức hằng năm tại đây đã được đưa vào danh mục di sản văn hoá phi vật thể quốc gia năm 2022."
+    }
+  ]
+}

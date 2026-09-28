@@ -1,111 +1,89 @@
 {
   "@@locale": "en",
-
   "appTitle": "Wanderlock",
   "@appTitle": {
     "description": "Application name shown in the OS task switcher."
   },
-
   "homeTitle": "Foundation shell",
   "@homeTitle": {
     "description": "Title of the placeholder home screen built in phase F1."
   },
-
   "homeSubtitle": "Design tokens, theming, routing and localisation. No product features yet.",
   "@homeSubtitle": {
     "description": "Explains that this screen is scaffolding, not a feature."
   },
-
   "openTypeSpecimen": "Open type specimen",
   "@openTypeSpecimen": {
     "description": "Button that routes to the type specimen screen."
   },
-
   "typeSpecimenTitle": "Type specimen",
   "@typeSpecimenTitle": {
     "description": "Title of the screen used to verify Vietnamese diacritics."
   },
-
   "typeSpecimenIntro": "Vietnamese diacritics at every bundled weight.",
   "@typeSpecimenIntro": {
     "description": "Subtitle of the type specimen screen."
   },
-
   "diacriticsSample": "ế ỡ ộ ữ ẫ",
   "@diacriticsSample": {
     "description": "The five stacked-diacritic characters mandated by the art direction. Not translated: these are the test characters themselves."
   },
-
   "diacriticsSentence": "Kiểm tra dấu tiếng Việt: ằ ọ ợ ế ỡ ộ ữ ẫ",
   "@diacriticsSentence": {
     "description": "A sentence exercising stacked marks. Deliberately Vietnamese in both locales, since it tests glyph rendering rather than wording."
   },
-
   "uiFontLabel": "Be Vietnam Pro — interface",
   "@uiFontLabel": {
     "description": "Section heading for the UI font specimen."
   },
-
   "displayFontLabel": "Baloo 2 — headings",
   "@displayFontLabel": {
     "description": "Section heading for the display font specimen."
   },
-
   "switchToDark": "Switch to dark",
   "@switchToDark": {
     "description": "Theme toggle label while the light theme is active."
   },
-
   "switchToLight": "Switch to light",
   "@switchToLight": {
     "description": "Theme toggle label while the dark theme is active."
   },
-
   "openCheckpoints": "Open checkpoints",
   "@openCheckpoints": {
     "description": "Button that routes to the checkpoint list."
   },
-
   "checkpointsTitle": "Checkpoints",
   "@checkpointsTitle": {
     "description": "Title of the checkpoint list screen."
   },
-
   "checkpointsRefresh": "Refresh from the server",
   "@checkpointsRefresh": {
     "description": "Tooltip on the refresh action."
   },
-
   "checkpointsEmpty": "No checkpoints cached yet. Connect once to download them.",
   "@checkpointsEmpty": {
     "description": "Shown when the local cache has never been filled."
   },
-
   "checkpointsError": "The local cache could not be read.",
   "@checkpointsError": {
     "description": "Shown when reading the local database itself fails. A network failure never reaches this state."
   },
-
   "checkpointsOffline": "Offline — showing saved checkpoints",
   "@checkpointsOffline": {
     "description": "Banner shown when the last refresh could not reach the server."
   },
-
   "openMap": "Open map",
   "@openMap": {
     "description": "Button that routes to the base map."
   },
-
   "mapTitle": "Map",
   "@mapTitle": {
     "description": "Title of the base map screen."
   },
-
   "mapCacheDownload": "Save this area for offline use",
   "@mapCacheDownload": {
     "description": "Tooltip on the action that downloads the pilot area's tiles."
   },
-
   "mapCacheDownloading": "Saving the map… {percent}%",
   "@mapCacheDownloading": {
     "description": "Banner shown while the offline download runs.",
@@ -115,54 +93,334 @@
       }
     }
   },
-
   "mapCacheReady": "The map is saved. It will work without a signal.",
   "@mapCacheReady": {
     "description": "Banner shown when the offline download finished."
   },
-
   "mapCacheFailed": "The map could not be saved. Try again.",
   "@mapCacheFailed": {
     "description": "Banner shown when the offline download failed."
   },
-
   "mapCacheEmpty": "No checkpoints yet, so there is no area to save.",
   "@mapCacheEmpty": {
     "description": "Banner shown when there are no checkpoints to derive a region from."
   },
-
   "mapFollowStart": "Follow my location",
   "@mapFollowStart": {
     "description": "Tooltip on the button that starts centring the map on the user."
   },
-
   "mapFollowStop": "Stop following",
   "@mapFollowStop": {
     "description": "Tooltip on the same button while the camera is following."
   },
-
   "mapLocationAsk": "Show where I am",
   "@mapLocationAsk": {
     "description": "Tooltip before location permission has been granted; pressing shows the system dialog."
   },
-
   "mapLocationBlocked": "Open settings to allow location",
   "@mapLocationBlocked": {
     "description": "Tooltip when permission is permanently denied and only app settings can undo it."
   },
-
   "mapLocationServiceOff": "Turn on location services",
   "@mapLocationServiceOff": {
     "description": "Tooltip when permission is granted but location services are off device-wide."
   },
-
   "mapLocationBlockedBanner": "Location is turned off for this app. Open settings to allow it.",
   "@mapLocationBlockedBanner": {
     "description": "Banner shown when permission is permanently denied."
   },
-
   "mapLocationServiceOffBanner": "Location services are off on this device.",
   "@mapLocationServiceOffBanner": {
     "description": "Banner shown when location services are disabled device-wide."
-  }
+  },
+  "lensTitle": "Lens",
+  "@lensTitle": {
+    "description": "Label above the lens switcher."
+  },
+  "lensFog": "Fog of war",
+  "@lensFog": {
+    "description": "Name of the fog lens."
+  },
+  "lensCollection": "Collection",
+  "@lensCollection": {
+    "description": "Name of the collection lens."
+  },
+  "exploreTitle": "Explore",
+  "@exploreTitle": {
+    "description": "Title of the main map screen."
+  },
+  "standInModeBadge": "Demo build",
+  "@standInModeBadge": {
+    "description": "Badge shown when no server is configured and a stand-in grants check-ins."
+  },
+  "standInModeHint": "No server in this build. Tap a marker, then unlock, to see every lens react.",
+  "@standInModeHint": {
+    "description": "Explains why unlocking works without walking."
+  },
+  "checkpointLockedLabel": "Not unlocked",
+  "@checkpointLockedLabel": {
+    "description": "State line on a checkpoint that has not been visited."
+  },
+  "checkpointUnlockedLabel": "Unlocked",
+  "@checkpointUnlockedLabel": {
+    "description": "State line on a visited checkpoint."
+  },
+  "checkpointUnlockAction": "Unlock this place",
+  "@checkpointUnlockAction": {
+    "description": "Button that requests a check-in."
+  },
+  "checkpointPhotoPending": "Photograph pending licensing",
+  "@checkpointPhotoPending": {
+    "description": "Placeholder caption where a landmark photograph will go."
+  },
+  "checkInTooFar": "{distance} m away — you must be within {radius} m.",
+  "@checkInTooFar": {
+    "description": "Refusal when the position is outside the radius.",
+    "placeholders": {
+      "distance": {
+        "type": "int"
+      },
+      "radius": {
+        "type": "int"
+      }
+    }
+  },
+  "checkInUnavailable": "Could not reach the server. Your position was not sent anywhere.",
+  "@checkInUnavailable": {
+    "description": "Shown when nobody could be asked."
+  },
+  "checkInRejected": "The server refused this check-in ({reason}).",
+  "@checkInRejected": {
+    "description": "Shown when the server refused for a reason walking cannot fix.",
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "unlockMomentHeading": "Unlocked",
+  "@unlockMomentHeading": {
+    "description": "Word shown during the three-second unlock moment."
+  },
+  "collectionTitle": "Collection",
+  "@collectionTitle": {
+    "description": "Title of the collection lens panel."
+  },
+  "collectionProgress": "{owned} of {total} places",
+  "@collectionProgress": {
+    "description": "Progress line in the collection.",
+    "placeholders": {
+      "owned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "collectionEmpty": "No stamps yet. Reach a place to earn its stamp.",
+  "@collectionEmpty": {
+    "description": "Empty state of the collection."
+  },
+  "fogLegendCleared": "Colour returns to where you have been",
+  "@fogLegendCleared": {
+    "description": "Legend line for the fog lens."
+  },
+  "lensJourney": "Journey",
+  "journeyTabQuest": "Quests",
+  "journeyTabItinerary": "My plan",
+  "questEmpty": "No route yet. Add one in content/quest-routes.json.",
+  "questProgress": "Reached {done} of {total}",
+  "@questProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "questComplete": "Route complete",
+  "itineraryEmpty": "Your plan is empty",
+  "itineraryEmptyHint": "Tap a place on the map, then Add to plan.",
+  "itineraryCount": "{count} places planned",
+  "@itineraryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "itineraryClear": "Clear all",
+  "itineraryRemove": "Remove from plan",
+  "itineraryAdd": "Add to plan",
+  "itineraryAdded": "Already on your plan",
+  "hudExplorerTitle": "Explorer",
+  "@hudExplorerTitle": {
+    "description": "Name line of the map HUD."
+  },
+  "hudProgress": "{visited}/{total}",
+  "@hudProgress": {
+    "description": "Places reached out of the pilot total, in the HUD.",
+    "placeholders": {
+      "visited": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "hudStampsLabel": "Collection: {count} stamps",
+  "@hudStampsLabel": {
+    "description": "Screen-reader label of the HUD stamp button.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "collectionReached": "places reached",
+  "@collectionReached": {
+    "description": "Under the big count on the album progress card."
+  },
+  "collectionFilterAll": "All · {count}",
+  "@collectionFilterAll": {
+    "description": "Album filter chip.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "collectionFilterOwned": "Got · {count}",
+  "@collectionFilterOwned": {
+    "description": "Album filter chip.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "collectionFilterMissing": "Missing · {count}",
+  "@collectionFilterMissing": {
+    "description": "Album filter chip.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stampNotYet": "Not yet",
+  "@stampNotYet": {
+    "description": "Caption on a stamp not yet earned."
+  },
+  "unlockMomentHero": "UNLOCKED!",
+  "@unlockMomentHero": {
+    "description": "Headline of the three-second unlock moment."
+  },
+  "unlockRewardFog": "The fog lifts here",
+  "@unlockRewardFog": {
+    "description": "Unlock moment: what changed in the fog lens."
+  },
+  "unlockRewardStamp": "A new stamp in your collection",
+  "@unlockRewardStamp": {
+    "description": "Unlock moment: what changed in the collection lens."
+  },
+  "questStepDone": "Reached",
+  "@questStepDone": {
+    "description": "Status of a reached quest step."
+  },
+  "questStepNext": "Next stop",
+  "@questStepNext": {
+    "description": "Status of the next quest step."
+  },
+  "questStepTodo": "Not yet",
+  "@questStepTodo": {
+    "description": "Status of a quest step still to go."
+  },
+  "onboardingFogTitle": "The city sleeps under fog",
+  "@onboardingFogTitle": {
+    "description": "Onboarding page 1 title."
+  },
+  "onboardingFogBody": "Every street you actually walk lights up on the map, and stays lit.",
+  "@onboardingFogBody": {
+    "description": "Onboarding page 1 body."
+  },
+  "onboardingUnlockTitle": "Be there to unlock it",
+  "@onboardingUnlockTitle": {
+    "description": "Onboarding page 2 title."
+  },
+  "onboardingUnlockBody": "Twelve landmarks are locked. They open only when you are standing right there.",
+  "@onboardingUnlockBody": {
+    "description": "Onboarding page 2 body."
+  },
+  "onboardingLensesTitle": "One visit, every way to play",
+  "@onboardingLensesTitle": {
+    "description": "Onboarding page 3 title."
+  },
+  "onboardingLensesBody": "The fog lifts, a stamp lands in your album, your route moves on — all at once.",
+  "@onboardingLensesBody": {
+    "description": "Onboarding page 3 body."
+  },
+  "onboardingNext": "Next",
+  "@onboardingNext": {
+    "description": "Onboarding: go to the next page."
+  },
+  "onboardingSkip": "Skip",
+  "@onboardingSkip": {
+    "description": "Onboarding: jump to the last page."
+  },
+  "onboardingStartWithLocation": "Turn on location & start",
+  "@onboardingStartWithLocation": {
+    "description": "Onboarding: ask for location, then open the map."
+  },
+  "onboardingLater": "Later",
+  "@onboardingLater": {
+    "description": "Onboarding: open the map without asking for location."
+  },
+  "questKindRoute": "Route",
+  "@questKindRoute": {
+    "description": "Tag on a quest played in order."
+  },
+  "questKindSet": "Collection",
+  "@questKindSet": {
+    "description": "Tag on a quest played in any order."
+  },
+  "questListProgress": "{done}/{total}",
+  "@questListProgress": {
+    "description": "Places reached out of a quest's total.",
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "questBackToList": "All quests",
+  "@questBackToList": {
+    "description": "Back from one quest to the list."
+  },
+  "storyClose": "Close",
+  "storyMinutes": "About {minutes} min to read",
+  "@storyMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "storySource": "Source: {source}",
+  "@storySource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "storyOpen": "Read the chapter",
+  "storyLocked": "Go there to open the chapter"
 }

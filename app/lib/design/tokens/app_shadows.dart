@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:wanderlock/design/tokens/app_colors.dart';
+import 'package:wanderlock/design/tokens/app_sticker.dart';
 
 /// Elevation tokens, from docs/09-art-direction.md section 5.
 ///
@@ -53,4 +54,14 @@ class AppShadows {
       blurRadius: 6,
     ),
   ];
+
+  /// The sticker shadow: solid ink, no blur, dropped straight down.
+  ///
+  /// Section 0 of the art direction. Unlike the soft pair above it survives
+  /// on top of the map, because it does not depend on the ground being flat
+  /// or evenly lit — it is a drawn line, not a lighting effect.
+  static List<BoxShadow> sticker(
+    AppColors colors, {
+    double depth = AppSticker.depth,
+  }) => [BoxShadow(color: colors.outline, offset: Offset(0, depth))];
 }

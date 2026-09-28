@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:wanderlock/app/routes.dart';
 import 'package:wanderlock/app/screens/home_screen.dart';
 import 'package:wanderlock/app/screens/type_specimen_screen.dart';
 import 'package:wanderlock/main.dart';
@@ -17,15 +18,26 @@ Future<void> _pressSystemBack(WidgetTester tester) {
 }
 
 void main() {
-  testWidgets('app boots and lands on the home screen', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: WanderlockApp()));
+  // These four start on the F1 shell rather than at `/`. The product screen
+  // there builds a MapLibre platform view, which a widget test cannot render;
+  // what these check — routing, system back, theming — is not about the map.
+  testWidgets('app boots and lands on the shell screen', (tester) async {
+    await tester.pumpWidget(
+      const ProviderScope(
+        child: WanderlockApp(initialLocation: AppRoutes.shell),
+      ),
+    );
     await tester.pumpAndSettle();
 
     expect(find.byType(HomeScreen), findsOneWidget);
   });
 
   testWidgets('routes from home to the type specimen and back', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: WanderlockApp()));
+    await tester.pumpWidget(
+      const ProviderScope(
+        child: WanderlockApp(initialLocation: AppRoutes.shell),
+      ),
+    );
     await tester.pumpAndSettle();
 
     await tester.tap(find.byKey(const Key('open-type-specimen')));
@@ -44,7 +56,11 @@ void main() {
   testWidgets('android system back returns to home, it does not exit', (
     tester,
   ) async {
-    await tester.pumpWidget(const ProviderScope(child: WanderlockApp()));
+    await tester.pumpWidget(
+      const ProviderScope(
+        child: WanderlockApp(initialLocation: AppRoutes.shell),
+      ),
+    );
     await tester.pumpAndSettle();
 
     await tester.tap(find.byKey(const Key('open-type-specimen')));
@@ -63,7 +79,11 @@ void main() {
   testWidgets('theme toggle repaints the scaffold in the other theme', (
     tester,
   ) async {
-    await tester.pumpWidget(const ProviderScope(child: WanderlockApp()));
+    await tester.pumpWidget(
+      const ProviderScope(
+        child: WanderlockApp(initialLocation: AppRoutes.shell),
+      ),
+    );
     await tester.pumpAndSettle();
 
     Color scaffoldColour() => tester

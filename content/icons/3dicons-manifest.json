@@ -1,0 +1,1202 @@
+{
+ "3d": {
+  "angle": "dynamic",
+  "category": "a",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/3d-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/3d-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/3d-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/3d-dynamic-premium.png",
+  "slug": "3d",
+  "title": "3d"
+ },
+ "3d-coin": {
+  "angle": "dynamic",
+  "category": "money-coin",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/3d-coin-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/3d-coin-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/3d-coin-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/3d-coin-dynamic-premium.png",
+  "slug": "3d-coin",
+  "title": "3d Coin"
+ },
+ "at": {
+  "angle": "dynamic",
+  "category": "at",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/at-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/at-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/at-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/at-dynamic-premium.png",
+  "slug": "at",
+  "title": "At"
+ },
+ "axe": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/axe-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/axe-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/axe-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/axe-dynamic-premium.png",
+  "slug": "axe",
+  "title": "Axe"
+ },
+ "back": {
+  "angle": "dynamic",
+  "category": "player",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/back-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/back-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/back-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/back-dynamic-premium.png",
+  "slug": "back",
+  "title": "Back"
+ },
+ "backward": {
+  "angle": "dynamic",
+  "category": "player",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/backward-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/backward-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/backward-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/backward-dynamic-premium.png",
+  "slug": "backward",
+  "title": "Backward"
+ },
+ "bag": {
+  "angle": "dynamic",
+  "category": "finance",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/bag-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/bag-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/bag-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/bag-dynamic-premium.png",
+  "slug": "bag",
+  "title": "Bag"
+ },
+ "battery": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/battery-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/battery-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/battery-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/battery-dynamic-premium.png",
+  "slug": "battery",
+  "title": "Battery"
+ },
+ "blender": {
+  "angle": "dynamic",
+  "category": "a",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/blender-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/blender-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/blender-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/blender-dynamic-premium.png",
+  "slug": "blender",
+  "title": "Blender"
+ },
+ "bookmark": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/bookmark-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/bookmark-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/bookmark-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/bookmark-dynamic-premium.png",
+  "slug": "bookmark",
+  "title": "Bookmark"
+ },
+ "bookmark-fav": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/bookmark-fav-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/bookmark-fav-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/bookmark-fav-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/bookmark-fav-dynamic-premium.png",
+  "slug": "bookmark-fav",
+  "title": "Bookmark Fav"
+ },
+ "boy": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/boy-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/boy-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/boy-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/boy-dynamic-premium.png",
+  "slug": "boy",
+  "title": "Boy"
+ },
+ "brush": {
+  "angle": "dynamic",
+  "category": "art",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/brush-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/brush-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/brush-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/brush-dynamic-premium.png",
+  "slug": "brush",
+  "title": "Brush"
+ },
+ "bucket": {
+  "angle": "dynamic",
+  "category": "art",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/bucket-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/bucket-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/bucket-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/bucket-dynamic-premium.png",
+  "slug": "bucket",
+  "title": "Bucket"
+ },
+ "bulb": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/bulb-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/bulb-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/bulb-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/bulb-dynamic-premium.png",
+  "slug": "bulb",
+  "title": "Bulb"
+ },
+ "calculator": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/calculator-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/calculator-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/calculator-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/calculator-dynamic-premium.png",
+  "slug": "calculator",
+  "title": "Calculator"
+ },
+ "calender": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/calender-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/calender-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/calender-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/calender-dynamic-premium.png",
+  "slug": "calender",
+  "title": "Calender"
+ },
+ "camera": {
+  "angle": "dynamic",
+  "category": "media",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/camera-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/camera-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/camera-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/camera-dynamic-premium.png",
+  "slug": "camera",
+  "title": "Camera"
+ },
+ "can": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/can-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/can-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/can-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/can-dynamic-premium.png",
+  "slug": "can",
+  "title": "Can"
+ },
+ "card": {
+  "angle": "dynamic",
+  "category": "finance",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/card-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/card-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/card-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/card-dynamic-premium.png",
+  "slug": "card",
+  "title": "Card"
+ },
+ "chart": {
+  "angle": "dynamic",
+  "category": "finance",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/chart-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/chart-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/chart-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/chart-dynamic-premium.png",
+  "slug": "chart",
+  "title": "Chart"
+ },
+ "chat": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/chat-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/chat-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/chat-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/chat-dynamic-premium.png",
+  "slug": "chat",
+  "title": "Chat"
+ },
+ "chat-bubble": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/chat-bubble-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/chat-bubble-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/chat-bubble-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/chat-bubble-dynamic-premium.png",
+  "slug": "chat-bubble",
+  "title": "Chat Bubble"
+ },
+ "chat-text": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/chat-text-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/chat-text-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/chat-text-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/chat-text-dynamic-premium.png",
+  "slug": "chat-text",
+  "title": "Chat Text"
+ },
+ "chess": {
+  "angle": "dynamic",
+  "category": "content",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/chess-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/chess-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/chess-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/chess-dynamic-premium.png",
+  "slug": "chess",
+  "title": "Chess"
+ },
+ "circle": {
+  "angle": "dynamic",
+  "category": "content",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/circle-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/circle-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/circle-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/circle-dynamic-premium.png",
+  "slug": "circle",
+  "title": "Circle"
+ },
+ "clock": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/clock-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/clock-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/clock-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/clock-dynamic-premium.png",
+  "slug": "clock",
+  "title": "Clock"
+ },
+ "color-palette": {
+  "angle": "dynamic",
+  "category": "art",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/color-palette-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/color-palette-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/color-palette-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/color-palette-dynamic-premium.png",
+  "slug": "color-palette",
+  "title": "Color Palette"
+ },
+ "computer": {
+  "angle": "dynamic",
+  "category": "media",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/computer-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/computer-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/computer-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/computer-dynamic-premium.png",
+  "slug": "computer",
+  "title": "Computer"
+ },
+ "copy": {
+  "angle": "dynamic",
+  "category": "content",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/copy-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/copy-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/copy-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/copy-dynamic-premium.png",
+  "slug": "copy",
+  "title": "Copy"
+ },
+ "crown": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/crow-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/crow-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/crow-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/crow-dynamic-premium.png",
+  "slug": "crown",
+  "title": "Crow"
+ },
+ "cube": {
+  "angle": "dynamic",
+  "category": "content",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/cube-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/cube-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/cube-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/cube-dynamic-premium.png",
+  "slug": "cube",
+  "title": "Cube"
+ },
+ "cup": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/cup-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/cup-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/cup-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/cup-dynamic-premium.png",
+  "slug": "cup",
+  "title": "Cup"
+ },
+ "dollar": {
+  "angle": "dynamic",
+  "category": "money-coin",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/dollar-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/dollar-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/dollar-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/dollar-dynamic-premium.png",
+  "slug": "dollar",
+  "title": "Dollar"
+ },
+ "eth": {
+  "angle": "dynamic",
+  "category": "money-coin",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/eth-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/eth-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/eth-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/eth-dynamic-premium.png",
+  "slug": "eth",
+  "title": "Eth"
+ },
+ "euro": {
+  "angle": "dynamic",
+  "category": "money-coin",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/euro-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/euro-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/euro-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/euro-dynamic-premium.png",
+  "slug": "euro",
+  "title": "Euro"
+ },
+ "explorer": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/explorer-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/explorer-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/explorer-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/explorer-dynamic-premium.png",
+  "slug": "explorer",
+  "title": "Explorer"
+ },
+ "eyedropper": {
+  "angle": "dynamic",
+  "category": "art",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/eyedropper-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/eyedropper-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/eyedropper-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/eyedropper-dynamic-premium.png",
+  "slug": "eyedropper",
+  "title": "Eyedropper"
+ },
+ "fav-folder": {
+  "angle": "dynamic",
+  "category": "document",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/fav-folder-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/fav-folder-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/fav-folder-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/fav-folder-dynamic-premium.png",
+  "slug": "fav-folder",
+  "title": "Fav Folder"
+ },
+ "figma": {
+  "angle": "dynamic",
+  "category": "a",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/figma-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/figma-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/figma-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/figma-dynamic-premium.png",
+  "slug": "figma",
+  "title": "Figma"
+ },
+ "file": {
+  "angle": "dynamic",
+  "category": "document",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/file-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/file-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/file-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/file-dynamic-premium.png",
+  "slug": "file",
+  "title": "File"
+ },
+ "file-fav": {
+  "angle": "dynamic",
+  "category": "document",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/file-fav-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/file-fav-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/file-fav-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/file-fav-dynamic-premium.png",
+  "slug": "file-fav",
+  "title": "File Fav"
+ },
+ "file-plus": {
+  "angle": "dynamic",
+  "category": "document",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/file-plus-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/file-plus-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/file-plus-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/file-plus-dynamic-premium.png",
+  "slug": "file-plus",
+  "title": "File Plus"
+ },
+ "file-text": {
+  "angle": "dynamic",
+  "category": "document",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/file-text-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/file-text-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/file-text-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/file-text-dynamic-premium.png",
+  "slug": "file-text",
+  "title": "File Text"
+ },
+ "fire": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/fire-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/fire-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/fire-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/fire-dynamic-premium.png",
+  "slug": "fire",
+  "title": "Fire"
+ },
+ "flag": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/flag-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/flag-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/flag-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/flag-dynamic-premium.png",
+  "slug": "flag",
+  "title": "Flag"
+ },
+ "flash": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/flash-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/flash-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/flash-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/flash-dynamic-premium.png",
+  "slug": "flash",
+  "title": "Flash"
+ },
+ "folder": {
+  "angle": "dynamic",
+  "category": "document",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/folder-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/folder-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/folder-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/folder-dynamic-premium.png",
+  "slug": "folder",
+  "title": "Folder"
+ },
+ "forward": {
+  "angle": "dynamic",
+  "category": "playre",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/forward-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/forward-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/forward-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/forward-dynamic-premium.png",
+  "slug": "forward",
+  "title": "Forward"
+ },
+ "gift": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/gift-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/gift-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/gift-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/gift-dynamic-premium.png",
+  "slug": "gift",
+  "title": "Gift"
+ },
+ "girl": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/girl-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/girl-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/girl-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/girl-dynamic-premium.png",
+  "slug": "girl",
+  "title": "Girl"
+ },
+ "glass": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/glass-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/glass-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/glass-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/glass-dynamic-premium.png",
+  "slug": "glass",
+  "title": "Glass"
+ },
+ "gym": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/gym-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/gym-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/gym-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/gym-dynamic-premium.png",
+  "slug": "gym",
+  "title": "Gym"
+ },
+ "headphone": {
+  "angle": "dynamic",
+  "category": "media",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/headphone-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/headphone-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/headphone-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/headphone-dynamic-premium.png",
+  "slug": "headphone",
+  "title": "Headphone"
+ },
+ "heart": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/heart-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/heart-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/heart-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/heart-dynamic-premium.png",
+  "slug": "heart",
+  "title": "Heart"
+ },
+ "key": {
+  "angle": "dynamic",
+  "category": "finance",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/key-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/key-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/key-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/key-dynamic-premium.png",
+  "slug": "key",
+  "title": "Key"
+ },
+ "lab": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/lab-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/lab-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/lab-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/lab-dynamic-premium.png",
+  "slug": "lab",
+  "title": "Lab"
+ },
+ "link": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/link-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/link-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/link-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/link-dynamic-premium.png",
+  "slug": "link",
+  "title": "Link"
+ },
+ "location": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/location-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/location-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/location-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/location-dynamic-premium.png",
+  "slug": "location",
+  "title": "Location"
+ },
+ "lock": {
+  "angle": "dynamic",
+  "category": "finance",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/lock-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/lock-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/lock-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/lock-dynamic-premium.png",
+  "slug": "lock",
+  "title": "Lock"
+ },
+ "locker": {
+  "angle": "dynamic",
+  "category": "finance",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/locker-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/locker-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/locker-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/locker-dynamic-premium.png",
+  "slug": "locker",
+  "title": "Locker"
+ },
+ "magic-trick": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/magic-trick-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/magic-trick-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/magic-trick-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/magic-trick-dynamic-premium.png",
+  "slug": "magic-trick",
+  "title": "Magic Trick"
+ },
+ "mail": {
+  "angle": "dynamic",
+  "category": "document",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/mail-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/mail-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/mail-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/mail-dynamic-premium.png",
+  "slug": "mail",
+  "title": "Mail"
+ },
+ "map-pin": {
+  "angle": "dynamic",
+  "category": "social",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/map-pin-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/map-pin-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/map-pin-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/map-pin-dynamic-premium.png",
+  "slug": "map-pin",
+  "title": "Map Pin"
+ },
+ "medal": {
+  "angle": "dynamic",
+  "category": "user",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/medal-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/medal-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/medal-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/medal-dynamic-premium.png",
+  "slug": "medal",
+  "title": "Medal"
+ },
+ "megaphone": {
+  "angle": "dynamic",
+  "category": "media",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/megaphone-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/megaphone-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/megaphone-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/megaphone-dynamic-premium.png",
+  "slug": "megaphone",
+  "title": "Megaphone"
+ },
+ "mic": {
+  "angle": "dynamic",
+  "category": "media",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/mic-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/mic-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/mic-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/mic-dynamic-premium.png",
+  "slug": "mic",
+  "title": "Mic"
+ },
+ "minecraft": {
+  "angle": "dynamic",
+  "category": "misc",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/minecraft-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/minecraft-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/minecraft-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/minecraft-dynamic-premium.png",
+  "slug": "minecraft",
+  "title": "Minecraft"
+ },
+ "mobile": {
+  "angle": "dynamic",
+  "category": "media",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/mobile-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/mobile-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/mobile-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/mobile-dynamic-premium.png",
+  "slug": "mobile",
+  "title": "Mobile"
+ },
+ "money": {
+  "angle": "dynamic",
+  "category": "money",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/money-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/money-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/money-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/money-dynamic-premium.png",
+  "slug": "money",
+  "title": "Money"
+ },
+ "money-bag": {
+  "angle": "dynamic",
+  "category": "money",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/money-bag-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/money-bag-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/money-bag-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/money-bag-dynamic-premium.png",
+  "slug": "money-bag",
+  "title": "Money Bag"
+ },
+ "moon": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/moon-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/moon-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/moon-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/moon-dynamic-premium.png",
+  "slug": "moon",
+  "title": "Moon"
+ },
+ "music": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/music-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/music-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/music-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/music-dynamic-premium.png",
+  "slug": "music",
+  "title": "Music"
+ },
+ "new-folder": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/new-folder-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/new-folder-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/new-folder-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/new-folder-dynamic-premium.png",
+  "slug": "new-folder",
+  "title": "New Folder"
+ },
+ "next": {
+  "angle": "dynamic",
+  "category": "player",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/next-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/next-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/next-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/next-dynamic-premium.png",
+  "slug": "next",
+  "title": "Next"
+ },
+ "notebook": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/notebook-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/notebook-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/notebook-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/notebook-dynamic-premium.png",
+  "slug": "notebook",
+  "title": "Notebook"
+ },
+ "notify-heart": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/notify-heart-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/notify-heart-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/notify-heart-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/notify-heart-dynamic-premium.png",
+  "slug": "notify-heart",
+  "title": "Notify Heart"
+ },
+ "paint-brush": {
+  "angle": "dynamic",
+  "category": "art",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/paint-brush-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/paint-brush-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/paint-brush-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/paint-brush-dynamic-premium.png",
+  "slug": "paint-brush",
+  "title": "Paint Brush"
+ },
+ "paint-kit": {
+  "angle": "dynamic",
+  "category": "a",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/paint-kit-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/paint-kit-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/paint-kit-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/paint-kit-dynamic-premium.png",
+  "slug": "paint-kit",
+  "title": "Paint Kit"
+ },
+ "pause": {
+  "angle": "dynamic",
+  "category": "player",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/pause-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/pause-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/pause-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/pause-dynamic-premium.png",
+  "slug": "pause",
+  "title": "Pause"
+ },
+ "pencil": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/pencil-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/pencil-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/pencil-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/pencil-dynamic-premium.png",
+  "slug": "pencil",
+  "title": "Pencil"
+ },
+ "phone-end": {
+  "angle": "dynamic",
+  "category": "phone",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/phone-end-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/phone-end-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/phone-end-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/phone-end-dynamic-premium.png",
+  "slug": "phone-end",
+  "title": "Phone End"
+ },
+ "phone-incoming": {
+  "angle": "dynamic",
+  "category": "phone",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/phone-incoming-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/phone-incoming-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/phone-incoming-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/phone-incoming-dynamic-premium.png",
+  "slug": "phone-incoming",
+  "title": "Phone Incoming"
+ },
+ "phone-missing": {
+  "angle": "dynamic",
+  "category": "phone",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/phone-missing-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/phone-missing-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/phone-missing-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/phone-missing-dynamic-premium.png",
+  "slug": "phone-missing",
+  "title": "Phone Missing"
+ },
+ "phone-only": {
+  "angle": "dynamic",
+  "category": "phone",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/phone-only-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/phone-only-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/phone-only-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/phone-only-dynamic-premium.png",
+  "slug": "phone-only",
+  "title": "Phone Only"
+ },
+ "phone-outgoing": {
+  "angle": "dynamic",
+  "category": "phone",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/phone-outgoing-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/phone-outgoing-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/phone-outgoing-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/phone-outgoing-dynamic-premium.png",
+  "slug": "phone-outgoing",
+  "title": "Phone Outgoing"
+ },
+ "phone-ringing": {
+  "angle": "dynamic",
+  "category": "phone",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/phone-ringing-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/phone-ringing-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/phone-ringing-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/phone-ringing-dynamic-premium.png",
+  "slug": "phone-ringing",
+  "title": "Phone Ringing"
+ },
+ "picture": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/picture-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/picture-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/picture-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/picture-dynamic-premium.png",
+  "slug": "picture",
+  "title": "Picture"
+ },
+ "pin": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/pin-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/pin-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/pin-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/pin-dynamic-premium.png",
+  "slug": "pin",
+  "title": "Pin"
+ },
+ "play": {
+  "angle": "dynamic",
+  "category": "player",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/play-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/play-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/play-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/play-dynamic-premium.png",
+  "slug": "play",
+  "title": "Play"
+ },
+ "plus": {
+  "angle": "dynamic",
+  "category": "at",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/plus-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/plus-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/plus-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/plus-dynamic-premium.png",
+  "slug": "plus",
+  "title": "Plus"
+ },
+ "pound": {
+  "angle": "dynamic",
+  "category": "money-coin",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/pound-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/pound-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/pound-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/pound-dynamic-premium.png",
+  "slug": "pound",
+  "title": "Pound"
+ },
+ "puzzle": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/puzzle-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/puzzle-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/puzzle-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/puzzle-dynamic-premium.png",
+  "slug": "puzzle",
+  "title": "Puzzle"
+ },
+ "rocket": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/rocket-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/rocket-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/rocket-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/rocket-dynamic-premium.png",
+  "slug": "rocket",
+  "title": "Rocket"
+ },
+ "roll-brush": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/roll-brush-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/roll-brush-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/roll-brush-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/roll-brush-dynamic-premium.png",
+  "slug": "roll-brush",
+  "title": "Roll Brush"
+ },
+ "rupee": {
+  "angle": "dynamic",
+  "category": "money-coin",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/rupee-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/rupee-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/rupee-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/rupee-dynamic-premium.png",
+  "slug": "rupee",
+  "title": "Rupee"
+ },
+ "scissor": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/scissor-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/scissor-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/scissor-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/scissor-dynamic-premium.png",
+  "slug": "scissor",
+  "title": "Scissor"
+ },
+ "setting": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/setting-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/setting-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/setting-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/setting-dynamic-premium.png",
+  "slug": "setting",
+  "title": "Setting"
+ },
+ "sheild": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/sheild-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/sheild-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/sheild-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/sheild-dynamic-premium.png",
+  "slug": "sheild",
+  "title": "Sheild"
+ },
+ "sphere": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/sphere-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/sphere-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/sphere-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/sphere-dynamic-premium.png",
+  "slug": "sphere",
+  "title": "Sphere"
+ },
+ "star": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/star-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/star-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/star-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/star-dynamic-premium.png",
+  "slug": "star",
+  "title": "Star"
+ },
+ "sun": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/sun-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/sun-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/sun-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/sun-dynamic-premium.png",
+  "slug": "sun",
+  "title": "Sun"
+ },
+ "takeaway-cup": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/takeaway-cup-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/takeaway-cup-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/takeaway-cup-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/takeaway-cup-dynamic-premium.png",
+  "slug": "takeaway-cup",
+  "title": "Takeaway Cup"
+ },
+ "target": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/target-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/target-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/target-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/target-dynamic-premium.png",
+  "slug": "target",
+  "title": "Target"
+ },
+ "tea-cup": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/tea-cup-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/tea-cup-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/tea-cup-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/tea-cup-dynamic-premium.png",
+  "slug": "tea-cup",
+  "title": "Tea Cup"
+ },
+ "text": {
+  "angle": "dynamic",
+  "category": "at",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/text-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/text-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/text-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/text-dynamic-premium.png",
+  "slug": "text",
+  "title": "Text"
+ },
+ "thumb-down": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/thumb-down-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/thumb-down-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/thumb-down-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/thumb-down-dynamic-premium.png",
+  "slug": "thumb-down",
+  "title": "Thumb Down"
+ },
+ "thumb-up": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/thumb-up-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/thumb-up-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/thumb-up-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/thumb-up-dynamic-premium.png",
+  "slug": "thumb-up",
+  "title": "Thumb Up"
+ },
+ "tick": {
+  "angle": "dynamic",
+  "category": "at",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/tick-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/tick-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/tick-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/tick-dynamic-premium.png",
+  "slug": "tick",
+  "title": "Tick"
+ },
+ "toggle": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/toggle-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/toggle-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/toggle-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/toggle-dynamic-premium.png",
+  "slug": "toggle",
+  "title": "Toggle"
+ },
+ "tool": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/tool-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/tool-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/tool-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/tool-dynamic-premium.png",
+  "slug": "tool",
+  "title": "Tool"
+ },
+ "trash-can": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/trash-can-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/trash-can-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/trash-can-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/trash-can-dynamic-premium.png",
+  "slug": "trash-can",
+  "title": "Trash Can"
+ },
+ "travel": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/travel-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/travel-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/travel-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/travel-dynamic-premium.png",
+  "slug": "travel",
+  "title": "Travel"
+ },
+ "trophy": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/trophy-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/trophy-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/trophy-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/trophy-dynamic-premium.png",
+  "slug": "trophy",
+  "title": "Trophy"
+ },
+ "umbrella": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/umbrella-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/umbrella-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/umbrella-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/umbrella-dynamic-premium.png",
+  "slug": "umbrella",
+  "title": "Umbrella"
+ },
+ "video-camera": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/video-camera-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/video-camera-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/video-camera-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/video-camera-dynamic-premium.png",
+  "slug": "video-camera",
+  "title": "Video Camera"
+ },
+ "wallet": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/wallet-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/wallet-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/wallet-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/wallet-dynamic-premium.png",
+  "slug": "wallet",
+  "title": "Wallet"
+ },
+ "wifi": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/wifi-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/wifi-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/wifi-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/wifi-dynamic-premium.png",
+  "slug": "wifi",
+  "title": "Wifi"
+ },
+ "yuan": {
+  "angle": "dynamic",
+  "category": "money-coin",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/yuan-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/yuan-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/yuan-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/yuan-dynamic-premium.png",
+  "slug": "yuan",
+  "title": "Yuan"
+ },
+ "zoom": {
+  "angle": "dynamic",
+  "category": "icons",
+  "clay": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/clay/zoom-dynamic-clay.png",
+  "color": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/color/zoom-dynamic-color.png",
+  "gradient": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/gradient/zoom-dynamic-gradient.png",
+  "premium": "https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/zoom-dynamic-premium.png",
+  "slug": "zoom",
+  "title": "Zoom"
+ }
+}

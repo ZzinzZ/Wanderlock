@@ -1,0 +1,1652 @@
+{
+  "_readme": "Doi chieu toa do da soan voi Google Maps, sinh ngay 2026-09-27. agree = ghim cua Google nam trong ban kinh check-in; near = ngoai ban kinh nhung duoi 250 m; conflict = lech tren 250 m, mot trong hai sai; unknown = Google khong co dia diem nao mang ten do, phai nhin anh ve tinh. KHONG tu dat verified: dong y voi Google chi chung minh hai nguon trung nhau.",
+  "checkedAt": "2026-09-27",
+  "counts": {
+    "agree": 155,
+    "near": 29,
+    "conflict": 22,
+    "unknown": 66
+  },
+  "places": {
+    "independence-palace": {
+      "verdict": "agree",
+      "metres": 25,
+      "lat": 10.776994,
+      "lon": 106.695302,
+      "googleName": "Independence Palace"
+    },
+    "central-post-office": {
+      "verdict": "unknown"
+    },
+    "ben-thanh-market": {
+      "verdict": "agree",
+      "metres": 17,
+      "lat": 10.772517,
+      "lon": 106.698021,
+      "googleName": "Ben Thanh Market"
+    },
+    "war-remnants-museum": {
+      "verdict": "agree",
+      "metres": 18,
+      "lat": 10.779511,
+      "lon": 106.692092,
+      "googleName": "War Remnants Museum"
+    },
+    "vinh-nghiem-pagoda": {
+      "verdict": "agree",
+      "metres": 3,
+      "lat": 10.79039,
+      "lon": 106.68228,
+      "googleName": "Vinh Nghiem Buddhist Temple"
+    },
+    "binh-tay-market": {
+      "verdict": "agree",
+      "metres": 14,
+      "lat": 10.749364,
+      "lon": 106.651045,
+      "googleName": "Binh Tay Market"
+    },
+    "le-van-duyet-tomb": {
+      "verdict": "agree",
+      "metres": 34,
+      "lat": 10.801881,
+      "lon": 106.696907,
+      "googleName": "Tomb of Le Van Duyet"
+    },
+    "giac-lam-pagoda": {
+      "verdict": "near",
+      "metres": 76,
+      "lat": 10.778707,
+      "lon": 106.649191,
+      "googleName": "Giac Lam Buddhist Temple"
+    },
+    "nha-rong-wharf": {
+      "verdict": "agree",
+      "metres": 14,
+      "lat": 10.768249,
+      "lon": 106.706803,
+      "googleName": "Dragon House Harbor - Ho Chi Minh Museum"
+    },
+    "thien-hau-temple": {
+      "verdict": "unknown"
+    },
+    "landmark-81": {
+      "verdict": "agree",
+      "metres": 48,
+      "lat": 10.795115,
+      "lon": 106.7221,
+      "googleName": "Landmark 81"
+    },
+    "buu-long-pagoda": {
+      "verdict": "agree",
+      "metres": 24,
+      "lat": 10.878872,
+      "lon": 106.835029,
+      "googleName": "Buu Long Pagoda"
+    },
+    "bia-ghi-cong-mat-tran-cau-kieu": {
+      "verdict": "conflict",
+      "metres": 2394,
+      "lat": 10.790356,
+      "lon": 106.707744,
+      "googleName": "Bia Ghi Cong Mat Tran Cau Thi Nghe"
+    },
+    "bao-tang-dia-chat": {
+      "verdict": "agree",
+      "metres": 29,
+      "lat": 10.784798,
+      "lon": 106.707853,
+      "googleName": "Geological Museum of Vietnam"
+    },
+    "tuong-an-duong-vuong": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.75985,
+      "lon": 106.668872,
+      "googleName": "An Duong Vuong Monument Statue"
+    },
+    "phong-truyen-thong-thanh-doan": {
+      "verdict": "unknown"
+    },
+    "ho-con-rua": {
+      "verdict": "agree",
+      "metres": 9,
+      "lat": 10.782661,
+      "lon": 106.695915,
+      "googleName": "Turtle Lake"
+    },
+    "bia-tuong-niem-tran-danh-toa-dai-su-my": {
+      "verdict": "unknown"
+    },
+    "bao-tang-tma": {
+      "verdict": "unknown"
+    },
+    "duc-ba-hoa-binh": {
+      "verdict": "unknown"
+    },
+    "nha-hat-mua-roi-nuoc-rong-vang": {
+      "verdict": "agree",
+      "metres": 8,
+      "lat": 10.77626,
+      "lon": 106.692537,
+      "googleName": "The Golden Dragon Water Puppet Theater"
+    },
+    "tuong-tran-danh-cu-xa-brink": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.77764,
+      "lon": 106.703687,
+      "googleName": "Brinks Hotel Bombing Memorial"
+    },
+    "nghia-dung-dai": {
+      "verdict": "agree",
+      "metres": 6,
+      "lat": 10.889416,
+      "lon": 106.809774,
+      "googleName": "Monument of Righteous Bravery - ARVN Cemetery"
+    },
+    "lang-le-van-duyet": {
+      "verdict": "conflict",
+      "metres": 1047,
+      "lat": 10.80222,
+      "lon": 106.697085,
+      "googleName": "The Mausoleum of Le Van Duyet"
+    },
+    "chua-mot-cot": {
+      "verdict": "agree",
+      "metres": 44,
+      "lat": 10.843592,
+      "lon": 106.763163,
+      "googleName": "One Pillar Pagoda Thu Duc"
+    },
+    "xe-tang-390": {
+      "verdict": "unknown"
+    },
+    "banh-xeo-46a": {
+      "verdict": "agree",
+      "metres": 6,
+      "lat": 10.789567,
+      "lon": 106.691343,
+      "googleName": "Banh Xeo 46A"
+    },
+    "banh-cuon-hai-nam": {
+      "verdict": "agree",
+      "metres": 11,
+      "lat": 10.76869,
+      "lon": 106.683384,
+      "googleName": "Banh cuon Hai Nam"
+    },
+    "banh-xeo-muoi-xiem": {
+      "verdict": "agree",
+      "metres": 16,
+      "lat": 10.79429,
+      "lon": 106.678143,
+      "googleName": "Banh Xeo Muoi Xiem"
+    },
+    "dai-ky-niem-thich-quang-duc": {
+      "verdict": "near",
+      "metres": 52,
+      "lat": 10.775432,
+      "lon": 106.686767,
+      "googleName": "Dai tuong niem Bo tat Thich Quang Duc"
+    },
+    "bao-tang-fito": {
+      "verdict": "agree",
+      "metres": 13,
+      "lat": 10.776192,
+      "lon": 106.671889,
+      "googleName": "Bao tang Y hoc Co truyen"
+    },
+    "cong-vien-ven-song-an-phu-hung": {
+      "verdict": "unknown"
+    },
+    "tuong-bo-tat-thich-quang-duc": {
+      "verdict": "agree",
+      "metres": 2,
+      "lat": 10.775432,
+      "lon": 106.686767,
+      "googleName": "Dai tuong niem Bo tat Thich Quang Duc"
+    },
+    "bao-tang-ao-dai": {
+      "verdict": "conflict",
+      "metres": 389,
+      "lat": 10.808792,
+      "lon": 106.853174,
+      "googleName": "Ao Dai Museum"
+    },
+    "tara-kys-art-gallery": {
+      "verdict": "near",
+      "metres": 171,
+      "lat": 10.775038,
+      "lon": 106.704149,
+      "googleName": "Tara & Kys Art Gallery"
+    },
+    "bao-tang-tu-nhan-duc-minh": {
+      "verdict": "unknown"
+    },
+    "dia-dao-phu-tho-hoa": {
+      "verdict": "agree",
+      "metres": 52,
+      "lat": 10.783918,
+      "lon": 106.630903,
+      "googleName": "Phu Tho Hoa Tunnels"
+    },
+    "lang-truong-vinh-ky": {
+      "verdict": "agree",
+      "metres": 7,
+      "lat": 10.755626,
+      "lon": 106.681558,
+      "googleName": "Petrus Truong Vinh Ky Memorial"
+    },
+    "the-workshop-coffee": {
+      "verdict": "agree",
+      "metres": 11,
+      "lat": 10.773476,
+      "lon": 106.705604,
+      "googleName": "The Workshop Coffee"
+    },
+    "nha-hat-hang-khong-mau-ham": {
+      "verdict": "unknown"
+    },
+    "tuong-dai-cong-nong-binh": {
+      "verdict": "agree",
+      "metres": 0,
+      "lat": 10.767686,
+      "lon": 106.674391,
+      "googleName": "Tuong dai Cong Nong Binh"
+    },
+    "khu-du-lich-binh-quoi": {
+      "verdict": "unknown"
+    },
+    "dai-tuong-niem-liet-si-quan-8": {
+      "verdict": "agree",
+      "metres": 20,
+      "lat": 10.706416,
+      "lon": 106.627192,
+      "googleName": "Den tuong niem Liet si Quan 8"
+    },
+    "doc-shakespeare": {
+      "verdict": "conflict",
+      "metres": 15335,
+      "lat": 10.780963,
+      "lon": 106.700073,
+      "googleName": "Saigon Book Street"
+    },
+    "pho-hoa-pasteur": {
+      "verdict": "agree",
+      "metres": 27,
+      "lat": 10.786691,
+      "lon": 106.689263,
+      "googleName": "Pho Hoa Pasteur"
+    },
+    "luong-son-quan": {
+      "verdict": "unknown"
+    },
+    "hien-tai-la-nguyen-khi-quoc-gia": {
+      "verdict": "unknown"
+    },
+    "tuong-dai-tran-van-on": {
+      "verdict": "agree",
+      "metres": 7,
+      "lat": 10.77665,
+      "lon": 106.699436,
+      "googleName": "Tuong Tran Van On"
+    },
+    "banh-mi-hoa-ma": {
+      "verdict": "agree",
+      "metres": 21,
+      "lat": 10.770205,
+      "lon": 106.681594,
+      "googleName": "Banh Mi Hoa Ma"
+    },
+    "pho-phu-vuong": {
+      "verdict": "unknown"
+    },
+    "cong-vien-bo-song-sai-gon": {
+      "verdict": "unknown"
+    },
+    "quan-com-tam-thuan-kieu": {
+      "verdict": "unknown"
+    },
+    "cau-di-bo-so-7": {
+      "verdict": "agree",
+      "metres": 11,
+      "lat": 10.745925,
+      "lon": 106.654302,
+      "googleName": "Cau di bo so 7"
+    },
+    "quan-ca-phe-cheo-leo": {
+      "verdict": "agree",
+      "metres": 12,
+      "lat": 10.766997,
+      "lon": 106.679853,
+      "googleName": "Cheo Leo Cafe"
+    },
+    "bun-bo-hue-dong-ba": {
+      "verdict": "unknown"
+    },
+    "tuong-quach-thi-trang": {
+      "verdict": "unknown"
+    },
+    "bia-ky-niem-le-doc-lap": {
+      "verdict": "unknown"
+    },
+    "duc-me-maria": {
+      "verdict": "unknown"
+    },
+    "di-tich-chuong-chim-bo-cau-nguoi-an-tamil": {
+      "verdict": "conflict",
+      "metres": 13566,
+      "lat": 10.895277,
+      "lon": 106.688991,
+      "googleName": "Chuong chim bo cau"
+    },
+    "bia-ky-niem-su-kien-dau-tranh-ngay-19-3-1950": {
+      "verdict": "unknown"
+    },
+    "khu-du-lich-van-thanh": {
+      "verdict": "near",
+      "metres": 113,
+      "lat": 10.798721,
+      "lon": 106.71656,
+      "googleName": "Van Thanh Tourist Village"
+    },
+    "okkio": {
+      "verdict": "unknown"
+    },
+    "annam-gallery": {
+      "verdict": "agree",
+      "metres": 15,
+      "lat": 10.789896,
+      "lon": 106.688809,
+      "googleName": "Annam Gallery"
+    },
+    "di-tich-lich-su-go-o-moi": {
+      "verdict": "agree",
+      "metres": 2,
+      "lat": 10.733839,
+      "lon": 106.741127,
+      "googleName": "Di tich lich su Go O Moi"
+    },
+    "dai-tuong-niem-liet-sy-binh-thanh": {
+      "verdict": "agree",
+      "metres": 9,
+      "lat": 10.803184,
+      "lon": 106.695198,
+      "googleName": "Binh Thanh Martyrs Memorial"
+    },
+    "cbes-mini-museum": {
+      "verdict": "conflict",
+      "metres": 8372,
+      "lat": 10.772517,
+      "lon": 106.698021,
+      "googleName": "Ben Thanh Market"
+    },
+    "bia-truyen-thong-vuon-lai": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.764986,
+      "lon": 106.672664,
+      "googleName": "Bia Truyen Thong Vuon Lai"
+    },
+    "hu-tieu-hong-phat": {
+      "verdict": "unknown"
+    },
+    "secret-garden": {
+      "verdict": "conflict",
+      "metres": 922,
+      "lat": 10.777082,
+      "lon": 106.699754,
+      "googleName": "Secret Garden"
+    },
+    "tuong-dai-chien-thang-bac-thu-duc": {
+      "verdict": "agree",
+      "metres": 1,
+      "lat": 10.85482,
+      "lon": 106.739331,
+      "googleName": "Victory Monument Northern Thu Duc"
+    },
+    "bia-tuong-niem-nam-bo-khang-chien": {
+      "verdict": "agree",
+      "metres": 4,
+      "lat": 10.749031,
+      "lon": 106.683526,
+      "googleName": "Bia tuong niem Nam Bo Khang Chien"
+    },
+    "van-duong-phu-nha-cu-vuong-hong-sen": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.805184,
+      "lon": 106.699255,
+      "googleName": "11 Nguyen Thien Thuat"
+    },
+    "quang-san-art-museum": {
+      "verdict": "agree",
+      "metres": 10,
+      "lat": 10.818018,
+      "lon": 106.730151,
+      "googleName": "Quang San Art Museum"
+    },
+    "pho-binh": {
+      "verdict": "unknown"
+    },
+    "thao-cam-vien-sai-gon": {
+      "verdict": "near",
+      "metres": 162,
+      "lat": 10.787334,
+      "lon": 106.705057,
+      "googleName": "Saigon Zoo & Botanical Gardens"
+    },
+    "cong-vien-le-thi-rieng": {
+      "verdict": "unknown"
+    },
+    "cong-vien-van-hoa-dam-sen": {
+      "verdict": "conflict",
+      "metres": 551,
+      "lat": 10.768695,
+      "lon": 106.636151,
+      "googleName": "Dam Sen Water Park"
+    },
+    "cong-vien-le-van-tam": {
+      "verdict": "agree",
+      "metres": 9,
+      "lat": 10.788161,
+      "lon": 106.693773,
+      "googleName": "Le Van Tam Park"
+    },
+    "khu-du-lich-ky-hoa": {
+      "verdict": "unknown"
+    },
+    "cong-vien-phu-lam": {
+      "verdict": "agree",
+      "metres": 75,
+      "lat": 10.747604,
+      "lon": 106.624783,
+      "googleName": "Phu Lam Park"
+    },
+    "cong-vien-so-1-ly-thai-to": {
+      "verdict": "unknown"
+    },
+    "cho-tan-dinh": {
+      "verdict": "agree",
+      "metres": 3,
+      "lat": 10.789891,
+      "lon": 106.690024,
+      "googleName": "Tan Dinh Market"
+    },
+    "nha-hat-ben-thanh": {
+      "verdict": "agree",
+      "metres": 6,
+      "lat": 10.784088,
+      "lon": 106.70089,
+      "googleName": "Nha hat Ben Thanh"
+    },
+    "nha-tho-thanh-jeanne-d-arc": {
+      "verdict": "agree",
+      "metres": 20,
+      "lat": 10.756925,
+      "lon": 106.667229,
+      "googleName": "Church of St. Jeanne D Arc"
+    },
+    "lotte-mart-quan-7": {
+      "verdict": "agree",
+      "metres": 34,
+      "lat": 10.740945,
+      "lon": 106.701809,
+      "googleName": "LOTTE Mart District 7"
+    },
+    "cho-tran-huu-trang": {
+      "verdict": "agree",
+      "metres": 41,
+      "lat": 10.793868,
+      "lon": 106.671799,
+      "googleName": "Cho Tran Huu Trang"
+    },
+    "cho-phu-nhuan": {
+      "verdict": "agree",
+      "metres": 31,
+      "lat": 10.79413,
+      "lon": 106.682922,
+      "googleName": "Phu Nhuan Market"
+    },
+    "nha-tho-tan-dinh": {
+      "verdict": "agree",
+      "metres": 3,
+      "lat": 10.788336,
+      "lon": 106.690679,
+      "googleName": "Nha Tho Giao Xu Tan Dinh"
+    },
+    "cho-nguyen-dinh-chieu": {
+      "verdict": "agree",
+      "metres": 9,
+      "lat": 10.804711,
+      "lon": 106.679971,
+      "googleName": "Cho Nguyen Dinh Chieu"
+    },
+    "cho-an-dong": {
+      "verdict": "agree",
+      "metres": 15,
+      "lat": 10.758199,
+      "lon": 106.672282,
+      "googleName": "An Dong Market"
+    },
+    "cho-hoa-ho-thi-ky": {
+      "verdict": "agree",
+      "metres": 47,
+      "lat": 10.76539,
+      "lon": 106.677005,
+      "googleName": "Ho Thi Ky Flower Market"
+    },
+    "nha-hat-hoa-binh": {
+      "verdict": "agree",
+      "metres": 11,
+      "lat": 10.772295,
+      "lon": 106.673922,
+      "googleName": "Peace Theater"
+    },
+    "cong-vien-ho-ban-nguyet": {
+      "verdict": "agree",
+      "metres": 92,
+      "lat": 10.725542,
+      "lon": 106.717058,
+      "googleName": "Crescent Lake Park"
+    },
+    "cong-vien-kenh-dao": {
+      "verdict": "conflict",
+      "metres": 1430,
+      "lat": 10.724404,
+      "lon": 106.727309,
+      "googleName": "Sakura Park Phu My Hung"
+    },
+    "cong-vien-van-lang": {
+      "verdict": "unknown"
+    },
+    "trung-bay-tu-dinh-norodom-den-dinh-doc-lap": {
+      "verdict": "near",
+      "metres": 221,
+      "lat": 10.776994,
+      "lon": 106.695302,
+      "googleName": "Independence Palace"
+    },
+    "bao-tang-chien-dich-ho-chi-minh": {
+      "verdict": "agree",
+      "metres": 2,
+      "lat": 10.786984,
+      "lon": 106.704259,
+      "googleName": "Ho Chi Minh Campaign Museum"
+    },
+    "cho-phu-lam": {
+      "verdict": "unknown"
+    },
+    "cho-cay-da-sa": {
+      "verdict": "agree",
+      "metres": 20,
+      "lat": 10.756277,
+      "lon": 106.619062,
+      "googleName": "CHO CAY DA SA"
+    },
+    "chung-cu-42-nguyen-hue": {
+      "verdict": "conflict",
+      "metres": 8644,
+      "lat": 10.755187,
+      "lon": 106.627562,
+      "googleName": "karaoke Olala"
+    },
+    "den-sri-mariamman": {
+      "verdict": "agree",
+      "metres": 17,
+      "lat": 10.772403,
+      "lon": 106.695662,
+      "googleName": "Mariamman Hindu temple"
+    },
+    "crescent-mall": {
+      "verdict": "agree",
+      "metres": 55,
+      "lat": 10.728503,
+      "lon": 106.718771,
+      "googleName": "Crescent Mall"
+    },
+    "cho-tan-my": {
+      "verdict": "agree",
+      "metres": 45,
+      "lat": 10.736447,
+      "lon": 106.718317,
+      "googleName": "Tan My Market"
+    },
+    "cho-kim-bien": {
+      "verdict": "unknown"
+    },
+    "cong-vien-vo-van-kiet": {
+      "verdict": "agree",
+      "metres": 44,
+      "lat": 10.750428,
+      "lon": 106.670877,
+      "googleName": "Cong vien Vo Van Kiet"
+    },
+    "cong-vien-canh-vien": {
+      "verdict": "agree",
+      "metres": 13,
+      "lat": 10.717328,
+      "lon": 106.730863,
+      "googleName": "Cong vien Canh vien"
+    },
+    "cong-vien-nam-vien": {
+      "verdict": "unknown"
+    },
+    "nha-hat-quan-doi": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.802005,
+      "lon": 106.656447,
+      "googleName": "Army Theater"
+    },
+    "bao-tang-khong-quan-phia-nam": {
+      "verdict": "agree",
+      "metres": 9,
+      "lat": 10.805273,
+      "lon": 106.660664,
+      "googleName": "Air Force Museum"
+    },
+    "dai-tuong-niem-liet-si-quan-tan-binh": {
+      "verdict": "unknown"
+    },
+    "cho-tan-binh": {
+      "verdict": "agree",
+      "metres": 3,
+      "lat": 10.786105,
+      "lon": 106.653277,
+      "googleName": "Tan Binh Market"
+    },
+    "cho-nguyen-van-troi": {
+      "verdict": "agree",
+      "metres": 23,
+      "lat": 10.786421,
+      "lon": 106.680047,
+      "googleName": "Nguyen Van Troi Market"
+    },
+    "cong-vien-wonderland": {
+      "verdict": "unknown"
+    },
+    "cho-hanh-thong-tay": {
+      "verdict": "near",
+      "metres": 88,
+      "lat": 10.834984,
+      "lon": 106.658232,
+      "googleName": "Cho Hanh Thong Tay"
+    },
+    "cho-an-suong": {
+      "verdict": "near",
+      "metres": 64,
+      "lat": 10.846076,
+      "lon": 106.620599,
+      "googleName": "Cho An Suong"
+    },
+    "san-khau-126": {
+      "verdict": "agree",
+      "metres": 28,
+      "lat": 10.777537,
+      "lon": 106.682604,
+      "googleName": "San Khau 126"
+    },
+    "bao-tang-khong-quan": {
+      "verdict": "unknown"
+    },
+    "cong-vien-lang-hoa-go-vap": {
+      "verdict": "agree",
+      "metres": 12,
+      "lat": 10.841896,
+      "lon": 106.656146,
+      "googleName": "Go Vap Floral Village Park"
+    },
+    "kich-phu-nhuan": {
+      "verdict": "agree",
+      "metres": 19,
+      "lat": 10.795407,
+      "lon": 106.676339,
+      "googleName": "San Khau Quoc Thao"
+    },
+    "cho-thi-nghe": {
+      "verdict": "near",
+      "metres": 80,
+      "lat": 10.791643,
+      "lon": 106.708155,
+      "googleName": "Thi Nghe Market"
+    },
+    "cho-tan-kieng-2": {
+      "verdict": "agree",
+      "metres": 34,
+      "lat": 10.745392,
+      "lon": 106.704469,
+      "googleName": "Cho Tan Kieng 2"
+    },
+    "san-khau-lan-anh": {
+      "verdict": "near",
+      "metres": 89,
+      "lat": 10.779016,
+      "lon": 106.678373,
+      "googleName": "Lan Anh theatre"
+    },
+    "den-tho-vua-hung": {
+      "verdict": "unknown"
+    },
+    "cho-son-ky": {
+      "verdict": "unknown"
+    },
+    "cau-mong": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.768111,
+      "lon": 106.703653,
+      "googleName": "Cau Mong"
+    },
+    "trung-tam-mua-sam-nowzone": {
+      "verdict": "agree",
+      "metres": 67,
+      "lat": 10.763763,
+      "lon": 106.682649,
+      "googleName": "NOWZONE Fashion Mall"
+    },
+    "cong-vien-lich-su-van-hoa-dan-toc": {
+      "verdict": "conflict",
+      "metres": 556,
+      "lat": 10.887877,
+      "lon": 106.819611,
+      "googleName": "National Cultural History Park"
+    },
+    "den-tuong-niem-ben-noc": {
+      "verdict": "near",
+      "metres": 113,
+      "lat": 10.848087,
+      "lon": 106.804271,
+      "googleName": "Ben Noc Memorial"
+    },
+    "cho-dong-hoa": {
+      "verdict": "agree",
+      "metres": 20,
+      "lat": 10.890436,
+      "lon": 106.785844,
+      "googleName": "Dong Hoa Market"
+    },
+    "cho-tan-phu": {
+      "verdict": "unknown"
+    },
+    "cho-ba-chieu": {
+      "verdict": "agree",
+      "metres": 9,
+      "lat": 10.801605,
+      "lon": 106.698817,
+      "googleName": "Ba Chieu Market"
+    },
+    "cho-dau-moi-thu-duc": {
+      "verdict": "near",
+      "metres": 184,
+      "lat": 10.868742,
+      "lon": 106.728707,
+      "googleName": "Thu Duc Agricultural Product Market"
+    },
+    "cho-thu-duc-b": {
+      "verdict": "agree",
+      "metres": 31,
+      "lat": 10.850244,
+      "lon": 106.755595,
+      "googleName": "Cho Thu Duc B"
+    },
+    "cho-go-vap": {
+      "verdict": "agree",
+      "metres": 39,
+      "lat": 10.823711,
+      "lon": 106.686932,
+      "googleName": "Cho Go Vap"
+    },
+    "cho-cay-queo": {
+      "verdict": "conflict",
+      "metres": 356,
+      "lat": 10.808015,
+      "lon": 106.687742,
+      "googleName": "Cho cay queo"
+    },
+    "cho-phuoc-binh": {
+      "verdict": "unknown"
+    },
+    "cho-phu-loi-2": {
+      "verdict": "agree",
+      "metres": 9,
+      "lat": 10.708241,
+      "lon": 106.622509,
+      "googleName": "Phu Loi 2 Market"
+    },
+    "cho-thiec": {
+      "verdict": "agree",
+      "metres": 42,
+      "lat": 10.759522,
+      "lon": 106.656976,
+      "googleName": "Cho Thiec"
+    },
+    "cong-vien-ta-quang-buu": {
+      "verdict": "agree",
+      "metres": 10,
+      "lat": 10.737048,
+      "lon": 106.676007,
+      "googleName": "Cong vien Ta Quang Buu"
+    },
+    "cho-tu-duc": {
+      "verdict": "unknown"
+    },
+    "cho-nguyen-tri-phuong": {
+      "verdict": "conflict",
+      "metres": 856,
+      "lat": 10.758853,
+      "lon": 106.669086,
+      "googleName": "Nguyen Tri Phuong"
+    },
+    "cho-hoa-hau-giang": {
+      "verdict": "agree",
+      "metres": 60,
+      "lat": 10.748997,
+      "lon": 106.638494,
+      "googleName": "Cho Hoa Hau Giang"
+    },
+    "cho-minh-phung": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.75078,
+      "lon": 106.642755,
+      "googleName": "Minh Phung Market"
+    },
+    "cong-vien-binh-phu": {
+      "verdict": "agree",
+      "metres": 120,
+      "lat": 10.741761,
+      "lon": 106.63278,
+      "googleName": "Cong Vien Binh Phu"
+    },
+    "cho-thanh-xuan": {
+      "verdict": "near",
+      "metres": 122,
+      "lat": 10.879034,
+      "lon": 106.677696,
+      "googleName": "Cho Thanh Xuan"
+    },
+    "tru-so-uy-ban-nhan-dan-thanh-pho-ho-chi-minh": {
+      "verdict": "agree",
+      "metres": 7,
+      "lat": 10.776543,
+      "lon": 106.700916,
+      "googleName": "People's Committee of HCMC"
+    },
+    "sc-vivocity": {
+      "verdict": "agree",
+      "metres": 31,
+      "lat": 10.730209,
+      "lon": 106.703364,
+      "googleName": "SC VivoCity"
+    },
+    "cho-xom-cui": {
+      "verdict": "agree",
+      "metres": 11,
+      "lat": 10.745836,
+      "lon": 106.660996,
+      "googleName": "Xom Cui Market"
+    },
+    "vincom-plaza-thu-duc": {
+      "verdict": "agree",
+      "metres": 16,
+      "lat": 10.8501,
+      "lon": 106.7651,
+      "googleName": "Vincom Thu Duc"
+    },
+    "dai-tuong-niem-liet-sy-quan-phu-nhuan": {
+      "verdict": "agree",
+      "metres": 22,
+      "lat": 10.792334,
+      "lon": 106.680565,
+      "googleName": "Dai Liet Si Quan Phu Nhuan"
+    },
+    "cho-bau-cat": {
+      "verdict": "near",
+      "metres": 62,
+      "lat": 10.792089,
+      "lon": 106.641837,
+      "googleName": "Cho Bau Cat"
+    },
+    "bao-tang-luc-luong-vu-trang-mien-dong-nam-bo": {
+      "verdict": "near",
+      "metres": 74,
+      "lat": 10.800012,
+      "lon": 106.666181,
+      "googleName": "Southeastern Armed Forces Museum"
+    },
+    "cho-hoa-hung": {
+      "verdict": "agree",
+      "metres": 13,
+      "lat": 10.783259,
+      "lon": 106.671184,
+      "googleName": "Hoa Hung Market"
+    },
+    "cong-vien-lo-gom": {
+      "verdict": "agree",
+      "metres": 82,
+      "lat": 10.740824,
+      "lon": 106.633866,
+      "googleName": "Cong vien Lo Gom"
+    },
+    "cho-pham-the-hien": {
+      "verdict": "conflict",
+      "metres": 2679,
+      "lat": 10.735836,
+      "lon": 106.647809,
+      "googleName": "Pham The Hien"
+    },
+    "cho-tin-nghia": {
+      "verdict": "unknown"
+    },
+    "cong-vien-bau-cat": {
+      "verdict": "unknown"
+    },
+    "cho-hoa-tuoi-dam-sen": {
+      "verdict": "agree",
+      "metres": 40,
+      "lat": 10.769859,
+      "lon": 106.642435,
+      "googleName": "Cho Hoa tuoi Dam Sen"
+    },
+    "vincom-megamall-thao-dien": {
+      "verdict": "unknown"
+    },
+    "vincom-plaza-quang-trung": {
+      "verdict": "agree",
+      "metres": 30,
+      "lat": 10.829242,
+      "lon": 106.672664,
+      "googleName": "Vincom Plaza Quang Trung"
+    },
+    "cho-hiep-tan": {
+      "verdict": "unknown"
+    },
+    "cho-binh-tri-dong": {
+      "verdict": "unknown"
+    },
+    "khu-du-lich-suoi-tien": {
+      "verdict": "unknown"
+    },
+    "cho-vuon-chuoi": {
+      "verdict": "near",
+      "metres": 73,
+      "lat": 10.77296,
+      "lon": 106.684595,
+      "googleName": "Vuon Chuoi Market"
+    },
+    "san-khau-trong-dong": {
+      "verdict": "agree",
+      "metres": 11,
+      "lat": 10.772654,
+      "lon": 106.69223,
+      "googleName": "Trong Dong Theater"
+    },
+    "cong-vien-ben-bach-dang": {
+      "verdict": "unknown"
+    },
+    "cho-dau-moi-binh-dien": {
+      "verdict": "near",
+      "metres": 195,
+      "lat": 10.702233,
+      "lon": 106.608659,
+      "googleName": "Cho Dau moi Binh Dien"
+    },
+    "cong-vien-gia-phu": {
+      "verdict": "agree",
+      "metres": 33,
+      "lat": 10.806359,
+      "lon": 106.607729,
+      "googleName": "Gia Phu Park"
+    },
+    "cong-vien-son-ky": {
+      "verdict": "unknown"
+    },
+    "san-khau-kich-hoang-thai-thanh": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.781097,
+      "lon": 106.659777,
+      "googleName": "Hoang Thai Thanh Drama Theater"
+    },
+    "cho-thu-duc": {
+      "verdict": "agree",
+      "metres": 12,
+      "lat": 10.850273,
+      "lon": 106.754301,
+      "googleName": "Thu Duc Market"
+    },
+    "cong-vien-tao-dan": {
+      "verdict": "agree",
+      "metres": 141,
+      "lat": 10.77558,
+      "lon": 106.69208,
+      "googleName": "Tao Dan Park"
+    },
+    "cho-thuoc-quan-10": {
+      "verdict": "unknown"
+    },
+    "cho-binh-thoi": {
+      "verdict": "agree",
+      "metres": 7,
+      "lat": 10.759479,
+      "lon": 106.642542,
+      "googleName": "Cho Binh Thoi"
+    },
+    "cho-bon-xa-moi": {
+      "verdict": "unknown"
+    },
+    "cho-linh-trung": {
+      "verdict": "near",
+      "metres": 107,
+      "lat": 10.860432,
+      "lon": 106.772302,
+      "googleName": "Linh Trung Market"
+    },
+    "cho-tam-binh": {
+      "verdict": "agree",
+      "metres": 50,
+      "lat": 10.869962,
+      "lon": 106.735901,
+      "googleName": "Tam Binh Market"
+    },
+    "chua-linh-phuoc": {
+      "verdict": "unknown"
+    },
+    "on-mall-binh-tan": {
+      "verdict": "agree",
+      "metres": 78,
+      "lat": 10.743084,
+      "lon": 106.612534,
+      "googleName": "AEON MALL BinhTan"
+    },
+    "cong-vien-vinhomes-central-park": {
+      "verdict": "agree",
+      "metres": 20,
+      "lat": 10.793431,
+      "lon": 106.724398,
+      "googleName": "Cong vien Vinhomes Central Park"
+    },
+    "cho-tang-nhon-phu": {
+      "verdict": "unknown"
+    },
+    "vincom-plaza-ba-thang-hai": {
+      "verdict": "agree",
+      "metres": 24,
+      "lat": 10.776112,
+      "lon": 106.680707,
+      "googleName": "Vincom Plaza 3/2"
+    },
+    "nha-tuong-niem-nguyen-an-ninh": {
+      "verdict": "agree",
+      "metres": 6,
+      "lat": 10.856745,
+      "lon": 106.612738,
+      "googleName": "Nguyen An Ninh Memorial"
+    },
+    "cho-trung-chanh": {
+      "verdict": "near",
+      "metres": 83,
+      "lat": 10.860399,
+      "lon": 106.610692,
+      "googleName": "Cho Trung Chanh Hoc Mon"
+    },
+    "cho-tan-chanh-hiep": {
+      "verdict": "agree",
+      "metres": 32,
+      "lat": 10.859603,
+      "lon": 106.618045,
+      "googleName": "Tan Chanh Hiep Market"
+    },
+    "cho-pham-van-hai": {
+      "verdict": "near",
+      "metres": 67,
+      "lat": 10.794555,
+      "lon": 106.663271,
+      "googleName": "Pham Van Hai"
+    },
+    "cho-thao-dien": {
+      "verdict": "agree",
+      "metres": 14,
+      "lat": 10.802331,
+      "lon": 106.728129,
+      "googleName": "Thao Dien Market"
+    },
+    "cong-vien-bo-ke-gia-long": {
+      "verdict": "agree",
+      "metres": 75,
+      "lat": 10.898645,
+      "lon": 106.700925,
+      "googleName": "Cong Vien Bo Ke Gia Long"
+    },
+    "cho-ba-diem": {
+      "verdict": "agree",
+      "metres": 10,
+      "lat": 10.840179,
+      "lon": 106.600133,
+      "googleName": "Cho Ba Diem"
+    },
+    "van-hanh-mall": {
+      "verdict": "agree",
+      "metres": 39,
+      "lat": 10.770575,
+      "lon": 106.669923,
+      "googleName": "TTTM Van Hanh"
+    },
+    "chua-an-quang": {
+      "verdict": "agree",
+      "metres": 6,
+      "lat": 10.765832,
+      "lon": 106.671735,
+      "googleName": "An Quang Buddhist Temple"
+    },
+    "tttm-romea": {
+      "verdict": "agree",
+      "metres": 49,
+      "lat": 10.778468,
+      "lon": 106.690193,
+      "googleName": "RomeA Center"
+    },
+    "cong-vien-da-cau-sai-gon": {
+      "verdict": "conflict",
+      "metres": 971,
+      "lat": 10.798634,
+      "lon": 106.722543,
+      "googleName": "Cong vien Da Cau"
+    },
+    "sala-shopping-mall-thiso-mall": {
+      "verdict": "agree",
+      "metres": 98,
+      "lat": 10.771978,
+      "lon": 106.721061,
+      "googleName": "Thiso Mall - Sala"
+    },
+    "rap-xiec-va-bieu-dien-da-nang-phu-tho": {
+      "verdict": "agree",
+      "metres": 48,
+      "lat": 10.770575,
+      "lon": 106.655133,
+      "googleName": "Rap Xiec Phu Tho"
+    },
+    "cong-vien-tam-vu": {
+      "verdict": "agree",
+      "metres": 45,
+      "lat": 10.81631,
+      "lon": 106.715485,
+      "googleName": "Tam Vu Park"
+    },
+    "gigamall": {
+      "verdict": "agree",
+      "metres": 25,
+      "lat": 10.827854,
+      "lon": 106.721396,
+      "googleName": "Gigamall Shopping Center"
+    },
+    "cho-binh-tri-dong-b": {
+      "verdict": "conflict",
+      "metres": 2935,
+      "lat": 10.763569,
+      "lon": 106.612913,
+      "googleName": "Cho Binh Tri Dong"
+    },
+    "dai-tuong-niem-can-cu-ho-ban": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.735027,
+      "lon": 106.626011,
+      "googleName": "Cong vien can cu Ho Ban"
+    },
+    "cong-vien-khanh-hoi": {
+      "verdict": "agree",
+      "metres": 111,
+      "lat": 10.757232,
+      "lon": 106.698558,
+      "googleName": "Khanh Hoi Park"
+    },
+    "dinh-ly-nhon": {
+      "verdict": "unknown"
+    },
+    "centre-mall-pham-hung": {
+      "verdict": "agree",
+      "metres": 19,
+      "lat": 10.733717,
+      "lon": 106.674682,
+      "googleName": "Centre Mall Pham Hung"
+    },
+    "cho-binh-dong": {
+      "verdict": "agree",
+      "metres": 24,
+      "lat": 10.738512,
+      "lon": 106.64292,
+      "googleName": "Binh Dong Market"
+    },
+    "tuong-dai-chu-tich-ho-chi-minh": {
+      "verdict": "unknown"
+    },
+    "cho-phu-tho": {
+      "verdict": "agree",
+      "metres": 30,
+      "lat": 10.762662,
+      "lon": 106.654105,
+      "googleName": "Phu Tho Market"
+    },
+    "cinemax-8d": {
+      "verdict": "unknown"
+    },
+    "cho-ban-co": {
+      "verdict": "near",
+      "metres": 62,
+      "lat": 10.768476,
+      "lon": 106.680486,
+      "googleName": "Cho Ban Co"
+    },
+    "trung-tam-thuong-mai-estella": {
+      "verdict": "agree",
+      "metres": 69,
+      "lat": 10.801549,
+      "lon": 106.749164,
+      "googleName": "TTTM Estella Place"
+    },
+    "cantavil-mall": {
+      "verdict": "unknown"
+    },
+    "nha-hat-thanh-pho": {
+      "verdict": "agree",
+      "metres": 12,
+      "lat": 10.776613,
+      "lon": 106.703171,
+      "googleName": "Saigon Opera House"
+    },
+    "nha-tho-duc-ba-sai-gon": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.779785,
+      "lon": 106.699019,
+      "googleName": "Notre Dame Cathedral of Saigon"
+    },
+    "bao-tang-thanh-pho-ho-chi-minh": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.775918,
+      "lon": 106.699632,
+      "googleName": "Museum of Ho Chi Minh City"
+    },
+    "toa-nha-saigon-centre": {
+      "verdict": "agree",
+      "metres": 24,
+      "lat": 10.773103,
+      "lon": 106.70105,
+      "googleName": "Saigon Centre"
+    },
+    "bao-tang-my-thuat-thanh-pho-ho-chi-minh": {
+      "verdict": "agree",
+      "metres": 34,
+      "lat": 10.769947,
+      "lon": 106.699216,
+      "googleName": "HCMC Fine Arts Museum"
+    },
+    "biet-thu-nguyen-van-hao": {
+      "verdict": "agree",
+      "metres": 14,
+      "lat": 10.768839,
+      "lon": 106.696776,
+      "googleName": "Nguyen Van Hao building"
+    },
+    "cho-chay": {
+      "verdict": "unknown"
+    },
+    "nha-hat-cai-luong-tran-huu-trang": {
+      "verdict": "agree",
+      "metres": 23,
+      "lat": 10.764876,
+      "lon": 106.692312,
+      "googleName": "Tran Huu Trang Cailuong Theater"
+    },
+    "cong-vien-tan-cang": {
+      "verdict": "conflict",
+      "metres": 875,
+      "lat": 10.790394,
+      "lon": 106.723451,
+      "googleName": "Vinhomes New Port Park"
+    },
+    "cong-vien-ao-sen": {
+      "verdict": "conflict",
+      "metres": 16638,
+      "lat": 10.750447,
+      "lon": 106.609536,
+      "googleName": "Cong Vien Ao Sen"
+    },
+    "nha-tho-huyen-sy": {
+      "verdict": "agree",
+      "metres": 58,
+      "lat": 10.768989,
+      "lon": 106.689325,
+      "googleName": "Nha tho Huyen Sy"
+    },
+    "cong-vien-ven-song": {
+      "verdict": "unknown"
+    },
+    "cong-vien-cau-rach-ong": {
+      "verdict": "agree",
+      "metres": 68,
+      "lat": 10.751736,
+      "lon": 106.692357,
+      "googleName": "Cong vien Cau Rach Ong"
+    },
+    "bao-tang-phu-nu-nam-bo": {
+      "verdict": "agree",
+      "metres": 60,
+      "lat": 10.783681,
+      "lon": 106.687633,
+      "googleName": "Southern Women's Museum"
+    },
+    "cong-vien-giai-tri-vinwonders-grand-park": {
+      "verdict": "near",
+      "metres": 245,
+      "lat": 10.839888,
+      "lon": 106.845602,
+      "googleName": "Grand Park"
+    },
+    "nha-truyen-thong-thu-duc": {
+      "verdict": "agree",
+      "metres": 15,
+      "lat": 10.851071,
+      "lon": 106.760313,
+      "googleName": "khao sat 1"
+    },
+    "cong-vien-dang-thuy-tram": {
+      "verdict": "unknown"
+    },
+    "cong-vien-bo-song-thanh-da": {
+      "verdict": "agree",
+      "metres": 89,
+      "lat": 10.818889,
+      "lon": 106.715405,
+      "googleName": "Cong vien bo song Thanh Da"
+    },
+    "cong-vien-thanh-da": {
+      "verdict": "agree",
+      "metres": 68,
+      "lat": 10.816916,
+      "lon": 106.721683,
+      "googleName": "Thanh Da Park"
+    },
+    "creative-park": {
+      "verdict": "agree",
+      "metres": 10,
+      "lat": 10.780052,
+      "lon": 106.712611,
+      "googleName": "Creative Park"
+    },
+    "cong-vien-ben-bach-dang-2": {
+      "verdict": "unknown"
+    },
+    "cong-vien-khu-50ha": {
+      "verdict": "unknown"
+    },
+    "cong-vien-van-hoa-go-vap": {
+      "verdict": "conflict",
+      "metres": 391,
+      "lat": 10.840349,
+      "lon": 106.68306,
+      "googleName": "Go Vap Cultural Park"
+    },
+    "vincom-mega-mall": {
+      "verdict": "unknown"
+    },
+    "bao-tang-ton-duc-thang": {
+      "verdict": "agree",
+      "metres": 21,
+      "lat": 10.777316,
+      "lon": 106.706524,
+      "googleName": "Ton Duc Thang Museum"
+    },
+    "cho-tan-tru": {
+      "verdict": "unknown"
+    },
+    "bao-tang-quan-doan-4": {
+      "verdict": "near",
+      "metres": 71,
+      "lat": 10.884359,
+      "lon": 106.74306,
+      "googleName": "Bao Tang Quan Doan 4"
+    },
+    "pico-plaza": {
+      "verdict": "unknown"
+    },
+    "san-khau-kich-5b": {
+      "verdict": "agree",
+      "metres": 10,
+      "lat": 10.78071,
+      "lon": 106.694363,
+      "googleName": "San Khau Nho Drama Theater"
+    },
+    "khu-du-lich-thuy-chau": {
+      "verdict": "agree",
+      "metres": 76,
+      "lat": 10.90176,
+      "lon": 106.819698,
+      "googleName": "Thuy Chau Ecotourism"
+    },
+    "cong-vien-malibu": {
+      "verdict": "agree",
+      "metres": 54,
+      "lat": 10.832453,
+      "lon": 106.843592,
+      "googleName": "Cong vien Malibu"
+    },
+    "cong-vien-mahattan": {
+      "verdict": "unknown"
+    },
+    "parc-mall": {
+      "verdict": "agree",
+      "metres": 73,
+      "lat": 10.740406,
+      "lon": 106.678563,
+      "googleName": "Parc Mall"
+    },
+    "cong-vien-dong-thu-thiem": {
+      "verdict": "agree",
+      "metres": 3,
+      "lat": 10.791166,
+      "lon": 106.777484,
+      "googleName": "Cong vien Dong Thu Thiem"
+    },
+    "di-tich-lich-su-van-hoa-mo-phan-chau-trinh": {
+      "verdict": "agree",
+      "metres": 12,
+      "lat": 10.804201,
+      "lon": 106.661858,
+      "googleName": "Phan Chau Trinh Memorial Complex"
+    },
+    "cho-hoang-hoa-tham": {
+      "verdict": "conflict",
+      "metres": 531,
+      "lat": 10.803077,
+      "lon": 106.647566,
+      "googleName": "Hoang Hoa Tham"
+    },
+    "chua-ngoc-hoang": {
+      "verdict": "near",
+      "metres": 75,
+      "lat": 10.791996,
+      "lon": 106.698179,
+      "googleName": "Jade Emperor Pagoda"
+    },
+    "cong-vien-my-phu": {
+      "verdict": "unknown"
+    },
+    "eco-green-central-park": {
+      "verdict": "agree",
+      "metres": 14,
+      "lat": 10.748505,
+      "lon": 106.724215,
+      "googleName": "Eco Green Central Park"
+    },
+    "satra-centre-mall": {
+      "verdict": "conflict",
+      "metres": 27764,
+      "lat": 10.983826,
+      "lon": 106.579799,
+      "googleName": "Satra Centre Mall of Cu Chi"
+    },
+    "cho-rach-ong": {
+      "verdict": "agree",
+      "metres": 34,
+      "lat": 10.746639,
+      "lon": 106.686192,
+      "googleName": "Cho Rach Ong"
+    },
+    "di-tich-lich-su-can-cu-vung-bung-6-xa": {
+      "verdict": "agree",
+      "metres": 21,
+      "lat": 10.825631,
+      "lon": 106.806468,
+      "googleName": "Historic Base Bung 6 xa"
+    },
+    "trung-tam-thuong-mai-an-dong-plaza": {
+      "verdict": "near",
+      "metres": 240,
+      "lat": 10.758215,
+      "lon": 106.675473,
+      "googleName": "TTTM Dich Vu An Dong"
+    },
+    "nha-truyen-thong-chien-khu-an-phu-dong": {
+      "verdict": "near",
+      "metres": 69,
+      "lat": 10.861194,
+      "lon": 106.692468,
+      "googleName": "Battle Monument An Phu Dong"
+    },
+    "cong-vien-thuan-kieu": {
+      "verdict": "agree",
+      "metres": 26,
+      "lat": 10.824607,
+      "lon": 106.615232,
+      "googleName": "Thuan Kieu Park"
+    },
+    "nha-den-cho-quan": {
+      "verdict": "agree",
+      "metres": 2,
+      "lat": 10.753287,
+      "lon": 106.685896,
+      "googleName": "Cho Quan Power Plant"
+    },
+    "thien-duong-giai-tri-tho-trang": {
+      "verdict": "near",
+      "metres": 100,
+      "lat": 10.785502,
+      "lon": 106.666053,
+      "googleName": "White Rabbit Amusement Park"
+    },
+    "di-tich-luu-niem-chu-tich-ho-chi-minh": {
+      "verdict": "agree",
+      "metres": 3,
+      "lat": 10.751142,
+      "lon": 106.658868,
+      "googleName": "Ho Chi Minh President Memorial House"
+    },
+    "bot-day-thep": {
+      "verdict": "agree",
+      "metres": 2,
+      "lat": 10.844335,
+      "lon": 106.793445,
+      "googleName": "Khu Di Tich Bot Day Thep"
+    },
+    "cho-hoa-binh": {
+      "verdict": "agree",
+      "metres": 1,
+      "lat": 10.752037,
+      "lon": 106.675646,
+      "googleName": "Hoa Binh Market"
+    },
+    "nha-hat-nghe-thuat-phuong-nam": {
+      "verdict": "conflict",
+      "metres": 22472,
+      "lat": 10.93439,
+      "lon": 106.760293,
+      "googleName": "Nha Hat Nghe Thuat Phuong Nam"
+    },
+    "pho-le": {
+      "verdict": "agree",
+      "metres": 5,
+      "lat": 10.755296,
+      "lon": 106.67352,
+      "googleName": "Pho Le"
+    },
+    "cho-xom-chieu": {
+      "verdict": "agree",
+      "metres": 11,
+      "lat": 10.76356,
+      "lon": 106.706006,
+      "googleName": "Xom Chieu Market"
+    },
+    "the-commons-thu-thiem": {
+      "verdict": "agree",
+      "metres": 29,
+      "lat": 10.78217,
+      "lon": 106.713255,
+      "googleName": "The Commons Thu Thiem"
+    },
+    "cong-vien-duong-so-25": {
+      "verdict": "agree",
+      "metres": 36,
+      "lat": 10.754844,
+      "lon": 106.613336,
+      "googleName": "CONG VIEN DUONG SO 25"
+    },
+    "cho-an-lac": {
+      "verdict": "agree",
+      "metres": 38,
+      "lat": 10.742059,
+      "lon": 106.61987,
+      "googleName": "An Lac Market"
+    },
+    "cong-vien-30-thang-4": {
+      "verdict": "agree",
+      "metres": 45,
+      "lat": 10.779121,
+      "lon": 106.696956,
+      "googleName": "April 30th Park"
+    },
+    "cho-cu-ton-that-dam": {
+      "verdict": "agree",
+      "metres": 50,
+      "lat": 10.771554,
+      "lon": 106.703181,
+      "googleName": "Ton That Dam Old Market"
+    },
+    "cong-vien-23-thang-9": {
+      "verdict": "near",
+      "metres": 199,
+      "lat": 10.768711,
+      "lon": 106.69234,
+      "googleName": "September 23rd Park"
+    },
+    "cong-vien-gia-dinh": {
+      "verdict": "agree",
+      "metres": 108,
+      "lat": 10.813249,
+      "lon": 106.675901,
+      "googleName": "Gia Dinh Park"
+    },
+    "cong-vien-hoang-van-thu": {
+      "verdict": "near",
+      "metres": 171,
+      "lat": 10.801065,
+      "lon": 106.665036,
+      "googleName": "Hoang Van Thu Park"
+    },
+    "bao-tang-lich-su-thanh-pho-ho-chi-minh": {
+      "verdict": "unknown"
+    },
+    "nha-dau-xe-aeon-mall-tan-phu-celadon-commercial": {
+      "verdict": "agree",
+      "metres": 60,
+      "lat": 10.801615,
+      "lon": 106.617374,
+      "googleName": "Aeon Shopping Mall - Tan Phu"
+    }
+  }
+}

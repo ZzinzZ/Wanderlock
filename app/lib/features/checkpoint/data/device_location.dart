@@ -23,6 +23,35 @@ class DeviceLocation {
   Future<LocationPermissionState> requestPermission() async =>
       _map(await Geolocator.requestPermission());
 
+  /// One position fix, or null if the device could not produce one in time.
+  ///
+  /// Null rather than an exception because every caller has the same answer to
+  /// every failure — permission, timeout, hardware — which is to say that we
+  /// do not know where the user is and must not guess.
+  ///
+  /// The timeout matters more than it looks: without one, a first fix indoors
+  /// can hang for minutes behind a button the user already pressed.
+  Future<UserPosition?> currentPosition() async {
+    try {
+      final position = await Geolocator.getCurrentPosition(
+        // Accuracy is left at the package default of `best`. Naming it
+        // explicitly reads as a decision and trips the redundant-argument
+        // lint; the decision worth recording is the time limit.
+        locationSettings: const LocationSettings(
+          // design-token-ignore: a GPS timeout is not a design value
+          timeLimit: Duration(seconds: 12),
+        ),
+      );
+      return UserPosition(
+        latitude: position.latitude,
+        longitude: position.longitude,
+        accuracyMeters: position.accuracy,
+      );
+    } on Object {
+      return null;
+    }
+  }
+
   /// Opens the app's own settings page, the only way back from
   /// [LocationPermissionState.deniedForever].
   Future<bool> openAppSettings() => Geolocator.openAppSettings();

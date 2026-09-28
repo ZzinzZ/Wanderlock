@@ -7,7 +7,20 @@ enum CheckpointCategory {
   market,
   religious,
   architecture,
-  street;
+  street,
+
+  // Added 2026-09-19 when the pilot grew from twelve landmarks to the city's
+  // parks, markets, malls and places to eat. Appended, never inserted: the
+  // name is what is stored, but order is what the tests read.
+  park,
+  shopping,
+  food,
+
+  /// A place people go to be photographed at: a bridge, a skyline, a street.
+  sight,
+
+  /// Theatres, puppet shows, theme parks.
+  entertainment;
 
   /// Falls back to [street] rather than throwing: a category added on the
   /// server must not brick an older client that has not shipped it yet.

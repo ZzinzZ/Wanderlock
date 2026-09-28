@@ -64,3 +64,24 @@ LocationAvailability locationAvailability({
     const LocationServiceOff(),
   LocationPermissionState.granted => const LocationReady(),
 };
+
+/// A position fix, as the device reported it.
+///
+/// Carries [accuracyMeters] because a fix without its accuracy is a number
+/// pretending to be a fact: 10.7768 means something very different at ±5 m
+/// than at ±80 m, and telling them apart is what spike S3 exists to settle.
+class UserPosition {
+  const UserPosition({
+    required this.latitude,
+    required this.longitude,
+    required this.accuracyMeters,
+  });
+
+  final double latitude;
+  final double longitude;
+  final double accuracyMeters;
+
+  @override
+  String toString() =>
+      'UserPosition($latitude, $longitude, ±${accuracyMeters}m)';
+}

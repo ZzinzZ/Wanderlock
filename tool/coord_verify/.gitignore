@@ -1,0 +1,9 @@
+# Generated from content/checkpoints.json by build_verify_page.dart.
+# Generated output is not committed — the content file is the source of truth,
+# and a committed copy of the coordinates would be a second one.
+verify.html
+
+# Generated from OpenStreetMap by recheck_osm.dart. A cache of what the source
+# said on the day it ran, not a decision — re-run it rather than trusting a
+# committed copy.
+osm_recheck.json

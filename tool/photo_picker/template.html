@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wanderlock — chọn ảnh marker</title>
+<style>
+  :root {
+    --ink: #1f2430;
+    --ink-muted: #5b6474;
+    --line: #d5dae3;
+    --ok: #12805c;
+    --warn: #b3541e;
+    --bad: #b00020;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, "Segoe UI", sans-serif;
+         color: var(--ink); background: #f4f6f9; }
+
+  header { position: sticky; top: 0; z-index: 500; background: #1f2430;
+           color: #fff; padding: 10px 16px; display: flex; gap: 14px;
+           align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 15px; margin: 0; letter-spacing: .02em; }
+  header .spacer { margin-left: auto; }
+  #progress { font: 13px/1 monospace; }
+  button { font: inherit; font-size: 13px; padding: 5px 11px; cursor: pointer;
+           border: 1px solid var(--line); border-radius: 5px; background: #fff;
+           color: var(--ink); }
+  button:hover { background: #eef1f6; }
+  header button { border-color: #4b5464; background: #2c3342; color: #fff; }
+  header button:hover { background: #3b4353; }
+  header button.on { background: #12805c; border-color: #12805c; }
+
+  .hint { padding: 12px 16px; background: #fffbe8; border-bottom: 1px solid #e8dfae;
+          font-size: 13px; line-height: 1.55; }
+  .hint b { color: var(--warn); }
+
+  main { padding: 14px; display: flex; flex-direction: column; gap: 16px; }
+
+  .place { background: #fff; border: 1px solid var(--line); border-radius: 8px;
+           padding: 12px; }
+  .place.done { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+  .place.skip { border-color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+  .place > h2 { font-size: 16px; margin: 0 0 2px; }
+  .place > .meta { font: 12px monospace; color: var(--ink-muted); margin-bottom: 10px; }
+
+  .warn-box { border-left: 4px solid var(--bad); background: #fff5f5;
+              padding: 9px 12px; margin: 0 0 12px; font-size: 13px;
+              line-height: 1.55; }
+  .warn-box b { color: var(--bad); }
+
+  .shots { display: grid; gap: 12px;
+           grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+
+  .shot { border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+          display: flex; flex-direction: column; background: #fafbfd; }
+  .shot.chosen { border-color: var(--ok); box-shadow: inset 0 0 0 2px var(--ok); }
+  .frame { background: #14171d; height: 300px; display: flex;
+           align-items: center; justify-content: center; }
+  .frame img { max-width: 100%; max-height: 100%; object-fit: contain;
+               display: block; }
+  /* Marker art is a small tight crop, so a full-bleed square is the honest
+     preview of what actually survives into the map. */
+  body.square .frame { height: 300px; }
+  body.square .frame img { width: 300px; height: 300px; object-fit: cover;
+                           max-width: none; max-height: none; }
+
+  .shot .info { padding: 8px 10px; font-size: 12px; line-height: 1.5;
+                color: var(--ink-muted); flex: 1; }
+  .shot .info .label { color: var(--ink); font-weight: 600;
+                       word-break: break-word; }
+  .shot .row { display: flex; gap: 8px; padding: 0 10px 10px;
+               align-items: center; }
+  .shot .row a { font-size: 12px; color: var(--ink-muted); margin-left: auto; }
+  .pick-btn.on { background: var(--ok); border-color: var(--ok); color: #fff; }
+
+  .place-actions { margin-top: 10px; }
+  .skip-btn.on { background: var(--bad); border-color: var(--bad); color: #fff; }
+  .empty { font-size: 13px; color: var(--bad); padding: 6px 0 2px; }
+
+  #export { padding: 4px 16px 40px; }
+  #export h2 { font-size: 14px; margin: 14px 0 8px; }
+  #export textarea { width: 100%; height: 200px; font: 12px/1.5 monospace;
+                     padding: 10px; border: 1px solid var(--line);
+                     border-radius: 6px; background: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Chọn ảnh marker — 12 checkpoint pilot</h1>
+  <span id="progress"></span>
+  <span class="spacer"></span>
+  <button id="square-toggle">Xem dạng khung vuông</button>
+  <button id="do-export">Xuất bảng duyệt</button>
+</header>
+
+<div class="hint">
+  Marker cần <b>ảnh mặt tiền công trình</b>. Danh sách này mới chỉ tra siêu dữ liệu
+  — giấy phép thì đã đọc từng ảnh, còn <b>bố cục thì chưa ai nhìn</b>. Mỗi ô: bấm
+  <b>Chọn</b> nếu ảnh dùng được. Nếu cả nhóm đều là ảnh trong nhà, ảnh chi tiết,
+  hay sai công trình thì bấm <b>Không ảnh nào đạt</b> — thà thiếu còn hơn đưa
+  ảnh sai vào app. Xong thì bấm <b>Xuất bảng duyệt</b> và gửi kết quả lại qua chat.
+</div>
+
+<main id="grid"></main>
+
+<section id="export" hidden>
+  <h2>Dòng cho bảng “12 checkpoint pilot” trong content/image-licenses.md</h2>
+  <button id="copy">Chép vào clipboard</button>
+  <span id="copy-state" style="font-size:12px;color:var(--ink-muted)"></span>
+  <textarea id="out" readonly spellcheck="false"></textarea>
+</section>
+
+<script>
+const PLACES = /*__DATA__*/[];
+const GENERATED_AT = /*__GENERATED_AT__*/"";
+
+// Commons resolves Special:FilePath to the right thumbnail without needing the
+// MD5 path hash that a direct upload.wikimedia.org URL would require.
+const THUMB = f =>
+  'https://commons.wikimedia.org/wiki/Special:FilePath/' + f + '?width=700';
+
+const choice = new Map(); // place id -> {candidate} | 'none' | undefined
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[c]);
+}
+
+// A licence that demands credit must carry the exact line the app will show.
+// CC0 and public domain demand none, and inventing one would be noise.
+function attribution(c) {
+  if (/^(CC0|Public domain)/i.test(c.license)) return '—';
+  return c.author + ' / Wikimedia Commons — ' + c.license;
+}
+
+function paintProgress() {
+  let done = 0;
+  for (const v of choice.values()) if (v) done++;
+  document.getElementById('progress').textContent =
+    done + '/' + PLACES.length + ' đã quyết';
+}
+
+function buildPlace(place) {
+  const el = document.createElement('section');
+  el.className = 'place';
+  el.innerHTML = `
+    <h2>${esc(place.name)}</h2>
+    <div class="meta">${esc(place.id)} · ${place.candidates.length} ứng viên</div>
+    ${place.warning
+      ? `<div class="warn-box"><b>Cảnh báo pháp lý</b> — ${esc(place.warning)}</div>`
+      : ''}
+    ${place.candidates.length === 0
+      ? '<p class="empty">Chưa tra được ứng viên nào cho điểm này.</p>'
+      : '<div class="shots"></div>'}
+    <div class="place-actions">
+      <button class="skip-btn">Không ảnh nào đạt — cần tìm thêm</button>
+    </div>
+  `;
+  document.getElementById('grid').appendChild(el);
+
+  const shots = el.querySelector('.shots');
+  const skipBtn = el.querySelector('.skip-btn');
+
+  place.candidates.forEach(c => {
+    const shot = document.createElement('div');
+    shot.className = 'shot';
+    shot.innerHTML = `
+      <div class="frame">
+        <img loading="lazy" alt="${esc(c.label)}" src="${esc(THUMB(c.file))}">
+      </div>
+      <div class="info">
+        <div class="label">${esc(c.label)}</div>
+        ${esc(c.license)} · ${esc(c.author)} · ${esc(c.size)}
+      </div>
+      <div class="row">
+        <button class="pick-btn">Chọn</button>
+        <a href="${esc(c.page)}" target="_blank" rel="noopener">trang Commons</a>
+      </div>
+    `;
+    shots.appendChild(shot);
+
+    shot.querySelector('.pick-btn').addEventListener('click', () => {
+      const already = choice.get(place.id) === c;
+      choice.set(place.id, already ? undefined : c);
+      repaint();
+    });
+  });
+
+  skipBtn.addEventListener('click', () => {
+    choice.set(place.id, choice.get(place.id) === 'none' ? undefined : 'none');
+    repaint();
+  });
+
+  function repaint() {
+    const picked = choice.get(place.id);
+    el.classList.toggle('done', !!picked && picked !== 'none');
+    el.classList.toggle('skip', picked === 'none');
+    skipBtn.classList.toggle('on', picked === 'none');
+    [...(shots ? shots.children : [])].forEach((shot, i) => {
+      const on = picked === place.candidates[i];
+      shot.classList.toggle('chosen', on);
+      const b = shot.querySelector('.pick-btn');
+      b.classList.toggle('on', on);
+      b.textContent = on ? 'Đã chọn' : 'Chọn';
+    });
+    paintProgress();
+  }
+}
+
+PLACES.forEach(buildPlace);
+paintProgress();
+
+document.getElementById('square-toggle').addEventListener('click', e => {
+  document.body.classList.toggle('square');
+  e.target.classList.toggle('on', document.body.classList.contains('square'));
+});
+
+document.getElementById('do-export').addEventListener('click', () => {
+  const today = new Date().toISOString().slice(0, 10);
+  const rows = [];
+  const missing = [];
+  const undecided = [];
+
+  for (const place of PLACES) {
+    const picked = choice.get(place.id);
+    if (!picked) { undecided.push(place.name); continue; }
+    if (picked === 'none') { missing.push(place.name); continue; }
+    rows.push(
+      `| ${place.id}.jpg | ${place.name} | ` +
+      `[${picked.label}](${picked.page}) | ${picked.license} | ` +
+      `${attribution(picked)} | ${today} |`
+    );
+  }
+
+  let text = '# Chọn ngày ' + today + ' (trang sinh ' + GENERATED_AT + ')\n\n';
+  text += rows.length
+    ? '## Dán vào bảng "12 checkpoint pilot"\n\n' + rows.join('\n') + '\n'
+    : '## Chưa chọn được ảnh nào\n';
+  if (missing.length) {
+    text += '\n## Cần tìm ảnh khác — không ứng viên nào đạt\n\n'
+          + missing.map(n => '- ' + n).join('\n') + '\n';
+  }
+  if (undecided.length) {
+    text += '\n## Chưa quyết\n\n'
+          + undecided.map(n => '- ' + n).join('\n') + '\n';
+  }
+
+  const panel = document.getElementById('export');
+  panel.hidden = false;
+  document.getElementById('out').value = text;
+  panel.scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('copy').addEventListener('click', async () => {
+  const text = document.getElementById('out');
+  const note = document.getElementById('copy-state');
+  try {
+    await navigator.clipboard.writeText(text.value);
+    note.textContent = 'đã chép';
+  } catch {
+    text.select();
+    note.textContent = 'clipboard bị chặn — đã bôi đen sẵn, bấm Ctrl+C';
+  }
+});
+</script>
+</body>
+</html>

@@ -26,9 +26,15 @@ class UserLocationController extends AsyncNotifier<LocationAvailability> {
 
   Future<LocationAvailability> _read() async {
     final device = ref.read(deviceLocationProvider);
+    // Two unrelated trips across the platform channel, on the path the map
+    // waits for before it can settle. Neither answer depends on the other.
+    final (permission, serviceEnabled) = await (
+      device.currentPermission(),
+      device.isServiceEnabled(),
+    ).wait;
     return locationAvailability(
-      permission: await device.currentPermission(),
-      serviceEnabled: await device.isServiceEnabled(),
+      permission: permission,
+      serviceEnabled: serviceEnabled,
     );
   }
 
@@ -48,6 +54,15 @@ class UserLocationController extends AsyncNotifier<LocationAvailability> {
     final availability = await _read();
     state = AsyncValue.data(availability);
     return availability is LocationReady;
+  }
+
+  /// Asks the device where it is, once.
+  ///
+  /// Returns null when it cannot say. Callers must treat that as "unknown"
+  /// and never as "wherever would be convenient".
+  Future<UserPosition?> readPosition() async {
+    if (state.value is! LocationReady) return null;
+    return ref.read(deviceLocationProvider).currentPosition();
   }
 
   Future<void> openAppSettings() =>

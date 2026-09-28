@@ -1,0 +1,23 @@
+{
+  "id": "giac-lam-pagoda",
+  "checkpointId": "giac-lam-pagoda",
+  "title": "Ngôi chùa cổ nhất thành phố",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/giac-lam-pagoda.jpg",
+  "coverCredit": "Ảnh: Phan Ba at vi.wikipedia / Wikimedia Commons",
+  "source": "Wikipedia tiếng Việt — Chùa Giác Lâm",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chùa Giác Lâm — còn có các tên Cẩm Sơn, Sơn Can, Cẩm Đệm — là một trong những ngôi chùa cổ nhất của Thành phố Hồ Chí Minh, và là tổ đình của phái Thiền Lâm Tế tông ở Nam Bộ."
+    },
+    {
+      "type": "narration",
+      "text": "Chùa toạ lạc ở số 565 đường Lạc Long Quân. Khuôn viên rợp cây, có bảo tháp xá lợi bảy tầng, và trong chính điện là hàng trăm pho tượng cùng những hàng cột gỗ đen bóng vì thời gian và khói nhang."
+    },
+    {
+      "type": "narration",
+      "text": "Năm 1988, chùa được công nhận là di tích lịch sử — văn hoá quốc gia. Dù nằm trong một khu dân cư đông đúc, bước qua cổng là tiếng đường phố lùi lại phía sau."
+    }
+  ]
+}
