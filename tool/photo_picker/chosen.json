@@ -13,9 +13,13 @@
     "chi tiết trang trí, bảng chữ hay người.",
     "",
     "Đổi ảnh: sửa tên tệp ở đây rồi chạy lại fetch_photos.dart.",
-    "Giấy phép được đọc lại từ Commons lúc tải, không chép tay."
+    "Giấy phép được đọc lại từ Commons lúc tải, không chép tay.",
+    "",
+    "Đợt 2026-09-28: thêm 16 nơi. Máy chọn sai khoảng 60% ở đợt này — ảnh",
+    "con thằn lằn cho Thảo Cầm Viên, ảnh người làm gốm cho công viên Lê Văn",
+    "Tám, ảnh chiếc du thuyền cho bến Bạch Đằng. Những nơi chưa tìm được ảnh",
+    "đúng thì KHÔNG có ảnh: chương lùi về hình dán, thà thiếu còn hơn sai."
   ],
-
   "files": {
     "independence-palace": "Reunification Palace front view.jpg",
     "central-post-office": "Oficina Central de Correos, Ciudad Ho Chi Minh, Vietnam, 2013-08-14, DD 06.JPG",
@@ -28,6 +32,22 @@
     "nha-rong-wharf": "Ho Chi Minh Museum, in Saigon.jpg",
     "thien-hau-temple": "Chùa Bà Thiên Hậu, Chợ Lớn.jpg",
     "landmark-81": "Tòa nhà Landmark 81 (52353066123).jpg",
-    "buu-long-pagoda": "Bửu Long Pagoda, Thủ Đức, HCM City, Vietnam (14537196651).jpeg"
+    "buu-long-pagoda": "Bửu Long Pagoda, Thủ Đức, HCM City, Vietnam (14537196651).jpeg",
+    "ho-con-rua": "Hồ con rùa.jpg",
+    "thao-cam-vien-sai-gon": "Entrance to the Saigon Zoo.jpg",
+    "khu-du-lich-suoi-tien": "July 2023 Suoi Tien Park 2.jpg",
+    "cong-vien-van-hoa-dam-sen": "Đầm Sen Park, bridge.jpg",
+    "cong-vien-23-thang-9": "Công Viên 23 Tháng 9 - Ho Chi Minh City, Vietnam - DSC01085.JPG",
+    "nha-hat-thanh-pho": "2023-12-10 Saigon Opera House (Nhà hát Thành phố, Sài Gòn) 02.jpg",
+    "tru-so-uy-ban-nhan-dan-thanh-pho-ho-chi-minh": "Saigon City Hall (53554934436).jpg",
+    "cho-ba-chieu": "Cho ba Chieu-quan binh thanh . Hcm - panoramio.jpg",
+    "cho-an-dong": "Cho An Dong, duong An Duong Vuong, phuong 3, Quận 5, TPHCM, Việt Nam - panoramio.jpg",
+    "cong-vien-tao-dan": "Cong vien van hoa Taodan, truong dinh, district 3, hcm city - panoramio.jpg",
+    "cong-vien-30-thang-4": "April 30 Park (52680487582).jpg",
+    "nha-hat-hoa-binh": "Hoa Binh Theater in District 10, Ho Chi Minh City, Vietnam.jpg",
+    "cho-hanh-thong-tay": "Chợ Hạnh Thông tây, quang trung, Go vap. tp Ho Chi Minh , vietnam - panoramio.jpg",
+    "cho-dau-moi-binh-dien": "Cho Binh Dien,phường 7, Quận 8, TPHCM, Việt Nam - panoramio.jpg",
+    "bao-tang-thanh-pho-ho-chi-minh": "Northrop F-5A-55-NO Freedom Fighter ‘10271’ (39996863993).jpg",
+    "nha-tho-duc-ba-sai-gon": "Saigon Notre-Dame Basilica, Vietnam - panoramio (279).jpg"
   }
 }

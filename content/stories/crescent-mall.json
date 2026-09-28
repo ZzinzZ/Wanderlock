@@ -1,0 +1,17 @@
+{
+  "id": "crescent-mall",
+  "checkpointId": "crescent-mall",
+  "title": "Trung tâm thương mại hình vòng cung",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Crescent Mall",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Crescent Mall nằm trong khu đô thị Phú Mỹ Hưng, rộng 112.000 mét vuông với khoảng 200 cửa hàng, siêu thị, rạp chiếu phim, nhà hàng và khu trò chơi."
+    },
+    {
+      "type": "narration",
+      "text": "Khai trương năm 2011, nơi này được xem là trung tâm thương mại đầu tiên ở Việt Nam đạt tiêu chuẩn quốc tế. Thiết kế vòng cung là thứ khiến nó không giống những cái hộp vuông cùng thời."
+    }
+  ]
+}

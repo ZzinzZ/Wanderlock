@@ -1,0 +1,19 @@
+{
+  "id": "cho-hanh-thong-tay",
+  "checkpointId": "cho-hanh-thong-tay",
+  "title": "Ngôi chợ mở cửa ngày Quốc khánh",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/cho-hanh-thong-tay.jpg",
+  "coverCredit": "Ảnh: trungydang / Wikimedia Commons — CC BY 3.0",
+  "source": "Wikipedia tiếng Việt — Chợ Hạnh Thông Tây",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Hạnh Thông Tây nằm trên đường Quang Trung, chính thức đi vào hoạt động ngày 2 tháng 9 năm 2002."
+    },
+    {
+      "type": "narration",
+      "text": "Kinh phí xây dựng gần 60 tỉ đồng cho 2.358 mét vuông, 400 sạp cố định trong lòng chợ và một khoảng sân phía trước rộng hơn 1.200 mét vuông."
+    }
+  ]
+}

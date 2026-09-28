@@ -1,0 +1,21 @@
+{
+  "id": "rap-xiec-va-bieu-dien-da-nang-phu-tho",
+  "checkpointId": "rap-xiec-va-bieu-dien-da-nang-phu-tho",
+  "title": "Rạp xiếc mới nhất thành phố",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Rạp xiếc Phú Thọ",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Rạp Xiếc và Biểu diễn Đa năng Phú Thọ ở số 3 Lữ Gia, thuộc quần thể thể thao - văn hoá Phú Thọ."
+    },
+    {
+      "type": "narration",
+      "text": "Khán phòng chính 2.000 chỗ, thêm một phòng tập 300 chỗ, khu triển lãm - hội nghị và sân thượng đa chức năng."
+    },
+    {
+      "type": "narration",
+      "text": "Công trình khởi công ngày 25 tháng 4 năm 2023 và khánh thành ngày 19 tháng 8 năm 2025 — trong số các điểm trên bản đồ này, đây là một trong những nơi trẻ nhất."
+    }
+  ]
+}

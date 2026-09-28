@@ -1,0 +1,23 @@
+{
+  "id": "nha-hat-hoa-binh",
+  "checkpointId": "nha-hat-hoa-binh",
+  "title": "Nhà hát mà một quận tự quyết xây",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/nha-hat-hoa-binh.jpg",
+  "coverCredit": "Ảnh: Mtsown / Wikimedia Commons — CC BY-SA 4.0",
+  "source": "Wikipedia tiếng Việt — Nhà hát Hòa Bình",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà hát Hoà Bình nằm trên đường 3/2, trên khu đất trước kia của chùa Việt Nam Quốc Tự. Thiết kế do kiến trúc sư Huỳnh Tấn Phát và kiến trúc sư Nguyễn Thành Thế thực hiện, khởi công năm 1983."
+    },
+    {
+      "type": "narration",
+      "text": "Ban đầu dự tính chỉ là một nhà hát nhỏ theo mô hình nhà hát huyện Hóc Môn. Rồi họ quyết định xây lớn — và nó thành một trong những nhà hát lớn nhất thành phố."
+    },
+    {
+      "type": "narration",
+      "text": "Ngoài ca nhạc tạp kỹ và các sự kiện văn hoá tầm quốc gia, khán phòng lớn còn được trưng dụng làm rạp chiếu phim: từ 4 giờ chiều mỗi ngày, trừ những đêm có diễn, nhà hát buông màn."
+    }
+  ]
+}

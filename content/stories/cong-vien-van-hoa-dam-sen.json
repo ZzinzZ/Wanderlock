@@ -1,0 +1,19 @@
+{
+  "id": "cong-vien-van-hoa-dam-sen",
+  "checkpointId": "cong-vien-van-hoa-dam-sen",
+  "title": "Năm mươi hecta hồ và cây",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/cong-vien-van-hoa-dam-sen.jpg",
+  "coverCredit": "Ảnh: Nguyễn Hữu Phú / Wikimedia Commons — CC BY 2.0",
+  "source": "Wikipedia tiếng Việt — Công viên Văn hóa Đầm Sen",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Văn hoá Đầm Sen nằm trên đường Hoà Bình, rộng 50 hecta."
+    },
+    {
+      "type": "narration",
+      "text": "Một phần năm diện tích ấy là mặt hồ, và phần lớn chỗ còn lại là cây xanh và vườn hoa. Đây là loại công viên giải trí mà người thành phố đi cả ngày chứ không ghé qua."
+    }
+  ]
+}
