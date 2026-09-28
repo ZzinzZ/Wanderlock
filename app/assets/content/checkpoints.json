@@ -431,13 +431,6 @@
       "coordinates": { "lat": 10.7959638, "lon": 106.6659284, "verified": false, "source": "openstreetmap:node/5346349922" }
     },
     {
-      "id": "sculpture-garden",
-      "name": "Sculpture Garden",
-      "category": "sight",
-      "radiusMeters": 60,
-      "coordinates": { "lat": 10.7747342, "lon": 106.6938172, "verified": false, "source": "openstreetmap:node/5378089323" }
-    },
-    {
       "id": "cong-vien-bo-song-sai-gon",
       "name": "Công viên bờ sông Sài Gòn",
       "category": "sight",
@@ -460,25 +453,11 @@
       "coordinates": { "lat": 10.7458291, "lon": 106.6543332, "verified": false, "source": "openstreetmap:node/5433188023" }
     },
     {
-      "id": "ca-phe-bet",
-      "name": "Cà Phê Bệt",
-      "category": "food",
-      "radiusMeters": 40,
-      "coordinates": { "lat": 10.7798794, "lon": 106.6983062, "verified": false, "source": "openstreetmap:node/5467207449" }
-    },
-    {
       "id": "quan-ca-phe-cheo-leo",
       "name": "Quán Cà Phê Cheo Leo",
       "category": "food",
       "radiusMeters": 40,
       "coordinates": { "lat": 10.7669052, "lon": 106.6798031, "verified": false, "source": "openstreetmap:node/6215109985" }
-    },
-    {
-      "id": "tuong-dai-tuong-niem-cong-vien-van-lang",
-      "name": "Tượng Đài Tượng Niệm - Công Viên Văn Lang",
-      "category": "monument",
-      "radiusMeters": 50,
-      "coordinates": { "lat": 10.7563781, "lon": 106.6672711, "verified": false, "source": "openstreetmap:node/6315671636" }
     },
     {
       "id": "bun-bo-hue-dong-ba",
@@ -624,13 +603,6 @@
       "category": "food",
       "radiusMeters": 60,
       "coordinates": { "lat": 10.790891, "lon": 106.6870771, "verified": false, "source": "openstreetmap:node/13437582047" }
-    },
-    {
-      "id": "tuong-thanh-mattheu-le-van-gam-1813-1847",
-      "name": "Tượng Thánh Mátthêu Lê Văn Gẫm (1813-1847)",
-      "category": "monument",
-      "radiusMeters": 50,
-      "coordinates": { "lat": 10.7686927, "lon": 106.6892257, "verified": false, "source": "openstreetmap:node/14159026501" }
     },
     {
       "id": "thao-cam-vien-sai-gon",
@@ -1020,7 +992,8 @@
       "id": "den-tuong-niem-ben-noc",
       "name": "Đền tưởng niệm Bến Nọc",
       "category": "monument",
-      "radiusMeters": 50,
+      "radiusMeters": 90,
+      "address": "Đường Lê Văn Việt",
       "coordinates": { "lat": 10.849058, "lon": 106.8039813, "verified": false, "source": "openstreetmap:way/290487269" }
     },
     {
@@ -1297,7 +1270,7 @@
     },
     {
       "id": "cong-vien-ben-bach-dang",
-      "name": "Công viên Bến Bạch Đằng",
+      "name": "Công viên Bến Bạch Đằng (đoạn Nam)",
       "category": "park",
       "radiusMeters": 150,
       "coordinates": { "lat": 10.7722799, "lon": 106.7064892, "verified": false, "source": "openstreetmap:way/472074784" }
@@ -1403,14 +1376,6 @@
       "category": "park",
       "radiusMeters": 150,
       "coordinates": { "lat": 10.7934905, "lon": 106.7242291, "verified": false, "source": "openstreetmap:way/504571792" }
-    },
-    {
-      "id": "khu-tuong-niem-ben-noc",
-      "name": "Khu tưởng niệm Bến Nọc",
-      "category": "park",
-      "radiusMeters": 90,
-      "address": "Đường Lê Văn Việt",
-      "coordinates": { "lat": 10.8486326, "lon": 106.8039761, "verified": false, "source": "openstreetmap:way/507538757" }
     },
     {
       "id": "cho-tang-nhon-phu",
@@ -1770,7 +1735,7 @@
     },
     {
       "id": "cong-vien-ben-bach-dang-2",
-      "name": "Công viên Bến Bạch Đằng",
+      "name": "Công viên Bến Bạch Đằng (đoạn Bắc)",
       "category": "park",
       "radiusMeters": 150,
       "coordinates": { "lat": 10.7782279, "lon": 106.7076346, "verified": false, "source": "openstreetmap:way/1056572948" }

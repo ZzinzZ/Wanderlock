@@ -18,15 +18,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../support/repo_root.dart';
+
 /// This script sits one directory deeper than the other tools, so it climbs
 /// two levels rather than one.
-Directory repoRoot() {
-  final scriptPath = Platform.script.toFilePath().replaceAll(r'\', '/');
-  final scriptDir = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
-  final toolDir = scriptDir.substring(0, scriptDir.lastIndexOf('/'));
-  return Directory(toolDir.substring(0, toolDir.lastIndexOf('/')));
-}
-
 /// Replaces [placeholder] in [template], failing loudly when it is absent.
 ///
 /// A silent miss would produce a page that opens, renders a header and shows
@@ -43,9 +38,11 @@ String inject(String template, String placeholder, String value) {
 }
 
 void main() {
-  final root = repoRoot().path.replaceAll(r'\', '/');
+  final root = repoRootPath();
   final sourceFile = File('$root/content/checkpoints.json');
   final templateFile = File('$root/tool/coord_verify/template.html');
+  final recheckFile = File('$root/tool/coord_verify/osm_recheck.json');
+  final gmapsFile = File('$root/tool/coord_verify/gmaps_recheck.json');
   final outputFile = File('$root/tool/coord_verify/verify.html');
 
   for (final file in [sourceFile, templateFile]) {
@@ -53,6 +50,32 @@ void main() {
       stderr.writeln('build_verify_page: thiếu file ${file.path}');
       exit(1);
     }
+  }
+
+  // Optional: without it every card is simply unflagged. Reviewing 272 places
+  // in authored order works, it is just slower than starting with the ones
+  // recheck_osm found a reason to doubt.
+  var flags = const <String, dynamic>{};
+  if (recheckFile.existsSync()) {
+    final recheck =
+        jsonDecode(recheckFile.readAsStringSync()) as Map<String, dynamic>;
+    flags = recheck['flags'] as Map<String, dynamic>;
+  } else {
+    stdout.writeln(
+      'build_verify_page: chưa có osm_recheck.json — trang sẽ không đánh dấu '
+      'điểm đáng ngờ. Chạy recheck_osm.dart trước nếu muốn có.',
+    );
+  }
+
+  // Optional in the same way, and from a second source on purpose: OpenStreetMap
+  // checks that the import copied faithfully, Google checks whether anyone else
+  // in the world puts the place in the same spot. Two volunteers agreeing is
+  // worth more than one volunteer repeated.
+  var gmaps = const <String, dynamic>{};
+  if (gmapsFile.existsSync()) {
+    final recheck =
+        jsonDecode(gmapsFile.readAsStringSync()) as Map<String, dynamic>;
+    gmaps = recheck['places'] as Map<String, dynamic>;
   }
 
   final decoded =
@@ -82,8 +105,33 @@ void main() {
       'lon': coordinates['lon'],
       'source': coordinates['source'] ?? '',
       'note': cp['note'],
+      'flag': flags[cp['id']],
+      'gmaps': gmaps[cp['id']],
     });
   }
+
+  // Doubtful first: whoever opens this page has a limited number of tiles in
+  // them, and the ones with a reason to doubt should get that attention.
+  //
+  // Google's verdict outranks OpenStreetMap's flag, because it is the stronger
+  // statement. A conflict means two independent sources put the same name a
+  // kilometre apart; an unknown means only one source has ever heard of the
+  // place. An `agree` needs the least looking at of all, so it sinks.
+  const verdictOrder = {'conflict': 0, 'unknown': 1, 'near': 2, 'agree': 3};
+  const flagOrder = {'moved': 0, 'dot': 1, 'name': 2};
+
+  int rank(Map<String, dynamic> row) {
+    final gmaps = row['gmaps'] as Map<String, dynamic>?;
+    final verdict = gmaps == null ? null : gmaps['verdict'] as String?;
+    return (verdictOrder[verdict] ?? 1) * 10 + (flagOrder[row['flag']] ?? 3);
+  }
+
+  rows.sort((a, b) {
+    final byRank = rank(a).compareTo(rank(b));
+    return byRank != 0
+        ? byRank
+        : (a['name'] as String).compareTo(b['name'] as String);
+  });
 
   final today = DateTime.now().toIso8601String().split('T').first;
 

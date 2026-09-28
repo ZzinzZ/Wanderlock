@@ -35,17 +35,43 @@
           font-size: 13px; line-height: 1.55; }
   .hint b { color: var(--warn); }
 
+  /* Filters. With 272 places the page is useless without a way to see only
+     the ones still to look at. */
+  #filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+             padding: 10px 16px; background: #fff;
+             border-bottom: 1px solid var(--line);
+             position: sticky; top: 41px; z-index: 490; }
+  #filters .chip.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  #filters .count { font: 12px/1 monospace; color: var(--ink-muted); }
+
   main { display: grid; gap: 14px; padding: 14px;
          grid-template-columns: repeat(auto-fill, minmax(430px, 1fr)); }
 
   .card { background: #fff; border: 1px solid var(--line); border-radius: 8px;
           overflow: hidden; display: flex; flex-direction: column; }
   .card.done { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+  .card[hidden] { display: none; }
 
   .card h2 { font-size: 15px; margin: 0; padding: 10px 12px 2px; }
   .card .addr { font-size: 12px; color: var(--ink-muted); padding: 0 12px 8px; }
 
-  .map { height: 380px; }
+  .flag { display: inline-block; font-size: 11px; padding: 2px 7px;
+          border-radius: 99px; margin: 0 12px 8px; font-weight: 600; }
+  .flag.moved { background: #fde8e8; color: var(--bad); }
+  .flag.dot   { background: #fff2e0; color: var(--warn); }
+  .flag.name  { background: #eef1f6; color: var(--ink-muted); }
+  .flag.conflict { background: #fde8e8; color: var(--bad); }
+  .flag.unknown  { background: #eef1f6; color: var(--ink-muted); }
+  .flag.near     { background: #fff2e0; color: var(--warn); }
+  .flag.agree    { background: #e6f6ec; color: #17683a; }
+
+  .map { height: 380px; background: #dfe4ec; }
+  /* Until the map for this card is built, the box shows why it is empty
+     rather than looking like a failed tile load. */
+  .map:empty::after { content: "cuộn tới đây để tải ảnh vệ tinh";
+                      display: flex; height: 100%; align-items: center;
+                      justify-content: center; font-size: 12px;
+                      color: var(--ink-muted); }
 
   .readout { display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
              padding: 8px 12px; font: 12px/1.5 monospace;
@@ -71,6 +97,11 @@
   .pin-origin { width: 9px; height: 9px; margin: -4px 0 0 -4px;
                 border-radius: 50%; background: #fff; border: 2px solid #444;
                 opacity: .85; }
+  /* Where Google Maps puts a place of this name. A square, so it is telling
+     apart from the two round pins at a glance rather than by colour alone. */
+  .pin-google { width: 11px; height: 11px; margin: -5px 0 0 -5px;
+                background: #2f7bea; border: 2px solid #fff;
+                box-shadow: 0 0 0 1px rgba(0,0,0,.45); }
 
   #export { padding: 14px 16px 40px; }
   #export h2 { font-size: 14px; margin: 0 0 8px; }
@@ -82,11 +113,9 @@
 <body>
 
 <header>
-  <h1>Xác nhận toạ độ — 12 checkpoint pilot</h1>
+  <h1>Xác nhận toạ độ</h1>
   <span id="progress"></span>
   <span class="spacer"></span>
-  <button id="zoom-out">Thu nhỏ tất cả</button>
-  <button id="zoom-in">Phóng to tất cả</button>
   <button id="do-export">Xuất JSON</button>
 </header>
 
@@ -95,8 +124,12 @@
   Nếu lệch thì <b>bấm vào đúng chỗ</b> hoặc kéo chấm hồng sang. Chấm trắng viền đen
   là vị trí gốc trong <code>checkpoints.json</code>; vòng tròn là bán kính check-in
   hiện tại. Xong một ô thì bấm <b>Đúng</b>.
-  Hết 12 ô, bấm <b>Xuất JSON</b> và gửi khối kết quả lại qua chat.
+  <b>Việc đã làm được lưu trong trình duyệt</b> — đóng trang rồi mở lại vẫn còn,
+  nên không cần làm hết trong một lần. Xong thì bấm <b>Xuất JSON</b> và gửi khối
+  kết quả lại qua chat.
 </div>
+
+<div id="filters"></div>
 
 <main id="grid"></main>
 
@@ -118,7 +151,49 @@ const TILE_URL =
   'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
 const ATTRIB = 'Ảnh vệ tinh: Esri, Maxar, Earthstar Geographics';
 
+// Reviewing 272 places takes more than one sitting, so a reload must not throw
+// the work away. Scoped by key to the generated page, so rebuilding the page
+// after the content changes does not resurrect answers about old coordinates.
+const STORE_KEY = 'wanderlock.coord_verify.' + GENERATED_AT;
+
 const state = new Map();
+
+function loadSaved() {
+  try {
+    return JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+/// True when this browser actually lets the page keep the review.
+///
+/// Opened straight from disk some browsers refuse storage, and a silent
+/// refusal is the worst outcome here: the hint promises the work is kept, and
+/// somebody reviews two hundred places before finding out it was not.
+function storageWorks() {
+  try {
+    localStorage.setItem(STORE_KEY + '.probe', '1');
+    localStorage.removeItem(STORE_KEY + '.probe');
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function save() {
+  const out = {};
+  for (const [id, s] of state) {
+    if (s.verified || s.lat !== s.origin.lat || s.lon !== s.origin.lon) {
+      out[id] = { lat: s.lat, lon: s.lon, verified: s.verified };
+    }
+  }
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(out));
+  } catch {
+    // A full or blocked store must not take the page down mid-review.
+  }
+}
 
 // Names, addresses and notes come from a content file. They are data, so they
 // get escaped rather than trusted to contain no markup.
@@ -146,17 +221,87 @@ function paintProgress() {
     done + '/' + CHECKPOINTS.length + ' đã xác nhận';
 }
 
-function buildCard(cp) {
+const FLAG_LABEL = {
+  moved: 'Nguồn đã dời chỗ',
+  dot: 'Chỉ là một cái chấm, không có hình khối',
+  name: 'Tên khác với nguồn',
+};
+
+// Built only when the card comes near the viewport. Three hundred Leaflet maps
+// created up front means three hundred tile grids fetching at once, which locks
+// the tab up long before anybody sees the first picture.
+function buildMap(s) {
+  if (s.map) return;
+  const cp = s.cp;
+
+  const map = L.map('map-' + cp.id, {
+    center: [s.lat, s.lon],
+    zoom: 18,
+    scrollWheelZoom: false,
+  });
+  L.tileLayer(TILE_URL, { maxZoom: 21, maxNativeZoom: 19, attribution: ATTRIB })
+    .addTo(map);
+
+  // Where the value in checkpoints.json currently sits — kept on screen so any
+  // move is judged against it rather than remembered.
+  L.marker([s.origin.lat, s.origin.lon], {
+    icon: L.divIcon({ className: '', html: '<div class="pin-origin"></div>' }),
+    interactive: false,
+    keyboard: false,
+  }).addTo(map);
+
+  // Google's answer for the same name, when it had one. Not authoritative —
+  // it is a second opinion, and the point of the card is to let a person see
+  // which of the two is standing on the building.
+  if (cp.gmaps && cp.gmaps.lat != null) {
+    L.marker([cp.gmaps.lat, cp.gmaps.lon], {
+      icon: L.divIcon({ className: '', html: '<div class="pin-google"></div>' }),
+      interactive: false,
+      keyboard: false,
+    }).addTo(map).bindTooltip('Google: ' + (cp.gmaps.googleName || ''));
+  }
+
+  s.ring = L.circle([s.lat, s.lon], {
+    radius: cp.radiusMeters,
+    color: '#ff48a0', weight: 2, fillOpacity: 0.06,
+  }).addTo(map);
+
+  s.pin = L.marker([s.lat, s.lon], {
+    icon: L.divIcon({ className: '', html: '<div class="pin"></div>' }),
+    draggable: true,
+  }).addTo(map);
+
+  map.on('click', e => s.moveTo(e.latlng.lat, e.latlng.lng));
+  s.pin.on('drag', e => s.moveTo(e.latlng.lat, e.latlng.lng));
+  s.pin.on('dragend', e =>
+    s.moveTo(e.target.getLatLng().lat, e.target.getLatLng().lng));
+
+  s.map = map;
+  s.moveTo(s.lat, s.lon);
+}
+
+function buildCard(cp, saved) {
   const origin = { lat: cp.lat, lon: cp.lon };
-  const s = { cp, origin, lat: cp.lat, lon: cp.lon, verified: false };
+  const start = saved[cp.id] || {};
+  const s = {
+    cp, origin,
+    lat: start.lat ?? cp.lat,
+    lon: start.lon ?? cp.lon,
+    verified: start.verified ?? false,
+  };
   state.set(cp.id, s);
 
   const card = document.createElement('div');
   card.className = 'card';
   const osmPath = encodeURI(cp.source.replace('openstreetmap:', ''));
+  const bits = [cp.address, 'bán kính ' + cp.radiusMeters + ' m', cp.category];
   card.innerHTML = `
     <h2>${esc(cp.name)}</h2>
-    <div class="addr">${esc(cp.address)} · bán kính ${cp.radiusMeters} m · ${esc(cp.category)}</div>
+    <div class="addr">${esc(bits.filter(Boolean).join(' · '))}</div>
+    <div>
+      ${cp.flag ? `<span class="flag ${esc(cp.flag)}">${esc(FLAG_LABEL[cp.flag] || cp.flag)}</span>` : ''}
+      ${cp.gmaps ? `<span class="flag ${esc(cp.gmaps.verdict)}">${esc(gmapsLabel(cp.gmaps))}</span>` : ''}
+    </div>
     <div class="map" id="map-${esc(cp.id)}"></div>
     <div class="readout">
       <span class="coords"></span>
@@ -171,78 +316,116 @@ function buildCard(cp) {
     ${cp.note ? `<details><summary>Ghi chú cần đọc</summary><p>${esc(cp.note)}</p></details>` : ''}
   `;
   document.getElementById('grid').appendChild(card);
-
-  const map = L.map('map-' + cp.id, {
-    center: [cp.lat, cp.lon],
-    zoom: 18,
-    scrollWheelZoom: true,
-  });
-  L.tileLayer(TILE_URL, { maxZoom: 21, maxNativeZoom: 19, attribution: ATTRIB })
-    .addTo(map);
-
-  // Where the value in checkpoints.json currently sits — kept on screen so any
-  // move is judged against it rather than remembered.
-  L.marker([cp.lat, cp.lon], {
-    icon: L.divIcon({ className: '', html: '<div class="pin-origin"></div>' }),
-    interactive: false,
-    keyboard: false,
-  }).addTo(map);
-
-  const ring = L.circle([cp.lat, cp.lon], {
-    radius: cp.radiusMeters,
-    color: '#ff48a0', weight: 2, fillOpacity: 0.06,
-  }).addTo(map);
-
-  const pin = L.marker([cp.lat, cp.lon], {
-    icon: L.divIcon({ className: '', html: '<div class="pin"></div>' }),
-    draggable: true,
-  }).addTo(map);
+  s.card = card;
 
   const coordsEl = card.querySelector('.coords');
-  const movedEl = card.querySelector('.moved');
+  // Scoped to the readout: the doubt flag above the map also carries the class
+  // `moved`, sits earlier in the card, and would win an unscoped lookup — the
+  // drift text then overwrote the flag label.
+  const movedEl = card.querySelector('.readout .moved');
   const okBtn = card.querySelector('.ok-btn');
 
-  function moveTo(lat, lon) {
+  s.moveTo = function (lat, lon) {
     s.lat = lat; s.lon = lon;
-    pin.setLatLng([lat, lon]);
-    ring.setLatLng([lat, lon]);
+    if (s.pin) { s.pin.setLatLng([lat, lon]); s.ring.setLatLng([lat, lon]); }
     const d = metresBetween(origin, { lat, lon });
     coordsEl.textContent = lat.toFixed(7) + ', ' + lon.toFixed(7);
     movedEl.textContent = d < 0.5 ? '· chưa dời' : '· đã dời ' + d.toFixed(0) + ' m';
     // Past the radius the gate stops being reachable from where the old value
     // sat — the Lăng Ông case, and the reason this readout exists.
     movedEl.classList.toggle('far', d > cp.radiusMeters);
-  }
+    save();
+  };
 
-  map.on('click', e => moveTo(e.latlng.lat, e.latlng.lng));
-  pin.on('drag', e => moveTo(e.latlng.lat, e.latlng.lng));
-  pin.on('dragend', e => moveTo(e.target.getLatLng().lat, e.target.getLatLng().lng));
-
-  okBtn.addEventListener('click', () => {
-    s.verified = !s.verified;
+  function paintOk() {
     okBtn.classList.toggle('on', s.verified);
     okBtn.textContent = s.verified ? 'Đã xác nhận' : 'Đúng';
     card.classList.toggle('done', s.verified);
+  }
+
+  okBtn.addEventListener('click', () => {
+    s.verified = !s.verified;
+    paintOk();
     paintProgress();
+    save();
   });
 
   card.querySelector('.reset-btn').addEventListener('click', () => {
-    moveTo(origin.lat, origin.lon);
-    map.setView([origin.lat, origin.lon], 18);
+    s.moveTo(origin.lat, origin.lon);
+    if (s.map) s.map.setView([origin.lat, origin.lon], 18);
   });
 
-  moveTo(cp.lat, cp.lon);
-  s.map = map;
+  s.moveTo(s.lat, s.lon);
+  paintOk();
 }
 
-CHECKPOINTS.forEach(buildCard);
+const saved = loadSaved();
+CHECKPOINTS.forEach(cp => buildCard(cp, saved));
 paintProgress();
 
-for (const [id, delta] of [['zoom-in', 1], ['zoom-out', -1]]) {
-  document.getElementById(id).addEventListener('click', () => {
-    for (const s of state.values()) s.map.setZoom(s.map.getZoom() + delta);
-  });
+if (!storageWorks()) {
+  const warning = document.createElement('div');
+  warning.className = 'hint';
+  warning.style.background = '#fde8e8';
+  warning.style.borderColor = '#e8b0b0';
+  warning.innerHTML =
+    '<b>Trình duyệt này không cho trang lưu gì cả.</b> Việc bạn làm sẽ mất khi '
+    + 'đóng trang — bấm <b>Xuất JSON</b> trước khi đóng, mỗi lần làm được một '
+    + 'đoạn. Mở file bằng Chrome hoặc Firefox thì lưu được.';
+  document.querySelector('.hint').after(warning);
 }
+
+const watcher = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    buildMap(state.get(entry.target.dataset.id));
+    watcher.unobserve(entry.target);
+  }
+}, { rootMargin: '600px' });
+
+for (const [id, s] of state) {
+  s.card.dataset.id = id;
+  watcher.observe(s.card);
+}
+
+const FILTERS = [
+  ['con-lai', 'Chưa xác nhận', s => !s.verified],
+  ['mau-thuan', 'Google nói khác', s => s.cp.gmaps && s.cp.gmaps.verdict === 'conflict'],
+  ['khong-biet', 'Google không có', s => s.cp.gmaps && s.cp.gmaps.verdict === 'unknown'],
+  ['dang-ngo', 'Đáng ngờ', s => Boolean(s.cp.flag)],
+  ['tat-ca', 'Tất cả', () => true],
+];
+
+function gmapsLabel(g) {
+  if (g.verdict === 'unknown') return 'Google không có địa điểm tên này';
+  if (g.verdict === 'agree') return 'Google khớp · ' + g.metres + ' m';
+  if (g.verdict === 'near') return 'Google lệch ' + g.metres + ' m';
+  return 'Google lệch ' + g.metres + ' m — ' + (g.googleName || '');
+}
+
+function applyFilter(key) {
+  const test = FILTERS.find(f => f[0] === key)[2];
+  for (const s of state.values()) s.card.hidden = !test(s);
+  for (const chip of document.querySelectorAll('#filters .chip')) {
+    chip.classList.toggle('on', chip.dataset.key === key);
+  }
+}
+
+const filters = document.getElementById('filters');
+for (const [key, label, test] of FILTERS) {
+  const chip = document.createElement('button');
+  chip.className = 'chip';
+  chip.dataset.key = key;
+  const n = [...state.values()].filter(test).length;
+  chip.textContent = label + ' (' + n + ')';
+  chip.addEventListener('click', () => applyFilter(key));
+  filters.appendChild(chip);
+}
+const legend = document.createElement('span');
+legend.className = 'count';
+legend.textContent = 'xếp trước là những điểm máy thấy đáng ngờ';
+filters.appendChild(legend);
+applyFilter('con-lai');
 
 document.getElementById('do-export').addEventListener('click', () => {
   const out = {};
