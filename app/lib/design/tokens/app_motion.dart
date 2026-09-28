@@ -20,9 +20,6 @@ class AppMotion {
   /// The three-second unlock moment. The one place motion may go all out.
   static const Duration unlockMoment = Duration(milliseconds: 3000);
 
-  /// Scale a button shrinks to while pressed.
-  static const double pressedScale = 0.96;
-
   /// Soft with a slight overshoot, the everyday feel.
   static const Curve standardCurve = Curves.easeOutBack;
 

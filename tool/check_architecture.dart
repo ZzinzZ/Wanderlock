@@ -15,6 +15,8 @@
 
 import 'dart:io';
 
+import 'support/repo_root.dart';
+
 /// The only feature every other feature may depend on. It owns `visit_state`
 /// and must never depend on a lens in return.
 const sharedFoundationFeature = 'unlock';
@@ -51,12 +53,6 @@ class Location {
   final String? feature;
   final String? layer;
   final bool isDesign;
-}
-
-Directory repoRoot() {
-  final scriptPath = Platform.script.toFilePath().replaceAll(r'\', '/');
-  final toolDir = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
-  return Directory(toolDir.substring(0, toolDir.lastIndexOf('/')));
 }
 
 /// Classifies a repo-relative source path such as
@@ -175,7 +171,7 @@ void checkImport(String path, int line, String uri, List<Violation> out) {
 }
 
 void main(List<String> args) {
-  final root = repoRoot().path.replaceAll(r'\', '/');
+  final root = repoRootPath();
   final libDir = Directory('$root/app/lib');
   if (!libDir.existsSync()) {
     stdout.writeln('check_architecture: bỏ qua — chưa có app/lib.');

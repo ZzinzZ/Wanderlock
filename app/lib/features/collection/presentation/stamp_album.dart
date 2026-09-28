@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/design/widgets/landmark_art.dart';
+import 'package:wanderlock/design/widgets/lens_banner.dart';
 import 'package:wanderlock/design/widgets/sticker_progress.dart';
 import 'package:wanderlock/design/widgets/sticker_surface.dart';
 import 'package:wanderlock/features/collection/domain/stamp.dart';
@@ -66,7 +67,10 @@ class _StampAlbumState extends State<StampAlbum> {
           ),
           sliver: SliverList.list(
             children: [
-              _Banner(title: l10n.collectionTitle),
+              LensBanner(
+                icon: AppIcons.lensCollection,
+                title: l10n.collectionTitle,
+              ),
               const SizedBox(height: AppSpacing.md - 2),
               if (stamps.isEmpty)
                 _EmptyNote(message: l10n.collectionEmpty)
@@ -102,7 +106,7 @@ class _StampAlbumState extends State<StampAlbum> {
             AppSpacing.md,
             AppSpacing.xs,
             AppSpacing.md,
-            AppSpacing.xxl + AppSpacing.xxl + AppSpacing.lg,
+            AppSpacing.aboveLensBar,
           ),
           sliver: SliverGrid.builder(
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -142,34 +146,6 @@ class _StampAlbumState extends State<StampAlbum> {
     (c) => c.decorativeMint,
     (c) => c.card,
   ];
-}
-
-/// The title of a full-screen lens, as a yellow ribbon.
-class _Banner extends StatelessWidget {
-  const _Banner({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
-
-    return StickerSurface(
-      color: colors.accentYellow,
-      padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm + 2),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const AppIcon(AppIcons.lensCollection),
-          const SizedBox(width: AppSpacing.sm),
-          Text(
-            title.toUpperCase(),
-            style: AppTypography.banner.copyWith(color: colors.onAccentYellow),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 class _ProgressCard extends StatelessWidget {

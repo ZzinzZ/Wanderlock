@@ -82,19 +82,30 @@ abstract final class MapStyle {
   /// [tilesUrl] is the vector tile endpoint; [glyphsUrl] serves the label
   /// fonts. Both are configuration rather than design, so they arrive from
   /// outside.
+  ///
+  /// Memoised. The map canvas asks for this from `build`, and it rebuilds on
+  /// every download-progress tick, every GPS fix and every drag that releases
+  /// the camera — each of which used to construct seventeen layers and encode
+  /// them again to arrive at a string identical to the last one. There are
+  /// only ever two answers, one per theme.
   static String toJson({
     required String tilesUrl,
     required String glyphsUrl,
     required Brightness brightness,
   }) {
-    return jsonEncode(
-      _document(
-        tilesUrl: tilesUrl,
-        glyphsUrl: glyphsUrl,
-        brightness: brightness,
+    return _encoded.putIfAbsent(
+      '$brightness|$tilesUrl|$glyphsUrl',
+      () => jsonEncode(
+        _document(
+          tilesUrl: tilesUrl,
+          glyphsUrl: glyphsUrl,
+          brightness: brightness,
+        ),
       ),
     );
   }
+
+  static final Map<String, String> _encoded = <String, String>{};
 
   static Map<String, Object?> _document({
     required String tilesUrl,

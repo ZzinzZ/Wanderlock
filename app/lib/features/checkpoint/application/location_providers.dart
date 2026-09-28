@@ -26,9 +26,15 @@ class UserLocationController extends AsyncNotifier<LocationAvailability> {
 
   Future<LocationAvailability> _read() async {
     final device = ref.read(deviceLocationProvider);
+    // Two unrelated trips across the platform channel, on the path the map
+    // waits for before it can settle. Neither answer depends on the other.
+    final (permission, serviceEnabled) = await (
+      device.currentPermission(),
+      device.isServiceEnabled(),
+    ).wait;
     return locationAvailability(
-      permission: await device.currentPermission(),
-      serviceEnabled: await device.isServiceEnabled(),
+      permission: permission,
+      serviceEnabled: serviceEnabled,
     );
   }
 

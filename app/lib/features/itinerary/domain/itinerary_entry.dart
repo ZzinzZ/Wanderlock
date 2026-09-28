@@ -29,13 +29,6 @@ class ItineraryEntry {
   /// itself as you go leaves nothing to show for the walk.
   final bool isVisited;
 
-  ItineraryEntry copyWith({int? position, bool? isVisited}) => ItineraryEntry(
-    checkpointId: checkpointId,
-    name: name,
-    position: position ?? this.position,
-    isVisited: isVisited ?? this.isVisited,
-  );
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||

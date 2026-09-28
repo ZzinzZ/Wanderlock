@@ -20,6 +20,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'support/repo_root.dart';
+
 const checkedExtensions = <String>{
   '.dart',
   '.arb',
@@ -65,12 +67,6 @@ class Violation {
   final String rule;
   final String detail;
   final int? lineNumber;
-}
-
-Directory repoRoot() {
-  final scriptPath = Platform.script.toFilePath().replaceAll(r'\', '/');
-  final toolDir = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
-  return Directory(toolDir.substring(0, toolDir.lastIndexOf('/')));
 }
 
 /// True when [text] contains a sequence that only arises from decoding UTF-8
@@ -139,7 +135,7 @@ int? mojibakeLine(List<String> lines) {
 }
 
 void main(List<String> args) {
-  final root = repoRoot().path.replaceAll(r'\', '/');
+  final root = repoRootPath();
   final violations = <Violation>[];
   var scanned = 0;
 

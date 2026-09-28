@@ -32,11 +32,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-Directory repoRoot() {
-  final scriptPath = Platform.script.toFilePath().replaceAll(r'\', '/');
-  final toolDir = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
-  return Directory(toolDir.substring(0, toolDir.lastIndexOf('/')));
-}
+import 'support/repo_root.dart';
 
 class SeedCheckpoint {
   SeedCheckpoint({
@@ -163,7 +159,7 @@ Future<void> main(List<String> args) async {
     exit(1);
   }
 
-  final file = File('${repoRoot().path}/content/checkpoints.json');
+  final file = File('${repoRootPath()}/content/checkpoints.json');
   if (!file.existsSync()) {
     stderr.writeln('seed: không tìm thấy ${file.path}');
     exit(1);

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wanderlock/app/lenses/lens_providers.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
-import 'package:wanderlock/design/widgets/sticker_surface.dart';
+import 'package:wanderlock/design/widgets/lens_banner.dart';
 import 'package:wanderlock/features/itinerary/application/itinerary_providers.dart';
 import 'package:wanderlock/features/itinerary/presentation/itinerary_editor.dart';
 import 'package:wanderlock/features/quest/presentation/quest_list.dart';
@@ -39,7 +39,6 @@ class _JourneyPanelState extends ConsumerState<JourneyPanel> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final colors = AppColors.of(context);
 
     return Column(
       children: [
@@ -50,24 +49,7 @@ class _JourneyPanelState extends ConsumerState<JourneyPanel> {
             AppSpacing.md,
             0,
           ),
-          // The lens title as a yellow ribbon, same as the album's.
-          child: StickerSurface(
-            color: colors.accentYellow,
-            padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm + 2),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const AppIcon(AppIcons.questRoute),
-                const SizedBox(width: AppSpacing.sm),
-                Text(
-                  l10n.lensJourney.toUpperCase(),
-                  style: AppTypography.banner.copyWith(
-                    color: colors.onAccentYellow,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          child: LensBanner(icon: AppIcons.questRoute, title: l10n.lensJourney),
         ),
         Padding(
           padding: const EdgeInsets.all(AppSpacing.md),
@@ -90,11 +72,7 @@ class _JourneyPanelState extends ConsumerState<JourneyPanel> {
           },
         ),
         // Room for the lens switcher, which floats over this panel.
-        //
-        // The bar is roughly 52dp tall and sits `lg` above the safe area, so
-        // `xxl` alone left it covering the last row of a full plan. This is
-        // that height plus its offset.
-        const SizedBox(height: AppSpacing.xxl + AppSpacing.xxl + AppSpacing.lg),
+        const SizedBox(height: AppSpacing.aboveLensBar),
       ],
     );
   }

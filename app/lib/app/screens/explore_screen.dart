@@ -42,11 +42,6 @@ class ExploreScreen extends ConsumerStatefulWidget {
 }
 
 class _ExploreScreenState extends ConsumerState<ExploreScreen> {
-  /// Clear of the lens bar: its height (a lifted chip, an icon, a label and
-  /// the sticker padding round them) plus the gap it floats at.
-  static const double _aboveLensBar =
-      AppSpacing.xxl + AppSpacing.xxl + AppSpacing.xl;
-
   MapLibreMapController? _controller;
 
   /// Counts style loads, and is the key the map layers are mounted under.
@@ -265,6 +260,27 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     }
   }
 
+  /// A full-screen lens laid over the map rather than instead of it, which is
+  /// what keeps a switch instant and the camera underneath untouched.
+  ///
+  /// It stays mounted while hidden; unmounting it would throw away its scroll
+  /// position and make the fade impossible.
+  Widget _lensOverlay({
+    required Lens lens,
+    required Lens shown,
+    required Widget child,
+  }) {
+    return IgnorePointer(
+      ignoring: lens != shown,
+      child: AnimatedOpacity(
+        opacity: lens == shown ? 1 : 0,
+        duration: AppMotion.lensSwitch,
+        curve: AppMotion.linearCurve,
+        child: PatternBackground(child: SafeArea(child: child)),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final lens = ref.watch(lensProvider);
@@ -341,37 +357,21 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
               ),
           ],
 
-          // The collection lens. Drawn over the map rather than instead of it,
-          // which is what keeps the switch instant and the camera intact.
-          IgnorePointer(
-            ignoring: lens != Lens.collection,
-            child: AnimatedOpacity(
-              opacity: lens == Lens.collection ? 1 : 0,
-              duration: AppMotion.lensSwitch,
-              curve: AppMotion.linearCurve,
-              child: PatternBackground(
-                child: SafeArea(
-                  child: StampAlbum(
-                    stamps: ref.watch(stampsProvider),
-                    landmarkOf: ref.watch(landmarkLookupProvider),
-                  ),
-                ),
-              ),
+          // The collection lens.
+          _lensOverlay(
+            lens: lens,
+            shown: Lens.collection,
+            child: StampAlbum(
+              stamps: ref.watch(stampsProvider),
+              landmarkOf: ref.watch(landmarkLookupProvider),
             ),
           ),
 
-          // The journey lens. Same treatment as the album: drawn over the map,
-          // never instead of it, so the camera underneath is untouched.
-          IgnorePointer(
-            ignoring: lens != Lens.journey,
-            child: AnimatedOpacity(
-              opacity: lens == Lens.journey ? 1 : 0,
-              duration: AppMotion.lensSwitch,
-              curve: AppMotion.linearCurve,
-              child: const PatternBackground(
-                child: SafeArea(child: JourneyPanel()),
-              ),
-            ),
+          // The journey lens.
+          _lensOverlay(
+            lens: lens,
+            shown: Lens.journey,
+            child: const JourneyPanel(),
           ),
 
           // The game HUD, over the map only: the album and the journey carry
@@ -396,7 +396,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
           if (!AppConfig.hasSupabase)
             const Positioned(
               left: AppSpacing.md,
-              bottom: _aboveLensBar,
+              bottom: AppSpacing.aboveLensBar,
               child: _StandInBanner(),
             ),
 
@@ -415,7 +415,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
           if (lens == Lens.fog && _selected == null)
             const Positioned(
               right: AppSpacing.md,
-              bottom: _aboveLensBar,
+              bottom: AppSpacing.aboveLensBar,
               child: MapFollowButton(),
             ),
 
@@ -426,7 +426,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
             Positioned(
               left: AppSpacing.md - 2,
               right: AppSpacing.md - 2,
-              bottom: _aboveLensBar,
+              bottom: AppSpacing.aboveLensBar,
               child: CheckpointSheet(
                 checkpoint: _selected!,
                 isVisited: visitedIds.contains(_selected!.id),

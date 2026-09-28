@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
+import 'package:wanderlock/design/widgets/step_bubble.dart';
 import 'package:wanderlock/design/widgets/sticker_button.dart';
 import 'package:wanderlock/design/widgets/sticker_surface.dart';
 import 'package:wanderlock/features/itinerary/domain/itinerary_entry.dart';
@@ -158,26 +159,10 @@ class _EntryRow extends StatelessWidget {
           ),
           child: Row(
             children: [
-              // The stop number as a yellow sticker, like a quest step.
-              Container(
-                width: AppIconSize.inline + 6,
-                height: AppIconSize.inline + 6,
-                decoration: BoxDecoration(
-                  color: colors.accentYellow,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: colors.outline,
-                    width: AppSticker.stroke,
-                  ),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  '$ordinal',
-                  style: AppTypography.badge.copyWith(
-                    color: colors.onAccentYellow,
-                    fontSize: AppTypography.tab.fontSize! + 2,
-                  ),
-                ),
+              StepBubble(
+                ordinal: ordinal,
+                fill: colors.accentYellow,
+                ink: colors.onAccentYellow,
               ),
               const SizedBox(width: AppSpacing.sm + 2),
               // A tick only where `visit_state` says so. There is no way to

@@ -27,11 +27,6 @@ class AppRadius {
   /// outline a large radius reads as a pill rather than as a card.
   static const BorderRadius sticker = BorderRadius.all(Radius.circular(22));
 
-  /// Sticker bottom sheet: top two corners only.
-  static const BorderRadius stickerSheet = BorderRadius.vertical(
-    top: Radius.circular(30),
-  );
-
   /// The unlock plate.
   static const BorderRadius hero = BorderRadius.all(Radius.circular(26));
 }

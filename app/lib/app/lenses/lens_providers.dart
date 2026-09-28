@@ -6,8 +6,8 @@ import 'package:wanderlock/features/checkpoint/application/checkpoint_providers.
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/checkpoint/presentation/checkpoint_icons.dart';
 import 'package:wanderlock/features/collection/domain/stamp.dart';
-import 'package:wanderlock/features/fog/domain/fog_geometry.dart';
 import 'package:wanderlock/features/fog/domain/fog_hole.dart';
+import 'package:wanderlock/features/fog/domain/fog_reveal.dart';
 import 'package:wanderlock/features/itinerary/application/itinerary_providers.dart';
 import 'package:wanderlock/features/itinerary/domain/itinerary_entry.dart';
 import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
@@ -37,16 +37,15 @@ final lensProvider = NotifierProvider<LensController, Lens>(LensController.new);
 /// handed to a lens as plain numbers. That is what lets `fog` and
 /// `collection` stay ignorant of each other and of `checkpoint`: they receive
 /// what they need instead of reaching for it.
-final _visitedIdsProvider = Provider<Set<String>>((ref) {
+/// Exposed for the marker layer, which paints a visited checkpoint
+/// differently, and read by every derived view below.
+final visitedCheckpointIdsProvider = Provider<Set<String>>((ref) {
   final visits = ref.watch(visitStateProvider).value ?? const {};
   return {
     for (final entry in visits.entries)
       if (entry.value.isVisited) entry.key,
   };
 });
-
-/// Exposed for the marker layer, which paints a visited checkpoint differently.
-final visitedCheckpointIdsProvider = _visitedIdsProvider;
 
 /// Where the fog has been cleared.
 ///
@@ -55,7 +54,7 @@ final visitedCheckpointIdsProvider = _visitedIdsProvider;
 /// and the first thing to go out of step after a sync.
 final fogHolesProvider = Provider<List<FogHole>>((ref) {
   final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
-  final visited = ref.watch(_visitedIdsProvider);
+  final visited = ref.watch(visitedCheckpointIdsProvider);
 
   return [
     for (final checkpoint in checkpoints)
@@ -63,9 +62,7 @@ final fogHolesProvider = Provider<List<FogHole>>((ref) {
         FogHole(
           latitude: checkpoint.latitude,
           longitude: checkpoint.longitude,
-          revealRadiusMeters: FogGeometry.revealRadiusMeters(
-            checkpoint.radiusMeters,
-          ),
+          revealRadiusMeters: FogReveal.radiusMeters(checkpoint.radiusMeters),
         ),
   ];
 });
@@ -73,7 +70,7 @@ final fogHolesProvider = Provider<List<FogHole>>((ref) {
 /// The album, one stamp per checkpoint, owned where the checkpoint is visited.
 final stampsProvider = Provider<List<Stamp>>((ref) {
   final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
-  final visited = ref.watch(_visitedIdsProvider);
+  final visited = ref.watch(visitedCheckpointIdsProvider);
 
   return [
     for (final checkpoint in checkpoints)
@@ -86,16 +83,25 @@ final stampsProvider = Provider<List<Stamp>>((ref) {
   ];
 });
 
+/// Checkpoints by id.
+///
+/// Four of the views below need this lookup. Built once here so a visit
+/// changing does not rebuild four 272-entry maps to answer four questions
+/// about the same unchanged content.
+final _checkpointsByIdProvider = Provider<Map<String, Checkpoint>>((ref) {
+  final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
+  return <String, Checkpoint>{
+    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
+  };
+});
+
 /// Fills the seam `unlock` leaves for a checkpoint's position and radius.
 ///
 /// Installed as an override on [checkpointGeofenceLookupProvider] in
 /// `main.dart`. Written here because this is the layer allowed to see both
 /// features at once.
 CheckpointGeofence? Function(String) buildGeofenceLookup(Ref ref) {
-  final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
-  final byId = <String, Checkpoint>{
-    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
-  };
+  final byId = ref.watch(_checkpointsByIdProvider);
 
   return (checkpointId) {
     final checkpoint = byId[checkpointId];
@@ -128,18 +134,21 @@ final questRoutesProvider = Provider<List<QuestRoute>>((ref) {
   final definitions =
       ref.watch(questRouteDefinitionsProvider).value ?? const [];
   final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
-  final visited = ref.watch(_visitedIdsProvider);
-  final byId = <String, Checkpoint>{
-    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
-  };
+  final visited = ref.watch(visitedCheckpointIdsProvider);
+  final byId = ref.watch(_checkpointsByIdProvider);
 
   final routes = <QuestRoute>[];
   for (final definition in definitions) {
+    // Hoisted out of the loop over checkpoints below: both are lists on the
+    // definition, and `contains` on a list of 68 ids, asked once per
+    // checkpoint, turns one quest into 272 x 68 comparisons.
+    final named = definition.checkpointIds.toSet();
+    final categories = definition.categories.toSet();
     final ids = <String>[
       ...definition.checkpointIds,
       for (final checkpoint in checkpoints)
-        if (definition.categories.contains(checkpoint.category.name) &&
-            !definition.checkpointIds.contains(checkpoint.id))
+        if (categories.contains(checkpoint.category.name) &&
+            !named.contains(checkpoint.id))
           checkpoint.id,
     ];
     final steps = <QuestStep>[
@@ -168,10 +177,7 @@ final questRoutesProvider = Provider<List<QuestRoute>>((ref) {
 /// Which building sticker a checkpoint wears, by id — for lenses that hold
 /// only ids (a stamp, a quest step) and may not import the checkpoint feature.
 final landmarkLookupProvider = Provider<String Function(String)>((ref) {
-  final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
-  final byId = <String, Checkpoint>{
-    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
-  };
+  final byId = ref.watch(_checkpointsByIdProvider);
   return (id) {
     final checkpoint = byId[id];
     return checkpoint == null
@@ -188,11 +194,8 @@ final landmarkLookupProvider = Provider<String Function(String)>((ref) {
 /// render a row with no name.
 final itineraryEntriesProvider = Provider<List<ItineraryEntry>>((ref) {
   final order = ref.watch(itineraryOrderProvider).value ?? const [];
-  final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
-  final visited = ref.watch(_visitedIdsProvider);
-  final byId = <String, Checkpoint>{
-    for (final checkpoint in checkpoints) checkpoint.id: checkpoint,
-  };
+  final visited = ref.watch(visitedCheckpointIdsProvider);
+  final byId = ref.watch(_checkpointsByIdProvider);
 
   final entries = <ItineraryEntry>[];
   for (final id in order) {

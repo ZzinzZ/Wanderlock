@@ -17,6 +17,8 @@
 
 import 'dart:io';
 
+import 'support/repo_root.dart';
+
 /// Paths (relative to repo root, POSIX separators) allowed to hold raw
 /// design values. These files ARE the source of truth.
 const allowedPathPrefixes = <String>['app/lib/design/tokens/'];
@@ -73,14 +75,8 @@ class Violation {
 
 /// Repo root derived from this script's own location (`<root>/tool/…`), so the
 /// gate behaves the same whether it is run from the root or from `app/`.
-Directory repoRoot() {
-  final scriptPath = Platform.script.toFilePath().replaceAll(r'\', '/');
-  final toolDir = scriptPath.substring(0, scriptPath.lastIndexOf('/'));
-  return Directory(toolDir.substring(0, toolDir.lastIndexOf('/')));
-}
-
 void main(List<String> args) {
-  final root = Directory('${repoRoot().path}/app/lib');
+  final root = Directory('${repoRootPath()}/app/lib');
   if (!root.existsSync()) {
     stdout.writeln(
       'check_design_tokens: bỏ qua — chưa có app/lib (app chưa được tạo).',
@@ -99,7 +95,7 @@ void main(List<String> args) {
           .toList()
         ..sort((a, b) => a.path.compareTo(b.path));
 
-  final rootPrefix = '${repoRoot().path.replaceAll(r'\', '/')}/';
+  final rootPrefix = '${repoRootPath()}/';
 
   for (final file in files) {
     // Report repo-relative paths so the output is clickable in an editor.
