@@ -7,8 +7,10 @@ import 'package:wanderlock/app/lenses/journey_panel.dart';
 import 'package:wanderlock/app/lenses/lens.dart';
 import 'package:wanderlock/app/lenses/lens_providers.dart';
 import 'package:wanderlock/app/lenses/lens_switcher.dart';
+import 'package:wanderlock/app/lenses/map_filter.dart';
 import 'package:wanderlock/app/screens/checkpoint_sheet.dart';
 import 'package:wanderlock/app/screens/explore_hud.dart';
+import 'package:wanderlock/app/screens/map_filter_button.dart';
 import 'package:wanderlock/core/config/app_config.dart';
 import 'package:wanderlock/core/map/map_projection.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
@@ -191,7 +193,9 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
   /// [CheckpointMarkerOverlay] — so the map works out which marker was hit.
   void _onMapTapped(LatLng position) {
     final camera = _controller?.cameraPosition;
-    final checkpoints = ref.read(checkpointsProvider).value ?? const [];
+    // What the filter hides cannot be tapped: a pin nobody can see is not a
+    // target. Arrival below is the opposite case and deliberately unfiltered.
+    final checkpoints = ref.read(visibleCheckpointsProvider);
     final hit = camera == null
         ? null
         : CheckpointMarkerOverlay.checkpointAt(
@@ -228,6 +232,9 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     final isJump = FogTrail.distanceMeters(from, here) > FogTrail.maxJoinMeters;
 
     final visited = ref.read(visitedCheckpointIdsProvider);
+    // Every place, filter or no filter. The map filter decides what is drawn;
+    // it must never decide what can be unlocked, or turning a filter on would
+    // quietly change the rules of the game.
     final checkpoints = ref.read(checkpointsProvider).value ?? const [];
     for (final checkpoint in checkpoints) {
       if (visited.contains(checkpoint.id)) continue;
@@ -303,7 +310,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
     final lens = ref.watch(lensProvider);
-    final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
+    final checkpoints = ref.watch(visibleCheckpointsProvider);
     final visitedIds = ref.watch(visitedCheckpointIdsProvider);
 
     // Content is pulled once, here, because this is the first screen. Watched
@@ -405,7 +412,17 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                   AppSpacing.md - 2,
                   0,
                 ),
-                child: ExploreHud(),
+                // Stacked under the HUD rather than placed at a measured
+                // offset from the top: the HUD's height is its own business,
+                // and a hand-counted gap here landed the filter on top of it.
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ExploreHud(),
+                    SizedBox(height: AppSpacing.sm),
+                    MapFilterButton(),
+                  ],
+                ),
               ),
             ),
 

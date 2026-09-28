@@ -422,5 +422,7 @@
     }
   },
   "storyOpen": "Read the chapter",
-  "storyLocked": "Go there to open the chapter"
+  "storyLocked": "Go there to open the chapter",
+  "mapFilterAll": "All places",
+  "mapFilterTitle": "Which group to show on the map?"
 }
