@@ -109,5 +109,7 @@
     }
   },
   "storyOpen": "Đọc chương",
-  "storyLocked": "Đến nơi để mở chương truyện"
+  "storyLocked": "Đến nơi để mở chương truyện",
+  "mapFilterAll": "Tất cả địa điểm",
+  "mapFilterTitle": "Xem nhóm nào trên bản đồ?"
 }
