@@ -1,0 +1,23 @@
+{
+  "id": "cong-vien-30-thang-4",
+  "checkpointId": "cong-vien-30-thang-4",
+  "title": "Công viên kẹp giữa hai công trình",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/cong-vien-30-thang-4.jpg",
+  "coverCredit": "Ảnh: Kevin Rutherford from United States / Wikimedia Commons — CC BY-SA 2.0",
+  "source": "Wikipedia tiếng Việt — Công viên 30 tháng 4",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên 30 tháng 4 nằm đối diện Dinh Độc Lập và sau lưng Nhà thờ Đức Bà — có lẽ là mảnh đất xanh có hàng xóm nổi tiếng nhất thành phố."
+    },
+    {
+      "type": "narration",
+      "text": "Công viên gồm bốn ô đất hình chữ nhật, bị đường Lê Duẩn và đường Pasteur chia cắt, tổng cộng 3,5 hecta trong đó 2,5 hecta là cây xanh."
+    },
+    {
+      "type": "narration",
+      "text": "Hai con đường viền công viên mang tên Hàn Thuyên và Alexandre de Rhodes, như một cách ghi công hai người có đóng góp cho chữ Nôm và chữ Quốc ngữ."
+    }
+  ]
+}

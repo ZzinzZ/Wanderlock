@@ -1,0 +1,23 @@
+{
+  "id": "khu-du-lich-suoi-tien",
+  "checkpointId": "khu-du-lich-suoi-tien",
+  "title": "Công viên dựng từ truyền thuyết",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/khu-du-lich-suoi-tien.jpg",
+  "coverCredit": "Ảnh: Syced / Wikimedia Commons",
+  "source": "Wikipedia tiếng Việt — Khu du lịch Văn hóa Suối Tiên",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Suối Tiên ở số 120 Xa lộ Hà Nội là công viên giải trí lồng vào các yếu tố văn hoá, lịch sử và tâm linh — thứ hiếm thấy ở một công viên trò chơi."
+    },
+    {
+      "type": "narration",
+      "text": "Kiến trúc và các trò ở đây lấy từ truyền thuyết Việt: Lạc Long Quân – Âu Cơ, Vua Hùng, Sơn Tinh Thuỷ Tinh, Mười chín tầng địa ngục, Tứ linh Long – Lân – Quy – Phụng. Có cả biển Tiên Đồng, biển nhân tạo đầu tiên ở Việt Nam."
+    },
+    {
+      "type": "narration",
+      "text": "Suối Tiên từng được một trang du lịch bình chọn vào nhóm 12 công viên được yêu thích nhất thế giới."
+    }
+  ]
+}

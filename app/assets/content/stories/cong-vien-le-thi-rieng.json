@@ -1,0 +1,21 @@
+{
+  "id": "cong-vien-le-thi-rieng",
+  "checkpointId": "cong-vien-le-thi-rieng",
+  "title": "Công viên dựng trên một nghĩa địa",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Công viên Văn hóa Lê Thị Riêng",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên rộng khoảng 9 hecta, giáp ba đường Cách Mạng Tháng Tám, Bắc Hải và Trường Sơn. Trước năm 1975, khu đất này là Nghĩa địa Đô Thành, còn gọi là nghĩa địa Chí Hoà – Chợ Quán."
+    },
+    {
+      "type": "narration",
+      "text": "Công viên khánh thành ngày 19 tháng 3 năm 1988, mang tên Lê Thị Riêng — cán bộ phụ vận của Khu uỷ Sài Gòn – Gia Định, Phó hội trưởng Hội Liên hiệp phụ nữ giải phóng miền Nam."
+    },
+    {
+      "type": "narration",
+      "text": "Sau cải tạo, nơi này có hồ nước, cây xanh, nhà truyền thống và các bia tưởng niệm. Từ năm 2026, một số khu vực trong công viên được khảo sát và khai quật để tìm kiếm, quy tập hài cốt liệt sĩ — đất cũ vẫn chưa kể hết chuyện của nó."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "ho-con-rua",
+  "checkpointId": "ho-con-rua",
+  "title": "Cái hồ không ai gọi đúng tên",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/ho-con-rua.jpg",
+  "coverCredit": "Ảnh: Nguyễn Hữu Phú / Wikimedia Commons — CC BY 2.0",
+  "source": "Wikipedia tiếng Việt — Hồ Con Rùa",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tên hành chính của nơi này là Công trường Quốc tế. Gần như không ai gọi thế. Với người Sài Gòn, đây là Hồ Con Rùa — một hồ phun nước nhân tạo nằm ngay chỗ ba con đường Võ Văn Tần, Phạm Ngọc Thạch và Trần Cao Vân gặp nhau, thành một bùng binh."
+    },
+    {
+      "type": "narration",
+      "text": "Cái tên dân gian sống lâu hơn cái tên chính thức, như nó vẫn thường thế ở thành phố này."
+    },
+    {
+      "type": "narration",
+      "text": "Quanh hồ là hàng quán và tiệm cà phê gần như không nghỉ, từ sáng tới khuya. Người ta tới đây không phải để xem một công trình, mà để ngồi."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "cho-tan-dinh",
+  "checkpointId": "cho-tan-dinh",
+  "title": "Một trong những ngôi chợ già nhất thành phố",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Chợ Tân Định",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tân Định nằm trên đường Hai Bà Trưng, và là một trong những ngôi chợ có lịch sử lâu đời nhất thành phố."
+    },
+    {
+      "type": "narration",
+      "text": "Khu này có hai công trình đáng nhìn đứng gần nhau: ngôi chợ, và nhà thờ màu hồng cách đó vài trăm mét."
+    }
+  ]
+}

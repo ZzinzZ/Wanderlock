@@ -216,6 +216,7 @@ Future<void> main(List<String> args) async {
   }
 
   var width = _defaultWidth;
+  var all = false;
   Set<String>? only;
   for (var i = 0; i < args.length; i++) {
     if (args[i] == '--width' && i + 1 < args.length) {
@@ -224,6 +225,7 @@ Future<void> main(List<String> args) async {
     if (args[i] == '--only' && i + 1 < args.length) {
       only = args[i + 1].split(',').map((s) => s.trim()).toSet();
     }
+    if (args[i] == '--all') all = true;
   }
 
   final found =
@@ -239,6 +241,16 @@ Future<void> main(List<String> args) async {
         (jsonDecode(chosenFile.readAsStringSync())
                 as Map<String, Object?>)['files']!
             as Map<String, Object?>;
+  }
+
+  // Default to the places somebody has actually chosen a photograph for.
+  //
+  // Fetching everything with a candidate downloads 182 files and 35 MB, most
+  // of them the top-ranked guess for a place nobody has looked at — which is
+  // how a lizard ends up standing in for the zoo. `--all` still does that,
+  // for whoever wants to review in bulk.
+  if (only == null && chosen.isNotEmpty && !all) {
+    only = chosen.keys.toSet();
   }
 
   outputDir.createSync(recursive: true);

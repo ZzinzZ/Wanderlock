@@ -1,0 +1,19 @@
+{
+  "id": "cong-vien-tao-dan",
+  "checkpointId": "cong-vien-tao-dan",
+  "title": "Khu vườn giữa Quận 1",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/cong-vien-tao-dan.jpg",
+  "coverCredit": "Ảnh: trungydang / Wikimedia Commons — CC BY 3.0",
+  "source": "Wikipedia tiếng Việt — Công viên Tao Đàn",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Tao Đàn nằm giữa bốn tuyến đường Nguyễn Thị Minh Khai, Huyền Trân Công Chúa, Nguyễn Du và Cách Mạng Tháng Tám."
+    },
+    {
+      "type": "narration",
+      "text": "Đây là một trong những mảng xanh lớn còn lại ở trung tâm, và là nơi người thành phố tới tập thể dục từ sớm tinh mơ."
+    }
+  ]
+}

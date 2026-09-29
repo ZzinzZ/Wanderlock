@@ -1,0 +1,23 @@
+{
+  "id": "cho-dau-moi-binh-dien",
+  "checkpointId": "cho-dau-moi-binh-dien",
+  "title": "Chợ đầu mối lớn nhất nước",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/cho-dau-moi-binh-dien.jpg",
+  "coverCredit": "Ảnh: trungydang / Wikimedia Commons — CC BY 3.0",
+  "source": "Wikipedia tiếng Việt — Chợ đầu mối Bình Điền",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bình Điền nằm ven đại lộ Nguyễn Văn Linh ở phía tây nam thành phố, rộng 65 hecta với 7 nhà lồng, 2 nhà kho và các bãi xe. Đây là chợ đầu mối quy mô lớn nhất Việt Nam."
+    },
+    {
+      "type": "narration",
+      "text": "Hàng chính là thuỷ hải sản, thịt heo và rau củ. Đây cũng là chợ đầu mối duy nhất tập kết và phân phối thuỷ hải sản từ các tỉnh về thành phố."
+    },
+    {
+      "type": "narration",
+      "text": "Khởi công tháng 3 năm 2003, hoạt động từ ngày 23 tháng 3 năm 2006. Nhịp mạnh nhất của nó rơi vào lúc thành phố đang ngủ."
+    }
+  ]
+}

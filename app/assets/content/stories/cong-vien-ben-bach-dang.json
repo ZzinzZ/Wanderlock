@@ -1,0 +1,17 @@
+{
+  "id": "cong-vien-ben-bach-dang",
+  "checkpointId": "cong-vien-ben-bach-dang",
+  "title": "Bờ sông của cả thành phố",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Bến Bạch Đằng",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bến Bạch Đằng là khu công viên và bến sông bên bờ tây sông Sài Gòn, ở số 2 đường Tôn Đức Thắng. Công viên dài 1,3 km, rộng 23.400 mét vuông."
+    },
+    {
+      "type": "narration",
+      "text": "Đây là chỗ người thành phố ra chơi, và là chỗ đứng xem pháo hoa mỗi dịp lễ Tết — một trong số ít nơi trong trung tâm mà ai cũng có quyền đứng."
+    }
+  ]
+}

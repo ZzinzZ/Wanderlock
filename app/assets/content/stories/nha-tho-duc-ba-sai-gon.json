@@ -1,0 +1,23 @@
+{
+  "id": "nha-tho-duc-ba-sai-gon",
+  "checkpointId": "nha-tho-duc-ba-sai-gon",
+  "title": "Nhà thờ của cả thành phố",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/nha-tho-duc-ba-sai-gon.jpg",
+  "coverCredit": "Ảnh: Андрей Бобровский / Wikimedia Commons — CC BY 3.0",
+  "source": "Wikipedia tiếng Việt — Nhà thờ chính tòa Đức Bà Sài Gòn",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tên đầy đủ dài hơn nhiều so với cái tên ai cũng dùng: Vương cung thánh đường chánh tòa Đức Mẹ Vô nhiễm Nguyên tội. Người ta gọi tắt là Nhà thờ Đức Bà, và đây là nhà thờ chính tòa của Tổng giáo phận Sài Gòn."
+    },
+    {
+      "type": "narration",
+      "text": "Ban đầu nó chỉ mang tên Nhà thờ Sài Gòn. Tên Đức Bà bắt đầu được dùng từ năm 1959, khi tượng Đức Bà Hoà Bình được đặt trước khuôn viên."
+    },
+    {
+      "type": "narration",
+      "text": "Đây là nơi tấn phong nhiều giám mục, nơi các Tổng giám mục nhậm chức, và nơi hàng nghìn linh mục thụ phong. Nhưng với phần lớn người đi ngang, nó đơn giản là điểm mốc để hẹn nhau — hai tháp chuông ấy nhìn thấy từ rất xa."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "cho-minh-phung",
+  "checkpointId": "cho-minh-phung",
+  "title": "Chợ Cây Gõ",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Chợ Minh Phụng",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Minh Phụng, quen gọi là chợ Cây Gõ, rộng 2.412 mét vuông với 440 sạp."
+    },
+    {
+      "type": "narration",
+      "text": "Hàng ở đây là nông sản, thực phẩm, bách hoá tổng hợp và hàng tiêu dùng — một ngôi chợ của khu dân cư quanh nó, không phải của khách du lịch."
+    }
+  ]
+}

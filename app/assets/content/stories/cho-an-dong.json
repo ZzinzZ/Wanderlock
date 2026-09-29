@@ -1,0 +1,23 @@
+{
+  "id": "cho-an-dong",
+  "checkpointId": "cho-an-dong",
+  "title": "Chợ sỉ thời trang lớn nhất thành phố",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/cho-an-dong.jpg",
+  "coverCredit": "Ảnh: trungydang / Wikimedia Commons — CC BY 3.0",
+  "source": "Wikipedia tiếng Việt — Chợ An Đông",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tên chính thức bây giờ là Trung tâm Thương mại - Dịch vụ An Đông, nhưng gọi là chợ thì đúng hơn với cách nó hoạt động. Đây là nơi bán sỉ hàng thời trang lớn nhất Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Chợ hình thành khoảng năm 1950 và chính thức thành lập năm 1954. Tháng 4 năm 1989, chợ xuống cấp nghiêm trọng nên được xây mới; đến năm 1991 nâng lên thành trung tâm thương mại sáu tầng."
+    },
+    {
+      "type": "narration",
+      "text": "Hơn 25.000 mét vuông mặt bằng, 2.718 sạp thiết kế, và lượng hàng luân chuyển mỗi năm tính bằng nghìn tỉ đồng."
+    }
+  ]
+}

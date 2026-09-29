@@ -1,0 +1,17 @@
+{
+  "id": "cong-vien-lich-su-van-hoa-dan-toc",
+  "checkpointId": "cong-vien-lich-su-van-hoa-dan-toc",
+  "title": "Công viên kể lịch sử một dân tộc",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Công viên Lịch sử – Văn hóa Dân tộc",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đây là một công trình quy mô lớn ở phía đông thành phố, vừa là công viên vừa là điểm tham quan, với chủ đề là lịch sử và văn hoá của dân tộc Việt Nam."
+    },
+    {
+      "type": "narration",
+      "text": "Công viên được xem là công trình tiêu biểu của khu vực phía Nam, và là một trong số ít công trình lịch sử văn hoá trọng điểm của thành phố vẫn đang tiếp tục được xây dựng."
+    }
+  ]
+}

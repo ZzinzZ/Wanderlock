@@ -1,0 +1,17 @@
+{
+  "id": "nha-den-cho-quan",
+  "checkpointId": "nha-den-cho-quan",
+  "title": "Nhà máy điện thắp sáng Sài Gòn xưa",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Nhà đèn Chợ Quán",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà máy điện Chợ Quán — người Sài Gòn gọi là Nhà đèn Chợ Quán — nằm bên rạch Bến Nghé và hoạt động từ năm 1912 đến đầu những năm 2000."
+    },
+    {
+      "type": "narration",
+      "text": "Gần một thế kỷ, đây là nhà máy điện quan trọng bậc nhất của Sài Gòn – Chợ Lớn, cấp điện cho khu trung tâm và các vùng phụ cận. Ánh đèn của thành phố cũ bắt đầu từ chỗ này."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "cho-dau-moi-thu-duc",
+  "checkpointId": "cho-dau-moi-thu-duc",
+  "title": "Cửa ngõ hàng hoá của thành phố",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Chợ đầu mối nông sản thực phẩm Thủ Đức",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đây là một trong ba chợ đầu mối lớn nhất thành phố, nằm ngay cửa ngõ phía đông trên Quốc lộ 1A."
+    },
+    {
+      "type": "narration",
+      "text": "Chợ khởi công năm 2002, tổng vốn 182,4 tỉ đồng, quy mô hơn 20 hecta. Nó ra đời theo chủ trương dời các chợ nhỏ lẻ ra khỏi nội thành — nghĩa là nơi này tồn tại để những nơi khác bớt chật."
+    }
+  ]
+}

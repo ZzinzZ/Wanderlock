@@ -1,0 +1,19 @@
+{
+  "id": "nha-hat-thanh-pho",
+  "checkpointId": "nha-hat-thanh-pho",
+  "title": "Nhà hát nhìn ra Công trường Lam Sơn",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/nha-hat-thanh-pho.jpg",
+  "coverCredit": "Ảnh: 源義信 / Wikimedia Commons — CC BY-SA 4.0",
+  "source": "Wikipedia tiếng Việt — Nhà hát Thành phố Hồ Chí Minh",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà hát Thành phố quay mặt ra Công trường Lam Sơn và đường Đồng Khởi. Đây là một trong những nhà hát lâu đời theo kiến trúc Tây Âu ở Việt Nam."
+    },
+    {
+      "type": "narration",
+      "text": "Ngoài các buổi diễn nghệ thuật, nơi này còn là chỗ tổ chức những sự kiện lớn của thành phố — và với khách đi ngang, nó là một điểm tham quan không cần mua vé mới xem được."
+    }
+  ]
+}
