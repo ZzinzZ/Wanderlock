@@ -9,7 +9,12 @@
 App bản đồ tham quan được game hoá: mỗi địa điểm là một checkpoint bị khoá,
 phải **thực sự đến nơi** để mở khoá — và một lần đến mở khoá cho **mọi** chế độ chơi.
 
-Pilot: Quận 1 + rìa Chợ Lớn, TP.HCM.
+Pilot: **272 địa điểm rải khắp TP.HCM** — 12 địa danh gốc đã kiểm chứng toạ độ
+bằng mắt, số còn lại nhập từ OpenStreetMap và còn mang `verified: false`.
+
+Cả năm lăng kính đã chạy: Sương mù, Sưu tầm, Nhiệm vụ, Lộ trình, và Truyện
+(46 chương, 28 nơi có ảnh thật). Không có máy chủ thì app chạy ở **bản trình
+diễn**: kéo bản đồ thay cho đi bộ.
 
 ---
 
@@ -30,6 +35,13 @@ Rồi lấy đúng phiên bản đã ghim và nạp phụ thuộc:
 cd app && fvm install && fvm flutter pub get
 ```
 
+> Nếu mọi lệnh Flutter báo `Unable to determine engine version`: không phải SDK
+> hỏng, mà git từ chối đọc thư mục SDK vì khác chủ sở hữu. Đánh dấu nó tin được:
+>
+> ```bash
+> git config --global --add safe.directory <đường-dẫn-tới-sdk>
+> ```
+
 ```bash
 cp .env.example .env
 ```
@@ -43,8 +55,13 @@ cd app && fvm flutter gen-l10n
 ## Các cổng kiểm tra (chạy đúng như CI)
 
 ```bash
-cd app && fvm flutter gen-l10n && fvm dart format --output=none --set-exit-if-changed . && fvm flutter analyze --fatal-infos --fatal-warnings && fvm dart run ../tool/check_design_tokens.dart && fvm dart run ../tool/check_architecture.dart && fvm dart run ../tool/check_encoding.dart && fvm flutter test
+cd app && fvm flutter gen-l10n && fvm dart run build_runner build && fvm dart format --output=none --set-exit-if-changed . && fvm flutter analyze --fatal-infos --fatal-warnings && fvm dart run ../tool/check_design_tokens.dart && fvm dart run ../tool/check_architecture.dart && fvm dart run ../tool/check_encoding.dart && fvm flutter test --exclude-tags "golden || live"
 ```
+
+> `dart format --output=none` chỉ **kiểm**, không ghi. Muốn sửa thật thì chạy
+> `fvm dart format lib test` trước rồi mới kiểm.
+>
+> Test mang tag `golden` hoặc `live` bị loại — `live` cần Supabase thật.
 
 | Cổng | Chặn cái gì |
 |------|-------------|
@@ -79,11 +96,11 @@ gh workflow run "iOS build"
 | Thư mục | Nội dung |
 |---------|----------|
 | `app/` | Ứng dụng Flutter |
-| `content/` | JSON nội dung pilot + bảng bản quyền ảnh |
+| `content/` | Địa điểm, nhiệm vụ, chương truyện, ảnh thật — và sổ bản quyền ảnh |
 | `supabase/` | Migration + edge function xác thực check-in |
 | `spikes/` | Mã thử nghiệm — **không** đưa vào `app/lib/` |
 | `docs/` | Tài liệu nền tảng (tiếng Việt) |
-| `tool/` | Script kiểm tra dùng cho CI |
+| `tool/` | Cổng kiểm tra của CI, và các công cụ nội dung (soi toạ độ, chọn ảnh) |
 
 ## Tài liệu
 
@@ -91,7 +108,10 @@ Bắt đầu từ [docs/00-overview.md](docs/00-overview.md). Trước khi viế
 [docs/12-engineering-guide.md](docs/12-engineering-guide.md) và
 [CLAUDE.md](CLAUDE.md).
 
-Đang ở phase nào và Definition of Done: [docs/11-foundation-plan.md](docs/11-foundation-plan.md).
+Definition of Done của từng phase: [docs/11-foundation-plan.md](docs/11-foundation-plan.md).
+
+Còn *đang ở đâu* thì đọc `git log` của `main` — [CHECKPOINT.md](CHECKPOINT.md)
+viết tay nên hay tụt lại phía sau.
 
 ## Quy ước
 
