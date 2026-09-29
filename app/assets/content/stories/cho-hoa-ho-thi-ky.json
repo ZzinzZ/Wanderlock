@@ -1,0 +1,18 @@
+{
+  "id": "cho-hoa-ho-thi-ky",
+  "checkpointId": "cho-hoa-ho-thi-ky",
+  "kind": "intro",
+  "title": "Chợ hoa Hồ Thị Kỷ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ hoa Hồ Thị Kỷ là một khu chợ ở Hẻm 401 Trần Bình Trọng, Phường Vườn Lài, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Ho Thi Ky Flower Market."
+    }
+  ]
+}

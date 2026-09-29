@@ -1,0 +1,14 @@
+{
+  "id": "centre-mall-pham-hung",
+  "checkpointId": "centre-mall-pham-hung",
+  "kind": "intro",
+  "title": "Centre Mall Phạm Hùng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Centre Mall Phạm Hùng là một trung tâm thương mại ở số C6/27 Phạm Hùng, Phường Chánh Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

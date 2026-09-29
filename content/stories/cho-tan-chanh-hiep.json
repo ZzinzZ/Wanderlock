@@ -1,0 +1,14 @@
+{
+  "id": "cho-tan-chanh-hiep",
+  "checkpointId": "cho-tan-chanh-hiep",
+  "kind": "intro",
+  "title": "Chợ Tân Chánh Hiệp",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tân Chánh Hiệp là một khu chợ ở Đường Tô Ký, Phường Trung Mỹ Tây, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

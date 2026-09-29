@@ -1,0 +1,18 @@
+{
+  "id": "banh-xeo-46a",
+  "checkpointId": "banh-xeo-46a",
+  "kind": "intro",
+  "title": "Bánh Xèo 46A",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bánh Xèo 46A là một nhà hàng ở số 46A Ðinh Công Tráng, Phường Tân Định, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Món ghi nhận: vietnamese."
+    }
+  ]
+}

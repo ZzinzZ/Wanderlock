@@ -1,0 +1,18 @@
+{
+  "id": "cho-xom-chieu",
+  "checkpointId": "cho-xom-chieu",
+  "kind": "intro",
+  "title": "Chợ Xóm Chiếu",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Xóm Chiếu là một khu chợ ở Ðinh Lễ, Phường Xóm Chiếu, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Xom Chieu Market."
+    }
+  ]
+}

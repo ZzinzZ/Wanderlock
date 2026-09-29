@@ -1,0 +1,18 @@
+{
+  "id": "cau-mong",
+  "checkpointId": "cau-mong",
+  "kind": "intro",
+  "title": "Cầu Mống",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Cầu Mống là một cây cầu ở Cầu Mống, Phường Xóm Chiếu, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên cũ là Pont des Messageries maritimes. Tên tiếng Anh ghi nhận là Mong Bridge. Được ghi nhận là di tích được xếp hạng. Wikidata mô tả nơi này là cây cầu tại thành phố Hồ Chí Minh."
+    }
+  ]
+}

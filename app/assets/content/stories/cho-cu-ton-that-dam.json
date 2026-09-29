@@ -1,0 +1,18 @@
+{
+  "id": "cho-cu-ton-that-dam",
+  "checkpointId": "cho-cu-ton-that-dam",
+  "kind": "intro",
+  "title": "Chợ cũ Tôn Thất Đạm",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ cũ Tôn Thất Đạm là một khu chợ ở số 89 Đường Tôn Thất Đạm, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Old Market."
+    }
+  ]
+}

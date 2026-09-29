@@ -40,6 +40,7 @@ abstract final class StoryChapterDto {
       id: id,
       checkpointId: _requireString(json, 'checkpointId', chapterId: id),
       title: _requireString(json, 'title', chapterId: id),
+      kind: _kindFromJson(json['kind'], chapterId: id),
       source: json['source'] as String?,
       coverImage: json['coverImage'] as String?,
       coverCredit: json['coverCredit'] as String?,
@@ -49,6 +50,24 @@ abstract final class StoryChapterDto {
           _nodeFromJson(rawNodes[i], chapterId: id, index: i),
       ],
     );
+  }
+
+  /// Absent means [StoryChapterKind.chapter]. An unknown value is refused
+  /// rather than defaulted: a typo silently downgrading a chapter to an intro
+  /// is exactly the kind of quiet wrong this parser exists to prevent.
+  static StoryChapterKind _kindFromJson(
+    Object? raw, {
+    required String chapterId,
+  }) {
+    if (raw == null) return StoryChapterKind.chapter;
+    return switch (raw) {
+      'chapter' => StoryChapterKind.chapter,
+      'intro' => StoryChapterKind.intro,
+      _ => throw StoryFormatException(
+        'kind phải là "chapter" hoặc "intro", không phải "$raw"',
+        chapterId: chapterId,
+      ),
+    };
   }
 
   static StoryNode _nodeFromJson(

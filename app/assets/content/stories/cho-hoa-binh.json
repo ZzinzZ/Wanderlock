@@ -1,0 +1,18 @@
+{
+  "id": "cho-hoa-binh",
+  "checkpointId": "cho-hoa-binh",
+  "kind": "intro",
+  "title": "Chợ Hòa Bình",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Hòa Bình là một khu chợ ở số 37 Bạch Vân, Phường An Đông, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Hoa Binh Market. Mở cửa hằng ngày từ 05:00 đến 22:00."
+    }
+  ]
+}

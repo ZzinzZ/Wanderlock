@@ -1,0 +1,18 @@
+{
+  "id": "cong-vien-van-lang",
+  "checkpointId": "cong-vien-van-lang",
+  "kind": "intro",
+  "title": "Công viên Văn Lang",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Văn Lang là một công viên ở Đường Hùng Vương, Phường An Đông, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Van Lang Park."
+    }
+  ]
+}

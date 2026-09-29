@@ -1,0 +1,14 @@
+{
+  "id": "vincom-plaza-thu-duc",
+  "checkpointId": "vincom-plaza-thu-duc",
+  "kind": "intro",
+  "title": "Vincom Plaza Thủ Đức",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Vincom Plaza Thủ Đức là một trung tâm thương mại ở số 216 Võ Văn Ngân, Phường Thủ Đức, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

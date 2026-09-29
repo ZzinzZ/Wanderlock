@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-wonderland",
+  "checkpointId": "cong-vien-wonderland",
+  "kind": "intro",
+  "title": "Công viên Wonderland",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Wonderland là một công viên ở Đặng Đại Độ, Phường Tân Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

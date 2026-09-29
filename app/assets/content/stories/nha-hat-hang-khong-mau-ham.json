@@ -1,0 +1,14 @@
+{
+  "id": "nha-hat-hang-khong-mau-ham",
+  "checkpointId": "nha-hat-hang-khong-mau-ham",
+  "kind": "intro",
+  "title": "Nhà Hát \"Hàng Không Mẫu Hạm\"",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà Hát \"Hàng Không Mẫu Hạm\" là một nhà hát ở số 30 Đường Trần Hưng Đạo, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "doc-shakespeare",
+  "checkpointId": "doc-shakespeare",
+  "kind": "intro",
+  "title": "Dốc Shakespeare",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Dốc Shakespeare là một điểm ngắm cảnh ở William Shakespeare, Phường Đông Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

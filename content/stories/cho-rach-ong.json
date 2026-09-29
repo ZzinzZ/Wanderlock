@@ -1,0 +1,14 @@
+{
+  "id": "cho-rach-ong",
+  "checkpointId": "cho-rach-ong",
+  "kind": "intro",
+  "title": "Chợ Rạch Ông",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Rạch Ông là một khu chợ ở Nguyễn Thị Tần, Phường Chánh Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

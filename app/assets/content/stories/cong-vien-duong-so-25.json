@@ -1,0 +1,18 @@
+{
+  "id": "cong-vien-duong-so-25",
+  "checkpointId": "cong-vien-duong-so-25",
+  "kind": "intro",
+  "title": "Công viên Đường số 25",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Đường số 25 là một công viên ở số 12 Đường Số 23, Phường An Lạc, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Mở cửa suốt ngày đêm."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "nha-hat-quan-doi",
+  "checkpointId": "nha-hat-quan-doi",
+  "kind": "intro",
+  "title": "Nhà hát Quân đội",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà hát Quân đội là một nhà hát ở Hẻm 42 Cộng Hòa, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Army Theater."
+    }
+  ]
+}

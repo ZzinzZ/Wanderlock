@@ -1,0 +1,18 @@
+{
+  "id": "vincom-megamall-thao-dien",
+  "checkpointId": "vincom-megamall-thao-dien",
+  "kind": "intro",
+  "title": "Vincom Megamall Thảo Điền",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Vincom Megamall Thảo Điền là một trung tâm thương mại ở số 159-161 Đường D1, Phường An Khánh, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Công trình cao 4 tầng."
+    }
+  ]
+}

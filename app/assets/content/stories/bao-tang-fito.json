@@ -1,0 +1,18 @@
+{
+  "id": "bao-tang-fito",
+  "checkpointId": "bao-tang-fito",
+  "kind": "intro",
+  "title": "Bảo Tàng FITO",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo Tàng FITO là một bảo tàng ở số 41 Hoàng Dư Khương, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là FITO Museum of traditional Vietnamese medicine. Mở cửa hằng ngày từ 08:30 đến 17:00."
+    }
+  ]
+}

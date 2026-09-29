@@ -1,0 +1,14 @@
+{
+  "id": "lang-le-van-duyet",
+  "checkpointId": "lang-le-van-duyet",
+  "kind": "intro",
+  "title": "Lăng Lê Văn Duyệt",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Lăng Lê Văn Duyệt là một di tích ở Phan Đăng Lưu, Phường Gia Định, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

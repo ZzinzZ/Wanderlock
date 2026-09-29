@@ -1,0 +1,18 @@
+{
+  "id": "tuong-dai-chu-tich-ho-chi-minh",
+  "checkpointId": "tuong-dai-chu-tich-ho-chi-minh",
+  "kind": "intro",
+  "title": "Tượng đài Chủ tịch Hồ Chí Minh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng đài Chủ tịch Hồ Chí Minh là một bức tượng tưởng niệm ở Đường Nguyễn Huệ, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Ho Chi Minh Statue."
+    }
+  ]
+}

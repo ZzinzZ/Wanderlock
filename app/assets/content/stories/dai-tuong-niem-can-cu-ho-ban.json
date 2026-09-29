@@ -1,0 +1,14 @@
+{
+  "id": "dai-tuong-niem-can-cu-ho-ban",
+  "checkpointId": "dai-tuong-niem-can-cu-ho-ban",
+  "kind": "intro",
+  "title": "Đài tưởng niệm Căn cứ Hố Bần",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đài tưởng niệm Căn cứ Hố Bần là một công trình tưởng niệm ở Đường Số 52, Phường Bình Phú, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

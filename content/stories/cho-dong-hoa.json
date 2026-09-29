@@ -1,0 +1,14 @@
+{
+  "id": "cho-dong-hoa",
+  "checkpointId": "cho-dong-hoa",
+  "kind": "intro",
+  "title": "Chợ Đông Hòa",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Đông Hòa là một khu chợ ở Nguyễn Bỉnh Khiêm, Phường Đông Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

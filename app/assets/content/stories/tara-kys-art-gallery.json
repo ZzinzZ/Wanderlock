@@ -1,0 +1,14 @@
+{
+  "id": "tara-kys-art-gallery",
+  "checkpointId": "tara-kys-art-gallery",
+  "kind": "intro",
+  "title": "Tara & Kys Art Gallery",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tara & Kys Art Gallery là một phòng trưng bày ở số 48 Đường Đông Du, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

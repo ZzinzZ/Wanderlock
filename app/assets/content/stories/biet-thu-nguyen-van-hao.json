@@ -1,0 +1,14 @@
+{
+  "id": "biet-thu-nguyen-van-hao",
+  "checkpointId": "biet-thu-nguyen-van-hao",
+  "kind": "intro",
+  "title": "Biệt thự Nguyễn Văn Hảo",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Biệt thự Nguyễn Văn Hảo là một điểm tham quan ở Đường Yersin, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "on-mall-binh-tan",
+  "checkpointId": "on-mall-binh-tan",
+  "kind": "intro",
+  "title": "AEON Mall Bình Tân",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "AEON Mall Bình Tân là một trung tâm thương mại ở số 1 Đường số 17A, Phường An Lạc, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Đơn vị quản lý: ÆON."
+    }
+  ]
+}

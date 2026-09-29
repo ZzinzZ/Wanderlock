@@ -1,0 +1,18 @@
+{
+  "id": "cho-vuon-chuoi",
+  "checkpointId": "cho-vuon-chuoi",
+  "kind": "intro",
+  "title": "Chợ Vườn Chuối",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Vườn Chuối là một khu chợ ở Nguyễn Thượng Hiền, Phường Bàn Cờ, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Vuon Chuoi Market."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "cho-binh-dong",
+  "checkpointId": "cho-binh-dong",
+  "kind": "intro",
+  "title": "Chợ Bình Đông",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bình Đông là một khu chợ ở Cầu Kênh Ngang số 2, Phường Phú Định, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Binh Dong Market."
+    }
+  ]
+}

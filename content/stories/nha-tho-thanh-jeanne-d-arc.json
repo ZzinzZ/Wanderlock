@@ -1,0 +1,20 @@
+{
+  "id": "nha-tho-thanh-jeanne-d-arc",
+  "checkpointId": "nha-tho-thanh-jeanne-d-arc",
+  "kind": "intro",
+  "title": "Nhà thờ Thánh Jeanne d'Arc",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/nha-tho-thanh-jeanne-d-arc.jpg",
+  "coverCredit": "Ảnh: Gary Todd from Xinzheng, China / Wikimedia Commons",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà thờ Thánh Jeanne d'Arc là một nhà thờ Công giáo ở Đường Ngô Gia Tự, Phường An Đông, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Nơi này còn được gọi là Nhà thờ Ngã Sáu. Tên tiếng Anh ghi nhận là Church of St Joan of Arc."
+    }
+  ]
+}

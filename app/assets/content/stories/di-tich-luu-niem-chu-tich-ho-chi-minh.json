@@ -1,0 +1,18 @@
+{
+  "id": "di-tich-luu-niem-chu-tich-ho-chi-minh",
+  "checkpointId": "di-tich-luu-niem-chu-tich-ho-chi-minh",
+  "kind": "intro",
+  "title": "Di tích lưu niệm Chủ tịch Hồ Chí Minh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Di tích lưu niệm Chủ tịch Hồ Chí Minh là một bảo tàng ở số 5 Đường Châu Văn Liêm, Phường Chợ Lớn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Được ghi nhận là di tích được xếp hạng. Công trình cao 2 tầng."
+    }
+  ]
+}

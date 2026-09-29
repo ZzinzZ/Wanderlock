@@ -1,0 +1,14 @@
+{
+  "id": "pho-phu-vuong",
+  "checkpointId": "pho-phu-vuong",
+  "kind": "intro",
+  "title": "Phở Phú Vương",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Phở Phú Vương là một nhà hàng ở số 339 Đường Lê Văn Sỹ, Phường Tân Sơn Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

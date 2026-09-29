@@ -1,0 +1,14 @@
+{
+  "id": "san-khau-kich-hoang-thai-thanh",
+  "checkpointId": "san-khau-kich-hoang-thai-thanh",
+  "kind": "intro",
+  "title": "Sân khấu kịch Hoàng Thái Thanh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Sân khấu kịch Hoàng Thái Thanh là một nhà hát ở số 139 Bắc Hải, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

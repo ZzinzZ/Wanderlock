@@ -1,0 +1,14 @@
+{
+  "id": "van-duong-phu-nha-cu-vuong-hong-sen",
+  "checkpointId": "van-duong-phu-nha-cu-vuong-hong-sen",
+  "kind": "intro",
+  "title": "Vân Đường Phủ (Nhà cụ Vương Hồng Sển)",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Vân Đường Phủ (Nhà cụ Vương Hồng Sển) là một bảo tàng ở số 11 Nguyễn Thiện Thuật, Phường Bình Thạnh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

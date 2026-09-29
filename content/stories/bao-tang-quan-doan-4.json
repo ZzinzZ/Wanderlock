@@ -1,0 +1,14 @@
+{
+  "id": "bao-tang-quan-doan-4",
+  "checkpointId": "bao-tang-quan-doan-4",
+  "kind": "intro",
+  "title": "Bảo tàng Quân đoàn 4",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Quân đoàn 4 là một bảo tàng ở Đại lộ Độc Lập, Phường Dĩ An, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

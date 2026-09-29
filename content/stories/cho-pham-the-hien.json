@@ -1,0 +1,14 @@
+{
+  "id": "cho-pham-the-hien",
+  "checkpointId": "cho-pham-the-hien",
+  "kind": "intro",
+  "title": "Chợ Phạm Thế Hiển",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Phạm Thế Hiển là một khu chợ ở Đường Phạm Thế Hiển, Phường Chánh Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

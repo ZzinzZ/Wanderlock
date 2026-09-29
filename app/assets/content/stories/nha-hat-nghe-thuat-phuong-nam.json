@@ -1,0 +1,14 @@
+{
+  "id": "nha-hat-nghe-thuat-phuong-nam",
+  "checkpointId": "nha-hat-nghe-thuat-phuong-nam",
+  "kind": "intro",
+  "title": "Nhà hát Nghệ thuật Phương Nam",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà hát Nghệ thuật Phương Nam là một nhà hát ở số 372-374 Đường Trần Phú, Phường An Đông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

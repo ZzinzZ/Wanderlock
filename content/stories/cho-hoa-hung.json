@@ -1,0 +1,18 @@
+{
+  "id": "cho-hoa-hung",
+  "checkpointId": "cho-hoa-hung",
+  "kind": "intro",
+  "title": "Chợ Hòa Hưng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Hòa Hưng là một khu chợ ở Đường Cách Mạng Tháng Tám, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Hoa Hung Market."
+    }
+  ]
+}

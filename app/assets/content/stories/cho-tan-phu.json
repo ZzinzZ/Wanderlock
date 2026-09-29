@@ -1,0 +1,14 @@
+{
+  "id": "cho-tan-phu",
+  "checkpointId": "cho-tan-phu",
+  "kind": "intro",
+  "title": "Chợ Tân Phú",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tân Phú là một khu chợ ở Đường 225B, Phường Tăng Nhơn Phú, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

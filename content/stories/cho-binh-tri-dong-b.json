@@ -1,0 +1,14 @@
+{
+  "id": "cho-binh-tri-dong-b",
+  "checkpointId": "cho-binh-tri-dong-b",
+  "kind": "intro",
+  "title": "Chợ Bình Trị Đông B",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bình Trị Đông B là một khu chợ ở Đường số 7, Phường An Lạc, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

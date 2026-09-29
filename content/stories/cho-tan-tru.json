@@ -1,0 +1,14 @@
+{
+  "id": "cho-tan-tru",
+  "checkpointId": "cho-tan-tru",
+  "kind": "intro",
+  "title": "Chợ Tân Trụ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tân Trụ là một khu chợ ở Hẻm 28 Nguyễn Sỹ Sách, Phường Tân Sơn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

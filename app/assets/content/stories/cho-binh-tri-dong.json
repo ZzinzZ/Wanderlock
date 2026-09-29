@@ -1,0 +1,14 @@
+{
+  "id": "cho-binh-tri-dong",
+  "checkpointId": "cho-binh-tri-dong",
+  "kind": "intro",
+  "title": "Chợ Bình Trị Đông",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bình Trị Đông là một khu chợ ở Đường Trương Phước Phan, Phường Bình Trị Đông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

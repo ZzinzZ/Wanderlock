@@ -1,0 +1,14 @@
+{
+  "id": "quang-san-art-museum",
+  "checkpointId": "quang-san-art-museum",
+  "kind": "intro",
+  "title": "Quang San Art Museum",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Quang San Art Museum là một bảo tàng ở Nguyễn Văn Hưởng, Phường An Khánh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

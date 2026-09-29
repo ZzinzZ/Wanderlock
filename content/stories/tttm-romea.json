@@ -1,0 +1,14 @@
+{
+  "id": "tttm-romea",
+  "checkpointId": "tttm-romea",
+  "kind": "intro",
+  "title": "TTTM RomeA",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "TTTM RomeA là một trung tâm thương mại ở Đường Trương Định, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-bau-cat",
+  "checkpointId": "cong-vien-bau-cat",
+  "kind": "intro",
+  "title": "Công viên Bàu Cát",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Bàu Cát là một công viên ở Bàu Cát 5, Phường Tân Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

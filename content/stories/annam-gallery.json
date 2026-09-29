@@ -1,0 +1,18 @@
+{
+  "id": "annam-gallery",
+  "checkpointId": "annam-gallery",
+  "kind": "intro",
+  "title": "Annam Gallery",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Annam Gallery là một phòng trưng bày ở số 371/4 Đường Hai Bà Trưng, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Mở cửa hằng ngày từ 09:00 đến 20:00."
+    }
+  ]
+}

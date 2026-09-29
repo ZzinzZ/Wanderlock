@@ -1,0 +1,18 @@
+{
+  "id": "cho-nguyen-tri-phuong",
+  "checkpointId": "cho-nguyen-tri-phuong",
+  "kind": "intro",
+  "title": "Chợ Nguyễn Tri Phương",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Nguyễn Tri Phương là một khu chợ ở Hẻm 66 Nguyễn Lâm, Phường Diên Hồng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Nguyen Tri Phuong Market."
+    }
+  ]
+}

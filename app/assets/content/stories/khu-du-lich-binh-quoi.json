@@ -1,0 +1,14 @@
+{
+  "id": "khu-du-lich-binh-quoi",
+  "checkpointId": "khu-du-lich-binh-quoi",
+  "kind": "intro",
+  "title": "Khu Du Lịch Bình Qưới",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Khu Du Lịch Bình Qưới là một điểm tham quan ở Bình Quới, Phường Bình Quới, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

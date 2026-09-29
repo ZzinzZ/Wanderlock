@@ -1,0 +1,14 @@
+{
+  "id": "cho-trung-chanh",
+  "checkpointId": "cho-trung-chanh",
+  "kind": "intro",
+  "title": "Chợ Trung Chánh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Trung Chánh là một khu chợ ở Thương Mại, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "bao-tang-lich-su-thanh-pho-ho-chi-minh",
+  "checkpointId": "bao-tang-lich-su-thanh-pho-ho-chi-minh",
+  "kind": "intro",
+  "title": "Bảo tàng Lịch sử Thành phố Hồ Chí Minh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Lịch sử Thành phố Hồ Chí Minh là một bảo tàng ở số 2 Đường Nguyễn Thị Minh Khai, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là History Museum of Ho Chi Minh City. Dữ liệu ghi nhận năm 1929. Được ghi nhận là di tích được xếp hạng. Wikidata mô tả nơi này là bảo tàng lịch sử ở Thành phố Hồ Chí Minh, Việt Nam."
+    }
+  ]
+}

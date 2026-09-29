@@ -1,0 +1,16 @@
+{
+  "id": "cong-vien-so-1-ly-thai-to",
+  "checkpointId": "cong-vien-so-1-ly-thai-to",
+  "kind": "intro",
+  "title": "Công viên số 1 Lý Thái Tổ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/cong-vien-so-1-ly-thai-to.jpg",
+  "coverCredit": "Ảnh: MagnaFine / Wikimedia Commons — CC BY-SA 4.0",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên số 1 Lý Thái Tổ là một công viên ở Đường Hùng Vương, Phường Vườn Lài, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "okkio",
+  "checkpointId": "okkio",
+  "kind": "intro",
+  "title": "Okkio",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Okkio là một quán cà phê ở số 151 Đường Đồng Khởi, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

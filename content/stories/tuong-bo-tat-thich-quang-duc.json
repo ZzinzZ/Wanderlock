@@ -1,0 +1,14 @@
+{
+  "id": "tuong-bo-tat-thich-quang-duc",
+  "checkpointId": "tuong-bo-tat-thich-quang-duc",
+  "kind": "intro",
+  "title": "Tượng Bồ Tát Thích Quảng Đức",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng Bồ Tát Thích Quảng Đức là một bức tượng tưởng niệm ở Hồ Xuân Hương, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

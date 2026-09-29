@@ -1,0 +1,14 @@
+{
+  "id": "nha-tuong-niem-nguyen-an-ninh",
+  "checkpointId": "nha-tuong-niem-nguyen-an-ninh",
+  "kind": "intro",
+  "title": "Nhà tưởng niệm Nguyễn An Ninh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà tưởng niệm Nguyễn An Ninh là một tượng đài ở Hẻm 16 Hà Thị Khéo, Phường Trung Mỹ Tây, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

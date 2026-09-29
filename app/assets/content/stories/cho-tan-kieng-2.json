@@ -1,0 +1,14 @@
+{
+  "id": "cho-tan-kieng-2",
+  "checkpointId": "cho-tan-kieng-2",
+  "kind": "intro",
+  "title": "Chợ Tân Kiểng 2",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tân Kiểng 2 là một khu chợ ở Lê Văn Lương, Phường Tân Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

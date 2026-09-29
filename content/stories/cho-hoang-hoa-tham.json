@@ -1,0 +1,14 @@
+{
+  "id": "cho-hoang-hoa-tham",
+  "checkpointId": "cho-hoang-hoa-tham",
+  "kind": "intro",
+  "title": "Chợ Hoàng Hoa Thám",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Hoàng Hoa Thám là một khu chợ ở Hẻm 17 Đường Hoàng Hoa Thám, Phường Tân Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

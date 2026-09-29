@@ -1,0 +1,18 @@
+{
+  "id": "cho-tran-huu-trang",
+  "checkpointId": "cho-tran-huu-trang",
+  "kind": "intro",
+  "title": "Chợ Trần Hữu Trang",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Trần Hữu Trang là một khu chợ ở Đường Trần Hữu Trang, Phường Phú Nhuận, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Tran Huu Trang Market."
+    }
+  ]
+}

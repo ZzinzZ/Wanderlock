@@ -1,0 +1,18 @@
+{
+  "id": "cho-hiep-tan",
+  "checkpointId": "cho-hiep-tan",
+  "kind": "intro",
+  "title": "Chợ Hiệp Tân",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Hiệp Tân là một khu chợ ở số 70 Cây Keo, Phường Tân Phú, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên cũ là Chợ Phường 20. Công trình cao 1 tầng."
+    }
+  ]
+}

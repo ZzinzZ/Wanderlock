@@ -1,0 +1,14 @@
+{
+  "id": "tuong-dai-cong-nong-binh",
+  "checkpointId": "tuong-dai-cong-nong-binh",
+  "kind": "intro",
+  "title": "Tượng đài Công Nông Binh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng đài Công Nông Binh là một tượng đài ở Ngã bảy Lý Thái Tổ, Phường Vườn Lài, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "banh-cuon-hai-nam",
+  "checkpointId": "banh-cuon-hai-nam",
+  "kind": "intro",
+  "title": "Bánh Cuốn Hải Nam",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bánh Cuốn Hải Nam là một nhà hàng ở số 11A Cao Thắng, Phường Bàn Cờ, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Món ghi nhận: banh_cuon_(breakfast/lunch). Mở cửa hằng ngày từ 07:30 đến 10:45."
+    }
+  ]
+}

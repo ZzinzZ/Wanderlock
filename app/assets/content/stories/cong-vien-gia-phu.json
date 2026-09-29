@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-gia-phu",
+  "checkpointId": "cong-vien-gia-phu",
+  "kind": "intro",
+  "title": "Công viên Gia Phú",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Gia Phú là một công viên ở Phường Bình Hưng Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

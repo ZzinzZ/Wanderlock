@@ -1,0 +1,14 @@
+{
+  "id": "parc-mall",
+  "checkpointId": "parc-mall",
+  "kind": "intro",
+  "title": "Parc Mall",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Parc Mall là một trung tâm thương mại ở số 547-549 Tạ Quang Bửu, Phường Chánh Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

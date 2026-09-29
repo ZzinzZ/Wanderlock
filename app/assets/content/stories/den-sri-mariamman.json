@@ -1,0 +1,18 @@
+{
+  "id": "den-sri-mariamman",
+  "checkpointId": "den-sri-mariamman",
+  "kind": "intro",
+  "title": "Đền Sri Mariamman",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đền Sri Mariamman là một ngôi đền Hindu ở số 45 Đường Trương Định, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Nơi này còn được gọi là Chùa Bà Ấn. Tên tiếng Anh ghi nhận là Sri Mariamman Temple. Dữ liệu ghi nhận năm 1885. Wikidata mô tả nơi này là Hindu temple in Vietnam."
+    }
+  ]
+}

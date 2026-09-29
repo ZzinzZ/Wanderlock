@@ -1,0 +1,18 @@
+{
+  "id": "chua-linh-phuoc",
+  "checkpointId": "chua-linh-phuoc",
+  "kind": "intro",
+  "title": "Chùa Linh Phước",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chùa Linh Phước là một ngôi chùa ở Đường số 11, Phường Linh Xuân, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Wikidata mô tả nơi này là Buddhist temple near Da Lat, Vietnam."
+    }
+  ]
+}

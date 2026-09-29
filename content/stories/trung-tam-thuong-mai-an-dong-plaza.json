@@ -1,0 +1,14 @@
+{
+  "id": "trung-tam-thuong-mai-an-dong-plaza",
+  "checkpointId": "trung-tam-thuong-mai-an-dong-plaza",
+  "kind": "intro",
+  "title": "Trung tâm Thương Mại An Đông Plaza",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Trung tâm Thương Mại An Đông Plaza là một trung tâm thương mại ở Đường Sư Van Hạnh, Phường An Đông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

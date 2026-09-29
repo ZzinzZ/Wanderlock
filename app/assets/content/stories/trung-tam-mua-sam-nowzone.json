@@ -1,0 +1,14 @@
+{
+  "id": "trung-tam-mua-sam-nowzone",
+  "checkpointId": "trung-tam-mua-sam-nowzone",
+  "kind": "intro",
+  "title": "Trung Tâm Mua Sắm Nowzone",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Trung Tâm Mua Sắm Nowzone là một trung tâm thương mại ở số 235 Đường Nguyễn Văn Cừ, Phường Cầu Ông Lãnh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

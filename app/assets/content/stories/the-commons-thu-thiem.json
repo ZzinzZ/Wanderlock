@@ -1,0 +1,18 @@
+{
+  "id": "the-commons-thu-thiem",
+  "checkpointId": "the-commons-thu-thiem",
+  "kind": "intro",
+  "title": "The Commons Thu Thiem",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "The Commons Thu Thiem là một điểm tham quan ở số 33/10 Lương Định Của, Phường An Khánh, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Đơn vị quản lý: The Creative Commons."
+    }
+  ]
+}

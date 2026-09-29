@@ -1,0 +1,14 @@
+{
+  "id": "vincom-plaza-quang-trung",
+  "checkpointId": "vincom-plaza-quang-trung",
+  "kind": "intro",
+  "title": "Vincom Plaza Quang Trung",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Vincom Plaza Quang Trung là một trung tâm thương mại ở Quang Trung, Phường Gò Vấp, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "pico-plaza",
+  "checkpointId": "pico-plaza",
+  "kind": "intro",
+  "title": "Pico Plaza",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Pico Plaza là một trung tâm thương mại ở số 20 Cộng Hòa, Phường Bảy Hiền, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Công trình cao 5 tầng."
+    }
+  ]
+}

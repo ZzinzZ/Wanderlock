@@ -1,0 +1,18 @@
+{
+  "id": "vincom-mega-mall",
+  "checkpointId": "vincom-mega-mall",
+  "kind": "intro",
+  "title": "Vincom Mega Mall",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Vincom Mega Mall là một trung tâm thương mại ở Đại lộ mua sắm Rodeo, Phường Long Bình, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Công trình cao 5 tầng."
+    }
+  ]
+}

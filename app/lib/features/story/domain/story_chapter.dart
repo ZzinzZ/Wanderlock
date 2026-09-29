@@ -29,6 +29,22 @@ final class StoryImage extends StoryNode {
   final String? caption;
 }
 
+/// What kind of reading a chapter is.
+///
+/// Both are the same format and open the same way; they differ in what a
+/// reader should expect. Keeping the distinction in the content, rather than
+/// inferring it from length, means a two-paragraph chapter written for a small
+/// place is still a chapter, and a long intro is still an intro.
+enum StoryChapterKind {
+  /// Written from a source about this place, with something to say about it.
+  chapter,
+
+  /// A few factual lines assembled from open data, for a place nobody has
+  /// written about. Honest, short, and labelled so it is not mistaken for the
+  /// other kind.
+  intro,
+}
+
 /// A chapter of the Story lens: what a checkpoint has to say once you have
 /// stood in front of it.
 ///
@@ -40,6 +56,7 @@ class StoryChapter {
     required this.checkpointId,
     required this.title,
     required this.nodes,
+    this.kind = StoryChapterKind.chapter,
     this.source,
     this.coverImage,
     this.coverCredit,
@@ -47,6 +64,11 @@ class StoryChapter {
   });
 
   final String id;
+
+  /// Defaults to [StoryChapterKind.chapter]: the authored chapters were
+  /// written before intros existed and must not be relabelled by their
+  /// silence.
+  final StoryChapterKind kind;
 
   /// The checkpoint this chapter belongs to. One chapter per checkpoint in v1.
   final String checkpointId;

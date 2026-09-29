@@ -1,0 +1,14 @@
+{
+  "id": "cho-bau-cat",
+  "checkpointId": "cho-bau-cat",
+  "kind": "intro",
+  "title": "Chợ Bàu Cát",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bàu Cát là một khu chợ ở Bàu Cát 5, Phường Tân Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

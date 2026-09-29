@@ -1,0 +1,14 @@
+{
+  "id": "hien-tai-la-nguyen-khi-quoc-gia",
+  "checkpointId": "hien-tai-la-nguyen-khi-quoc-gia",
+  "kind": "intro",
+  "title": "Hiền tài là nguyên khí quốc gia",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Hiền tài là nguyên khí quốc gia là một tấm bia tưởng niệm ở Đường Đinh Tiên Hoàng, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

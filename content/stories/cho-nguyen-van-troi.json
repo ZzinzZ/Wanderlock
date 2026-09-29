@@ -1,0 +1,18 @@
+{
+  "id": "cho-nguyen-van-troi",
+  "checkpointId": "cho-nguyen-van-troi",
+  "kind": "intro",
+  "title": "Chợ Nguyễn Văn Trỗi",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Nguyễn Văn Trỗi là một khu chợ ở Hẻm 207 Lê Văn Sỹ, Phường Nhiêu Lộc, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên cũ là Chợ Trương Minh Giảng. Tên tiếng Anh ghi nhận là Nguyen Van Troi Market."
+    }
+  ]
+}

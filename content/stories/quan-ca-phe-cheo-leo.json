@@ -1,0 +1,18 @@
+{
+  "id": "quan-ca-phe-cheo-leo",
+  "checkpointId": "quan-ca-phe-cheo-leo",
+  "kind": "intro",
+  "title": "Quán Cà Phê Cheo Leo",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Quán Cà Phê Cheo Leo là một quán cà phê ở Hẻm 609 Nguyễn Ðình Chiểu, Phường Bàn Cờ, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Cheo Leo."
+    }
+  ]
+}

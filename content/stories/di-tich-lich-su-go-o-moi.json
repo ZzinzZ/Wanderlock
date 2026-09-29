@@ -1,0 +1,14 @@
+{
+  "id": "di-tich-lich-su-go-o-moi",
+  "checkpointId": "di-tich-lich-su-go-o-moi",
+  "kind": "intro",
+  "title": "Di tích lịch sử Gò Ô Môi",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Di tích lịch sử Gò Ô Môi là một công trình tưởng niệm ở Đào Trí, Phường Phú Thuận, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

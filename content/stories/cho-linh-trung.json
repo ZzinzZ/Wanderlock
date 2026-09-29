@@ -1,0 +1,18 @@
+{
+  "id": "cho-linh-trung",
+  "checkpointId": "cho-linh-trung",
+  "kind": "intro",
+  "title": "Chợ Linh Trung",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Linh Trung là một khu chợ ở Linh Trung, Phường Linh Xuân, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Linh Trung Market."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-thuan-kieu",
+  "checkpointId": "cong-vien-thuan-kieu",
+  "kind": "intro",
+  "title": "Công viên Thuận Kiều",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Thuận Kiều là một công viên ở Đường F, Phường Đông Hưng Thuận, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "bao-tang-ao-dai",
+  "checkpointId": "bao-tang-ao-dai",
+  "kind": "intro",
+  "title": "Bảo Tàng Áo Dài",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo Tàng Áo Dài là một bảo tàng ở Long Thuận, Phường Long Phước, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

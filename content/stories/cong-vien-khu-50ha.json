@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-khu-50ha",
+  "checkpointId": "cong-vien-khu-50ha",
+  "kind": "intro",
+  "title": "Công viên khu 50HA",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên khu 50HA là một công viên ở Đường Số 69 - CL, Phường Cát Lái, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

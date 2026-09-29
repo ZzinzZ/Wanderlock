@@ -1,0 +1,14 @@
+{
+  "id": "cho-thuoc-quan-10",
+  "checkpointId": "cho-thuoc-quan-10",
+  "kind": "intro",
+  "title": "Chợ thuốc Quận 10",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ thuốc Quận 10 là một khu chợ ở Hẻm 68 Đồng Nai, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "sc-vivocity",
+  "checkpointId": "sc-vivocity",
+  "kind": "intro",
+  "title": "SC VivoCity",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "SC VivoCity là một trung tâm thương mại ở Đường nội khu trung tâm SC VIVO CITY, Phường Tân Hưng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Mở cửa hằng ngày từ 10:00 đến 22:00. Wikidata mô tả nơi này là trung tâm thương mại tại Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cho-bon-xa-moi",
+  "checkpointId": "cho-bon-xa-moi",
+  "kind": "intro",
+  "title": "Chợ Bốn Xã mới",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bốn Xã mới là một khu chợ ở số 449 Hương lộ 2, Phường Bình Trị Đông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

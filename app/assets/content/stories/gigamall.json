@@ -1,0 +1,14 @@
+{
+  "id": "gigamall",
+  "checkpointId": "gigamall",
+  "kind": "intro",
+  "title": "Gigamall",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Gigamall là một trung tâm thương mại ở số 240-242 Phạm Văn Đồng, Phường Hiệp Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

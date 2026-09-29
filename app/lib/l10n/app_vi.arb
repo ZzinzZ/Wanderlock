@@ -110,6 +110,8 @@
   },
   "storyOpen": "Đọc chương",
   "storyLocked": "Đến nơi để mở chương truyện",
+  "storyOpenIntro": "Xem giới thiệu",
+  "storyLockedIntro": "Đến nơi để xem giới thiệu",
   "mapFilterAll": "Tất cả địa điểm",
   "mapFilterTitle": "Xem nhóm nào trên bản đồ?"
 }

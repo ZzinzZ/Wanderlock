@@ -1,0 +1,14 @@
+{
+  "id": "lang-truong-vinh-ky",
+  "checkpointId": "lang-truong-vinh-ky",
+  "kind": "intro",
+  "title": "Lăng Trương Vĩnh Ký",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Lăng Trương Vĩnh Ký là một di tích ở Đường Trần Hưng Đạo, Phường Chợ Quán, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

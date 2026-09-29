@@ -1,0 +1,14 @@
+{
+  "id": "cho-tang-nhon-phu",
+  "checkpointId": "cho-tang-nhon-phu",
+  "kind": "intro",
+  "title": "Chợ Tăng Nhơn Phú",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tăng Nhơn Phú là một khu chợ ở Lã Xuân Oai, Phường Tăng Nhơn Phú, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

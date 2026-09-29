@@ -1,0 +1,14 @@
+{
+  "id": "thien-duong-giai-tri-tho-trang",
+  "checkpointId": "thien-duong-giai-tri-tho-trang",
+  "kind": "intro",
+  "title": "Thiên đường giải trí Thỏ Trắng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Thiên đường giải trí Thỏ Trắng là một công viên giải trí ở Trường Sơn, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "pho-binh",
+  "checkpointId": "pho-binh",
+  "kind": "intro",
+  "title": "Phở Bình",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Phở Bình là một nhà hàng ở Đường Lý Chính Thắng, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Món ghi nhận: vietnamese. This was the secret headquarters of the Viet Cong (Vietnamese Communists; VC) in Saigon and from here they planned their attacks on the US embassy and other Saigon targets during the Tet Offensive of 1968. (Mini Museum upstairs)"
+    }
+  ]
+}

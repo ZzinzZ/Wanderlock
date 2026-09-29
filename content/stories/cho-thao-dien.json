@@ -1,0 +1,14 @@
+{
+  "id": "cho-thao-dien",
+  "checkpointId": "cho-thao-dien",
+  "kind": "intro",
+  "title": "Chợ Thảo Điền",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Thảo Điền là một khu chợ ở Nguyễn Văn Hưởng, Phường An Khánh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

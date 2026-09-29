@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-da-cau-sai-gon",
+  "checkpointId": "cong-vien-da-cau-sai-gon",
+  "kind": "intro",
+  "title": "Công viên dạ cầu Sài Gòn",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên dạ cầu Sài Gòn là một công viên ở Trần Não, Phường An Khánh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

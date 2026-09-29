@@ -1,0 +1,18 @@
+{
+  "id": "cong-vien-tan-cang",
+  "checkpointId": "cong-vien-tan-cang",
+  "kind": "intro",
+  "title": "Công viên Tân Cảng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Tân Cảng là một công viên ở Cầu Sài Gòn, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Tân Cảng Park."
+    }
+  ]
+}

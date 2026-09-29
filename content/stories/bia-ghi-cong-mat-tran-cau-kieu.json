@@ -1,0 +1,14 @@
+{
+  "id": "bia-ghi-cong-mat-tran-cau-kieu",
+  "checkpointId": "bia-ghi-cong-mat-tran-cau-kieu",
+  "kind": "intro",
+  "title": "Bia ghi công Mặt trận Cầu Kiệu",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bia ghi công Mặt trận Cầu Kiệu là một tấm bia tưởng niệm ở Trường Sa, Phường Cầu Kiệu, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

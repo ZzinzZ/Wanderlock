@@ -1,0 +1,14 @@
+{
+  "id": "dai-tuong-niem-liet-si-quan-tan-binh",
+  "checkpointId": "dai-tuong-niem-liet-si-quan-tan-binh",
+  "kind": "intro",
+  "title": "Đài tưởng niệm liệt sĩ quận Tân Bình",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đài tưởng niệm liệt sĩ quận Tân Bình là một tượng đài ở Trường Chinh, Phường Tân Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

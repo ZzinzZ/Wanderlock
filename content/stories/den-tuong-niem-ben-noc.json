@@ -1,0 +1,14 @@
+{
+  "id": "den-tuong-niem-ben-noc",
+  "checkpointId": "den-tuong-niem-ben-noc",
+  "kind": "intro",
+  "title": "Đền tưởng niệm Bến Nọc",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đền tưởng niệm Bến Nọc là một công trình tưởng niệm ở Đường N2, Phường Tăng Nhơn Phú, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

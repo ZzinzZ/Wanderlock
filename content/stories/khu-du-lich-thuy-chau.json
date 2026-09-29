@@ -1,0 +1,14 @@
+{
+  "id": "khu-du-lich-thuy-chau",
+  "checkpointId": "khu-du-lich-thuy-chau",
+  "kind": "intro",
+  "title": "Khu du lịch Thủy Châu",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Khu du lịch Thủy Châu là một công viên ở số 55 Mỹ Phước - Tân Vạn, Phường Đông Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

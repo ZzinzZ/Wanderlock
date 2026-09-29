@@ -1,0 +1,18 @@
+{
+  "id": "cho-thi-nghe",
+  "checkpointId": "cho-thi-nghe",
+  "kind": "intro",
+  "title": "Chợ Thị Nghè",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Thị Nghè là một khu chợ ở Công Trường Hòa Bình, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Thi Nghe Market."
+    }
+  ]
+}

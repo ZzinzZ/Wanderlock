@@ -130,17 +130,24 @@ class CheckpointSheet extends ConsumerWidget {
               ),
             ],
 
-            // The chapter, once the place has actually been visited. Shown
-            // as a disabled promise beforehand rather than hidden: knowing
-            // there is something to read here is a reason to walk over, and
-            // hiding it would make the reward invisible until it is spent.
+            // Shown as a disabled promise before the visit rather than
+            // hidden: knowing there is something to read is a reason to walk
+            // over, and a hidden reward is invisible until it is spent.
+            //
+            // The label says which of the two it is, so a few factual lines
+            // about a market are not offered as a story.
             if (chapter != null) ...[
               const SizedBox(height: AppSpacing.sm),
               StickerButton(
                 key: const Key('read-story'),
                 variant: StickerButtonVariant.secondary,
                 icon: AppIcons.story,
-                label: isVisited ? l10n.storyOpen : l10n.storyLocked,
+                label: switch ((chapter.kind, isVisited)) {
+                  (StoryChapterKind.chapter, true) => l10n.storyOpen,
+                  (StoryChapterKind.chapter, false) => l10n.storyLocked,
+                  (StoryChapterKind.intro, true) => l10n.storyOpenIntro,
+                  (StoryChapterKind.intro, false) => l10n.storyLockedIntro,
+                },
                 onPressed: isVisited ? () => onReadStory(chapter) : null,
               ),
             ],

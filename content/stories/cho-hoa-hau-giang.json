@@ -1,0 +1,14 @@
+{
+  "id": "cho-hoa-hau-giang",
+  "checkpointId": "cho-hoa-hau-giang",
+  "kind": "intro",
+  "title": "Chợ Hoa Hậu Giang",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Hoa Hậu Giang là một khu chợ ở Hẻm 402/6 Hậu Giang, Phường Phú Lâm, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

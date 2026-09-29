@@ -1,0 +1,14 @@
+{
+  "id": "cho-cay-queo",
+  "checkpointId": "cho-cay-queo",
+  "kind": "intro",
+  "title": "Chợ Cây Quéo",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Cây Quéo là một khu chợ ở Hẻm 270 Hoàng Hoa Thám, Phường Bình Lợi Trung, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

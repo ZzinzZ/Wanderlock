@@ -1,0 +1,18 @@
+{
+  "id": "banh-xeo-muoi-xiem",
+  "checkpointId": "banh-xeo-muoi-xiem",
+  "kind": "intro",
+  "title": "Bánh Xèo Mười Xiềm",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bánh Xèo Mười Xiềm là một nhà hàng ở số 54A Đường Nguyễn Văn Trỗi, Phường Cầu Kiệu, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Món ghi nhận: vietnamese."
+    }
+  ]
+}

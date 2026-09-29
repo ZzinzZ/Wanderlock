@@ -1,0 +1,18 @@
+{
+  "id": "bao-tang-my-thuat-thanh-pho-ho-chi-minh",
+  "checkpointId": "bao-tang-my-thuat-thanh-pho-ho-chi-minh",
+  "kind": "intro",
+  "title": "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Mỹ thuật Thành phố Hồ Chí Minh là một bảo tàng ở số 97A Đường Phó Đức Chính, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Ho Chi Minh City Fine Arts Museum. Được ghi nhận là di tích được xếp hạng. Đơn vị quản lý: Sở Văn hoá và Thể thao Thành phố Hồ Chí Minh. Wikidata mô tả nơi này là art museum in Vietnam."
+    }
+  ]
+}

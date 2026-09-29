@@ -1,0 +1,14 @@
+{
+  "id": "cho-cay-da-sa",
+  "checkpointId": "cho-cay-da-sa",
+  "kind": "intro",
+  "title": "Chợ Cây Da Sà",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Cây Da Sà là một khu chợ ở Đường số 6E, Phường An Lạc, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

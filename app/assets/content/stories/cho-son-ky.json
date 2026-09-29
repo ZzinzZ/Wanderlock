@@ -1,0 +1,14 @@
+{
+  "id": "cho-son-ky",
+  "checkpointId": "cho-son-ky",
+  "kind": "intro",
+  "title": "Chợ Sơn Kỳ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Sơn Kỳ là một khu chợ ở Hẻm 37 Bờ Bao Tân Thắng, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh."
+    }
+  ]
+}
