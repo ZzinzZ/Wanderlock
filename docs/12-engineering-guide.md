@@ -60,7 +60,6 @@ Wanderlock/
 ├─ supabase/
 │  ├─ migrations/
 │  └─ functions/            # edge function xác thực check-in
-├─ spikes/                  # mã thử nghiệm — KHÔNG đưa vào lib/
 ├─ docs/
 └─ CLAUDE.md
 ```
@@ -147,7 +146,7 @@ Bắt buộc có test cho: **mở khóa hợp lệ · ngoài bán kính · offli
 
 ## 8. Git
 
-- Nhánh: `feat/<mô-tả-ngắn>`, `fix/…`, `spike/…`, `chore/…`. Nhánh sống ngắn.
+- Nhánh: `feat/<mô-tả-ngắn>`, `fix/…`, `chore/…`. Nhánh sống ngắn.
 - Commit theo Conventional Commits: `feat(unlock): verify check-in server-side`
 - Không commit thẳng vào `main`. Không commit bí mật, không commit file build.
 - Mỗi phase nền tảng kết thúc bằng tag `foundation-fN`.

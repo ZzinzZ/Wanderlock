@@ -69,7 +69,7 @@ LocationAvailability locationAvailability({
 ///
 /// Carries [accuracyMeters] because a fix without its accuracy is a number
 /// pretending to be a fact: 10.7768 means something very different at ±5 m
-/// than at ±80 m, and telling them apart is what spike S3 exists to settle.
+/// than at ±80 m.
 class UserPosition {
   const UserPosition({
     required this.latitude,

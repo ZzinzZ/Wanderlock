@@ -40,9 +40,21 @@ jobs:
         working-directory: app
         run: flutter gen-l10n
 
-      # There is no signing certificate on a runner, so this proves the
-      # project compiles for iOS — not that it can be shipped. Running on a
-      # physical iOS device stays an open debt; see docs/11-foundation-plan.md.
-      - name: Build for iOS without signing
+      # Drift tables and other build_runner output. Not committed, same
+      # reasoning as the localisations above. It was missing here while the
+      # quality-gates job had it, so this job was compiling against source that
+      # does not exist — on its own enough to fail every run.
+      - name: Generate code
         working-directory: app
-        run: flutter build ios --release --no-codesign
+        run: dart run build_runner build
+
+      # Simulator, not device. Every device build here has ended at Flutter's
+      # "requires a selected Development Team" message despite --no-codesign,
+      # and no runner has a team. The simulator slice compiles the same Dart,
+      # the same plugins and the same Swift Packages, which is the whole
+      # question this job exists to answer, and it never asks to be signed.
+      # Running on a physical iOS device stays an open debt; see
+      # docs/11-foundation-plan.md.
+      - name: Build for the iOS simulator
+        working-directory: app
+        run: flutter build ios --simulator --debug
