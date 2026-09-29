@@ -6,11 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 App bản đồ tham quan được game hoá: mỗi địa điểm là một checkpoint bị khóa, phải **thực sự đến nơi** để mở khóa — và một lần đến mở khóa cho **mọi** chế độ chơi.
 
-Pilot: TP.HCM — **272 địa điểm**, trong đó 12 địa danh gốc đã kiểm chứng toạ độ bằng mắt, 260 điểm còn lại từ OpenStreetMap vẫn `verified: false`. Cả **năm lăng kính đã chạy**; 46 chương truyện và 28 ảnh thật đã đóng gói trong app.
+Pilot: TP.HCM — **272 địa điểm**, tất cả đã seed lên máy chủ. 12 địa danh gốc đã soi toạ độ bằng mắt; 260 điểm còn lại lấy tâm đa giác OpenStreetMap và được chủ dự án chấp nhận ngày 2026-09-29 mà không soi từng cái. Cả **năm lăng kính đã chạy**; 46 chương truyện và 28 ảnh thật đã đóng gói trong app.
 
 **Trạng thái nguồn đúng là `git log` của `main`, không phải [CHECKPOINT.md](CHECKPOINT.md)** — file đó viết tay và đã cũ. [docs/11-foundation-plan.md](docs/11-foundation-plan.md) vẫn đúng về các mục Definition of Done.
 
-Cái chặn lớn nhất hiện nay không nằm trong mã: script nạp dữ liệu **từ chối 260 toạ độ chưa kiểm chứng**, nên chưa nạp được lên máy chủ thật. Xem `tool/coord_verify/`.
+Máy chủ chạy bằng docker cục bộ (`npx supabase start`, thêm `npx supabase functions serve` cho hàm check-in). Chưa có dự án trên mạng — chủ dự án chốt 2026-09-29 là chưa cần.
 
 ## Đọc gì trước khi làm
 
@@ -33,7 +33,7 @@ Cái chặn lớn nhất hiện nay không nằm trong mã: script nạp dữ li
 4. **Không mở rộng ngoài scope v1** (5 lăng kính: Fog · Story · Quest · Sưu tầm · Tùy chỉnh hành trình). Xã hội đã hoãn sang v1.5 — đừng thêm vào. Chủ dự án đổi scope thì ghi quyết định vào `docs/08-scope.md` trước.
    - **Thanh chuyển lăng kính có đúng 3 nút** (Sương mù · Sưu tầm · Hành trình), theo mục 5.2 và 5.4 của scope. Story **không** phải nút thứ tư: nó là màn hình toàn màn mở ra từ một điểm đã mở khoá. Quest và Lộ trình nằm chung sau nút Hành trình.
    - **Lọc, sắp xếp, ẩn hiện chỉ là chuyện hiển thị.** Bộ lọc bản đồ (`app/lenses/map_filter.dart`) đổi cái được vẽ và không bao giờ đổi cái đã mở khoá — có test canh cả ba mặt (visit, sương, tem).
-5. **Ưu tiên thư viện có sẵn** thay vì tự build. Ngoại lệ tự viết: Fog of War, tầng mở khóa, logic chống gian lận.
+5. **Ưu tiên thư viện có sẵn** thay vì tự build. Ngoại lệ tự viết: Fog of War và tầng mở khoá.
 6. **Dùng Context7 để lấy tài liệu thư viện** đúng phiên bản — không code theo trí nhớ về API.
 
 ## Lệnh thường dùng
@@ -65,10 +65,11 @@ cd app && fvm dart format --output=none --set-exit-if-changed . && fvm flutter a
 | Một file test | `cd app && fvm flutter test test/features/fog/fog_trail_test.dart` |
 | Một test theo tên | `cd app && fvm flutter test --plain-name "a set has no" test/app/quest_sets_test.dart` |
 | Test golden / chạm Supabase thật | tag `golden` và `live` — CI loại cả hai |
-| Build APK | `cd app && fvm flutter build apk --release` (ký bằng khoá debug) → `app/build/app/outputs/flutter-apk/app-release.apk` |
+| Build APK | `cd app && fvm flutter build apk --release` → `app/build/app/outputs/flutter-apk/app-release.apk`. Không có `app/android/key.properties` thì ký bằng khoá gỡ lỗi và Gradle cảnh báo — xem mục "Ký bản phát hành" trong README |
 | Nối Supabase | `--dart-define=SUPABASE_URL=… --dart-define=SUPABASE_PUBLISHABLE_KEY=…` (xem `.env.example`). Không truyền = **bản trình diễn** |
 | Seed nội dung | `dart run tool/seed_content.dart [--dry-run] [--allow-unverified] [--prune]` — từ chối toạ độ `verified: false` |
-| iOS | Chỉ kiểm biên dịch trên CI macOS: `gh workflow run "iOS build"` |
+| Máy chủ cục bộ | `npx supabase start` rồi `npx supabase functions serve` — **thiếu lệnh thứ hai là không mở khoá được** |
+| iOS | Chỉ kiểm biên dịch trên CI macOS (bản giả lập, không ký): `gh workflow run "iOS build"` |
 
 ### Công cụ nội dung
 
@@ -103,6 +104,8 @@ Những điều phải đọc nhiều file mới thấy:
   **Nghiêng và xoay bản đồ bị tắt, và không bật lại được nếu chưa viết lại bốn lớp phủ**: `MapProjection` là Web Mercator nhìn thẳng từ trên xuống, và sương, marker, chấm người chơi đều định vị bằng nó. Nghiêng là hỏng cả bốn — trong đó có thứ duy nhất của riêng sản phẩm này.
 - **Sương mù**: lỗ sương = điểm đã mở (từ `visit_state`) + **vệt đã đi** (`features/fog`, bảng `explored_point_rows`). Vệt **không phải** trạng thái mở khoá — chỉ làm sáng bản đồ. Sương vẽ ở ảnh 1/4 độ phân giải rồi phóng lên (lý do hiệu năng ghi trong `fog_overlay.dart`).
 - **Bản trình diễn** (không Supabase): tâm bản đồ là người chơi — vuốt là đi, zoom không phải đi; đi *từ ngoài vào* bán kính thì gửi check-in bình thường. Không bao giờ bật khi có server.
+- **Mở khoá cần mạng, đó là thiết kế.** Không có hàng đợi chờ đồng bộ và sẽ không thêm: chỉ máy chủ mới có quyền nói ai đã đến đâu. Mất mạng thì app nói thẳng là chưa mở được, không ghi gì vào `visit_state`.
+- **Chống gian lận hoãn sang sau v1.** Máy chủ vẫn đo khoảng cách và vẫn từ chối request dựng tay, nhưng một vị trí bị làm giả trên máy người chơi thì chưa chặn được. `requiresQrFallback` còn trong schema nhưng chưa nơi nào bật.
 - **Nội dung** là JSON trong `content/` (nguồn sự thật, seed vào Supabase) và **bản sao y hệt** ở `app/assets/content/` cho lần chạy đầu offline — có test so hai file. Nhiệm vụ (`quest-routes.json`) có `kind: route` (có thứ tự) hoặc `set` (bộ sưu tập), bộ có thể khai `categories` thay vì liệt kê id. Tiến độ nhiệm vụ luôn suy ra từ `visit_state`.
 - **Truyện**: mỗi chương là **một file riêng** trong `content/stories/`, và danh sách chương không được ghi ở đâu cả — `StoryChapterBundledSource` tự dò từ `AssetManifest` lúc chạy, bỏ qua file bắt đầu bằng `_`. Chương chỉ mở được khi `visit_state` nói đã đến nơi, và luật đó nằm ở thẻ chi tiết chứ không nằm trong feature `story` (feature đó không đọc `visit_state`). Chương có ảnh bìa **bắt buộc** khai `coverCredit` — CC BY và CC BY-SA đòi nêu tên tác giả ở nơi hiện ảnh, và có test từ chối chương thiếu nó.
 - **Ảnh thật** nằm ở `content/images/places/`, bản sao đóng gói ở `app/assets/photos/places/`. Ảnh nào cũng phải có một dòng trong `content/image-licenses.md` mới được dùng. Lựa chọn ghi ở `tool/photo_picker/chosen.json`.

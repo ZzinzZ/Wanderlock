@@ -9,12 +9,16 @@
 App bản đồ tham quan được game hoá: mỗi địa điểm là một checkpoint bị khoá,
 phải **thực sự đến nơi** để mở khoá — và một lần đến mở khoá cho **mọi** chế độ chơi.
 
-Pilot: **272 địa điểm rải khắp TP.HCM** — 12 địa danh gốc đã kiểm chứng toạ độ
-bằng mắt, số còn lại nhập từ OpenStreetMap và còn mang `verified: false`.
+Pilot: **272 địa điểm rải khắp TP.HCM**, tất cả đã seed lên máy chủ. 12 địa
+danh gốc đã soi toạ độ bằng mắt; 260 điểm còn lại lấy tâm đa giác OpenStreetMap
+và được chấp nhận mà không soi từng cái.
 
 Cả năm lăng kính đã chạy: Sương mù, Sưu tầm, Nhiệm vụ, Lộ trình, và Truyện
 (46 chương, 28 nơi có ảnh thật). Không có máy chủ thì app chạy ở **bản trình
 diễn**: kéo bản đồ thay cho đi bộ.
+
+**Mở khoá cần mạng.** Chỉ máy chủ mới có quyền nói ai đã đến đâu, nên không có
+hàng đợi chờ đồng bộ — mất mạng thì app nói thẳng là chưa mở được.
 
 ---
 
@@ -81,7 +85,7 @@ cd app && fvm flutter gen-l10n && fvm dart run build_runner build && fvm dart fo
 | | Trạng thái |
 |---|---|
 | Android | Phát triển và chạy trên máy thật |
-| iOS | **Chỉ kiểm tra biên dịch** trên CI runner macOS. Chạy trên máy iOS thật là **nợ kỹ thuật** phải trả trước bản thử nghiệm — xem [docs/11-foundation-plan.md](docs/11-foundation-plan.md) |
+| iOS | **Chỉ kiểm tra biên dịch** trên CI runner macOS, bản giả lập, không ký. Chạy trên máy iOS thật là **nợ kỹ thuật** phải trả trước bản thử nghiệm — xem [docs/11-foundation-plan.md](docs/11-foundation-plan.md) |
 
 Job [`iOS build`](.github/workflows/ios-build.yml) không chạy ở mỗi PR vì
 runner macOS tính phí gấp 10 lần trên repo private. Nó chạy khi `main` đổi,
@@ -91,6 +95,29 @@ và chạy tay được:
 gh workflow run "iOS build"
 ```
 
+## Ký bản phát hành
+
+Bản `flutter build apk --release` mặc định ký bằng **khoá gỡ lỗi** — chạy được
+trên máy, nhưng Play từ chối. Muốn ký thật thì tạo kho khoá một lần:
+
+```bash
+keytool -genkey -v -keystore wanderlock-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias wanderlock
+```
+
+Rồi chép `app/android/key.properties.example` thành `app/android/key.properties`
+và điền mật khẩu vào. Cả hai file `.jks` và `key.properties` đều đã nằm trong
+`.gitignore`.
+
+> ⚠️ **Mất kho khoá là mất quyền cập nhật app.** Google Play nhận diện bản cập
+> nhật bằng chữ ký; không có khoá cũ thì không đẩy bản mới lên được, chỉ còn
+> cách đăng app mới và bỏ lại toàn bộ người dùng đang có. Sao lưu ở nơi khác
+> máy này, và mật khẩu thì cất ở trình quản lý mật khẩu.
+
+Không có `key.properties` thì bản release vẫn build, nhưng Gradle in cảnh báo
+rằng nó ký bằng khoá gỡ lỗi và không phát hành được.
+
+---
+
 ## Cấu trúc
 
 | Thư mục | Nội dung |
@@ -98,7 +125,6 @@ gh workflow run "iOS build"
 | `app/` | Ứng dụng Flutter |
 | `content/` | Địa điểm, nhiệm vụ, chương truyện, ảnh thật — và sổ bản quyền ảnh |
 | `supabase/` | Migration + edge function xác thực check-in |
-| `spikes/` | Mã thử nghiệm — **không** đưa vào `app/lib/` |
 | `docs/` | Tài liệu nền tảng (tiếng Việt) |
 | `tool/` | Cổng kiểm tra của CI, và các công cụ nội dung (soi toạ độ, chọn ảnh) |
 
@@ -117,4 +143,4 @@ viết tay nên hay tụt lại phía sau.
 
 - Trao đổi: tiếng Việt · Mã nguồn, commit: tiếng Anh
 - Commit theo Conventional Commits — `feat(unlock): verify check-in server-side`
-- Nhánh `feat/…`, `fix/…`, `spike/…`, `chore/…`. Không commit thẳng vào `main`.
+- Nhánh `feat/…`, `fix/…`, `chore/…`. Không commit thẳng vào `main`.

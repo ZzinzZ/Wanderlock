@@ -9,8 +9,7 @@
 
 1. **DoD phải quan sát được.** Mỗi mục là một việc ai đó bấm/chạy/nhìn thấy được, không phải mô tả cảm tính.
 2. **Không nhảy phase.** Phase sau chỉ bắt đầu khi phase trước đã đóng.
-3. **Spike chạy song song, không nằm trong đường găng.** Nhưng kết quả spike có quyền chặn F3/F4.
-4. **Mỗi phase kết thúc bằng một commit gắn tag** `foundation-f0` … `foundation-f5`.
+3. **Mỗi phase kết thúc bằng một commit gắn tag** `foundation-f0` … `foundation-f5`.
 
 ---
 
@@ -20,7 +19,6 @@
 |-------|-----|--------------|----------------|
 | **F0** | Kho mã & quy ước | repo, lint, CI, quy ước | tất cả |
 | **F1** | Skeleton app | app chạy, theme, routing | F3 |
-| **S** | 3 spike kỹ thuật | kết luận bằng số | F3, F4 |
 | **F2** | Nền dữ liệu | Supabase + Drift + seed | F4 |
 | **F3** | Bản đồ nền | map đã nhuộm + marker | F5 |
 | **F4** | Tầng mở khóa | check-in + sync + chống gian lận | F5 |
@@ -100,29 +98,6 @@
 
 ---
 
-## S — Ba spike kỹ thuật (song song, bắt đầu ngay sau F0)
-
-**Mục tiêu:** biết trước điều gì sẽ hỏng, trước khi xây lên trên.
-
-| Spike | Câu hỏi cần trả lời | DoD |
-|-------|---------------------|-----|
-| **S1 — Fog of War** | Vẽ vệt đi + mask trên MapLibre, sau 2 giờ đi bộ mô phỏng còn mượt không? | Có **số FPS đo được** ở 30/60/120 phút, trên máy tầm trung; kết luận rõ "đạt / phải đổi cách vẽ" |
-| **S2 — Geofence & pin** | Chạy nền 1 buổi tốn bao nhiêu pin? Có bắt đúng lúc vào bán kính không? | Có **% pin/giờ đo được**; tỉ lệ bắt đúng trên ≥ 20 lần vào/ra vùng |
-| **S3 — GPS thực địa** | Sai số GPS ở từng dạng địa hình — kẹt giữa nhà cao tầng trung tâm, hẻm Chợ Lớn, khoảng trống Thủ Đức — là bao nhiêu? | Bảng sai số tại ≥ 8 điểm thật, **trải đủ các dạng địa hình**; kết luận bán kính từng điểm và điểm nào bắt buộc cần QR |
-
-> **S3 nặng hơn kể từ khi pilot rải khắp thành phố (2026-08-05).** Trước đây đi
-> bộ quanh Quận 1 một buổi là đủ; giờ phải nhiều buổi, di chuyển bằng xe. Đổi
-> lại dữ liệu tốt hơn: bán kính không còn đặt một con số cho tất cả, mà đặt
-> theo từng dạng địa hình — đó vốn là câu hỏi thật mà S3 cần trả lời.
-
-**DoD chung của phase S**
-- [ ] Cả 3 spike có kết luận **bằng số**, không phải phỏng đoán
-- [ ] Mỗi spike có một trang ghi chép trong `spikes/`
-- [ ] Nếu spike thất bại → **thiết kế được sửa trước khi vào F3/F4**
-- [ ] Mã spike **không** được đưa vào `lib/` sản phẩm
-
----
-
 ## F2 — Nền dữ liệu
 
 **Mục tiêu:** một nguồn sự thật duy nhất, chạy được cả khi offline.
@@ -172,18 +147,28 @@
 **Đầu ra**
 - Dịch vụ check-in + geofence
 - Edge function xác thực **phía server** (không tin client)
-- Ghi `visit_state` + hàng đợi đồng bộ offline
-- Chống gian lận: cờ mock-location, kiểm tra tốc độ di chuyển, fallback QR
+- Ghi `visit_state`
 
 **Definition of Done**
 - [ ] Đứng trong bán kính → mở khóa thành công **trên thực địa**, không phải giả lập
 - [ ] Đứng ngoài bán kính → **không** có nút mở khóa, chỉ hiện khoảng cách còn lại
 - [ ] Gửi thẳng request check-in giả từ công cụ HTTP → **server từ chối**
-- [ ] Bật ứng dụng giả GPS → **bị phát hiện**, chuyển sang yêu cầu QR
-- [ ] Tắt mạng → mở khóa vẫn được, bật mạng → **tự đồng bộ, không mất, không nhân đôi**
 - [ ] Mở khóa cùng một điểm 2 lần → chỉ ghi nhận 1 lần
-- [ ] Có bộ test tự động cho các nhánh: hợp lệ / ngoài bán kính / offline / trùng lặp
+- [ ] Mất mạng → nói rõ là cần mạng, **không** ghi gì vào `visit_state`
+- [ ] Có bộ test tự động cho các nhánh: hợp lệ / ngoài bán kính / mất mạng / trùng lặp
 - [ ] Tag `foundation-f4`
+
+> **Mở khóa cần mạng — đây là thiết kế, không phải thiếu sót (chốt 2026-09-29).**
+> Chỉ máy chủ mới có quyền nói ai đã đến đâu. Một hàng đợi chờ đồng bộ nghĩa là
+> điện thoại tự nhận mình đã đến rồi xin duyệt sau, và trong khoảng chờ đó app
+> phải hiển thị một trạng thái không ai xác nhận. Đổi lại sự tiện đó là chỗ dựa
+> duy nhất của sản phẩm. Mất mạng thì app nói thẳng là chưa mở được.
+>
+> **Chống gian lận hoãn sang sau v1 (chốt 2026-09-29).** Phát hiện giả vị trí,
+> kiểm tra tốc độ di chuyển và dự phòng quét QR đều không làm trong v1. Máy chủ
+> vẫn đo khoảng cách và vẫn từ chối request dựng tay; thứ chưa chặn được là một
+> vị trí bị làm giả ngay trên máy người chơi. Trường `requiresQrFallback` vẫn
+> còn trong schema nhưng chưa nơi nào bật.
 
 ---
 
@@ -203,7 +188,6 @@
 - [ ] Không lăng kính nào lưu trạng thái mở khóa riêng (kiểm chứng bằng đọc mã + test)
 - [ ] Khoảnh khắc mở khóa chạy đủ 6 bước đặc tả, có haptic
 - [ ] Hồng `#FF48A0` **chỉ** xuất hiện trong 3 giây đó, không nơi nào khác
-- [ ] Đi bộ thật **liên tục** 2 giờ: không tụt khung hình, không hao pin bất thường — buổi đo riêng, vì pilot rải khắp thành phố không còn đi bộ hết được
 - [ ] Tag `foundation-f5`
 
 ---

@@ -26,9 +26,8 @@ tối ưu sương mù · 265 điểm OSM + nhiệm vụ dạng bộ sưu tập.
 | **F0** — Kho mã & quy ước | ✅ Đóng · tag `foundation-f0` |
 | **F1** — Skeleton app | ✅ Đóng · tag `foundation-f1` |
 | **F2** — Nền dữ liệu | 🟡 4/5 DoD · còn **tắt mạng trên máy thật** |
-| **S** — 3 spike | ⛔ Chưa bắt đầu · cần thực địa |
 | **F3** — Bản đồ nền | 🟡 còn **FPS trên máy thật** + chốt lại DoD marker |
-| **F4** — Tầng mở khoá | 🟡 phần lớn mã đã có trong #27; **bán kính chờ S3** |
+| **F4** — Tầng mở khoá | 🟡 mã đã có trong #27; bán kính đặt theo kích thước công trình |
 | **F5** — Lát cắt dọc | 🟡 Fog + chuyển lăng kính đã chạy trong #27; chưa đo trên máy thật |
 
 Mã đã chạy **trước** kế hoạch; cái còn thiếu hầu hết là việc phải làm **ngoài
@@ -71,21 +70,20 @@ máy dev** (máy thật, ra đường).
    tiếng Việt, chấm vị trí, và DoD tắt mạng của F2. Emulator vĩnh viễn không trả
    lời được mấy thứ này (mục 4).
 3. **Ảnh chụp chế độ tối** cho giao diện sticker — DoD còn thiếu của #27.
-4. **265 điểm OSM `verified: false`** — kiểm chứng (quá nhiều để xem tay từng
-   cái) hay seed kèm cờ? Chặn seed production.
-5. **Phase S** — 3 spike FPS / %pin / sai số GPS, cần ra đường. **S3 quyết định
-   bán kính check-in.** Lăng Ông Bà Chiểu lệch 83m so với bán kính 60m; quán ăn
-   40m, công viên/TTTM tới 150m đang là số ước lượng.
-6. **Chọn 12 ảnh địa danh** — vẫn cần (chủ dự án chốt 2026-09-19: sticker trên
+4. ✅ **260 điểm OSM** — chủ dự án chốt 2026-09-29 chấp nhận tâm đa giác OSM,
+   tất cả chuyển sang `verified: true`, đã seed lên máy chủ cục bộ.
+   Bán kính vẫn là số ước lượng: Lăng Ông Bà Chiểu lệch 83m so với bán kính 60m;
+   quán ăn 40m, công viên/TTTM tới 150m.
+5. **Chọn 12 ảnh địa danh** — vẫn cần (chủ dự án chốt 2026-09-19: sticker trên
    bản đồ, ảnh thật dùng ở **màn "Đã mở khoá!"** và **thẻ chi tiết địa điểm**). Ứng viên Commons + giấy phép có sẵn trong
    `content/image-licenses.md`; chưa ai nhìn ảnh.
    **Phạm vi: cả 277 điểm** (chủ dự án chốt) — việc gom ảnh có giấy phép rất lớn.
    Chưa chốt: điểm chưa có ảnh thì tạm hiện gì.
    **Landmark 81** — Việt Nam không có freedom of panorama theo Commons. Rẻ
    nhất là thay bằng điểm khác.
-7. **Sticker công trình** là hình tạm — cần hoạ sĩ vẽ lại.
-8. **12 chương truyện** (lăng kính Story) — định dạng đã có, chờ nội dung.
-9. **Tên chính thức** — không gấp.
+6. **Sticker công trình** là hình tạm — cần hoạ sĩ vẽ lại.
+7. **12 chương truyện** (lăng kính Story) — định dạng đã có, chờ nội dung.
+8. **Tên chính thức** — không gấp.
 
 ---
 

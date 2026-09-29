@@ -1,0 +1,15 @@
+# Sao chép thành `android/key.properties` rồi điền giá trị thật.
+# File thật và file .jks đều đã nằm trong .gitignore — không bao giờ commit.
+#
+# Tạo kho khoá (chạy một lần, tự giữ, mất là không phát hành cập nhật được nữa):
+#
+#   keytool -genkey -v -keystore wanderlock-release.jks \
+#     -keyalg RSA -keysize 2048 -validity 10000 -alias wanderlock
+#
+# Đặt file .jks ở đâu cũng được, miễn ngoài kho mã. storeFile tính từ
+# thư mục `android/`.
+
+storeFile=../../wanderlock-release.jks
+storePassword=
+keyAlias=wanderlock
+keyPassword=

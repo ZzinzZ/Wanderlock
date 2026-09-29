@@ -120,15 +120,11 @@ Bật **RLS** cho mọi bảng có `user_id`. Check-in phải qua **Edge Functio
 
 | Rủi ro | Mức | Xử lý |
 |--------|:---:|-------|
-| Fog of war vẽ nhiều geometry → tụt FPS | Cao | Spike sớm; đơn giản hoá vệt đi (Douglas–Peucker), gộp vùng, giới hạn số đỉnh |
-| GPS lệch giữa nhà cao tầng Quận 1 | Cao | Bán kính linh hoạt theo độ chính xác; fallback QR / câu đố quan sát |
-| Giả GPS (mock location) | Cao | Cờ `isMocked`, kiểm tra tốc độ di chuyển bất thường, xác thực check-in ở server |
-| Chạy nền tốn pin | TB | Geofence của OS thay vì polling liên tục; giảm tần suất khi đứng yên |
+| Fog of war vẽ nhiều geometry → tụt FPS | Cao | Đã xử lý: vẽ ở ảnh 1/4 độ phân giải rồi phóng lên — xem `fog_overlay.dart` |
+| GPS lệch giữa nhà cao tầng Quận 1 | Cao | Bán kính đặt theo kích thước công trình; dự phòng QR hoãn sang sau v1 |
+| Giả GPS (mock location) | Cao | v1 chỉ có xác thực check-in ở server; phát hiện giả vị trí hoãn sang sau v1 |
 | Nội dung story tốn công | Cao | Ít điểm – chất lượng cao; Claude API soạn nháp, người biên tập |
 | Port Ink cho Dart chưa trưởng thành | TB | Đã tránh: dùng JSON tự định nghĩa ở MVP |
 
 ---
 
-## 5. Việc cần kiểm chứng trước khi code thật (spike)
-
-Xem [07-design-phase-plan.md](07-design-phase-plan.md) — mục **Giai đoạn D**.

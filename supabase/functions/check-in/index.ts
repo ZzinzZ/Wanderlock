@@ -92,10 +92,10 @@ Deno.serve(async (request: Request) => {
     return fail(400, 'invalid_coordinates');
   }
 
-  // Only GPS is verifiable today. `qr` and `quiz` exist in the schema for the
-  // places the S3 survey will mark as needing a fallback, but nothing issues
-  // or validates a QR token yet — so accepting one would be an unlock with no
-  // check behind it, which is worse than not offering it.
+  // Only GPS is verifiable today. `qr` and `quiz` exist in the schema for
+  // places where GPS is unreliable, but nothing issues or validates a QR token
+  // yet — so accepting one would be an unlock with no check behind it, which
+  // is worse than not offering it.
   const method = body.method ?? 'gps';
   if (method !== 'gps') {
     return fail(400, 'unsupported_method', { method });

@@ -67,8 +67,8 @@ class DeviceLocation {
         LocationPermission.denied => LocationPermissionState.denied,
         LocationPermission.deniedForever =>
           LocationPermissionState.deniedForever,
-        // Coarse location still puts the dot on the map. Precision is
-        // check-in's problem, which is F4 with S3's numbers behind it.
+        // Coarse location still puts the dot on the map; precision is
+        // check-in's problem, and the server decides that.
         LocationPermission.whileInUse ||
         LocationPermission.always => LocationPermissionState.granted,
         // Web-only, and it means unknown rather than allowed. Treated as not

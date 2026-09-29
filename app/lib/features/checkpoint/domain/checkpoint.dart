@@ -62,9 +62,9 @@ class Checkpoint {
 
   final CheckpointCategory category;
 
-  /// True where the S3 field survey found GPS unreliable, typically between
-  /// tall buildings. The client should offer the QR fallback up front rather
-  /// than after a user has failed to check in.
+  /// True where GPS is unreliable, typically between tall buildings, and the
+  /// client should offer the QR fallback up front rather than after a user has
+  /// failed to check in. Nothing sets it in v1: the QR fallback is deferred.
   final bool requiresQrFallback;
 
   final String? address;

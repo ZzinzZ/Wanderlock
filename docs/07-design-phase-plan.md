@@ -12,11 +12,10 @@
 | **A** | Chốt nền tảng dự án | Tên chính thức, phạm vi pilot, danh sách checkpoint |
 | **B** | Thiết kế nội dung | Story bible, người dẫn truyện, 1 chương mẫu, 1 tuyến quest |
 | **C** | Thiết kế sản phẩm & UX | Luồng màn hình, wireframe, hướng thị giác, art direction fog |
-| **D** | Thiết kế kỹ thuật & spike | Schema chốt, spec fog/check-in/sync, 3 spike kiểm chứng |
+| **D** | Thiết kế kỹ thuật | Schema chốt, spec fog và check-in |
 | **E** | Tiền chuẩn bị hạ tầng | Repo, tài khoản dịch vụ, skeleton project, CI |
 
 > **Thứ tự khuyến nghị:** A → (B, C, D chạy song song) → E.
-> **Quan trọng:** làm **spike ở D sớm**, đừng để đến lúc code MVP mới phát hiện fog of war không đủ mượt.
 
 ---
 
@@ -59,29 +58,21 @@
 
 ---
 
-## D. Thiết kế kỹ thuật & Spike kiểm chứng
+## D. Thiết kế kỹ thuật
 
 ### D1. Chốt thiết kế
 - [ ] Chốt schema Postgres/PostGIS + chính sách RLS
 - [ ] Spec **thuật toán Fog of War**: lưu vệt đi thế nào, đơn giản hoá ra sao, vẽ ra sao
-- [ ] Spec **check-in & chống gian lận**: điều kiện hợp lệ, xác thực server-side, fallback QR/câu đố
-- [ ] Spec **đồng bộ offline**: cái gì cache, giải quyết xung đột thế nào
+- [ ] Spec **check-in**: điều kiện hợp lệ, xác thực server-side
 - [ ] Chốt định dạng JSON chương truyện (cùng B3)
 
-### D2. Ba spike bắt buộc (làm trước, mỗi cái vài ngày)
-- [ ] **Spike 1 — Fog of War**: vẽ vệt đi + mask trên MapLibre, đo FPS sau ~2 giờ đi bộ mô phỏng
-- [ ] **Spike 2 — Geofence nền + pin**: đo hao pin khi bật nền 1 buổi; kiểm tra bắt đúng lúc vào bán kính
-- [ ] **Spike 3 — Độ chính xác GPS thực địa**: đi thật quanh Quận 1, ghi sai số giữa nhà cao tầng → quyết định bán kính & khi nào cần QR
-
-> Nếu Spike 1 hoặc 3 thất bại → phải điều chỉnh thiết kế **trước khi** làm MVP.
-
-**Xong khi:** 3 spike có kết luận bằng số, không phải phỏng đoán.
+**Xong khi:** schema và hai spec trên viết ra được, không còn chỗ để hiểu hai nghĩa.
 
 ---
 
 ## E. Tiền chuẩn bị hạ tầng
 
-- [ ] **E1. Khởi tạo git repo** + cấu trúc thư mục (`app/`, `content/`, `supabase/`, `docs/`, `spikes/`)
+- [ ] **E1. Khởi tạo git repo** + cấu trúc thư mục (`app/`, `content/`, `supabase/`, `docs/`)
 - [ ] **E2. Tạo tài khoản dịch vụ**: Supabase, nhà cung cấp tile, Firebase (FCM), PostHog, Apple/Google developer
 - [ ] **E3. Skeleton Flutter app** chạy được + hiển thị bản đồ trống
 - [ ] **E4. Supabase project** + migration đầu tiên + script seed từ `content/*.json`
@@ -100,8 +91,7 @@ Tất cả phải đạt:
 1. ✅ Tên + danh sách checkpoint pilot đã chốt
 2. ✅ 1 chương truyện mẫu đọc thấy hay
 3. ✅ Prototype Figma cho "trải nghiệm vàng"
-4. ✅ 3 spike kỹ thuật có kết luận khả thi
-5. ✅ Repo + Supabase + skeleton app chạy được
+4. ✅ Repo + Supabase + skeleton app chạy được
 
 ---
 
@@ -111,4 +101,3 @@ Ba việc song song, không phụ thuộc nhau:
 
 1. **A3** — liệt kê 8–12 checkpoint pilot (nhanh, mở khoá mọi thứ khác)
 2. **B4** — viết chương truyện mẫu (tốn công nhất, bắt đầu sớm nhất)
-3. **Spike 1** — thử fog of war trên MapLibre (rủi ro kỹ thuật lớn nhất)

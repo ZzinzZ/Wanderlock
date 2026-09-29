@@ -59,9 +59,9 @@ class SeedCheckpoint {
   final bool isVerified;
   final String? note;
 
-  /// Set per place by the S3 field survey, for the spots where GPS is too
-  /// unreliable to be the only proof. Authored here rather than in code so a
-  /// survey result is a content edit.
+  /// Set per place for the spots where GPS is too unreliable to be the only
+  /// proof. Authored here rather than in code so it stays a content edit.
+  /// Nothing sets it in v1: the QR fallback is deferred.
   final bool requiresQrFallback;
 
   /// Marker photograph. Null until a picture clears content/image-licenses.md;
