@@ -1,0 +1,19 @@
+{
+  "id": "bao-tang-thanh-pho-ho-chi-minh",
+  "checkpointId": "bao-tang-thanh-pho-ho-chi-minh",
+  "title": "Bảo tàng ở số 65 Lý Tự Trọng",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/bao-tang-thanh-pho-ho-chi-minh.jpg",
+  "coverCredit": "Ảnh: Gary Todd / Wikimedia Commons",
+  "source": "Wikipedia tiếng Việt — Bảo tàng Thành phố Hồ Chí Minh",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Thành phố Hồ Chí Minh nằm ở số 65 Lý Tự Trọng, trên khu đất rộng gần 2 hecta."
+    },
+    {
+      "type": "narration",
+      "text": "Khuôn viên được giới hạn bởi bốn con đường Lý Tự Trọng, Pasteur, Lê Thánh Tôn và Nam Kỳ Khởi Nghĩa — một khối vuông vức ngay giữa trung tâm."
+    }
+  ]
+}

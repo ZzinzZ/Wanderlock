@@ -1,0 +1,23 @@
+{
+  "id": "tru-so-uy-ban-nhan-dan-thanh-pho-ho-chi-minh",
+  "checkpointId": "tru-so-uy-ban-nhan-dan-thanh-pho-ho-chi-minh",
+  "title": "Toà nhà đã đổi tên ba lần",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/tru-so-uy-ban-nhan-dan-thanh-pho-ho-chi-minh.jpg",
+  "coverCredit": "Ảnh: Radek Kucharski from Warsaw, Poland / Wikimedia Commons — CC BY 2.0",
+  "source": "Wikipedia tiếng Việt — Trụ sở Ủy ban nhân dân Thành phố Hồ Chí Minh",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Toà nhà được xây từ năm 1898 đến 1908 và khánh thành năm 1909, đứng ngay đầu đường Nguyễn Huệ hướng ra sông Sài Gòn."
+    },
+    {
+      "type": "narration",
+      "text": "Nó đã mang ba cái tên theo ba thời kỳ: thời Pháp thuộc là Hôtel de ville, tiếng Việt gọi là Dinh xã Tây; thời Việt Nam Cộng hoà là Toà đô chánh Sài Gòn; và từ sau năm 1975 là trụ sở Uỷ ban nhân dân Thành phố. Công năng thì không đổi — đây luôn là nơi chính quyền thành phố làm việc."
+    },
+    {
+      "type": "narration",
+      "text": "Năm 2020, toà nhà được xếp hạng di tích kiến trúc nghệ thuật cấp quốc gia."
+    }
+  ]
+}

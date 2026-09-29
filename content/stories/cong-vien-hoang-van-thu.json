@@ -1,0 +1,21 @@
+{
+  "id": "cong-vien-hoang-van-thu",
+  "checkpointId": "cong-vien-hoang-van-thu",
+  "title": "Công viên dưới đường bay",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Công viên Hoàng Văn Thụ",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Hoàng Văn Thụ nằm ngay phía nam sân bay Tân Sơn Nhất, hình tam giác, rộng khoảng 106.500 mét vuông, giới hạn bởi ba đường Hoàng Văn Thụ, Phan Đình Giót và Trần Quốc Hoàn."
+    },
+    {
+      "type": "narration",
+      "text": "Đất này từng là bãi đáp trực thăng của một bệnh viện dã chiến Mỹ. Sau năm 1975 do Quân khu 7 quản lý, và tới năm 1989 mới thành công viên."
+    },
+    {
+      "type": "narration",
+      "text": "Bên trong có hồ câu cá rộng gần 8.000 mét vuông và một khu vui chơi trẻ em khánh thành năm 2012. Đường Phan Thúc Duyện cắt ngang công viên, bắc qua là một cầu vượt cho người đi bộ."
+    }
+  ]
+}

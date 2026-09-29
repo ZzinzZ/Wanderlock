@@ -1,0 +1,23 @@
+{
+  "id": "cho-ba-chieu",
+  "checkpointId": "cho-ba-chieu",
+  "title": "Chợ Xổm ngày trước",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/cho-ba-chieu.jpg",
+  "coverCredit": "Ảnh: trungydang / Wikimedia Commons — CC BY 3.0",
+  "source": "Wikipedia tiếng Việt — Chợ Bà Chiểu",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bà Chiểu là một trong những ngôi chợ lâu đời của Sài Gòn. Sơ khai nó là chợ Xổm, rồi thành chợ trung tâm của tỉnh Gia Định."
+    },
+    {
+      "type": "narration",
+      "text": "Ở đây bán gần như mọi thứ: đồ gia dụng, quần áo, giày dép, nón lá, nhu yếu phẩm — và đặc biệt là đồ si, thứ khiến nhiều người đi xa tới đây."
+    },
+    {
+      "type": "narration",
+      "text": "Chợ nằm ngay cạnh Lăng Ông, và chính sự kề cận đó đã sinh ra cái tên ghép mà cả thành phố dùng: Lăng Ông Bà Chiểu."
+    }
+  ]
+}

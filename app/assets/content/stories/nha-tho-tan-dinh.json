@@ -1,0 +1,21 @@
+{
+  "id": "nha-tho-tan-dinh",
+  "checkpointId": "nha-tho-tan-dinh",
+  "title": "Nhà thờ màu hồng",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Nhà thờ Tân Định",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tên chính thức là Nhà thờ Thánh Tâm Chúa Giêsu, nhưng ai cũng gọi theo màu sơn: nhà thờ màu hồng. Toàn bộ công trình, cả ngoài lẫn trong, được sơn hồng phấn từ năm 1957."
+    },
+    {
+      "type": "narration",
+      "text": "Nhà thờ khởi công năm 1870 và khánh thành ngày 16 tháng 12 năm 1876, mang phong cách kiến trúc Roman. Cùng với Nhà thờ Đức Bà, đây là một trong hai nhà thờ được xây sớm nhất và lớn nhất thành phố."
+    },
+    {
+      "type": "narration",
+      "text": "Tháp chính cao 52,6 mét, trên đỉnh là cây thánh giá bằng đồng cao 3 mét. Bên trong có năm quả chuông, tổng cộng 5,5 tấn."
+    }
+  ]
+}
