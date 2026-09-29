@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
@@ -10,9 +9,10 @@ import 'package:wanderlock/app/lenses/lens_switcher.dart';
 import 'package:wanderlock/app/lenses/map_filter.dart';
 import 'package:wanderlock/app/screens/checkpoint_sheet.dart';
 import 'package:wanderlock/app/screens/explore_hud.dart';
+import 'package:wanderlock/app/screens/explore_overlays.dart';
 import 'package:wanderlock/app/screens/map_filter_button.dart';
+import 'package:wanderlock/app/screens/pan_exploration.dart';
 import 'package:wanderlock/core/config/app_config.dart';
-import 'package:wanderlock/core/map/map_projection.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/pattern_background.dart';
 import 'package:wanderlock/features/checkpoint/application/checkpoint_providers.dart';
@@ -33,11 +33,9 @@ import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
 /// The product screen: one map, seen through whichever lens is selected.
 ///
-/// **The map is built once and never rebuilt on a lens change.** Everything a
-/// lens contributes is an overlay above it or a MapLibre layer inside it, so
-/// switching keeps the camera exactly where the user left it — which is the
-/// F5 requirement, and also the argument: it is the same map, the same
-/// unlocks, seen differently.
+/// **The map is built once and never rebuilt on a lens change.** Every lens is
+/// an overlay above it, so switching keeps the camera where the user left it:
+/// the same map, the same unlocks, seen differently.
 class ExploreScreen extends ConsumerStatefulWidget {
   const ExploreScreen({super.key});
 
@@ -48,62 +46,44 @@ class ExploreScreen extends ConsumerStatefulWidget {
 class _ExploreScreenState extends ConsumerState<ExploreScreen> {
   MapLibreMapController? _controller;
 
-  /// Counts style loads, and is the key the map layers are mounted under.
-  ///
-  /// A style reload — which is what a theme change is — throws away every
-  /// layer added at runtime, while the widgets that added them stay mounted
-  /// and none the wiser. Switching to light mode duly produced a map with no
-  /// fog and no markers on it.
-  ///
-  /// Incrementing this remounts the layer widgets, so they install onto the
-  /// style that now exists. Driving it from the callback rather than from the
-  /// brightness is what gets the ordering right: the new style is up by the
-  /// time anything tries to add to it.
+  /// Counts style loads, and keys the overlays so a style reload remounts
+  /// them. A reload — a theme change — discards every layer added at runtime
+  /// while the widgets that added them stay mounted and none the wiser. Driven
+  /// from the callback, not the brightness, so the new style is up first.
   int _styleGeneration = 0;
 
   Checkpoint? _selected;
 
   /// The place currently having its three seconds. Held here rather than read
-  /// from the check-in state so the animation cannot be cut short by the
-  /// controller being reset underneath it.
+  /// from the check-in state, which can reset mid-animation.
   Checkpoint? _celebrating;
 
-  /// Explore by panning: in a build with no server, a point on the map stands
-  /// in for the player. Dragging the map walks it; wherever it goes the fog
-  /// clears, and passing through a checkpoint's radius asks for a check-in
-  /// exactly as a real arrival would — through the same controller, to the
-  /// stand-in authority, which measures the distance itself.
+  /// With no server, dragging the map walks a stand-in player and arrivals go
+  /// through the same check-in path a real one would.
   ///
-  /// Never in a build with a server: there, sending the camera as a position
-  /// would be a cheat compiled into the product.
+  /// Never with a server: sending the camera as a position would be a cheat
+  /// compiled into the product.
   static bool get _exploresByPanning => !AppConfig.hasSupabase;
 
   /// Checkpoints already asked about during this pan-exploration, so hovering
   /// inside a radius does not fire a check-in on every frame.
   final Set<String> _askedWhilePanning = {};
 
-  /// Where the pan explorer stands.
-  ///
-  /// **Moved by drags, never by zooms.** It used to simply be the centre of
-  /// the map, and a pinch zooms about the point between the fingers — so the
-  /// centre, and with it the player, slid across the city whenever the user
-  /// zoomed. Now a frame whose zoom changed moves nothing, a frame whose zoom
-  /// held moves the explorer by exactly the drag, and once a zoom settles the
-  /// camera glides back to wherever the explorer is standing.
+  /// Where the pan explorer was on the previous camera frame.
+  TrailPoint? _lastPanPoint;
+
+  /// Where the pan explorer stands. Moved by drags, never by zooms — see
+  /// [panStepFor]. Once a zoom settles the camera glides back to it.
   final ValueNotifier<TrailPoint?> _explorer = ValueNotifier(null);
 
   LatLng? _lastCentre;
   double? _lastZoom;
   bool _zoomedThisGesture = false;
 
-  /// True while the camera is gliding back to the explorer after a zoom. That
-  /// movement is the camera's, not the player's, and must not walk them.
+  /// True while the camera glides back after a zoom: that movement is the
+  /// camera's, not the player's, and must not walk them.
   bool _isRecentring = false;
   bool _recentringHasMoved = false;
-
-  /// Below this a change in zoom is rounding in the reported camera rather
-  /// than the user zooming.
-  static const double _zoomTolerance = 0.001;
 
   Future<void> _attach(MapLibreMapController controller) async {
     setState(() => _controller = controller);
@@ -148,19 +128,21 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
       return;
     }
 
-    final explorer = _explorer.value;
-    if (explorer == null || lastCentre == null || lastZoom == null) {
-      // Setting the explorer down is not arriving. The default camera sits
-      // inside the radius of a place in the city centre, and a fresh install
-      // opened to "1 of 277" before the player had moved at all.
-      _walkTo(centre.latitude, centre.longitude, mayUnlock: false);
-    } else if ((camera.zoom - lastZoom).abs() > _zoomTolerance) {
-      _zoomedThisGesture = true;
-    } else {
-      _walkTo(
-        explorer.latitude + centre.latitude - lastCentre.latitude,
-        explorer.longitude + centre.longitude - lastCentre.longitude,
-      );
+    switch (panStepFor(
+      centre: centre,
+      zoom: camera.zoom,
+      lastCentre: lastCentre,
+      lastZoom: lastZoom,
+      explorer: _explorer.value,
+    )) {
+      // Setting the explorer down is not arriving: the default camera sits
+      // inside the radius of a place in the city centre.
+      case PanSetDown(:final at):
+        _walkTo(at, mayUnlock: false);
+      case PanWalk(:final to):
+        _walkTo(to);
+      case PanZoomed():
+        _zoomedThisGesture = true;
     }
 
     if (_zoomedThisGesture && !controller.isCameraMoving) {
@@ -169,11 +151,10 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     }
   }
 
-  void _walkTo(double latitude, double longitude, {bool mayUnlock = true}) {
-    final point = TrailPoint(latitude: latitude, longitude: longitude);
+  void _walkTo(TrailPoint point, {bool mayUnlock = true}) {
     _explorer.value = point;
     if (!mayUnlock) _lastPanPoint = point;
-    _explore(latitude, longitude, mayUnlock: mayUnlock);
+    _explore(point.latitude, point.longitude, mayUnlock: mayUnlock);
   }
 
   Future<void> _recentre(MapLibreMapController controller) async {
@@ -208,72 +189,35 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     setState(() => _selected = hit);
   }
 
-  /// Where the pan explorer was on the previous camera frame.
-  TrailPoint? _lastPanPoint;
-
   /// The explorer is at this point: clear the fog there, and — when the
-  /// position is the pan stand-in — try the checkpoint whose radius it passed
-  /// through.
-  ///
-  /// "Passed through", not "is in": the map reports only a handful of camera
-  /// positions per swipe, so a quick drag across a checkpoint can jump from
-  /// one side of its 60 m radius to the other without a single sample inside.
-  /// Each step is checked as the segment it is, and the check-in is sent from
-  /// the point on it nearest the checkpoint — somewhere the explorer really
-  /// went, which the stand-in authority then measures for itself.
+  /// position is the pan stand-in — ask about whatever radius it crossed into.
   void _explore(double latitude, double longitude, {required bool mayUnlock}) {
     ref.read(fogTrailControllerProvider.notifier).record(latitude, longitude);
     if (!mayUnlock) return;
 
     final here = TrailPoint(latitude: latitude, longitude: longitude);
-    final from = _lastPanPoint ?? here;
+    final arrival = arrivalBetween(
+      from: _lastPanPoint ?? here,
+      here: here,
+      checkpoints: ref.read(checkpointsProvider).value ?? const [],
+      visited: ref.read(visitedCheckpointIdsProvider),
+      asked: _askedWhilePanning,
+      isCelebrating: _celebrating != null,
+    );
     _lastPanPoint = here;
-    // A jump is not a walk: nothing between the two ends was visited.
-    final isJump = FogTrail.distanceMeters(from, here) > FogTrail.maxJoinMeters;
+    if (arrival == null) return;
 
-    final visited = ref.read(visitedCheckpointIdsProvider);
-    // Every place, filter or no filter. The map filter decides what is drawn;
-    // it must never decide what can be unlocked, or turning a filter on would
-    // quietly change the rules of the game.
-    final checkpoints = ref.read(checkpointsProvider).value ?? const [];
-    for (final checkpoint in checkpoints) {
-      if (visited.contains(checkpoint.id)) continue;
-      final target = TrailPoint(
-        latitude: checkpoint.latitude,
-        longitude: checkpoint.longitude,
-      );
-      final nearest = isJump
-          ? here
-          : FogTrail.nearestOnSegment(from, here, target);
-      // Arriving means crossing in from outside. A step that starts inside
-      // the radius — the explorer set down there, or lingering — is not an
-      // arrival, whatever order the camera and the content happened to load.
-      final startsInside =
-          FogTrail.distanceMeters(from, target) <= checkpoint.radiusMeters;
-      if (startsInside ||
-          FogTrail.distanceMeters(nearest, target) > checkpoint.radiusMeters) {
-        _askedWhilePanning.remove(checkpoint.id);
-        continue;
-      }
-      if (_celebrating != null || !_askedWhilePanning.add(checkpoint.id)) {
-        continue;
-      }
-      ref
-          .read(checkInControllerProvider.notifier)
-          .checkIn(
-            checkpointId: checkpoint.id,
-            latitude: nearest.latitude,
-            longitude: nearest.longitude,
-          );
-      return;
-    }
+    ref
+        .read(checkInControllerProvider.notifier)
+        .checkIn(
+          checkpointId: arrival.checkpoint.id,
+          latitude: arrival.at.latitude,
+          longitude: arrival.at.longitude,
+        );
   }
 
-  /// Opens the story player over the whole screen.
-  ///
-  /// A route rather than another overlay in the Stack: the chapter is a
-  /// destination you leave the map for and come back from, and the system
-  /// back gesture should close it, which a route gets for free.
+  /// A route rather than another overlay: the chapter is somewhere you leave
+  /// the map for, so the system back gesture should close it.
   void _openStory(StoryChapter chapter, Checkpoint checkpoint) {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
@@ -286,11 +230,9 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     );
   }
 
-  /// A full-screen lens laid over the map rather than instead of it, which is
-  /// what keeps a switch instant and the camera underneath untouched.
-  ///
-  /// It stays mounted while hidden; unmounting it would throw away its scroll
-  /// position and make the fade impossible.
+  /// A lens laid over the map rather than instead of it, which keeps a switch
+  /// instant and the camera untouched. Stays mounted while hidden so it keeps
+  /// its scroll position and can fade.
   Widget _lensOverlay({
     required Lens lens,
     required Lens shown,
@@ -313,8 +255,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     final checkpoints = ref.watch(visibleCheckpointsProvider);
     final visitedIds = ref.watch(visitedCheckpointIdsProvider);
 
-    // Content is pulled once, here, because this is the first screen. Watched
-    // rather than read so the outcome is not thrown away.
+    // Watched, not read, so the first screen does not throw the outcome away.
     ref.watch(contentBootstrapProvider);
 
     ref.listen(checkInControllerProvider, _onCheckInChanged);
@@ -327,8 +268,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
         children: [
           CheckpointMapCanvas(
             onControllerReady: _attach,
-            // A real fix clears fog wherever the phone actually goes, in
-            // every build. It never unlocks: that stays with the check-in.
+            // A real fix clears fog but never unlocks: that is the check-in's.
             onUserLocationUpdated: (latitude, longitude) =>
                 _explore(latitude, longitude, mayUnlock: false),
             onStyleLoaded: () => setState(() => _styleGeneration++),
@@ -337,17 +277,15 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
 
           if (canDrawLayers) ...[
             if (lens == Lens.fog)
-              // A Consumer of its own: the trail grows on every step of a pan,
-              // and rebuilding the whole screen for it was a large part of
-              // why panning stuttered.
+              // Its own Consumer: the trail grows on every step of a pan, and
+              // rebuilding the whole screen for it is what made panning stutter.
               Positioned.fill(
                 child: RepaintBoundary(
                   child: Consumer(
                     builder: (context, ref, _) => FogOverlay(
                       controller: controller,
                       fallbackCamera: CheckpointMapCanvas.initialCamera,
-                      // Checkpoint clearings from `visit_state`, plus the
-                      // trail the explorer has walked or panned.
+                      // Clearings from `visit_state`, plus the walked trail.
                       holes: [
                         ...ref.watch(fogHolesProvider),
                         ...ref.watch(fogTrailHolesProvider),
@@ -370,12 +308,10 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                 ),
               ),
             ),
-            // The explorer, pinned to the centre of the map while panning
-            // stands in for walking.
             if (_exploresByPanning && lens == Lens.fog)
               Positioned.fill(
                 child: IgnorePointer(
-                  child: _ExplorerLayer(
+                  child: ExplorerLayer(
                     controller: controller,
                     explorer: _explorer,
                   ),
@@ -383,7 +319,6 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
               ),
           ],
 
-          // The collection lens.
           _lensOverlay(
             lens: lens,
             shown: Lens.collection,
@@ -393,16 +328,14 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
             ),
           ),
 
-          // The journey lens.
           _lensOverlay(
             lens: lens,
             shown: Lens.journey,
             child: const JourneyPanel(),
           ),
 
-          // The game HUD, over the map only: the album and the journey carry
-          // their own banner, and a second header above it said the same
-          // thing twice.
+          // Over the map only: the album and the journey carry their own
+          // banner, and a second header above it says the same thing twice.
           if (lens == Lens.fog)
             const SafeArea(
               child: Padding(
@@ -412,9 +345,8 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                   AppSpacing.md - 2,
                   0,
                 ),
-                // Stacked under the HUD rather than placed at a measured
-                // offset from the top: the HUD's height is its own business,
-                // and a hand-counted gap here landed the filter on top of it.
+                // Stacked under the HUD, not offset from the top: the HUD's
+                // height is its own business.
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -426,18 +358,17 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
               ),
             ),
 
-          // Bottom left, just above the lens bar, in every lens: the label
-          // has to stay visible wherever the user is, and the top of every
-          // lens now belongs to a HUD or a banner.
+          // In every lens: the label has to stay visible wherever the user
+          // is, and the top of each lens belongs to a HUD or a banner.
           if (!AppConfig.hasSupabase)
             const Positioned(
               left: AppSpacing.md,
               bottom: AppSpacing.aboveLensBar,
-              child: _StandInBanner(),
+              child: StandInBanner(),
             ),
 
-          // Gutters on both sides: the bar is no longer intrinsically sized,
-          // so without them it would run edge to edge on the map.
+          // Gutters: the bar is not intrinsically sized and would otherwise
+          // run edge to edge.
           const Positioned(
             left: AppSpacing.md - 2,
             right: AppSpacing.md - 2,
@@ -445,9 +376,8 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
             child: LensSwitcher(),
           ),
 
-          // The follow button, above the bar rather than in the Scaffold's own
-          // slot. With three chips the bar reaches the right edge, and the
-          // floating slot put the button straight on top of the third one.
+          // Above the bar, not in the Scaffold's floating slot: with three
+          // chips the bar reaches the right edge and they would overlap.
           if (lens == Lens.fog && _selected == null)
             const Positioned(
               right: AppSpacing.md,
@@ -455,9 +385,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
               child: MapFollowButton(),
             ),
 
-          // Only over the map. The sheet describes a place you tapped on the
-          // map, and it kept floating over the album after a lens switch —
-          // a card about a pin, on a screen with no pins.
+          // Only over the map: it describes a pin, and the album has none.
           if (_selected != null && lens == Lens.fog)
             Positioned(
               left: AppSpacing.md - 2,
@@ -483,153 +411,45 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
             ),
         ],
       ),
-      // No floatingActionButton. The follow button is positioned in the stack
-      // above, so it can sit clear of a lens bar that now spans the screen.
-      //
-      // No AppBar either. The album writes its own heading, with the progress
-      // line under it, and a bar above that repeated the same word twice.
+      // No floatingActionButton and no AppBar: the follow button is placed in
+      // the stack above, and each lens writes its own heading.
     );
   }
 
-  /// Reacts to whatever the authority answered.
-  ///
-  /// The unlock moment starts here and not where the button was pressed: it
-  /// celebrates `visit_state` changing, and the only thing allowed to change
-  /// it is a grant coming back.
+  /// Reacts to whatever the authority answered. The unlock moment starts
+  /// here, not at the button: it celebrates `visit_state` changing, and only a
+  /// grant coming back can change that.
   void _onCheckInChanged(CheckInState? previous, CheckInState next) {
     final outcome = next.outcome;
     if (outcome == null) return;
 
-    switch (outcome) {
-      case CheckInGranted():
-        // Either the place tapped on the map, or one reached by panning.
-        final checkpoint = (ref.read(checkpointsProvider).value ?? const [])
-            .where((candidate) => candidate.id == next.checkpointId)
-            .firstOrNull;
-        if (checkpoint == null) return;
-        setState(() {
-          _celebrating = checkpoint;
-          _selected = null;
-        });
-      case CheckInTooFar(:final distanceMeters, :final radiusMeters):
-        _say(
-          AppLocalizations.of(
-            context,
-          ).checkInTooFar(distanceMeters.round(), radiusMeters),
-        );
-        ref.read(checkInControllerProvider.notifier).acknowledge();
-      case CheckInUnavailable():
-        _say(AppLocalizations.of(context).checkInUnavailable);
-        ref.read(checkInControllerProvider.notifier).acknowledge();
-      case CheckInRejected(:final reason):
-        _say(AppLocalizations.of(context).checkInRejected(reason));
-        ref.read(checkInControllerProvider.notifier).acknowledge();
-    }
-  }
-
-  void _say(String message) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(message)));
-  }
-}
-
-/// Says out loud that this build has no server behind it.
-///
-/// A demonstration that quietly looks like the real thing is how a stand-in
-/// ends up being mistaken for a verified unlock. It is cheap to label and
-/// expensive to explain later.
-class _StandInBanner extends StatelessWidget {
-  const _StandInBanner();
-
-  @override
-  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final colors = AppColors.of(context);
+    // Exhaustive over the sealed outcome, so a new kind of answer cannot be
+    // added without this screen being made to say what it does about it.
+    final refusal = switch (outcome) {
+      CheckInGranted() => null,
+      CheckInTooFar(:final distanceMeters, :final radiusMeters) =>
+        l10n.checkInTooFar(distanceMeters.round(), radiusMeters),
+      CheckInUnavailable() => l10n.checkInUnavailable,
+      CheckInRejected(:final reason) => l10n.checkInRejected(reason),
+    };
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: colors.accentYellow,
-        borderRadius: AppRadius.pill,
-        border: Border.all(color: colors.outline, width: AppSticker.strokeThin),
-        boxShadow: AppShadows.sticker(colors, depth: AppSticker.depthSmall),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.sm + 2,
-          vertical: AppSpacing.xs,
-        ),
-        child: Text(
-          l10n.standInModeBadge,
-          style: AppTypography.tag.copyWith(color: colors.onAccentYellow),
-        ),
-      ),
-    );
-  }
-}
+    if (refusal != null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(refusal)));
+      ref.read(checkInControllerProvider.notifier).acknowledge();
+      return;
+    }
 
-/// Where the explorer stands while panning plays the part of walking: the
-/// same blue dot the map draws for a real position.
-class _ExplorerPuck extends StatelessWidget {
-  const _ExplorerPuck();
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
-
-    return Container(
-      width: AppIconSize.inline,
-      height: AppIconSize.inline,
-      decoration: BoxDecoration(
-        color: colors.info,
-        shape: BoxShape.circle,
-        border: Border.all(color: colors.card, width: AppSticker.strokeHeavy),
-        boxShadow: AppShadows.sticker(colors, depth: AppSticker.depthSmall),
-      ),
-    );
-  }
-}
-
-/// Draws the pan explorer where it stands on the map — usually the centre,
-/// but not while a zoom is under way, which is the point: zooming does not
-/// move the player.
-class _ExplorerLayer extends StatelessWidget {
-  const _ExplorerLayer({required this.controller, required this.explorer});
-
-  final MapLibreMapController controller;
-  final ValueListenable<TrailPoint?> explorer;
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) => AnimatedBuilder(
-        animation: Listenable.merge([controller, explorer]),
-        builder: (context, _) {
-          final camera =
-              controller.cameraPosition ?? CheckpointMapCanvas.initialCamera;
-          final at = explorer.value;
-          final projection = MapProjection(
-            centerLatitude: camera.target.latitude,
-            centerLongitude: camera.target.longitude,
-            zoom: camera.zoom,
-            widthPixels: constraints.maxWidth,
-            heightPixels: constraints.maxHeight,
-          );
-          final screen = at == null
-              ? (x: constraints.maxWidth / 2, y: constraints.maxHeight / 2)
-              : projection.toScreen(at.latitude, at.longitude);
-
-          return Stack(
-            children: [
-              Positioned(
-                left: screen.x - AppIconSize.inline / 2,
-                top: screen.y - AppIconSize.inline / 2,
-                child: const _ExplorerPuck(),
-              ),
-            ],
-          );
-        },
-      ),
-    );
+    // Granted. The outcome is left standing for the animation to acknowledge.
+    final checkpoint = (ref.read(checkpointsProvider).value ?? const [])
+        .where((candidate) => candidate.id == next.checkpointId)
+        .firstOrNull;
+    if (checkpoint == null) return;
+    setState(() {
+      _celebrating = checkpoint;
+      _selected = null;
+    });
   }
 }

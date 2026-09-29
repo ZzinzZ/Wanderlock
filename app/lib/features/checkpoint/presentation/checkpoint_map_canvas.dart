@@ -64,15 +64,13 @@ class CheckpointMapCanvas extends ConsumerWidget {
             // its own map instead of a tinted copy of the light one.
             styleString: styleJson,
             initialCameraPosition: initialCamera,
-            // Nothing in this product is served by tilting or rotating the
-            // map, and both make a fog overlay considerably harder to draw
-            // correctly.
+            // Tilt and rotation break every Flutter overlay: MapProjection is
+            // Web Mercator seen straight down.
             tiltGesturesEnabled: false,
             rotateGesturesEnabled: false,
             // Without this the controller never reports the camera, and
-            // everything drawn over the map in Flutter — markers, fog, the
-            // pan explorer — stays pinned where the map first opened while
-            // the tiles slide away underneath. Found on the first real pan.
+            // every Flutter overlay stays pinned where the map opened while
+            // the tiles slide away underneath.
             trackCameraPosition: true,
             // Drawing the dot needs permission in hand. Asking the map to
             // show it without permission gets a silent nothing.
@@ -80,13 +78,11 @@ class CheckpointMapCanvas extends ConsumerWidget {
             myLocationTrackingMode: following
                 ? MyLocationTrackingMode.tracking
                 : MyLocationTrackingMode.none,
-            // myLocationRenderMode stays at its default of `normal`, which
-            // is a plain dot with no heading arrow. The compass and GPS
-            // render modes rotate the map, and rotation is off above.
+            // myLocationRenderMode stays `normal`: the compass and GPS modes
+            // rotate the map, and rotation is off above.
             //
-            // The map reports when a drag has taken the camera off the
-            // user's location. Without this the button would go on claiming
-            // to follow while the map sat where it was dragged.
+            // The map reports when a drag takes the camera off the user's
+            // location, so the follow button stops claiming to follow.
             onCameraTrackingDismissed: () =>
                 ref.read(cameraFollowProvider.notifier).stop(),
             onMapCreated: onControllerReady,

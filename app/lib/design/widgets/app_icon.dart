@@ -4,25 +4,14 @@ import 'package:wanderlock/design/tokens/tokens.dart';
 
 /// A 3D icon, drawn in its own colours.
 ///
-/// The art direction bans icons taken from a generic line set and asks for the
-/// dimensional look of section 7.2. The source is 3dicons.co, CC0. See
-/// `content/icon-licenses.md`.
+/// Section 7.2 of the art direction asks for the dimensional look; the source
+/// is 3dicons.co, CC0, listed in `content/icon-licenses.md`.
 ///
-/// **The `color` variant, used as it comes.** An earlier pass took the `clay`
-/// variant and tinted it to the palette; the owner chose the full-colour
-/// artwork instead, on the grounds that the product is aimed at younger users
-/// and should look it. Two consequences worth stating rather than discovering:
-///
-/// 1. Tinting is gone. Clay is monochrome and takes a tint; these already
-///    carry their own hues, and multiplying a tint over them would muddy every
-///    one of them.
-/// 2. Each icon brings its own colours to a screen. Section 2.3 of the art
-///    direction caps a screen at three accent colours, and that rule — not the
-///    gradient ban — is the one this decision actually spends. Icons are
-///    therefore chosen per screen with an eye on how many hues land at once.
-///
-/// Sizes still come from [AppIconSize], because a size is a design value like
-/// any other.
+/// **The `color` variant, used as it comes** (owner's choice). Two
+/// consequences: there is no tinting, because these already carry their own
+/// hues; and each icon spends part of the three-accent-colour budget in
+/// section 2.3, so icons are chosen per screen with an eye on how many hues
+/// land at once.
 class AppIcon extends StatelessWidget {
   const AppIcon(
     this.name, {
@@ -37,13 +26,9 @@ class AppIcon extends StatelessWidget {
 
   final double size;
 
-  /// Drains the colour out of the icon.
-  ///
-  /// The surfaces are neutral now, so colour is the only signal left for state
-  /// — and section 8 of the art direction already says what colour means here:
-  /// "colour returns to where you have been". A place not yet reached, a lens
-  /// not currently selected, a camera not currently following: grey. Reaching
-  /// it turns the colour on.
+  /// Drains the colour out of the icon. Section 8 of the art direction: colour
+  /// returns to where you have been, so not-yet-reached, not-selected and
+  /// not-following are all grey.
   final bool isMuted;
 
   /// Left null for an icon that only repeats what the text beside it says.
@@ -52,12 +37,9 @@ class AppIcon extends StatelessWidget {
 
   static String assetPath(String name) => 'assets/icons/$name.png';
 
-  /// sRGB luminance weights, the one copy.
-  ///
-  /// A flat third each greys a red padlock and a green medal to nearly the
-  /// same value, and the icons stop being distinguishable at a glance. Named
-  /// because [LandmarkImage] needs the same three numbers with a different
-  /// alpha, and a colour matrix has to stay `const` to be used in one.
+  /// sRGB luminance weights, the one copy. A flat third each greys a red
+  /// padlock and a green medal to nearly the same value. Named because
+  /// [LandmarkImage] needs them too, and a colour matrix must stay `const`.
   static const double luminanceRed = 0.2126;
   static const double luminanceGreen = 0.7152;
   static const double luminanceBlue = 0.0722;
