@@ -1,0 +1,17 @@
+{
+  "id": "cho-kim-bien",
+  "checkpointId": "cho-kim-bien",
+  "title": "Chợ của hoá chất",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Chợ Kim Biên",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Kim Biên lập từ những năm 1960, ban đầu là một chợ tự phát — chỗ trao đổi đô la và hàng quân tiếp vụ."
+    },
+    {
+      "type": "narration",
+      "text": "Sau năm 1975 chợ chuyển sang cho tiểu thương thuê sạp. Thứ khiến cái tên Kim Biên được cả thành phố biết đến không phải quần áo hay thực phẩm, mà là hoá chất công nghiệp và hoá chất thực phẩm."
+    }
+  ]
+}

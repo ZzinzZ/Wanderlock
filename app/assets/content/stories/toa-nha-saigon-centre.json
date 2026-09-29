@@ -1,0 +1,17 @@
+{
+  "id": "toa-nha-saigon-centre",
+  "checkpointId": "toa-nha-saigon-centre",
+  "title": "Khu phức hợp trên đường Lê Lợi",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Saigon Centre",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Saigon Centre là khu phức hợp cao ốc trên đường Lê Lợi, ngay trung tâm thành phố."
+    },
+    {
+      "type": "narration",
+      "text": "Toà nhà giai đoạn hai cao 193 mét với 39 tầng và 4 tầng hầm, hoàn thành năm 2017. Năm 2016, khối đế của toà nhà cũ được cải tạo lại cho đồng bộ với toà mới đang xây bên cạnh."
+    }
+  ]
+}

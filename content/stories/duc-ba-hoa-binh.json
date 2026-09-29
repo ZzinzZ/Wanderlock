@@ -1,0 +1,17 @@
+{
+  "id": "duc-ba-hoa-binh",
+  "checkpointId": "duc-ba-hoa-binh",
+  "title": "Bức tượng đặt tên cho một nhà thờ",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Nhà thờ chính tòa Đức Bà Sài Gòn",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng Đức Bà Hoà Bình đứng trước khuôn viên nhà thờ chính tòa, quay mặt ra Công trường Công xã Paris."
+    },
+    {
+      "type": "narration",
+      "text": "Bức tượng này làm được một việc hiếm có: nó đổi tên cả công trình phía sau. Nhà thờ vốn chỉ gọi là Nhà thờ Sài Gòn; từ năm 1959, khi tượng được đặt ở đây, cái tên Nhà thờ Đức Bà mới thành quen — và giờ không ai gọi cách nào khác nữa."
+    }
+  ]
+}

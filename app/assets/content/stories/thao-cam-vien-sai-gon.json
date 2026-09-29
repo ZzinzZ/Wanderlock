@@ -1,0 +1,23 @@
+{
+  "id": "thao-cam-vien-sai-gon",
+  "checkpointId": "thao-cam-vien-sai-gon",
+  "title": "Vườn thú người Sài Gòn gọi là Sở Thú",
+  "estimatedMinutes": 2,
+  "coverImage": "assets/photos/places/thao-cam-vien-sai-gon.jpg",
+  "coverCredit": "Ảnh: Dainis Matisons / Wikimedia Commons — CC BY 2.0",
+  "source": "Wikipedia tiếng Việt — Thảo Cầm Viên Sài Gòn",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Thảo Cầm Viên rộng hơn 20 hecta, nằm gần hạ lưu kênh Nhiêu Lộc – Thị Nghè, với hai cổng mở ra đường Nguyễn Bỉnh Khiêm và đường Nguyễn Thị Minh Khai. Người địa phương ít khi gọi tên đầy đủ — với họ đây là Sở Thú."
+    },
+    {
+      "type": "narration",
+      "text": "Điều đáng nói không nằm ở diện tích. Khởi công năm 1864 và mở cửa năm 1869, đây là một trong những vườn thú lâu đời nhất còn tồn tại trên thế giới: tính theo năm mở cửa nó đứng thứ 24 trong số các vườn thú vẫn đang hoạt động."
+    },
+    {
+      "type": "narration",
+      "text": "Nghĩa là nơi này đã đón khách liên tục qua hơn một thế kỷ rưỡi, xuyên qua mọi thứ đã đi qua thành phố trong quãng thời gian đó."
+    }
+  ]
+}

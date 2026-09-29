@@ -1,0 +1,17 @@
+{
+  "id": "cong-vien-le-van-tam",
+  "checkpointId": "cong-vien-le-van-tam",
+  "title": "Khoảng xanh giữa bốn con đường",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Công viên Lê Văn Tám",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Lê Văn Tám nằm lọt giữa bốn tuyến đường Hai Bà Trưng, Điện Biên Phủ, Võ Thị Sáu và Phan Liêm. Cây xanh, vườn hoa, vài trò chơi cho trẻ con — và rất nhiều người tập thể dục, sáng lẫn chiều."
+    },
+    {
+      "type": "narration",
+      "text": "Từng có một dự án xây bãi đậu xe ngầm dưới công viên này. Gần một thập niên trôi qua mà không xây được gì, dự án bị huỷ. Khoảng xanh ở lại."
+    }
+  ]
+}

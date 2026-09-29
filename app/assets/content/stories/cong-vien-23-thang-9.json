@@ -1,0 +1,19 @@
+{
+  "id": "cong-vien-23-thang-9",
+  "checkpointId": "cong-vien-23-thang-9",
+  "title": "Dải xanh chạy dọc Phạm Ngũ Lão",
+  "estimatedMinutes": 1,
+  "coverImage": "assets/photos/places/cong-vien-23-thang-9.jpg",
+  "coverCredit": "Ảnh: Daderot / Wikimedia Commons",
+  "source": "Wikipedia tiếng Việt — Công viên 23 tháng 9",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên 23 Tháng 9 nằm giữa hai con đường Lê Lai và Phạm Ngũ Lão, trải dài từ công trường Quách Thị Trang trước chợ Bến Thành tới đường Nguyễn Trãi."
+    },
+    {
+      "type": "narration",
+      "text": "Công viên gồm ba khu, bị đường Nguyễn Thị Nghĩa ngăn cách. Đây là dải xanh mà khách ba lô ở khu Phạm Ngũ Lão đi qua mỗi ngày."
+    }
+  ]
+}

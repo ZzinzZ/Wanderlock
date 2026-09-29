@@ -1,0 +1,21 @@
+{
+  "id": "cho-pham-van-hai",
+  "checkpointId": "cho-pham-van-hai",
+  "title": "Chợ quần áo, và chợ thịt heo",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Chợ Phạm Văn Hai",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Phạm Văn Hai rộng khoảng 11.288 mét vuông với 1.691 sạp và kiosque. Nhiều người biết đến nó như một thiên đường quần áo giá bình dân."
+    },
+    {
+      "type": "narration",
+      "text": "Nhưng vai trò lớn hơn của chợ lại nằm ở chỗ khác: đây là một trong hai chợ thịt heo sỉ lớn, cung cấp khoảng một nửa nhu cầu thịt heo của cả thành phố."
+    },
+    {
+      "type": "narration",
+      "text": "Khu đất này vốn là một nghĩa địa trước khi thành chợ."
+    }
+  ]
+}

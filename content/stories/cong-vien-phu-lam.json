@@ -1,0 +1,21 @@
+{
+  "id": "cong-vien-phu-lam",
+  "checkpointId": "cong-vien-phu-lam",
+  "title": "Công viên hình tam giác, và hai bức tượng dời về",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Công viên Phú Lâm",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Phú Lâm có dạng hình tam giác, kẹp giữa ba đường Kinh Dương Vương, An Dương Vương và Lê Tuấn Mậu, ngay cạnh vòng xoay An Lạc. Diện tích khoảng 61.790 mét vuông, trong đó có một hồ nước hơn một hecta."
+    },
+    {
+      "type": "narration",
+      "text": "Đây cũng là nơi cư ngụ mới của hai bức tượng từng đứng ở chỗ khác: tượng Bình Định vương Lê Lợi dời về từ bùng binh Cây Gõ khi nơi đó xây cầu vượt năm 2013, và tượng Trần Nguyên Hãn từ công trường Quách Thị Trang trước chợ Bến Thành."
+    },
+    {
+      "type": "narration",
+      "text": "Công viên có một vấn đề của riêng nó: hơn một nửa diện tích đang bị dùng sai mục đích — nhà hàng và trò chơi thu phí — trong khi phần chơi miễn phí cho trẻ em thiếu đầu tư."
+    }
+  ]
+}

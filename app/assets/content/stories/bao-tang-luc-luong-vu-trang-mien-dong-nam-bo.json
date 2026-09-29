@@ -1,0 +1,21 @@
+{
+  "id": "bao-tang-luc-luong-vu-trang-mien-dong-nam-bo",
+  "checkpointId": "bao-tang-luc-luong-vu-trang-mien-dong-nam-bo",
+  "title": "Bảo tàng Quân khu 7",
+  "estimatedMinutes": 1,
+  "source": "Wikipedia tiếng Việt — Bảo tàng Lực lượng Vũ trang miền Đông Nam Bộ",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng ở số 247 Hoàng Văn Thụ, quen gọi là Bảo tàng Quân khu 7."
+    },
+    {
+      "type": "narration",
+      "text": "Hiện vật ở đây trải suốt các cuộc kháng chiến của Việt Nam thời hiện đại — từ chiến tranh Đông Dương lần thứ nhất, qua chiến tranh Việt Nam, tới chiến tranh biên giới Tây Nam."
+    },
+    {
+      "type": "narration",
+      "text": "Mở cửa sáng và chiều, nghỉ thứ Hai. Người Việt vào miễn phí."
+    }
+  ]
+}
