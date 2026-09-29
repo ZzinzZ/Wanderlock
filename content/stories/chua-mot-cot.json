@@ -1,0 +1,14 @@
+{
+  "id": "chua-mot-cot",
+  "checkpointId": "chua-mot-cot",
+  "kind": "intro",
+  "title": "Chùa Một Cột",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chùa Một Cột là một ngôi chùa ở số 511 Đặng Văn Bi, Phường Thủ Đức, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

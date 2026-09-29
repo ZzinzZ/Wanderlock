@@ -1,0 +1,18 @@
+{
+  "id": "cho-an-suong",
+  "checkpointId": "cho-an-suong",
+  "kind": "intro",
+  "title": "Chợ An Sương",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ An Sương là một khu chợ ở Đường DD6, Phường Đông Hưng Thuận, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là An Suong Market."
+    }
+  ]
+}

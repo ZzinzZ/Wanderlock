@@ -1,0 +1,14 @@
+{
+  "id": "dai-tuong-niem-liet-sy-binh-thanh",
+  "checkpointId": "dai-tuong-niem-liet-sy-binh-thanh",
+  "kind": "intro",
+  "title": "Đài tưởng niệm Liệt sỹ Bình Thạnh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đài tưởng niệm Liệt sỹ Bình Thạnh là một công trình tưởng niệm ở Đường Nơ Trang Long, Phường Bình Thạnh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

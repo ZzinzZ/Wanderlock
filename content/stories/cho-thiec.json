@@ -1,0 +1,18 @@
+{
+  "id": "cho-thiec",
+  "checkpointId": "cho-thiec",
+  "kind": "intro",
+  "title": "Chợ Thiếc",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Thiếc là một khu chợ ở số 129 Đường Phó Cơ Điều, Phường Minh Phụng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Nơi này còn được gọi là Chợ Phó Cơ Điều. Tên cũ là Marché Docteur Gaillard."
+    }
+  ]
+}

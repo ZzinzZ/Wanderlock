@@ -1,0 +1,18 @@
+{
+  "id": "phong-truyen-thong-thanh-doan",
+  "checkpointId": "phong-truyen-thong-thanh-doan",
+  "kind": "intro",
+  "title": "Phòng Truyền thống Thành Đoàn",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Phòng Truyền thống Thành Đoàn là một bảo tàng ở Đường Nguyễn Thị Minh Khai, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là HCMC Youth Museum."
+    }
+  ]
+}

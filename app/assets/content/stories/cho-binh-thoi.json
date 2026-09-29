@@ -1,0 +1,14 @@
+{
+  "id": "cho-binh-thoi",
+  "checkpointId": "cho-binh-thoi",
+  "kind": "intro",
+  "title": "Chợ Bình Thới",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bình Thới là một khu chợ ở Đường Xóm Đất, Phường Bình Thới, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

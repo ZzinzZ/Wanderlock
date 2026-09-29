@@ -1,0 +1,14 @@
+{
+  "id": "khu-du-lich-ky-hoa",
+  "checkpointId": "khu-du-lich-ky-hoa",
+  "kind": "intro",
+  "title": "Khu du lịch Kỳ Hòa",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Khu du lịch Kỳ Hòa là một công viên ở số 16A Đường Lê Hồng Phong, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

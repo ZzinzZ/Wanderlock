@@ -1,0 +1,14 @@
+{
+  "id": "xe-tang-390",
+  "checkpointId": "xe-tang-390",
+  "kind": "intro",
+  "title": "Xe tăng 390",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Xe tăng 390 là một di tích ở Đường Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "di-tich-chuong-chim-bo-cau-nguoi-an-tamil",
+  "checkpointId": "di-tich-chuong-chim-bo-cau-nguoi-an-tamil",
+  "kind": "intro",
+  "title": "Di Tích Chuồng Chim Bồ Câu Người Ấn Tamil",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Di Tích Chuồng Chim Bồ Câu Người Ấn Tamil là một di tích ở Đường Pasteur, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Tamil Pigeon Cases since 1920."
+    }
+  ]
+}

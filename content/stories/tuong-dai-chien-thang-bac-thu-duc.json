@@ -1,0 +1,14 @@
+{
+  "id": "tuong-dai-chien-thang-bac-thu-duc",
+  "checkpointId": "tuong-dai-chien-thang-bac-thu-duc",
+  "kind": "intro",
+  "title": "Tượng đài chiến thắng Bắc Thủ Đức",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng đài chiến thắng Bắc Thủ Đức là một đài tưởng niệm chiến tranh ở Bình Phú, Phường Tam Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

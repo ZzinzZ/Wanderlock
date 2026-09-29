@@ -1,0 +1,18 @@
+{
+  "id": "cho-phu-lam",
+  "checkpointId": "cho-phu-lam",
+  "kind": "intro",
+  "title": "Chợ Phú Lâm",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Phú Lâm là một khu chợ ở Đường số 1, Phường Phú Lâm, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Phu Lam Market."
+    }
+  ]
+}

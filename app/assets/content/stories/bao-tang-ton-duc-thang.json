@@ -1,0 +1,20 @@
+{
+  "id": "bao-tang-ton-duc-thang",
+  "checkpointId": "bao-tang-ton-duc-thang",
+  "kind": "intro",
+  "title": "Bảo tàng Tôn Đức Thắng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/bao-tang-ton-duc-thang.jpg",
+  "coverCredit": "Ảnh: Nam pahm / Wikimedia Commons — CC BY-SA 4.0",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Tôn Đức Thắng là một bảo tàng ở Đường Thái Văn Lung, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Ton Duc Thang Museum."
+    }
+  ]
+}

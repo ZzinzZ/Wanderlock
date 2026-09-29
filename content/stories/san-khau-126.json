@@ -1,0 +1,14 @@
+{
+  "id": "san-khau-126",
+  "checkpointId": "san-khau-126",
+  "kind": "intro",
+  "title": "Sân khấu 126",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Sân khấu 126 là một nhà hát ở Đường Cách Mạng Tháng Tám, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

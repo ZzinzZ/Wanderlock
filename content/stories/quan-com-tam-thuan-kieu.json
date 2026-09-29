@@ -1,0 +1,14 @@
+{
+  "id": "quan-com-tam-thuan-kieu",
+  "checkpointId": "quan-com-tam-thuan-kieu",
+  "kind": "intro",
+  "title": "Quán Cơm Tấm Thuận Kiều",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Quán Cơm Tấm Thuận Kiều là một nhà hàng ở số 24 Đường Tôn Thất Tùng, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

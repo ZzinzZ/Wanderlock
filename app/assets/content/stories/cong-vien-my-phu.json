@@ -1,0 +1,18 @@
+{
+  "id": "cong-vien-my-phu",
+  "checkpointId": "cong-vien-my-phu",
+  "kind": "intro",
+  "title": "Công viên Mỹ Phú",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Mỹ Phú là một công viên ở số 22 Đường G, Phường Tân Mỹ, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là My Phu Park."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-van-hoa-go-vap",
+  "checkpointId": "cong-vien-van-hoa-go-vap",
+  "kind": "intro",
+  "title": "Công viên Văn hóa Gò Vấp",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Văn hóa Gò Vấp là một công viên ở Phường An Nhơn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

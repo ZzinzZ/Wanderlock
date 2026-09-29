@@ -1,0 +1,18 @@
+{
+  "id": "nha-tho-huyen-sy",
+  "checkpointId": "nha-tho-huyen-sy",
+  "kind": "intro",
+  "title": "Nhà thờ Huyện Sỹ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà thờ Huyện Sỹ là một nhà thờ ở số 1 Đường Tôn Thất Tùng, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Nơi này còn được gọi là Giáo xứ Chợ Đũi - Nhà thờ Huyện Sỹ. Tên tiếng Anh ghi nhận là Huyện Sỹ Church (St. Philip the Apostle). Wikidata mô tả nơi này là Nhà thờ giáo xứ Công giáo dâng kính Thánh Philípphê Tông đồ, do ông Huyện Sỹ (Lê Phát Đạt) xây dựng năm 1902–1905.."
+    }
+  ]
+}

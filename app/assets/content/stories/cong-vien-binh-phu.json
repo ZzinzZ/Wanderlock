@@ -1,0 +1,18 @@
+{
+  "id": "cong-vien-binh-phu",
+  "checkpointId": "cong-vien-binh-phu",
+  "kind": "intro",
+  "title": "Công viên Bình Phú",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Bình Phú là một công viên ở Đường Số 26, Phường Bình Phú, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Binh Phu Park."
+    }
+  ]
+}

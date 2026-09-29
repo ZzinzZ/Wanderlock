@@ -1,0 +1,18 @@
+{
+  "id": "tuong-an-duong-vuong",
+  "checkpointId": "tuong-an-duong-vuong",
+  "kind": "intro",
+  "title": "Tượng An Dương Vương",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng An Dương Vương là một tác phẩm nghệ thuật công cộng ở Ngã sáu Nguyễn Tri Phương, Phường An Đông, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Statue of An Duong Vuong."
+    }
+  ]
+}

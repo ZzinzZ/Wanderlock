@@ -1,0 +1,14 @@
+{
+  "id": "luong-son-quan",
+  "checkpointId": "luong-son-quan",
+  "kind": "intro",
+  "title": "Lương Sơn Quán",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Lương Sơn Quán là một nhà hàng ở Đường Lý Tự Trọng, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

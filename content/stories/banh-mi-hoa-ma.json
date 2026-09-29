@@ -1,0 +1,14 @@
+{
+  "id": "banh-mi-hoa-ma",
+  "checkpointId": "banh-mi-hoa-ma",
+  "kind": "intro",
+  "title": "Bánh Mì Hòa Mã",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bánh Mì Hòa Mã là một nhà hàng ở Cao Thắng, Phường Bàn Cờ, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

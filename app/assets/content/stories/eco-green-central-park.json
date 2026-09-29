@@ -1,0 +1,14 @@
+{
+  "id": "eco-green-central-park",
+  "checkpointId": "eco-green-central-park",
+  "kind": "intro",
+  "title": "Eco Green Central Park",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Eco Green Central Park là một công viên ở Đường D2, Phường Tân Thuận, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

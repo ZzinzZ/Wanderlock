@@ -1,0 +1,14 @@
+{
+  "id": "cantavil-mall",
+  "checkpointId": "cantavil-mall",
+  "kind": "intro",
+  "title": "Cantavil Mall",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Cantavil Mall là một trung tâm thương mại ở Đường song hành, Phường Bình Trưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

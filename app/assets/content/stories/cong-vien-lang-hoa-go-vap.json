@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-lang-hoa-go-vap",
+  "checkpointId": "cong-vien-lang-hoa-go-vap",
+  "kind": "intro",
+  "title": "Công viên Làng Hoa Gò Vấp",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Làng Hoa Gò Vấp là một công viên ở Hẻm 153/48 Lê Văn Thọ, Phường Thông Tây Hội, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

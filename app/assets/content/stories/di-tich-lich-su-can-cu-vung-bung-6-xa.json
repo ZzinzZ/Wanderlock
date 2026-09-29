@@ -1,0 +1,14 @@
+{
+  "id": "di-tich-lich-su-can-cu-vung-bung-6-xa",
+  "checkpointId": "di-tich-lich-su-can-cu-vung-bung-6-xa",
+  "kind": "intro",
+  "title": "Di tích lịch sử Căn cứ Vùng Bưng 6 xã",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Di tích lịch sử Căn cứ Vùng Bưng 6 xã là một công viên ở Phường Long Trường, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

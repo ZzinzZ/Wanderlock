@@ -1,0 +1,18 @@
+{
+  "id": "the-workshop-coffee",
+  "checkpointId": "the-workshop-coffee",
+  "kind": "intro",
+  "title": "The Workshop Coffee",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "The Workshop Coffee là một quán cà phê ở số 27 Đường Ngô Đức Kế, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Món ghi nhận: coffee_shop. Mở cửa hằng ngày từ 08:00 đến 21:00."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "sala-shopping-mall-thiso-mall",
+  "checkpointId": "sala-shopping-mall-thiso-mall",
+  "kind": "intro",
+  "title": "SALA Shopping Mall Thiso mall",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "SALA Shopping Mall Thiso mall là một trung tâm thương mại ở số 10 Đ Mai Chí Thọ, Phường An Khánh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

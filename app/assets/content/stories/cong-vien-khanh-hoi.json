@@ -1,0 +1,18 @@
+{
+  "id": "cong-vien-khanh-hoi",
+  "checkpointId": "cong-vien-khanh-hoi",
+  "kind": "intro",
+  "title": "Công viên Khánh Hội",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Khánh Hội là một công viên ở Đường Số 48, Phường Vĩnh Hội, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Khanh Hoi Park."
+    }
+  ]
+}

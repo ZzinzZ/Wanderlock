@@ -1,0 +1,14 @@
+{
+  "id": "di-tich-lich-su-van-hoa-mo-phan-chau-trinh",
+  "checkpointId": "di-tich-lich-su-van-hoa-mo-phan-chau-trinh",
+  "kind": "intro",
+  "title": "Di tích Lịch sử Văn hóa mộ Phan Châu Trinh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Di tích Lịch sử Văn hóa mộ Phan Châu Trinh là một tượng đài ở Phan Thúc Duyện, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

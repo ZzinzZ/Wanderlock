@@ -1,0 +1,14 @@
+{
+  "id": "bao-tang-tu-nhan-duc-minh",
+  "checkpointId": "bao-tang-tu-nhan-duc-minh",
+  "kind": "intro",
+  "title": "Bảo Tàng Tư Nhân Đức Minh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo Tàng Tư Nhân Đức Minh là một bảo tàng ở số 31 Lê Quý Đôn, Phường Thủ Đức, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

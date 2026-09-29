@@ -1,0 +1,14 @@
+{
+  "id": "nghia-dung-dai",
+  "checkpointId": "nghia-dung-dai",
+  "kind": "intro",
+  "title": "Nghĩa Dũng Đài",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nghĩa Dũng Đài là một công trình tưởng niệm ở Đường Thống Nhất, Phường Đông Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

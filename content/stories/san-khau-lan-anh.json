@@ -1,0 +1,14 @@
+{
+  "id": "san-khau-lan-anh",
+  "checkpointId": "san-khau-lan-anh",
+  "kind": "intro",
+  "title": "Sân khấu Lan Anh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Sân khấu Lan Anh là một nhà hát ở Hẻm 285/36 Cách mạng tháng 8, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

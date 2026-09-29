@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-bo-song-thanh-da",
+  "checkpointId": "cong-vien-bo-song-thanh-da",
+  "kind": "intro",
+  "title": "Công viên bờ sông Thanh Đa",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên bờ sông Thanh Đa là một công viên ở Đường số 3, Phường Bình Quới, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

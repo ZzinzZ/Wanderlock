@@ -1,0 +1,18 @@
+{
+  "id": "chua-ngoc-hoang",
+  "checkpointId": "chua-ngoc-hoang",
+  "kind": "intro",
+  "title": "Chùa Ngọc Hoàng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chùa Ngọc Hoàng là một ngôi miếu ở số 73 Mai Thị Lựu, Phường Tân Định, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Nơi này còn được gọi là Chùa Phước Hải;Ngọc Hoàng Điện;Phước Hải Tự. Tên tiếng Anh ghi nhận là Jade Emperor Pagoda. Được ghi nhận là di tích được xếp hạng. Wikidata mô tả nơi này là Taoist pagoda in Vietnam."
+    }
+  ]
+}

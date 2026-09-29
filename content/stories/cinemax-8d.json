@@ -1,0 +1,14 @@
+{
+  "id": "cinemax-8d",
+  "checkpointId": "cinemax-8d",
+  "kind": "intro",
+  "title": "Cinemax 8D",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Cinemax 8D là một nhà hát ở Hòa Bình, Phường Bình Thới, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

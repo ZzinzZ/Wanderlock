@@ -1,0 +1,18 @@
+{
+  "id": "cau-di-bo-so-7",
+  "checkpointId": "cau-di-bo-so-7",
+  "kind": "intro",
+  "title": "Cầu Đi Bộ Số 7",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Cầu Đi Bộ Số 7 là một điểm tham quan ở Cầu Đi Bộ Số 7, Phường Bình Tiên, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Foot Bridge. Mở cửa suốt ngày đêm."
+    }
+  ]
+}

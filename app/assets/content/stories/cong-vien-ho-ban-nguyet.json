@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-ho-ban-nguyet",
+  "checkpointId": "cong-vien-ho-ban-nguyet",
+  "kind": "intro",
+  "title": "Công viên Hồ Bán Nguyệt",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Hồ Bán Nguyệt là một công viên ở Đường N - Nam, Phường Tân Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

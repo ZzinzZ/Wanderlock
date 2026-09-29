@@ -1,0 +1,14 @@
+{
+  "id": "bia-tuong-niem-nam-bo-khang-chien",
+  "checkpointId": "bia-tuong-niem-nam-bo-khang-chien",
+  "kind": "intro",
+  "title": "Bia tưởng niệm Nam Bộ Kháng chiến",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bia tưởng niệm Nam Bộ Kháng chiến là một công trình tưởng niệm ở Đường Phạm Thế Hiển, Phường Chánh Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

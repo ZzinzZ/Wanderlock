@@ -1,0 +1,14 @@
+{
+  "id": "dai-ky-niem-thich-quang-duc",
+  "checkpointId": "dai-ky-niem-thich-quang-duc",
+  "kind": "intro",
+  "title": "Đài Kỷ Niệm Thích Quảng Đức",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đài Kỷ Niệm Thích Quảng Đức là một đài tưởng niệm chiến tranh ở Đường Cách Mạng Tháng Tám, Phường Bàn Cờ, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

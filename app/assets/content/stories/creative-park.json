@@ -1,0 +1,14 @@
+{
+  "id": "creative-park",
+  "checkpointId": "creative-park",
+  "kind": "intro",
+  "title": "Creative Park",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Creative Park là một công viên ở Nguyễn Thiện Thành, Phường An Khánh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

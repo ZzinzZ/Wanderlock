@@ -1,0 +1,14 @@
+{
+  "id": "nha-hat-cai-luong-tran-huu-trang",
+  "checkpointId": "nha-hat-cai-luong-tran-huu-trang",
+  "kind": "intro",
+  "title": "Nhà hát Cải lương Trần Hữu Trang",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà hát Cải lương Trần Hữu Trang là một nhà hát ở Đường Trần Hưng Đạo, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

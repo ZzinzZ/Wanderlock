@@ -1,0 +1,18 @@
+{
+  "id": "bia-ky-niem-le-doc-lap",
+  "checkpointId": "bia-ky-niem-le-doc-lap",
+  "kind": "intro",
+  "title": "Bia Kỷ Niệm Lễ Độc Lập",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bia Kỷ Niệm Lễ Độc Lập là một tấm bia tưởng niệm ở Đường Alexandre de Rhodes, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Independence Day Memorial Stele. Dữ liệu ghi nhận năm 1978."
+    }
+  ]
+}

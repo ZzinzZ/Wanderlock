@@ -1,0 +1,18 @@
+{
+  "id": "bao-tang-chien-dich-ho-chi-minh",
+  "checkpointId": "bao-tang-chien-dich-ho-chi-minh",
+  "kind": "intro",
+  "title": "Bảo tàng Chiến dịch Hồ Chí Minh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Chiến dịch Hồ Chí Minh là một bảo tàng ở số 2 Đường Lê Duẩn, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Ho Chi Minh Campaign Museum."
+    }
+  ]
+}

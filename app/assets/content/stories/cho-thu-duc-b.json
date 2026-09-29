@@ -1,0 +1,14 @@
+{
+  "id": "cho-thu-duc-b",
+  "checkpointId": "cho-thu-duc-b",
+  "kind": "intro",
+  "title": "Chợ Thủ Đức B",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Thủ Đức B là một khu chợ ở Hẻm 24 Đường Võ Văn Ngân, Phường Thủ Đức, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

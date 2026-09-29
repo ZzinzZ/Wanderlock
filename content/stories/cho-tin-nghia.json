@@ -1,0 +1,14 @@
+{
+  "id": "cho-tin-nghia",
+  "checkpointId": "cho-tin-nghia",
+  "kind": "intro",
+  "title": "Chợ Tín Nghĩa",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tín Nghĩa là một khu chợ ở Đường Vạn Tượng, Phường Chợ Lớn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

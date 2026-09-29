@@ -1,0 +1,14 @@
+{
+  "id": "cho-hoa-tuoi-dam-sen",
+  "checkpointId": "cho-hoa-tuoi-dam-sen",
+  "kind": "intro",
+  "title": "Chợ Hoa Tươi Đầm Sen",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Hoa Tươi Đầm Sen là một khu chợ ở Đường Nguyễn Văn Phú, Phường Hòa Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

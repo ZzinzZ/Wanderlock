@@ -1,0 +1,14 @@
+{
+  "id": "bun-bo-hue-dong-ba",
+  "checkpointId": "bun-bo-hue-dong-ba",
+  "kind": "intro",
+  "title": "Bún Bò Huế Đông Ba",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bún Bò Huế Đông Ba là một nhà hàng ở Đường Nguyễn Du, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "bao-tang-tma",
+  "checkpointId": "bao-tang-tma",
+  "kind": "intro",
+  "title": "Bảo Tàng TMA",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo Tàng TMA là một bảo tàng ở Đường số 2, Phường Trung Mỹ Tây, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

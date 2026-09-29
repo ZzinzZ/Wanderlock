@@ -1,0 +1,18 @@
+{
+  "id": "cho-chay",
+  "checkpointId": "cho-chay",
+  "kind": "intro",
+  "title": "Chợ Cháy",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Cháy là một khu chợ ở Hẻm 3 Đường Yersin, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Nơi này còn được gọi là Chợ Gà. Tên tiếng Anh ghi nhận là Burned Market."
+    }
+  ]
+}

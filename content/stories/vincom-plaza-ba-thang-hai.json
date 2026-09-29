@@ -1,0 +1,14 @@
+{
+  "id": "vincom-plaza-ba-thang-hai",
+  "checkpointId": "vincom-plaza-ba-thang-hai",
+  "kind": "intro",
+  "title": "Vincom Plaza Ba Tháng Hai",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Vincom Plaza Ba Tháng Hai là một trung tâm thương mại ở Đường 3 Tháng 2, Phường Vườn Lài, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

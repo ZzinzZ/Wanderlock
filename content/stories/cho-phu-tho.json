@@ -1,0 +1,14 @@
+{
+  "id": "cho-phu-tho",
+  "checkpointId": "cho-phu-tho",
+  "kind": "intro",
+  "title": "Chợ Phú Thọ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Phú Thọ là một khu chợ ở Hẻm 90/16 Tuệ Tĩnh, Phường Phú Thọ, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

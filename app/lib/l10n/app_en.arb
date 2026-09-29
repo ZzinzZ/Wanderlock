@@ -423,6 +423,11 @@
   },
   "storyOpen": "Read the chapter",
   "storyLocked": "Go there to open the chapter",
+  "storyOpenIntro": "See the introduction",
+  "@storyOpenIntro": {
+    "description": "Opens a short factual intro rather than an authored chapter"
+  },
+  "storyLockedIntro": "Go there to see the introduction",
   "mapFilterAll": "All places",
   "mapFilterTitle": "Which group to show on the map?"
 }

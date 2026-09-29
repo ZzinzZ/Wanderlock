@@ -1,0 +1,18 @@
+{
+  "id": "cbes-mini-museum",
+  "checkpointId": "cbes-mini-museum",
+  "kind": "intro",
+  "title": "CBES Mini Museum",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "CBES Mini Museum là một bảo tàng ở số 7 Đường M, Phường Bình Trưng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Đơn vị quản lý: CBES."
+    }
+  ]
+}

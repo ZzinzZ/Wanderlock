@@ -1,0 +1,14 @@
+{
+  "id": "cho-thanh-xuan",
+  "checkpointId": "cho-thanh-xuan",
+  "kind": "intro",
+  "title": "Chợ Thạnh Xuân",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Thạnh Xuân là một khu chợ ở Tô Ngọc Vân, Phường Thới An, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

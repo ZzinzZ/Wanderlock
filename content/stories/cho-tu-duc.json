@@ -1,0 +1,14 @@
+{
+  "id": "cho-tu-duc",
+  "checkpointId": "cho-tu-duc",
+  "kind": "intro",
+  "title": "Chợ Từ Đức",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Từ Đức là một khu chợ ở Đường Nguyễn Bá Luật, Phường Thủ Đức, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

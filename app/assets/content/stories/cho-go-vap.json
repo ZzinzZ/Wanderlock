@@ -1,0 +1,14 @@
+{
+  "id": "cho-go-vap",
+  "checkpointId": "cho-go-vap",
+  "kind": "intro",
+  "title": "Chợ Gò Vấp",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Gò Vấp là một khu chợ ở Đường Nguyễn Văn Nghi, Phường Hạnh Thông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

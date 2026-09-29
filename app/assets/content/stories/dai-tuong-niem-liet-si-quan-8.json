@@ -1,0 +1,14 @@
+{
+  "id": "dai-tuong-niem-liet-si-quan-8",
+  "checkpointId": "dai-tuong-niem-liet-si-quan-8",
+  "kind": "intro",
+  "title": "Đài Tưởng Niệm Liệt Sĩ Quận 8",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đài Tưởng Niệm Liệt Sĩ Quận 8 là một công trình tưởng niệm ở Đường Lê Bôi, Phường Bình Đông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

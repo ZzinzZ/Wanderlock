@@ -1,0 +1,14 @@
+{
+  "id": "dinh-ly-nhon",
+  "checkpointId": "dinh-ly-nhon",
+  "kind": "intro",
+  "title": "Đình Lý Nhơn",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đình Lý Nhơn là một di tích ở Hẻm 170 Bến Vân Đồn, Phường Khánh Hội, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

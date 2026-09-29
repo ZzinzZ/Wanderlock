@@ -1,0 +1,18 @@
+{
+  "id": "cho-ban-co",
+  "checkpointId": "cho-ban-co",
+  "kind": "intro",
+  "title": "Chợ Bàn Cờ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bàn Cờ là một khu chợ ở Hẻm 51/104 Cao Thắng, Phường Bàn Cờ, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Đơn vị quản lý: Ban Quản lý Chợ Bàn Cờ."
+    }
+  ]
+}

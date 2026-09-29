@@ -1,0 +1,18 @@
+{
+  "id": "bot-day-thep",
+  "checkpointId": "bot-day-thep",
+  "kind": "intro",
+  "title": "Bót Dây Thép",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bót Dây Thép là một bảo tàng ở Hẻm 99 Lê Văn Việt, Phường Tăng Nhơn Phú, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Được ghi nhận là di tích được xếp hạng."
+    }
+  ]
+}

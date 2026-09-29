@@ -1,0 +1,14 @@
+{
+  "id": "bia-tuong-niem-tran-danh-toa-dai-su-my",
+  "checkpointId": "bia-tuong-niem-tran-danh-toa-dai-su-my",
+  "kind": "intro",
+  "title": "Bia Tưởng Niệm Trận Đánh Tòa Đại Sứ Mỹ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bia Tưởng Niệm Trận Đánh Tòa Đại Sứ Mỹ là một tấm bia tưởng niệm ở Đường Lê Duẩn, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

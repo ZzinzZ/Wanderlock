@@ -1,0 +1,14 @@
+{
+  "id": "dia-dao-phu-tho-hoa",
+  "checkpointId": "dia-dao-phu-tho-hoa",
+  "kind": "intro",
+  "title": "Địa Đạo Phú Thọ Hòa",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Địa Đạo Phú Thọ Hòa là một điểm tham quan ở Phú Thọ Hòa, Phường Phú Thọ Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

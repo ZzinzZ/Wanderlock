@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-ao-sen",
+  "checkpointId": "cong-vien-ao-sen",
+  "kind": "intro",
+  "title": "Công viên ao Sen",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên ao Sen là một công viên ở Phường Cát Lái, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

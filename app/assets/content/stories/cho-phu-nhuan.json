@@ -1,0 +1,18 @@
+{
+  "id": "cho-phu-nhuan",
+  "checkpointId": "cho-phu-nhuan",
+  "kind": "intro",
+  "title": "Chợ Phú Nhuận",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Phú Nhuận là một khu chợ ở Ngô Thời Nhiệm, Phường Phú Nhuận, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Phu Nhuan Market."
+    }
+  ]
+}

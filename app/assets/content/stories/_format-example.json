@@ -1,0 +1,35 @@
+{
+  "_readme": [
+    "ĐÂY LÀ VÍ DỤ ĐỊNH DẠNG, KHÔNG PHẢI BẢN THẢO NỘI DUNG.",
+    "Chữ bên dưới là chỗ giữ chỗ để minh hoạ cấu trúc.",
+    "",
+    "File bắt đầu bằng dấu gạch dưới nên bị bỏ qua khi nạp.",
+    "",
+    "Sửa 2026-09-27: bỏ node 'speech' và trường 'narratorId'. Một chương là",
+    "bài giới thiệu về một nơi, viết bằng một giọng — không có đối thoại, nên",
+    "cũng không cần khai nhân vật. Chỉ còn hai loại node: narration và image."
+  ],
+
+  "id": "example",
+  "checkpointId": "independence-palace",
+  "title": "Tiêu đề chương",
+  "estimatedMinutes": 2,
+  "source": "Wikipedia tiếng Việt — Tên bài viết",
+  "coverImage": "images/stories/example-cover.jpg",
+
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Một đoạn văn xuôi. Dùng cho mô tả, bối cảnh, lịch sử — tất cả nội dung chữ của chương."
+    },
+    {
+      "type": "image",
+      "asset": "images/stories/example-01.jpg",
+      "caption": "Ảnh thật, tỉ lệ 16:9. Địa danh không bao giờ dùng illustration."
+    },
+    {
+      "type": "narration",
+      "text": "Chương truyện v1 là tuyến tính — không có lựa chọn, không phân nhánh. Câu chuyện phân mảnh nằm ở v2 theo docs/08-scope.md."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cho-an-lac",
+  "checkpointId": "cho-an-lac",
+  "kind": "intro",
+  "title": "Chợ An Lạc",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ An Lạc là một khu chợ ở Đường Kinh Dương Vương, Phường An Lạc, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

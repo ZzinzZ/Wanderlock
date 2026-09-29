@@ -1,0 +1,14 @@
+{
+  "id": "satra-centre-mall",
+  "checkpointId": "satra-centre-mall",
+  "kind": "intro",
+  "title": "Satra Centre Mall",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Satra Centre Mall là một trung tâm thương mại ở số 1466 Đường Võ Văn Kiệt, Phường Bình Tiên, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

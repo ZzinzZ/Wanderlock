@@ -1,0 +1,18 @@
+{
+  "id": "pho-hoa-pasteur",
+  "checkpointId": "pho-hoa-pasteur",
+  "kind": "intro",
+  "title": "Phở Hòa Pasteur",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Phở Hòa Pasteur là một nhà hàng ở số 260C Đường Pasteur, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Nơi này còn được gọi là Phở Hoà Pasteur. Món ghi nhận: beef_bowl, noodle."
+    }
+  ]
+}

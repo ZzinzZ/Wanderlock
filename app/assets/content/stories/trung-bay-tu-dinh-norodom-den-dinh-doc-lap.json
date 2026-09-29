@@ -1,0 +1,18 @@
+{
+  "id": "trung-bay-tu-dinh-norodom-den-dinh-doc-lap",
+  "checkpointId": "trung-bay-tu-dinh-norodom-den-dinh-doc-lap",
+  "kind": "intro",
+  "title": "Trưng bày Từ Dinh Norodom đến Dinh Độc Lập",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Trưng bày Từ Dinh Norodom đến Dinh Độc Lập là một bảo tàng ở số 106 Đường Nguyễn Du, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Exhibition From Norodon Palace to Independence Palace."
+    }
+  ]
+}

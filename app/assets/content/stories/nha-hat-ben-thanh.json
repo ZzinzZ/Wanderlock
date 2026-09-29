@@ -1,0 +1,14 @@
+{
+  "id": "nha-hat-ben-thanh",
+  "checkpointId": "nha-hat-ben-thanh",
+  "kind": "intro",
+  "title": "Nhà hát Bến Thành",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà hát Bến Thành là một nhà hát ở Hẻm 19 Nguyễn Thị Minh Khai, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

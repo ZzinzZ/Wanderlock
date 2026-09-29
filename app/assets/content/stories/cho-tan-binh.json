@@ -1,0 +1,14 @@
+{
+  "id": "cho-tan-binh",
+  "checkpointId": "cho-tan-binh",
+  "kind": "intro",
+  "title": "Chợ Tân Bình",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tân Bình là một khu chợ ở số 172 Đường Lý Thường Kiệt, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

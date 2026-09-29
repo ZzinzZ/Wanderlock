@@ -5,6 +5,7 @@ import 'package:wanderlock/features/checkpoint/data/checkpoint_bundled_source.da
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/quest/data/quest_route_bundled_source.dart';
 import 'package:wanderlock/features/story/data/story_chapter_bundled_source.dart';
+import 'package:wanderlock/features/story/domain/story_chapter.dart';
 import 'package:wanderlock/features/unlock/domain/geo_distance.dart';
 
 /// Guards the copy of the pilot content that ships inside the binary.
@@ -101,6 +102,53 @@ void main() {
               'không có trong checkpoints.json',
         );
         expect(chapter.nodes, isNotEmpty, reason: nameOf(file));
+      }
+    });
+
+    // Every place now says something about itself. Most of it is an intro
+    // assembled from open data rather than a chapter someone wrote, and this
+    // test is what stops a place quietly going back to a blank card.
+    test('every place has something to read', () {
+      final ids = {
+        for (final checkpoint in CheckpointBundledSource.parse(
+          bundled.readAsStringSync(),
+        ))
+          checkpoint.id,
+      };
+      final covered = {
+        for (final file in jsonIn(bundledDir))
+          StoryChapterBundledSource.parse(file.readAsStringSync()).checkpointId,
+      };
+
+      expect(
+        ids.difference(covered),
+        isEmpty,
+        reason:
+            'những nơi này không có chương lẫn giới thiệu — chạy lại '
+            'tool/place_facts/write_intros.dart rồi đồng bộ sang assets',
+      );
+    });
+
+    // An intro is labelled as one so the app can offer it honestly: the
+    // button says "xem giới thiệu", not "đọc chương".
+    test('an intro is never dressed up as a chapter', () {
+      for (final file in jsonIn(bundledDir)) {
+        final chapter = StoryChapterBundledSource.parse(
+          file.readAsStringSync(),
+        );
+        if (chapter.kind != StoryChapterKind.intro) continue;
+        expect(
+          chapter.source,
+          isNotNull,
+          reason: '${nameOf(file)} là giới thiệu nhưng không nói lấy từ đâu',
+        );
+        expect(
+          chapter.nodes.length,
+          lessThanOrEqualTo(4),
+          reason:
+              '${nameOf(file)} dài như một chương — nếu ai đó đã viết thật '
+              'thì đổi kind thành "chapter"',
+        );
       }
     });
 

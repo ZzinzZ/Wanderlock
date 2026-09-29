@@ -1,0 +1,18 @@
+{
+  "id": "cong-vien-ben-bach-dang-2",
+  "checkpointId": "cong-vien-ben-bach-dang-2",
+  "kind": "intro",
+  "title": "Công viên Bến Bạch Đằng (đoạn Bắc)",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Bến Bạch Đằng (đoạn Bắc) là một công viên ở Đường Tôn Ðức Thắng, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Wikidata mô tả nơi này là bến sông và công viên tại Thành phố Hồ Chí Minh."
+    }
+  ]
+}

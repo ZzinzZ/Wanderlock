@@ -1,0 +1,14 @@
+{
+  "id": "cho-phuoc-binh",
+  "checkpointId": "cho-phuoc-binh",
+  "kind": "intro",
+  "title": "Chợ Phước Bình",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Phước Bình là một khu chợ ở Đại Lộ 2, Phường Phước Long, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

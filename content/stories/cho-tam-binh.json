@@ -1,0 +1,14 @@
+{
+  "id": "cho-tam-binh",
+  "checkpointId": "cho-tam-binh",
+  "kind": "intro",
+  "title": "Chợ Tam Bình",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tam Bình là một khu chợ ở Lô A2, Phường Tam Bình, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

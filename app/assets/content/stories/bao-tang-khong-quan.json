@@ -1,0 +1,14 @@
+{
+  "id": "bao-tang-khong-quan",
+  "checkpointId": "bao-tang-khong-quan",
+  "kind": "intro",
+  "title": "Bảo tàng Không quân",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Không quân là một bảo tàng ở Cộng Hòa, Phường Bảy Hiền, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

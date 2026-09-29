@@ -1,0 +1,20 @@
+{
+  "id": "tuong-quach-thi-trang",
+  "checkpointId": "tuong-quach-thi-trang",
+  "kind": "intro",
+  "title": "Tượng Quách Thị Trang",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/tuong-quach-thi-trang.jpg",
+  "coverCredit": "Ảnh: Matti Blume / Wikimedia Commons — CC BY-SA 4.0",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng Quách Thị Trang là một công trình tưởng niệm ở Đường Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Quach Thi Trang. Dữ liệu ghi nhận năm 1964."
+    }
+  ]
+}

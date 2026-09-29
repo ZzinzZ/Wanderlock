@@ -4,6 +4,8 @@
   "title": "Nhà thờ màu hồng",
   "estimatedMinutes": 2,
   "source": "Wikipedia tiếng Việt — Nhà thờ Tân Định",
+  "coverImage": "assets/photos/places/nha-tho-tan-dinh.jpg",
+  "coverCredit": "Ảnh: Martin Lewison from Forest Hills, NY, U.S.A. / Wikimedia Commons — CC BY 2.0",
   "nodes": [
     {
       "type": "narration",

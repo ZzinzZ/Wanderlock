@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-son-ky",
+  "checkpointId": "cong-vien-son-ky",
+  "kind": "intro",
+  "title": "Công viên Sơn Kỳ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Sơn Kỳ là một công viên ở Đường DC13, Phường Tây Thạnh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

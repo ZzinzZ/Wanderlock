@@ -1,0 +1,14 @@
+{
+  "id": "hu-tieu-hong-phat",
+  "checkpointId": "hu-tieu-hong-phat",
+  "kind": "intro",
+  "title": "Hủ Tiếu Hồng Phát",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Hủ Tiếu Hồng Phát là một nhà hàng ở Đường Võ Văn Tần, Phường Bàn Cờ, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

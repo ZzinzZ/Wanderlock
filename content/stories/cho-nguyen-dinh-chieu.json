@@ -1,0 +1,18 @@
+{
+  "id": "cho-nguyen-dinh-chieu",
+  "checkpointId": "cho-nguyen-dinh-chieu",
+  "kind": "intro",
+  "title": "Chợ Nguyễn Đình Chiểu",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Nguyễn Đình Chiểu là một khu chợ ở Lê Tự Tài, Phường Đức Nhuận, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Nguyen Dinh Chieu Market."
+    }
+  ]
+}

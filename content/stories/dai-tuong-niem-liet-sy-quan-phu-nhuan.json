@@ -1,0 +1,14 @@
+{
+  "id": "dai-tuong-niem-liet-sy-quan-phu-nhuan",
+  "checkpointId": "dai-tuong-niem-liet-sy-quan-phu-nhuan",
+  "kind": "intro",
+  "title": "Đài tưởng niệm liệt sỹ quận Phú Nhuận",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đài tưởng niệm liệt sỹ quận Phú Nhuận là một đài tưởng niệm chiến tranh ở Hẻm 21 Nguyễn Văn Trỗi, Phường Phú Nhuận, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

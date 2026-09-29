@@ -1,0 +1,14 @@
+{
+  "id": "san-khau-kich-5b",
+  "checkpointId": "san-khau-kich-5b",
+  "kind": "intro",
+  "title": "Sân khấu Kịch 5B",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Sân khấu Kịch 5B là một nhà hát ở số 5B Đường Võ Văn Tần, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

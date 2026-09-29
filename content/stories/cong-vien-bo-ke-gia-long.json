@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-bo-ke-gia-long",
+  "checkpointId": "cong-vien-bo-ke-gia-long",
+  "kind": "intro",
+  "title": "Công viên Bờ kè Gia Long",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Bờ kè Gia Long là một công viên ở Gia Long, Phường Lái Thiêu, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

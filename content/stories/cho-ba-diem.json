@@ -1,0 +1,14 @@
+{
+  "id": "cho-ba-diem",
+  "checkpointId": "cho-ba-diem",
+  "kind": "intro",
+  "title": "Chợ Bà Điểm",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Bà Điểm là một khu chợ ở Trung Lân 3, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

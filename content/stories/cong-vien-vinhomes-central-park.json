@@ -1,0 +1,20 @@
+{
+  "id": "cong-vien-vinhomes-central-park",
+  "checkpointId": "cong-vien-vinhomes-central-park",
+  "kind": "intro",
+  "title": "Công viên Vinhomes Central Park",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/cong-vien-vinhomes-central-park.jpg",
+  "coverCredit": "Ảnh: Xuanphuocle / Wikimedia Commons — CC BY-SA 4.0",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Vinhomes Central Park là một công viên ở Đường số 1, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Đơn vị quản lý: Vingroup. Mở cửa suốt ngày đêm."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "chua-an-quang",
+  "checkpointId": "chua-an-quang",
+  "kind": "intro",
+  "title": "Chùa Ấn Quang",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap và Wikidata",
+  "coverImage": "assets/photos/places/chua-an-quang.jpg",
+  "coverCredit": "Ảnh: Gary Todd from Xinzheng, China / Wikimedia Commons",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chùa Ấn Quang là một cơ sở tín ngưỡng ở số 243 Đường Sư Van Hạnh, Phường Vườn Lài, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là An Quang Pagoda. Wikidata mô tả nơi này là meeting place in Ho Chi Minh City, Vietnam."
+    }
+  ]
+}

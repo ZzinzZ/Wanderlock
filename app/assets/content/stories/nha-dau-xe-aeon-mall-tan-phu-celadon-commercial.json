@@ -1,0 +1,18 @@
+{
+  "id": "nha-dau-xe-aeon-mall-tan-phu-celadon-commercial",
+  "checkpointId": "nha-dau-xe-aeon-mall-tan-phu-celadon-commercial",
+  "kind": "intro",
+  "title": "AEON Mall Tân Phú Celadon",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "AEON Mall Tân Phú Celadon là một trung tâm thương mại ở số 30 Lối ra, Phường Tân Sơn Nhì, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Công trình cao 7 tầng. Đơn vị quản lý: Aeon;ÆON."
+    }
+  ]
+}

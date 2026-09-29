@@ -1,0 +1,18 @@
+{
+  "id": "cho-xom-cui",
+  "checkpointId": "cho-xom-cui",
+  "kind": "intro",
+  "title": "Chợ Xóm Củi",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Xóm Củi là một khu chợ ở số 113 Xóm Củi, Phường Phú Định, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Xom Cui Market."
+    }
+  ]
+}

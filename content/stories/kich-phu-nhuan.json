@@ -1,0 +1,18 @@
+{
+  "id": "kich-phu-nhuan",
+  "checkpointId": "kich-phu-nhuan",
+  "kind": "intro",
+  "title": "Kịch Phú Nhuận",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Kịch Phú Nhuận là một nhà hát ở số 70-72 Đường Nguyễn Văn Trỗi, Phường Phú Nhuận, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Phu Nhuan Theatre."
+    }
+  ]
+}

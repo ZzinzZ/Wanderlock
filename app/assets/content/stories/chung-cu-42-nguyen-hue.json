@@ -1,0 +1,18 @@
+{
+  "id": "chung-cu-42-nguyen-hue",
+  "checkpointId": "chung-cu-42-nguyen-hue",
+  "kind": "intro",
+  "title": "Chung cư 42 Nguyễn Huệ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chung cư 42 Nguyễn Huệ là một điểm tham quan ở Đường Nguyễn Huệ, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Cafe house. Công trình cao 9 tầng."
+    }
+  ]
+}

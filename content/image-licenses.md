@@ -22,10 +22,10 @@ Ghi **đúng tên giấy phép** (`CC BY-SA 4.0`, `CC0`, `Tự chụp — sở h
 Cột *Yêu cầu ghi nguồn* chép nguyên văn dòng phải hiện trong app, hoặc `—` nếu
 giấy phép không đòi.
 
-## Ảnh đã duyệt — 28 địa điểm
+## Ảnh đã duyệt — 39 địa điểm
 
 Ảnh nằm ở `content/images/places/`, bản sao đóng gói ở
-`app/assets/photos/places/` (6,4 MB). Dùng làm **ảnh bìa chương truyện**; các chỗ
+`app/assets/photos/places/` (9,1 MB). Dùng làm **ảnh bìa chương truyện**; các chỗ
 khác (màn "Đã mở khoá!", thẻ chi tiết) chưa nối.
 
 > **Mỗi ảnh dưới đây đã được mở ra nhìn ở cỡ đủ lớn trước khi ghi vào bảng.**
@@ -35,8 +35,15 @@ khác (màn "Đã mở khoá!", thẻ chi tiết) chưa nối.
 > lằn** cho Thảo Cầm Viên, và một người làm gốm cho công viên Lê Văn Tám. Ở
 > đợt thứ hai máy chọn sai khoảng 60%.
 >
-> **18 chương khác không có ảnh bìa** vì chưa tìm được ảnh đúng trên Commons.
-> Chúng lùi về hình dán công trình. Thà thiếu còn hơn sai.
+> Đợt 2026-09-29 xem 21 ứng viên, nhận 11, loại 10 — **máy sai 48%**, gần
+> đúng con số cũ. Những cái bị loại: ảnh chân trời Thủ Đức cho Gigamall, biển
+> ga tàu điện cho Công viên Tân Cảng, hang đá Đức Mẹ cho Nhà thờ Huyện Sỹ,
+> hàng rong **bên ngoài** Công viên Gia Định, và ba ảnh đúng nơi nhưng tối
+> hoặc nhoè tới mức không nhận ra.
+>
+> **233 nơi còn lại không có ảnh** — Commons không có ảnh nào đúng cho chợ nhỏ
+> và công viên khu dân cư. Chúng lùi về hình dán công trình. Thà thiếu còn hơn
+> sai.
 >
 > Tiêu chí: mặt ngoài công trình, nhận ra ngay, không nội thất, không chi tiết,
 > không bảng chữ. Lựa chọn ghi ở `tool/photo_picker/chosen.json` — đổi tên tệp
@@ -76,6 +83,17 @@ khác (màn "Đã mở khoá!", thẻ chi tiết) chưa nối.
 | `images/places/thao-cam-vien-sai-gon.jpg` | Thảo Cầm Viên Sài Gòn | [Commons](https://commons.wikimedia.org/wiki/File%3AEntrance%20to%20the%20Saigon%20Zoo.jpg) | CC BY 2.0 | Dainis Matisons / Wikimedia Commons — CC BY 2.0 | 2026-09-28 |
 | `images/places/tru-so-uy-ban-nhan-dan-thanh-pho-ho-chi-minh.jpg` | Trụ sở Ủy ban nhân dân Thành phố Hồ Chí Minh | [Commons](https://commons.wikimedia.org/wiki/File:Saigon_City_Hall_(53554934436).jpg) | CC BY 2.0 | Radek Kucharski from Warsaw, Poland / Wikimedia Commons — CC BY 2.0 | 2026-09-28 |
 | `images/places/giac-lam-pagoda.jpg` | Tổ đình Giác Lâm | [Commons](https://commons.wikimedia.org/wiki/File%3AChuaGiacLam02.jpg) | Public domain | — | 2026-09-28 |
+| `images/places/cong-vien-bo-song-sai-gon.jpg` | Công viên bờ sông Sài Gòn | [Commons](https://commons.wikimedia.org/wiki/File:images/places/cong-vien-bo-song-sai-gon.jpg) | CC BY 4.0 | Xuanphuocle / Wikimedia Commons — CC BY 4.0 | 2026-09-29 |
+| `images/places/tuong-quach-thi-trang.jpg` | Tượng Quách Thị Trang | [Commons](https://commons.wikimedia.org/wiki/File:images/places/tuong-quach-thi-trang.jpg) | CC BY-SA 4.0 | Matti Blume / Wikimedia Commons — CC BY-SA 4.0 | 2026-09-29 |
+| `images/places/khu-du-lich-van-thanh.jpg` | Khu du lịch Văn Thánh | [Commons](https://commons.wikimedia.org/wiki/File:images/places/khu-du-lich-van-thanh.jpg) | CC BY 3.0 | trungydang / Wikimedia Commons — CC BY 3.0 | 2026-09-29 |
+| `images/places/cong-vien-le-thi-rieng.jpg` | Công viên Lê Thị Riêng | [Commons](https://commons.wikimedia.org/wiki/File:images/places/cong-vien-le-thi-rieng.jpg) | CC BY 2.0 | Martin Lewison from Forest Hills, NY, U.S.A. / Wikimedia Commons — CC BY 2.0 | 2026-09-29 |
+| `images/places/cong-vien-so-1-ly-thai-to.jpg` | Công viên số 1 Lý Thái Tổ | [Commons](https://commons.wikimedia.org/wiki/File:images/places/cong-vien-so-1-ly-thai-to.jpg) | CC BY-SA 4.0 | MagnaFine / Wikimedia Commons — CC BY-SA 4.0 | 2026-09-29 |
+| `images/places/nha-tho-thanh-jeanne-d-arc.jpg` | Nhà thờ Thánh Jeanne d'Arc | [Commons](https://commons.wikimedia.org/wiki/File:images/places/nha-tho-thanh-jeanne-d-arc.jpg) | CC0 | — | 2026-09-29 |
+| `images/places/lotte-mart-quan-7.jpg` | LOTTE Mart Quận 7 | [Commons](https://commons.wikimedia.org/wiki/File:images/places/lotte-mart-quan-7.jpg) | CC BY 3.0 | trungydang / Wikimedia Commons — CC BY 3.0 | 2026-09-29 |
+| `images/places/nha-tho-tan-dinh.jpg` | Nhà thờ Tân Định | [Commons](https://commons.wikimedia.org/wiki/File:images/places/nha-tho-tan-dinh.jpg) | CC BY 2.0 | Martin Lewison from Forest Hills, NY, U.S.A. / Wikimedia Commons — CC BY 2.0 | 2026-09-29 |
+| `images/places/cong-vien-vinhomes-central-park.jpg` | Công viên Vinhomes Central Park | [Commons](https://commons.wikimedia.org/wiki/File:images/places/cong-vien-vinhomes-central-park.jpg) | CC BY-SA 4.0 | Xuanphuocle / Wikimedia Commons — CC BY-SA 4.0 | 2026-09-29 |
+| `images/places/chua-an-quang.jpg` | Chùa Ấn Quang | [Commons](https://commons.wikimedia.org/wiki/File:images/places/chua-an-quang.jpg) | CC0 | — | 2026-09-29 |
+| `images/places/bao-tang-ton-duc-thang.jpg` | Bảo tàng Tôn Đức Thắng | [Commons](https://commons.wikimedia.org/wiki/File:images/places/bao-tang-ton-duc-thang.jpg) | CC BY-SA 4.0 | Nam pahm / Wikimedia Commons — CC BY-SA 4.0 | 2026-09-29 |
 
 **Bộ xử lý ảnh vẫn chưa dựng.** Ảnh hiện là bản Commons phục vụ sẵn ở 900 px,
 chưa qua preset màu hay cắt cúp nào của dự án.

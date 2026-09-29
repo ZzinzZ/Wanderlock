@@ -1,0 +1,16 @@
+{
+  "id": "cong-vien-bo-song-sai-gon",
+  "checkpointId": "cong-vien-bo-song-sai-gon",
+  "kind": "intro",
+  "title": "Công viên bờ sông Sài Gòn",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/cong-vien-bo-song-sai-gon.jpg",
+  "coverCredit": "Ảnh: Xuanphuocle / Wikimedia Commons — CC BY 4.0",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên bờ sông Sài Gòn là một điểm tham quan ở Nhà Thờ, Phường An Khánh, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

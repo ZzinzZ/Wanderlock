@@ -1,0 +1,14 @@
+{
+  "id": "bia-truyen-thong-vuon-lai",
+  "checkpointId": "bia-truyen-thong-vuon-lai",
+  "kind": "intro",
+  "title": "Bia Truyền thống Vườn Lài",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bia Truyền thống Vườn Lài là một tượng đài ở Vĩnh Viễn, Phường Vườn Lài, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

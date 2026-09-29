@@ -1,0 +1,14 @@
+{
+  "id": "nha-truyen-thong-chien-khu-an-phu-dong",
+  "checkpointId": "nha-truyen-thong-chien-khu-an-phu-dong",
+  "kind": "intro",
+  "title": "Nhà truyền thống chiến khu An Phú Đông",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà truyền thống chiến khu An Phú Đông là một tượng đài ở Phường An Phú Đông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

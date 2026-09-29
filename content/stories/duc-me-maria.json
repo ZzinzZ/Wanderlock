@@ -1,0 +1,18 @@
+{
+  "id": "duc-me-maria",
+  "checkpointId": "duc-me-maria",
+  "kind": "intro",
+  "title": "Đức Mẹ Maria",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Đức Mẹ Maria là một bức tượng tưởng niệm ở Đường Chu Mạnh Trinh, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Statue of Mary."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "nha-truyen-thong-thu-duc",
+  "checkpointId": "nha-truyen-thong-thu-duc",
+  "kind": "intro",
+  "title": "Nhà Truyền Thống Thủ Đức",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà Truyền Thống Thủ Đức là một bảo tàng ở số 117 Võ Văn Ngân, Phường Thủ Đức, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

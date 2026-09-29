@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-kenh-dao",
+  "checkpointId": "cong-vien-kenh-dao",
+  "kind": "intro",
+  "title": "Công viên Kênh Đào",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Kênh Đào là một công viên ở số 101 Đường Tôn Dật Tiên, Phường Tân Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

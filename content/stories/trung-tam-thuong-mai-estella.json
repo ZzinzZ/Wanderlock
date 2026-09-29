@@ -1,0 +1,18 @@
+{
+  "id": "trung-tam-thuong-mai-estella",
+  "checkpointId": "trung-tam-thuong-mai-estella",
+  "kind": "intro",
+  "title": "Trung Tâm Thương Mại Estella",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Trung Tâm Thương Mại Estella là một trung tâm thương mại ở Đường song hành, Phường Bình Trưng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Estella Place. Công trình cao 5 tầng."
+    }
+  ]
+}

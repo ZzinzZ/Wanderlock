@@ -1,0 +1,18 @@
+{
+  "id": "nha-hat-mua-roi-nuoc-rong-vang",
+  "checkpointId": "nha-hat-mua-roi-nuoc-rong-vang",
+  "kind": "intro",
+  "title": "Nhà Hát Múa Rối Nước Rồng Vàng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Nhà Hát Múa Rối Nước Rồng Vàng là một nhà hát ở số 55B Đường Nguyễn Thị Minh Khai, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là The Golden Dragon Water Puppet Theater."
+    }
+  ]
+}

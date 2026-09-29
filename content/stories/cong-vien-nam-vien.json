@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-nam-vien",
+  "checkpointId": "cong-vien-nam-vien",
+  "kind": "intro",
+  "title": "Công viên Nam Viên",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Nam Viên là một công viên ở Đường C, Phường Tân Mỹ, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

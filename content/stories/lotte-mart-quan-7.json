@@ -1,0 +1,16 @@
+{
+  "id": "lotte-mart-quan-7",
+  "checkpointId": "lotte-mart-quan-7",
+  "kind": "intro",
+  "title": "LOTTE Mart Quận 7",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/lotte-mart-quan-7.jpg",
+  "coverCredit": "Ảnh: trungydang / Wikimedia Commons — CC BY 3.0",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "LOTTE Mart Quận 7 là một trung tâm thương mại ở Nguyễn Thị Thập, Phường Tân Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

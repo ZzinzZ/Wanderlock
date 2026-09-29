@@ -1,0 +1,14 @@
+{
+  "id": "cho-phu-loi-2",
+  "checkpointId": "cho-phu-loi-2",
+  "kind": "intro",
+  "title": "Chợ Phú Lợi 2",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Phú Lợi 2 là một khu chợ ở Hẻm 3030/27 Phạm Thế Hiển, Phường Bình Đông, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

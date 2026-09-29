@@ -1,0 +1,18 @@
+{
+  "id": "cho-thu-duc",
+  "checkpointId": "cho-thu-duc",
+  "kind": "intro",
+  "title": "Chợ Thủ Đức",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Thủ Đức là một khu chợ ở Kha Vạn Cân, Phường Thủ Đức, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Thu Duc Market."
+    }
+  ]
+}

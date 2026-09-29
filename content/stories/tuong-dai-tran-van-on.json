@@ -1,0 +1,18 @@
+{
+  "id": "tuong-dai-tran-van-on",
+  "checkpointId": "tuong-dai-tran-van-on",
+  "kind": "intro",
+  "title": "Tượng đài Trần Văn Ơn",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng đài Trần Văn Ơn là một bức tượng tưởng niệm ở Đường Lý Tự Trọng, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Tran Van On's Statue."
+    }
+  ]
+}

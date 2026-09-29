@@ -1,0 +1,16 @@
+{
+  "id": "khu-du-lich-van-thanh",
+  "checkpointId": "khu-du-lich-van-thanh",
+  "kind": "intro",
+  "title": "Khu du lịch Văn Thánh",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "coverImage": "assets/photos/places/khu-du-lich-van-thanh.jpg",
+  "coverCredit": "Ảnh: trungydang / Wikimedia Commons — CC BY 3.0",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Khu du lịch Văn Thánh là một điểm tham quan ở Đường nội bộ Khu du lịch Văn Thánh, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

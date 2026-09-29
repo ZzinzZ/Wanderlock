@@ -1,0 +1,18 @@
+{
+  "id": "pho-le",
+  "checkpointId": "pho-le",
+  "kind": "intro",
+  "title": "Phở Lệ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Phở Lệ là một nhà hàng ở số 413-415 Đường Nguyễn Trãi, Phường An Đông, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Món ghi nhận: vietnamese."
+    }
+  ]
+}

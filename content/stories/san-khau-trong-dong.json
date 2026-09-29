@@ -1,0 +1,18 @@
+{
+  "id": "san-khau-trong-dong",
+  "checkpointId": "san-khau-trong-dong",
+  "kind": "intro",
+  "title": "Sân Khấu Trống Đồng",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Sân Khấu Trống Đồng là một nhà hát ở Đường Nguyễn Du, Phường Bến Thành, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Trong Dong Theater."
+    }
+  ]
+}

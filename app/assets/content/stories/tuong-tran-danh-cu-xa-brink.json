@@ -1,0 +1,18 @@
+{
+  "id": "tuong-tran-danh-cu-xa-brink",
+  "checkpointId": "tuong-tran-danh-cu-xa-brink",
+  "kind": "intro",
+  "title": "Tượng Trận Đánh Cư Xá Brink",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Tượng Trận Đánh Cư Xá Brink là một đài tưởng niệm chiến tranh ở Công trường Lam Sơn, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là 1964 Brink Hotel Bombing Memorial."
+    }
+  ]
+}

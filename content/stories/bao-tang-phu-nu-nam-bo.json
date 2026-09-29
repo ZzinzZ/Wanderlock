@@ -1,0 +1,18 @@
+{
+  "id": "bao-tang-phu-nu-nam-bo",
+  "checkpointId": "bao-tang-phu-nu-nam-bo",
+  "kind": "intro",
+  "title": "Bảo tàng Phụ nữ Nam Bộ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Phụ nữ Nam Bộ là một bảo tàng ở Hẻm 99 Trần Quốc Toản, Phường Xuân Hòa, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Southern Vietnam Women Museum."
+    }
+  ]
+}

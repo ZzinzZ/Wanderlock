@@ -1,0 +1,18 @@
+{
+  "id": "van-hanh-mall",
+  "checkpointId": "van-hanh-mall",
+  "kind": "intro",
+  "title": "Vạn Hạnh Mall",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Vạn Hạnh Mall là một trung tâm thương mại ở số 11 Sư Vạn Hạnh, Phường Hòa Hưng, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Công trình cao 7 tầng."
+    }
+  ]
+}

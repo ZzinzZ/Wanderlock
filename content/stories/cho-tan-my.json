@@ -1,0 +1,14 @@
+{
+  "id": "cho-tan-my",
+  "checkpointId": "cho-tan-my",
+  "kind": "intro",
+  "title": "Chợ Tân Mỹ",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Chợ Tân Mỹ là một khu chợ ở Tân Mỹ, Phường Tân Mỹ, Thành phố Hồ Chí Minh."
+    }
+  ]
+}

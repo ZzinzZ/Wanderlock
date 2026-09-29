@@ -1,0 +1,18 @@
+{
+  "id": "bao-tang-khong-quan-phia-nam",
+  "checkpointId": "bao-tang-khong-quan-phia-nam",
+  "kind": "intro",
+  "title": "Bảo tàng Không quân phía Nam",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo tàng Không quân phía Nam là một bảo tàng ở Phan Thúc Duyện, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Vietnam People's Air Force Museum."
+    }
+  ]
+}

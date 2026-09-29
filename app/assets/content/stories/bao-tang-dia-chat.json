@@ -1,0 +1,18 @@
+{
+  "id": "bao-tang-dia-chat",
+  "checkpointId": "bao-tang-dia-chat",
+  "kind": "intro",
+  "title": "Bảo Tàng Địa Chất",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Bảo Tàng Địa Chất là một bảo tàng ở Đường Nguyễn Bỉnh Khiêm, Phường Sài Gòn, Thành phố Hồ Chí Minh."
+    },
+    {
+      "type": "narration",
+      "text": "Tên tiếng Anh ghi nhận là Museum of Geology."
+    }
+  ]
+}

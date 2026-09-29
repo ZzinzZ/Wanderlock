@@ -105,6 +105,33 @@ void main() {
     );
   });
 
+  // Two kinds share one format. A chapter is written from a source about the
+  // place; an intro is a few facts about one nobody has written about, and
+  // the app labels the button differently for each.
+  test('a chapter with no kind stays a chapter', () {
+    expect(
+      StoryChapterDto.fromJson(_chapter()).kind,
+      StoryChapterKind.chapter,
+      reason: 'the authored chapters predate intros and say nothing',
+    );
+  });
+
+  test('reads an intro', () {
+    expect(
+      StoryChapterDto.fromJson({..._chapter(), 'kind': 'intro'}).kind,
+      StoryChapterKind.intro,
+    );
+  });
+
+  // A typo must not quietly downgrade a chapter to an intro, or promote an
+  // intro to something the reader is told was written about the place.
+  test('an unknown kind is rejected, not defaulted', () {
+    expect(
+      () => StoryChapterDto.fromJson({..._chapter(), 'kind': 'introduction'}),
+      throwsA(isA<StoryFormatException>()),
+    );
+  });
+
   // The example in content/ is the thing authors copy. If it stops parsing,
   // everyone writing from it is writing something broken.
   test('the format example in content/ parses', () {

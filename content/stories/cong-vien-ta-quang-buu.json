@@ -1,0 +1,14 @@
+{
+  "id": "cong-vien-ta-quang-buu",
+  "checkpointId": "cong-vien-ta-quang-buu",
+  "kind": "intro",
+  "title": "Công viên Tạ Quang Bữu",
+  "estimatedMinutes": 1,
+  "source": "OpenStreetMap",
+  "nodes": [
+    {
+      "type": "narration",
+      "text": "Công viên Tạ Quang Bữu là một công viên ở Võ Liêm Sơn, Phường Chánh Hưng, Thành phố Hồ Chí Minh."
+    }
+  ]
+}
