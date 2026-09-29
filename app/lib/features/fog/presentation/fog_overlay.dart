@@ -4,26 +4,22 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
+import 'package:wanderlock/core/map/camera_projection.dart';
 import 'package:wanderlock/core/map/map_projection.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/features/fog/domain/fog_hole.dart';
 
 /// The fog of war, painted in Flutter over the map.
 ///
-/// **Why not the MapLibre fill layer it replaced.** That drew the fog as a
-/// polygon with circular holes, and a GL fill has no blur: every clearing was
-/// a hard-edged disc. The owner asked for the fog of a strategy game instead —
-/// clearings that bleed into each other with soft, uneven edges. A Flutter
-/// canvas can fade an edge; a style layer cannot.
+/// **Not a MapLibre fill layer**, which is what it replaced: a GL fill has no
+/// blur, so every clearing was a hard-edged disc. The owner asked for the fog
+/// of a strategy game — clearings that bleed into each other.
 ///
-/// How it looks organic: each hole is drawn as a main disc plus a few smaller
-/// lobes pushed off-centre, all sized and placed from a hash of the hole's
-/// own coordinates. The shape is irregular but stable — the same spot clears
-/// the same way every frame and every launch — and every disc fades to fog
-/// over a soft rim, so neighbouring clearings melt together.
+/// Each hole is a main disc plus a few lobes pushed off-centre, sized and
+/// placed from a hash of the hole's own coordinates, so the shape is irregular
+/// but stable across frames and launches.
 ///
-/// Positioned with the same [MapProjection] as the markers, redrawn on every
-/// camera frame, and holes off screen are not drawn.
+/// Uses the same [MapProjection] as the markers; holes off screen are skipped.
 class FogOverlay extends StatelessWidget {
   const FogOverlay({
     required this.controller,
@@ -52,13 +48,7 @@ class FogOverlay extends StatelessWidget {
             return CustomPaint(
               size: constraints.biggest,
               painter: _FogPainter(
-                projection: MapProjection(
-                  centerLatitude: camera.target.latitude,
-                  centerLongitude: camera.target.longitude,
-                  zoom: camera.zoom,
-                  widthPixels: constraints.maxWidth,
-                  heightPixels: constraints.maxHeight,
-                ),
+                projection: camera.projectionOver(constraints.biggest),
                 holes: holes,
                 veil: colors.fogVeil,
               ),
@@ -112,19 +102,12 @@ class _FogPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final bounds = Offset.zero & size;
 
-    // The fog is drawn small and stretched to fit — the way strategy games do
-    // theirs. The clearings are painted onto an image a quarter of the
-    // screen's width and height, blurred there, and the image is drawn across
-    // the whole screen with bilinear filtering.
+    // Drawn small and stretched to fit, the way strategy games do theirs: one
+    // solid union of clearings, blurred once at a sixteenth of the pixels.
     //
-    // Three earlier versions were measured and dropped:
-    // - a full-screen blur on every frame stuttered at any zoom;
-    // - soft discs at full resolution were worse zoomed in, where one 160 m
-    //   clearing is ~550 px across and every pixel was painted tens of times;
-    // - soft discs at low resolution were fast, but a trail is dozens of
-    //   overlapping discs whose fades multiply, so the rim came out hard.
-    // One solid union, blurred once at a sixteenth of the pixels, avoids all
-    // three.
+    // Measured and rejected: a full-screen blur per frame stutters at any
+    // zoom; soft discs at full resolution are worse zoomed in; soft discs at
+    // low resolution are fast but their fades multiply into a hard rim.
     final width = math.max(1, (size.width * resolution).ceil());
     final height = math.max(1, (size.height * resolution).ceil());
 

@@ -2,19 +2,15 @@ import 'dart:math' as math;
 
 /// Where a coordinate lands on screen, given the camera.
 ///
-/// Web Mercator, the projection MapLibre draws in, worked out in Dart so the
-/// app can position widgets over the map without asking the platform. The
-/// alternative — `controller.toScreenLocation` — is an async call across the
-/// platform channel *per point*, which is twelve round trips for every frame
-/// of a pan.
+/// Web Mercator worked out in Dart, because the alternative —
+/// `controller.toScreenLocation` — is an async platform call *per point*.
 ///
-/// Pure numbers, no Flutter types: the architecture gate keeps `domain/` on
-/// plain Dart, and a projection is arithmetic rather than drawing.
+/// Pure numbers, no Flutter types. [CameraProjection] is the adapter that
+/// builds one from a MapLibre camera.
 ///
-/// One instance is built per frame and then asked about hundreds of points —
-/// every checkpoint, every trail point — so the two quantities that depend
-/// only on the camera are worked out once per instance rather than once per
-/// point. Deliberately not `const`: that is what buys the caching.
+/// One instance per frame is then asked about hundreds of points, so the two
+/// quantities that depend only on the camera are cached. Deliberately not
+/// `const`: that is what buys the caching.
 class MapProjection {
   MapProjection({
     required this.centerLatitude,
@@ -30,10 +26,9 @@ class MapProjection {
   final double widthPixels;
   final double heightPixels;
 
-  /// MapLibre's vector tiles are 512 px square. Using 256 — the raster
-  /// convention, and the number most Mercator snippets on the web assume —
-  /// puts every marker at half the right distance from the centre, which looks
-  /// plausible near the middle of the screen and wrong at the edges.
+  /// MapLibre's vector tiles are 512 px square. The raster convention of 256,
+  /// which most Mercator snippets assume, puts every marker at half the right
+  /// distance from the centre — plausible in the middle, wrong at the edges.
   static const double tileSize = 512;
 
   /// Latitude beyond which Mercator stops being finite.
@@ -70,11 +65,8 @@ class MapProjection {
       math.cos(latitude * math.pi / 180) /
       _worldPixels;
 
-  /// Whether a marker at this position is worth building.
-  ///
-  /// [margin] keeps a marker alive slightly off screen, so one does not pop
-  /// into existence at the moment its centre crosses the edge — its artwork is
-  /// wider than its centre point.
+  /// Whether a marker at this position is worth building. [margin] keeps one
+  /// alive slightly off screen, since its artwork is wider than its centre.
   bool isVisible(({double x, double y}) screen, {double margin = 64}) =>
       screen.x >= -margin &&
       screen.x <= widthPixels + margin &&
@@ -97,11 +89,8 @@ class MapProjection {
     );
   }
 
-  /// A value, so a painter can ask "is this the same camera?" in one line.
-  ///
-  /// Every overlay's `shouldRepaint` used to compare the five fields by hand,
-  /// which meant a new field on this class silently stopped being a reason to
-  /// repaint in every painter that had not been updated.
+  /// A value, so a painter's `shouldRepaint` can ask "same camera?" in one
+  /// line instead of comparing five fields it will forget to update.
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||

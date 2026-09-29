@@ -2,12 +2,10 @@ import 'package:drift/drift.dart';
 
 /// Local mirror of `public.checkpoints`.
 ///
-/// Position is stored as two reals rather than a geometry: SQLite has no
-/// PostGIS, and the only thing the client does offline with a position is draw
-/// it and measure a straight-line distance. Whether a check-in counts is
-/// decided by the server, which does have PostGIS — see the check-in edge
-/// function. Duplicating that maths here would be a second source of truth for
-/// the one decision the client is not allowed to make.
+/// Position is two reals rather than a geometry: SQLite has no PostGIS, and
+/// all the client does with a position is draw it. Whether a check-in counts
+/// is the server's decision, and duplicating that maths here would be a second
+/// source of truth for the one thing the client may not decide.
 class CheckpointRows extends Table {
   TextColumn get id => text()();
 
@@ -19,8 +17,8 @@ class CheckpointRows extends Table {
 
   IntColumn get radiusMeters => integer()();
 
-  /// Stored as the enum's name, not its index: reordering the Dart enum must
-  /// not silently reinterpret rows already on disk.
+  /// The enum's name, not its index: reordering the Dart enum must not
+  /// reinterpret rows already on disk.
   TextColumn get category => text()();
 
   BoolColumn get requiresQrFallback =>
@@ -30,8 +28,8 @@ class CheckpointRows extends Table {
 
   TextColumn get photoUrl => text().nullable()();
 
-  /// When this row was last written from the server. Lets the app tell a user
-  /// how stale the offline map is.
+  /// When this row was last written from the server, so the app can say how
+  /// stale its copy is.
   DateTimeColumn get cachedAt => dateTime()();
 
   @override
@@ -40,11 +38,11 @@ class CheckpointRows extends Table {
 
 /// Local mirror of `public.visit_state` — the unlock layer.
 ///
-/// Read-only as far as the client is concerned. Rows arrive from the server
+/// Read-only as far as the client is concerned: rows arrive from the server
 /// after a verified check-in and are cached so every lens can read them
-/// offline. Nothing in the app writes a visit here on its own authority; the
-/// offline check-in queue that F4 adds is a separate table, so that a request
-/// waiting to be verified can never be mistaken for a granted unlock.
+/// without asking again. Nothing in the app writes a visit on its own
+/// authority, and there is no queue of unverified ones — unlocking needs the
+/// network by design, so a pending request can never be mistaken for a grant.
 class VisitStateRows extends Table {
   TextColumn get userId => text()();
 
@@ -62,25 +60,20 @@ class VisitStateRows extends Table {
 
 /// The user's own ordering of places — the itinerary lens.
 ///
-/// The only table in the app a lens writes to, and the reason that does not
-/// break rule 1: a row here says "I plan to go", never "I have been". What has
-/// been is [VisitStateRows], it arrives from the server, and nothing in this
-/// table can change it.
+/// The only table a lens writes to, and that does not break rule 1: a row here
+/// says "I plan to go", never "I have been". What has been is
+/// [VisitStateRows], and nothing in this table can change it.
 ///
-/// Stores an id and a rank, nothing else. Name, position and visited flag all
-/// have owners already; duplicating them here would be a second copy to keep
-/// in step, and the composition layer can join them back for free.
+/// An id and a rank, nothing else. Name, position and visited flag all have
+/// owners already, and the composition layer joins them back for free.
 ///
-/// Local only in v1 — there is no `userId` because there is no sync. When F9
-/// lifts this to the server, that column arrives with the migration that needs
-/// it rather than sitting here unused and always holding the same value.
+/// Local only in v1: no `userId`, because there is no sync yet.
 class ItineraryRows extends Table {
   TextColumn get checkpointId => text()();
 
   /// Zero-based, contiguous, rewritten wholesale on every reorder. Not unique
-  /// at the schema level: a reorder writes the new ranks inside one
-  /// transaction, and a uniqueness constraint would reject the halfway state
-  /// where two rows briefly share a number.
+  /// at the schema level: one transaction rewrites every rank, and a unique
+  /// constraint would reject the halfway state where two rows briefly match.
   IntColumn get position => integer()();
 
   @override
@@ -103,8 +96,7 @@ class ExploredPointRows extends Table {
 
 /// One-off facts about this install, such as whether the welcome has been
 /// shown. A table rather than a second storage library: drift is already the
-/// app's local store (docs/10-libraries.md), and two stores is two things to
-/// migrate, back up and reason about.
+/// local store, and two stores is two things to migrate and reason about.
 class AppFlagRows extends Table {
   TextColumn get key => text()();
 

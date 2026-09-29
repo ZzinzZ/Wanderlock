@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,21 +5,19 @@ import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
 import 'package:wanderlock/design/widgets/landmark_art.dart';
 import 'package:wanderlock/design/widgets/sticker_surface.dart';
+import 'package:wanderlock/features/unlock/presentation/unlock_painters.dart';
 import 'package:wanderlock/l10n/generated/app_localizations.dart';
 
 /// The three seconds a checkpoint opens.
 ///
-/// Section 9 of the art direction gives this six beats and says it is the one
-/// place in the product allowed to go all out. They are laid out on a single
-/// controller below, in the order the document lists them, so the sequence can
-/// be read against the spec rather than reverse-engineered from six widgets.
+/// Section 9 of the art direction gives this six beats, laid out below on one
+/// controller in the order the document lists them, so the sequence reads
+/// against the spec.
 ///
-/// It takes a name and a photograph rather than a checkpoint: `unlock` is the
-/// foundation every lens depends on and may not depend on a feature in return.
+/// Takes a name and a photograph rather than a checkpoint: `unlock` is the
+/// foundation every lens depends on and may not depend on one in return.
 ///
-/// **Pink lives here and nowhere else.** [AppColors.unlockMoment] is banned
-/// everywhere else by the art direction, and a test asserts that this file is
-/// its only reader.
+/// **Pink lives here and nowhere else**, and a test asserts it.
 class UnlockMoment extends StatefulWidget {
   const UnlockMoment({
     required this.placeName,
@@ -78,9 +74,8 @@ class _UnlockMomentState extends State<UnlockMoment>
       vsync: this,
     );
 
-    // Intervals are fractions of the three seconds: 0.00–0.35 is the flood,
-    // and so on. Written as a chain rather than as four controllers because
-    // the beats have to stay in proportion if the duration is ever retuned.
+    // Fractions of the three seconds, on one controller rather than four, so
+    // the beats stay in proportion if the duration is ever retuned.
     _flood = CurvedAnimation(
       parent: _controller,
       curve: const Interval(0, 0.35, curve: AppMotion.linearCurve),
@@ -102,13 +97,11 @@ class _UnlockMomentState extends State<UnlockMoment>
       curve: const Interval(0.9, 1, curve: AppMotion.linearCurve),
     );
 
-    // Beat 6 — haptic. Two taps rather than one: the first lands with the
-    // flood, the second with the badge, which is what makes the moment feel
-    // like it has a shape in the hand as well as on screen.
+    // Beat 6 — haptic, twice: once with the flood, once with the badge, so
+    // the moment has a shape in the hand as well as on screen.
     //
-    // The short sound the art direction also asks for is not here. There is no
-    // audio asset and no audio package in this build, and a silent stub would
-    // read as done.
+    // The short sound the art direction also asks for is not here: there is no
+    // audio package in this build, and a silent stub would read as done.
     HapticFeedback.mediumImpact();
     _badge.addStatusListener(_onBadgeStatus);
 
@@ -143,7 +136,7 @@ class _UnlockMomentState extends State<UnlockMoment>
             children: [
               // Beat 1.
               CustomPaint(
-                painter: _FloodPainter(
+                painter: FloodPainter(
                   progress: _flood.value,
                   origin: widget.origin,
                   colour: colors.unlockMoment,
@@ -152,7 +145,7 @@ class _UnlockMomentState extends State<UnlockMoment>
               // The spinning sunburst of the sticker pass. It rides on the
               // flood rather than on its own beat: it is the flood's texture.
               CustomPaint(
-                painter: _RayPainter(
+                painter: RayPainter(
                   turn: _controller.value,
                   opacity: _flood.value,
                   colour: colors.unlockRay,
@@ -202,98 +195,6 @@ class _UnlockMomentState extends State<UnlockMoment>
       },
     );
   }
-}
-
-/// Beat 1 — the colour, flooding out from where the user stands.
-class _FloodPainter extends CustomPainter {
-  const _FloodPainter({
-    required this.progress,
-    required this.origin,
-    required this.colour,
-  });
-
-  final double progress;
-  final Alignment origin;
-  final Color colour;
-
-  /// How solid the flood gets. Full opacity would hide the map it is
-  /// celebrating.
-  static const double peakOpacity = 0.92;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    if (progress <= 0) return;
-
-    final centre = origin.alongSize(size);
-    // Far corner, so the disc always finishes off-screen rather than stopping
-    // as a visible circle.
-    final reach = math.sqrt(
-      size.width * size.width + size.height * size.height,
-    );
-
-    canvas.drawCircle(
-      centre,
-      reach * progress,
-      Paint()..color = colour.withValues(alpha: peakOpacity * progress),
-    );
-  }
-
-  @override
-  bool shouldRepaint(_FloodPainter oldDelegate) =>
-      oldDelegate.progress != progress ||
-      oldDelegate.origin != origin ||
-      oldDelegate.colour != colour;
-}
-
-/// Alternating wedges of a lighter pink, turning slowly behind the plate.
-class _RayPainter extends CustomPainter {
-  const _RayPainter({
-    required this.turn,
-    required this.opacity,
-    required this.colour,
-  });
-
-  /// 0 to 1 over the three seconds.
-  final double turn;
-  final double opacity;
-  final Color colour;
-
-  static const int rays = 20;
-
-  /// How far the rays turn over the whole moment, in radians.
-  static const double sweep = math.pi / 6;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    if (opacity <= 0) return;
-
-    final centre = Offset(size.width / 2, size.height * 0.42);
-    final reach = size.longestSide;
-    final paint = Paint()..color = colour.withValues(alpha: opacity * colour.a);
-    const wedge = math.pi / rays;
-
-    for (var i = 0; i < rays; i++) {
-      final start = i * 2 * wedge + turn * sweep;
-      final path = Path()
-        ..moveTo(centre.dx, centre.dy)
-        ..lineTo(
-          centre.dx + reach * math.cos(start),
-          centre.dy + reach * math.sin(start),
-        )
-        ..lineTo(
-          centre.dx + reach * math.cos(start + wedge),
-          centre.dy + reach * math.sin(start + wedge),
-        )
-        ..close();
-      canvas.drawPath(path, paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(_RayPainter oldDelegate) =>
-      oldDelegate.turn != turn ||
-      oldDelegate.opacity != opacity ||
-      oldDelegate.colour != colour;
 }
 
 /// The headline, in cream with a thick ink outline and a hard shadow — the

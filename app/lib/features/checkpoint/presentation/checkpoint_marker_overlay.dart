@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
+import 'package:wanderlock/core/map/camera_projection.dart';
 import 'package:wanderlock/core/map/map_projection.dart';
 import 'package:wanderlock/design/tokens/tokens.dart';
 import 'package:wanderlock/design/widgets/app_icon.dart';
@@ -8,23 +9,16 @@ import 'package:wanderlock/design/widgets/landmark_art.dart';
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 import 'package:wanderlock/features/checkpoint/presentation/checkpoint_icons.dart';
 
-/// The twelve places, drawn as Flutter widgets on top of the map.
+/// The places, drawn as Flutter widgets on top of the map.
 ///
-/// **Why not a MapLibre symbol layer.** That was built first and is the
-/// textbook answer: images registered with the style, one symbol layer, all of
-/// it on the GPU. It also draws nothing on the emulator — verified twice now,
-/// once in an earlier session against a control style and once here, where the
-/// plates appeared and every icon was missing. A map whose markers cannot be
-/// seen until a phone is plugged in cannot be designed, reviewed, or argued
-/// about, and that cost more than the frames this saves.
+/// **Not a MapLibre symbol layer**, which was built first and is the textbook
+/// answer. It draws nothing on the emulator — verified twice — and a map whose
+/// markers need a physical phone to be seen cannot be designed or reviewed.
 ///
-/// It buys something as well: a marker is now an ordinary widget, so it can
-/// animate, scale with its state, and use the same [AppIcon] as the rest of
-/// the app rather than a separate copy of the artwork registered with a style.
-///
-/// The cost is real and bounded: twelve positions recomputed in Dart whenever
-/// the camera moves. The arithmetic is [MapProjection] — no platform calls, no
-/// awaits — and markers off screen are not built at all.
+/// Being ordinary widgets also lets a marker animate, scale with its state and
+/// share [AppIcon] with the rest of the app. The cost is positions recomputed
+/// in Dart on every camera frame: [MapProjection] arithmetic, no platform
+/// calls, and markers off screen are not built at all.
 class CheckpointMarkerOverlay extends StatelessWidget {
   const CheckpointMarkerOverlay({
     required this.controller,
@@ -37,13 +31,9 @@ class CheckpointMarkerOverlay extends StatelessWidget {
 
   final MapLibreMapController controller;
 
-  /// Where to draw from before the controller has a camera of its own.
-  ///
-  /// It reports `null` until something moves the map, and nothing moves the
-  /// map on a first launch — so without this the twelve markers appeared only
-  /// after the user happened to pan, which is to say never, for anyone opening
-  /// the app for the first time. Found by printing the camera, not by reading
-  /// the code.
+  /// Where to draw from before the controller has a camera of its own: it
+  /// reports `null` until something moves the map, and nothing does on a first
+  /// launch, so without this no marker appears until the user pans.
   final CameraPosition fallbackCamera;
   final List<Checkpoint> checkpoints;
 
@@ -56,23 +46,19 @@ class CheckpointMarkerOverlay extends StatelessWidget {
 
   /// Below this zoom every place is a dot; at or above it, a sticker.
   ///
-  /// The pilot grew from twelve places to nearly three hundred. At city zoom
-  /// that is well over a hundred stickers on screen, each a widget tree with
-  /// an image, a shadow and a name tag — rebuilt on every camera frame. Dots
-  /// are one painter for all of them, and zooming in to street level, where
-  /// only a handful are on screen, brings the stickers back.
+  /// At city zoom the pilot puts over a hundred stickers on screen, each a
+  /// widget tree with an image, a shadow and a name tag, rebuilt on every
+  /// camera frame. Dots are one painter for all of them.
   static const double stickerZoom = 14.5;
 
   /// Radius of a dot, and how far from it a tap still counts.
   static const double dotRadius = 7;
   static const double dotHitRadius = 18;
 
-  /// Which marker, if any, a tap on the map at this coordinate landed on.
+  /// Which marker, if any, a tap at this coordinate landed on.
   ///
-  /// The markers ignore the pointer so the map can be dragged from anywhere,
-  /// which leaves the map to report taps; this turns one back into a marker,
-  /// using the same projection and the same marker geometry that drew it.
-  /// When markers overlap, the one whose sticker is closest wins.
+  /// Markers ignore the pointer so the map can be dragged from anywhere, which
+  /// leaves the map to report taps. When markers overlap, the closest wins.
   static Checkpoint? checkpointAt({
     required CameraPosition camera,
     required Size size,
@@ -80,13 +66,7 @@ class CheckpointMarkerOverlay extends StatelessWidget {
     required double latitude,
     required double longitude,
   }) {
-    final projection = MapProjection(
-      centerLatitude: camera.target.latitude,
-      centerLongitude: camera.target.longitude,
-      zoom: camera.zoom,
-      widthPixels: size.width,
-      heightPixels: size.height,
-    );
+    final projection = camera.projectionOver(size);
     final tap = projection.toScreen(latitude, longitude);
 
     Checkpoint? best;
@@ -124,13 +104,7 @@ class CheckpointMarkerOverlay extends StatelessWidget {
           builder: (context, _) {
             final camera = controller.cameraPosition ?? fallbackCamera;
 
-            final projection = MapProjection(
-              centerLatitude: camera.target.latitude,
-              centerLongitude: camera.target.longitude,
-              zoom: camera.zoom,
-              widthPixels: constraints.maxWidth,
-              heightPixels: constraints.maxHeight,
-            );
+            final projection = camera.projectionOver(constraints.biggest);
 
             if (camera.zoom < stickerZoom) {
               final colors = AppColors.of(context);
@@ -177,14 +151,12 @@ class CheckpointMarkerOverlay extends StatelessWidget {
               );
             }
 
-            // Sized explicitly. A Stack holding nothing but Positioned
-            // children collapses to zero under loose constraints, and every
-            // marker is then laid out correctly and clipped away — which is
-            // exactly how this first ran: no markers at all, no error.
-            // IgnorePointer: every touch goes through to the map, so a drag
-            // that starts on a marker still pans. A marker used to take the
-            // pointer for its own tap and the map under it never moved.
-            // Taps are resolved from the map instead — see [checkpointAt].
+            // Sized explicitly: a Stack of nothing but Positioned children
+            // collapses to zero under loose constraints, laying every marker
+            // out correctly and then clipping it away, silently.
+            //
+            // IgnorePointer so a drag starting on a marker still pans the map.
+            // Taps come back through [checkpointAt] instead.
             return IgnorePointer(
               child: SizedBox(
                 width: constraints.maxWidth,
@@ -228,7 +200,7 @@ class _CheckpointMarker extends StatelessWidget {
     final colors = AppColors.of(context);
 
     // Semantics keeps the tap for screen readers; a finger's tap reaches the
-    // map instead and comes back through [CheckpointMarkerOverlay.checkpointAt].
+    // map instead.
     return Semantics(
       button: true,
       label: checkpoint.name,
@@ -244,9 +216,8 @@ class _CheckpointMarker extends StatelessWidget {
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  // A sticker, not a pin: outline and hard shadow, the
-                  // building drawn on it. Unlike the soft pair these survive
-                  // on a multicoloured ground — section 0.
+                  // A sticker, not a pin: outline and hard shadow survive on
+                  // a multicoloured ground — section 0.
                   AnimatedContainer(
                     duration: AppMotion.standard,
                     curve: AppMotion.linearCurve,

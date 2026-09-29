@@ -2,12 +2,12 @@ import 'package:flutter/widgets.dart';
 
 /// Colours for the map surface itself.
 ///
-/// Kept apart from [AppColors] because they answer a different question. UI
-/// colours are read per widget and animate between themes; these are baked
-/// into a MapLibre style document once per theme and never interpolated.
+/// Apart from [AppColors] because they answer a different question: UI colours
+/// are read per widget and animate between themes, while these are baked into
+/// a MapLibre style document once per theme and never interpolated.
 ///
-/// Light values are transcribed from section 6 of docs/09-art-direction.md,
-/// which fixes them exactly and bans the provider's default style.
+/// Values come from section 6 of docs/09-art-direction.md, which fixes them
+/// exactly and bans the provider's default style.
 @immutable
 class AppMapColors {
   const AppMapColors({
@@ -36,21 +36,11 @@ class AppMapColors {
   /// Road fill.
   final Color road;
 
-  /// The edge drawn under the fill, which is what makes a road read as drawn
-  /// rather than as a flat ribbon.
-  ///
-  /// The casing has to separate from the *land*, not only from the fill: it is
-  /// the outline you see against the ground. The first values chosen missed
-  /// this and were 1.08:1 against the land in light and 1.03:1 in dark, which
-  /// is to say invisible — the roads read as flat ribbons exactly as the doc
-  /// comment above promised they would not.
+  /// The edge under the fill, which makes a road read as drawn rather than as
+  /// a flat ribbon. It has to separate from the *land*, not only from the
+  /// fill: it is the outline seen against the ground.
   final Color roadCasing;
 
-  /// Administrative lines.
-  ///
-  /// Its own colour rather than a second use of [roadCasing]: a boundary drawn
-  /// at road-casing strength reads as a street, which is the same mistake the
-  /// road hierarchy had to undo for railways and ferry routes.
   /// Fill of the biggest roads. Yellow in the sticker map, so the few roads
   /// that carry a name read as the spine of the city before any label does.
   final Color roadMajor;
@@ -65,28 +55,21 @@ class AppMapColors {
   /// Drawn outline round parks.
   final Color greenEdge;
 
+  /// Administrative lines. Its own colour rather than a second use of
+  /// [roadCasing]: a boundary at road-casing strength reads as a street.
   final Color boundary;
 
-  /// Road names — the only labels the map draws at all.
-  ///
-  /// Not [AppColors.inkMuted], though it started there. Section 2.3 of the art
-  /// direction requires 4.5:1 for normal text, and the map labels are 11px
-  /// over four different surfaces, so they need a colour picked against the
-  /// map rather than against a card.
+  /// Road names — the only labels the map draws at all. Not
+  /// [AppColors.inkMuted]: 11px text over four different map surfaces needs
+  /// 4.5:1 against the map, not against a card.
   final Color label;
 
-  /// The veil laid over everywhere the user has not been, in the Fog lens.
+  /// The veil over everywhere the user has not been, in the Fog lens.
   ///
-  /// **The veil is dark in both themes** — chosen by the project owner on
-  /// 2026-09-08, reversing the earlier "fog is a mode, not a theme" rule. The
-  /// mental model is a ward in a MOBA: unexplored city is genuinely dark, and
-  /// what you have visited is lit. That contrast is the whole lens, and the
-  /// light-theme version was dissolving it.
-  ///
-  /// The earlier rule was not merely too subtle, it was arithmetically empty:
-  /// a cream veil at 60% over cream land measured (243,240,232) against
-  /// (244,241,234) on a device — one or two units in 255. You cannot grey out
-  /// a cream map by laying cream over it.
+  /// **Dark in both themes** (owner, 2026-09-08). Unexplored city is genuinely
+  /// dark and what you have visited is lit; that contrast is the whole lens,
+  /// and a light-theme veil dissolved it — cream over cream measured one or
+  /// two units in 255.
   ///
   /// Sheer enough that the street pattern still shows through: unexplored city
   /// must stay legible as a city, not become a black rectangle.

@@ -1,11 +1,10 @@
 /// What the operating system last said about our permission to read location.
 ///
-/// Our own enum rather than the location package's, because `domain/` depends
-/// on plain Dart only. Mapping happens at the edge, in `data/`, which also
-/// means swapping the package later is a change in one file.
-/// There is deliberately no "never asked" value. The platform APIs do not
-/// distinguish it from a refusal, and the app would do the same thing either
-/// way: show the system dialog and see what comes back.
+/// Our own enum rather than the location package’s, because `domain/`
+/// depends on plain Dart only; mapping happens at the edge, in `data/`.
+///
+/// No "never asked" value: the platform APIs do not distinguish it from a
+/// refusal, and the app would show the dialog either way.
 enum LocationPermissionState {
   /// Not granted, but the system will still show the dialog if asked.
   denied,
@@ -39,9 +38,9 @@ class LocationBlocked extends LocationAvailability {
   const LocationBlocked();
 }
 
-/// Permission is granted but location services are switched off device-wide.
-/// A different problem with a different fix, and telling the user to grant
-/// permission here would send them somewhere that already says "allowed".
+/// Permission is granted but location services are off device-wide. A
+/// different problem with a different fix: telling the user to grant
+/// permission would send them somewhere that already says "allowed".
 class LocationServiceOff extends LocationAvailability {
   const LocationServiceOff();
 }
