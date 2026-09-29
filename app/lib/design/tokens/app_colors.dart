@@ -50,17 +50,11 @@ class AppColors extends ThemeExtension<AppColors> {
   /// Card, sheet and tile surfaces.
   final Color card;
 
-  /// A surface one step quieter than [card].
+  /// A surface one step quieter than [card], for telling two neutral surfaces
+  /// apart: a selected chip on its bar, an unearned stamp among earned ones.
   ///
-  /// Introduced when the owner asked for the green fills to go and for the
-  /// icons to carry the colour instead. That left every surface neutral, and
-  /// two neutral surfaces sitting on each other — a selected chip on its bar,
-  /// an unearned stamp among earned ones — need to be told apart by something.
-  /// This is that something: near-white in light, a shade above the card in
-  /// dark.
-  ///
-  /// It is deliberately a weak difference. Anything stronger competes with the
-  /// icons, which are now the only thing on screen allowed to be loud.
+  /// Deliberately a weak difference. Anything stronger competes with the
+  /// icons, which are the only thing on screen allowed to be loud.
   final Color surfaceMuted;
 
   /// Primary text.
@@ -108,13 +102,9 @@ class AppColors extends ThemeExtension<AppColors> {
 
   /// Text drawn on top of [unlockMoment].
   ///
-  /// Dark ink in **both** themes, and chosen rather than transcribed: the
-  /// flood is the same pink whatever the theme, so its text cannot follow the
-  /// theme. White on `#FF48A0` measures 3.09:1 and fails the art direction's
-  /// own 4.5:1 rule for normal text; this ink measures 5.07:1.
-  ///
-  /// Found by looking at the first build, where the heading was drawn in the
-  /// pink itself and was simply invisible against the pink behind it.
+  /// Dark ink in **both** themes: the flood is the same pink whatever the
+  /// theme, so its text cannot follow the theme. White on `#FF48A0` measures
+  /// 3.09:1 against a 4.5:1 rule; this ink measures 5.07:1.
   final Color onUnlockMoment;
 
   /// Outer shadow for neumorphic surfaces. Never on the map, never on a
@@ -124,12 +114,10 @@ class AppColors extends ThemeExtension<AppColors> {
   /// Inner light for neumorphic surfaces.
   final Color neumorphicHighlight;
 
-  /// The ink line drawn round every sticker, and the hard shadow under it.
-  ///
-  /// The sticker look (docs/09-art-direction.md, section 0) is carried by
-  /// this one colour more than by any fill: an outline plus a solid offset
-  /// shadow is what makes a flat card read as something stuck onto the
-  /// screen rather than printed on it.
+  /// The ink line round every sticker, and the hard shadow under it. Section 0
+  /// of the art direction rests on this one colour: an outline plus a solid
+  /// offset shadow is what makes a flat card read as stuck on rather than
+  /// printed.
   final Color outline;
 
   /// Ground of the polka-dot backdrop behind full-screen lenses.

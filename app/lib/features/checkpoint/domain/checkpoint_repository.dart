@@ -1,10 +1,8 @@
 import 'package:wanderlock/features/checkpoint/domain/checkpoint.dart';
 
-/// What a [CheckpointRepository.refresh] actually did.
-///
-/// Returned rather than thrown, because none of these is an error the user
-/// needs to see: a walker with a cached map is fine either way. The caller
-/// uses it to decide whether to show "showing offline data", nothing more.
+/// What a [CheckpointRepository.refresh] actually did. Returned rather than
+/// thrown: none of these is an error, and the caller only uses it to decide
+/// whether to say it is showing offline data.
 enum RefreshOutcome {
   /// The server answered and the cache was replaced.
   refreshed,
@@ -17,11 +15,8 @@ enum RefreshOutcome {
   noRemoteConfigured,
 }
 
-/// Reads the pilot's checkpoints.
-///
-/// Offline first: [watchAll] serves whatever is cached and never waits on a
-/// network call, so opening the app in a basement still draws the map. Fresh
-/// content arrives through [cacheAll] and the stream re-emits.
+/// Reads the pilot's checkpoints, cache first: [watchAll] never waits on a
+/// network call, and fresh content arrives through [cacheAll].
 abstract interface class CheckpointRepository {
   /// Emits the cached checkpoints immediately, then again on every change.
   Stream<List<Checkpoint>> watchAll();
@@ -29,26 +24,18 @@ abstract interface class CheckpointRepository {
   /// One-shot read of the cache.
   Future<List<Checkpoint>> readAll();
 
-  /// Replaces the cache with [checkpoints].
-  ///
-  /// Must be safe to run twice with the same input: content is re-fetched on
-  /// every launch, and a seed that duplicated rows would put the same place on
-  /// the map twice.
+  /// Replaces the cache with [checkpoints]. Must be safe to run twice:
+  /// content is re-fetched on every launch.
   Future<void> cacheAll(List<Checkpoint> checkpoints);
 
-  /// Pulls fresh content from the server into the cache.
-  ///
-  /// Never throws and never empties the cache. Losing the network mid-walk is
-  /// the normal case this app is built for, not an error state.
+  /// Pulls fresh content into the cache. Never throws and never empties it:
+  /// losing signal mid-walk is the normal case, not an error state.
   Future<RefreshOutcome> refresh();
 
-  /// Fills an empty cache from the pilot content bundled in the binary.
+  /// Fills an empty cache from the content bundled in the binary, so a first
+  /// launch with no server still draws a map. Returns true when it wrote.
   ///
-  /// Returns true when it wrote something. Does nothing when the cache already
-  /// holds rows, so it can never overwrite what a server said: the bundle is
-  /// a floor, not an authority.
-  ///
-  /// Without this a first launch with no reachable server draws an empty map,
-  /// and an empty map cannot be reviewed, demonstrated, or designed against.
+  /// Does nothing when the cache holds rows: the bundle is a floor, never an
+  /// authority, and must not overwrite what a server said.
   Future<bool> seedFromBundleIfEmpty();
 }

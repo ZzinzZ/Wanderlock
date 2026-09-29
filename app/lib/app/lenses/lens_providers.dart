@@ -1,3 +1,11 @@
+/// The one place that joins content to unlock state.
+///
+/// Every derived view here is built in the composition layer and handed to a
+/// lens as plain numbers. That is what lets `fog` and `collection` stay
+/// ignorant of each other and of `checkpoint`: they receive what they need
+/// instead of reaching for it.
+library;
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:wanderlock/app/lenses/lens.dart';
@@ -33,12 +41,6 @@ class LensController extends Notifier<Lens> {
 
 final lensProvider = NotifierProvider<LensController, Lens>(LensController.new);
 
-/// The one place that joins content to unlock state.
-///
-/// Every derived view below is built here, in the composition layer, and
-/// handed to a lens as plain numbers. That is what lets `fog` and
-/// `collection` stay ignorant of each other and of `checkpoint`: they receive
-/// what they need instead of reaching for it.
 /// Exposed for the marker layer, which paints a visited checkpoint
 /// differently, and read by every derived view below.
 final visitedCheckpointIdsProvider = Provider<Set<String>>((ref) {
@@ -49,11 +51,9 @@ final visitedCheckpointIdsProvider = Provider<Set<String>>((ref) {
   };
 });
 
-/// Where the fog has been cleared.
-///
-/// Derived from `visit_state` on every rebuild rather than accumulated: fog
-/// that remembered its own holes would be a second record of what is unlocked,
-/// and the first thing to go out of step after a sync.
+/// Where the fog has been cleared. Derived from `visit_state` on every
+/// rebuild rather than accumulated: fog that remembered its own holes would be
+/// a second record of what is unlocked.
 final fogHolesProvider = Provider<List<FogHole>>((ref) {
   final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
   final visited = ref.watch(visitedCheckpointIdsProvider);
@@ -85,11 +85,8 @@ final stampsProvider = Provider<List<Stamp>>((ref) {
   ];
 });
 
-/// Checkpoints by id.
-///
-/// Four of the views below need this lookup. Built once here so a visit
-/// changing does not rebuild four 272-entry maps to answer four questions
-/// about the same unchanged content.
+/// Checkpoints by id. Built once because four views below need it, and a
+/// visit changing should not rebuild four 272-entry maps of unchanged content.
 final _checkpointsByIdProvider = Provider<Map<String, Checkpoint>>((ref) {
   final checkpoints = ref.watch(checkpointsProvider).value ?? const [];
   return <String, Checkpoint>{
@@ -98,10 +95,8 @@ final _checkpointsByIdProvider = Provider<Map<String, Checkpoint>>((ref) {
 });
 
 /// Fills the seam `unlock` leaves for a checkpoint's position and radius.
-///
-/// Installed as an override on [checkpointGeofenceLookupProvider] in
-/// `main.dart`. Written here because this is the layer allowed to see both
-/// features at once.
+/// Installed as an override in `main.dart`, and written here because this is
+/// the layer allowed to see both features at once.
 CheckpointGeofence? Function(String) buildGeofenceLookup(Ref ref) {
   final byId = ref.watch(_checkpointsByIdProvider);
 
@@ -124,11 +119,10 @@ final questRouteDefinitionsProvider =
 
 /// The authored chapters, keyed by the checkpoint they belong to.
 ///
-/// Content only — whether a chapter may be *read* is a question about
-/// `visit_state`, and it is answered where both are visible: the checkpoint
-/// sheet already knows whether the place is unlocked. Putting the rule here
-/// would be fine too; putting it inside the story feature would not, because
-/// that feature would then hold unlock state of its own.
+/// Content only. Whether a chapter may be *read* is a question about
+/// `visit_state`, answered by the checkpoint sheet, which sees both. It must
+/// not move inside the story feature: that feature would then hold unlock
+/// state of its own.
 final storyChaptersProvider = FutureProvider<Map<String, StoryChapter>>((
   ref,
 ) async {

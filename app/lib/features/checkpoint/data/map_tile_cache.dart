@@ -7,10 +7,9 @@ import 'package:wanderlock/features/checkpoint/domain/map_cache_region.dart';
 
 /// Thrown when a download finishes without having fetched anything.
 ///
-/// Its own type because the failure it describes is silent by nature: the
-/// engine reports success for an empty region just as cheerfully as for a full
-/// one, and a banner saying the map is saved when it is not is worse than no
-/// banner at all.
+/// Its own type because the engine reports success for an empty region just as
+/// cheerfully as for a full one, and a banner saying the map is saved when it
+/// is not is worse than no banner at all.
 class EmptyDownloadException implements Exception {
   const EmptyDownloadException();
 
@@ -22,10 +21,9 @@ class EmptyDownloadException implements Exception {
 
 /// Downloads the pilot area's tiles so the map still draws with the radio off.
 ///
-/// MapLibre already keeps an *ambient* cache of whatever has been on screen,
-/// which is why losing signal mid-walk does not blank the map. This is the
-/// other half: a deliberate download made before leaving, covering ground the
-/// user has not looked at yet, which the engine will not evict to make room.
+/// MapLibre's own ambient cache already holds whatever has been on screen.
+/// This is the other half: a deliberate download made before leaving, covering
+/// ground not yet looked at, which the engine will not evict.
 class MapTileCache {
   const MapTileCache();
 
@@ -34,9 +32,8 @@ class MapTileCache {
   static const _regionNameKey = 'wanderlock.region';
   static const _regionName = 'pilot';
 
-  /// OpenFreeMap's vector tiles stop at zoom 14 — its TileJSON says so. Asking
-  /// for more downloads nothing at all, and MapLibre over-zooms the z14 tile
-  /// for closer views regardless, so z14 is genuinely the whole map.
+  /// OpenFreeMap's vector tiles stop at zoom 14, and MapLibre over-zooms that
+  /// tile for closer views, so z14 is genuinely the whole map.
   static const maxZoom = 14.0;
 
   /// Below this the city is a smudge and there is nothing to walk to.
@@ -44,12 +41,10 @@ class MapTileCache {
 
   /// Replaces any previously downloaded region with one covering [bounds].
   ///
-  /// Only one style needs downloading even though the app ships two. Light and
-  /// dark differ in paint alone: same tile source, same glyphs, same URLs. It
-  /// is the resources that get cached, not the colours.
+  /// One style is enough for both themes: light and dark differ in paint
+  /// alone, and it is the resources that get cached, not the colours.
   ///
-  /// Throws [EmptyDownloadException] if the region completes having fetched
-  /// nothing.
+  /// Throws [EmptyDownloadException] if it fetches nothing.
   Future<void> download({
     required GeoBounds bounds,
     required String styleJson,
@@ -126,18 +121,13 @@ class MapTileCache {
   }
 }
 
-/// Serves the generated style to MapLibre over loopback for the length of one
-/// download.
+/// Serves the generated style to MapLibre over loopback for one download.
 ///
-/// The offline API takes a style *URL*, not a document, and on Android it
-/// resolves that URL through the HTTP stack alone — `file://` and `asset://`
-/// never reach a file source. Writing the style to disk therefore does not
-/// work. Bundling a second copy as an asset would work but would fork the
-/// style into two documents that have to be kept in step by hand, and would
-/// ignore a `MAP_TILES_URL` override at that.
-///
-/// So the style is served, from this process, to this process, on a port the
-/// OS picks, for a few seconds.
+/// The offline API takes a style *URL*, and on Android it resolves that URL
+/// through the HTTP stack alone: `file://` and `asset://` never reach a file
+/// source. A bundled second copy would work but would fork the style into two
+/// documents kept in step by hand, and would ignore `MAP_TILES_URL`. So the
+/// style is served from this process to this process, for a few seconds.
 class _StyleServer {
   _StyleServer(this._server, this.url);
 

@@ -6,19 +6,15 @@ import 'package:wanderlock/design/tokens/tokens.dart';
 
 /// Builds the MapLibre style from design tokens.
 ///
-/// Section 6 of docs/09-art-direction.md calls the map the easiest thing to
-/// get wrong, and bans the provider's default style outright. A map that looks
-/// like every other map undoes the rest of the art direction on the one
+/// Section 6 of docs/09-art-direction.md bans the provider's default style: a
+/// map that looks like every other map undoes the art direction on the one
 /// surface the user spends all their time on.
 ///
-/// The style is generated rather than checked in as a static JSON file, for
-/// two reasons. Colours stay in `design/tokens/` and cannot drift from the
-/// rest of the app, and light and dark come from one definition instead of two
-/// files that have to be kept in step by hand.
+/// Generated rather than checked in as JSON so colours cannot drift from
+/// `design/tokens/`, and so light and dark come from one definition.
 ///
 /// Targets the OpenMapTiles layer schema, which MapTiler, OpenFreeMap and
-/// self-hosted tile servers all speak. Which provider to use is still open —
-/// see docs/09-art-direction.md section 11.
+/// self-hosted servers all speak.
 abstract final class MapStyle {
   /// Source id every layer refers to. Must match the key in `sources`.
   static const _source = 'basemap';
@@ -29,17 +25,13 @@ abstract final class MapStyle {
 
   /// The road hierarchy, least important first.
   ///
-  /// Order is paint order. Casings are drawn for every tier before any fill,
-  /// so an alley crossing a boulevard cannot cut a notch out of the
-  /// boulevard's edge; then fills run in the same order, which puts the bigger
-  /// road on top where the two meet.
+  /// Order is paint order: every casing before any fill, so an alley crossing
+  /// a boulevard cannot cut a notch out of its edge, then fills in the same
+  /// order so the bigger road lands on top.
   ///
-  /// [_RoadTier.classes] is an allow-list, and that is the point: the
-  /// OpenMapTiles `transportation` layer also carries railways, ferry routes,
-  /// piers and `*_construction` variants of every road class. Drawn with one
-  /// undifferentiated layer they all became streets — a ferry route rendered
-  /// exactly like Trần Hưng Đạo. Anything not named below is not a street and
-  /// is not drawn as one.
+  /// [_RoadTier.classes] is an allow-list because the OpenMapTiles
+  /// `transportation` layer also carries railways, ferry routes, piers and
+  /// `*_construction` variants. Anything not named below is not a street.
   static const _roadTiers = <_RoadTier>[
     _RoadTier(
       id: 'path',
@@ -69,9 +61,8 @@ abstract final class MapStyle {
     ),
   ];
 
-  /// How much wider the casing is than the fill it sits under, in the same
-  /// units as [_RoadTier.width]. Constant rather than proportional so the
-  /// drawn edge stays the same visual weight across the hierarchy.
+  /// How much wider a casing is than its fill, in [_RoadTier.width] units.
+  /// Constant rather than proportional so the drawn edge keeps one weight.
   static const _casingBleed = 2.4;
 
   /// Width of the drawn edge round water and parks, at zoom 16.
@@ -83,11 +74,9 @@ abstract final class MapStyle {
   /// fonts. Both are configuration rather than design, so they arrive from
   /// outside.
   ///
-  /// Memoised. The map canvas asks for this from `build`, and it rebuilds on
-  /// every download-progress tick, every GPS fix and every drag that releases
-  /// the camera — each of which used to construct seventeen layers and encode
-  /// them again to arrive at a string identical to the last one. There are
-  /// only ever two answers, one per theme.
+  /// Memoised: the canvas asks for this from `build`, which runs on every
+  /// progress tick, GPS fix and camera release, and there are only ever two
+  /// answers — one per theme.
   static String toJson({
     required String tilesUrl,
     required String glyphsUrl,
@@ -126,8 +115,7 @@ abstract final class MapStyle {
         _sourceFill('water', 'water', palette.water),
         _sourceFill('landcover-green', 'landcover', palette.green),
         _sourceFill('park', 'park', palette.green),
-        // Drawn edges round water and grass: the cartoon map outlines its
-        // shapes the way the stickers on it are outlined.
+        // Drawn edges round water and grass, outlined like the stickers.
         _line('water-edge', 'water', palette.waterEdge, _edgeWidth),
         _line('park-edge', 'park', palette.greenEdge, _edgeWidth),
         // Casing under the fill is what gives roads a drawn edge rather than a

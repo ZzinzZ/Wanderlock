@@ -1,14 +1,12 @@
 /// One beat of a chapter.
 ///
-/// Deliberately a closed set with no branching. Section 2 of docs/08-scope.md
-/// puts fragmented, branching stories in v2; a format that allows branches now
-/// would invite content that depends on them, and the reader would arrive
-/// before the player did.
+/// A closed set with no branching: section 2 of docs/08-scope.md puts
+/// branching stories in v2, and a format that allowed them now would invite
+/// content that depends on them.
 ///
-/// **Dialogue was removed on 2026-09-27** (owner's decision). A chapter is a
-/// written introduction to a place, in one voice — so the only beats are prose
-/// and photographs. The `speech` node it had, and the character file it would
-/// have needed, are gone with it; nothing in the pilot content used them.
+/// **Dialogue was removed on 2026-09-27** (owner). A chapter is a written
+/// introduction to a place, in one voice, so the only beats are prose and
+/// photographs.
 sealed class StoryNode {
   const StoryNode();
 }
@@ -46,10 +44,8 @@ enum StoryChapterKind {
 }
 
 /// A chapter of the Story lens: what a checkpoint has to say once you have
-/// stood in front of it.
-///
-/// Content lives in `content/stories/*.json`, is version-controlled, and ships
-/// inside the binary the way the checkpoints and the quests do.
+/// stood in front of it. Content lives in `content/stories/*.json` and ships
+/// inside the binary, like the checkpoints and the quests.
 class StoryChapter {
   const StoryChapter({
     required this.id,
@@ -75,28 +71,23 @@ class StoryChapter {
 
   final String title;
 
-  /// Where the facts came from, shown at the end of the chapter.
-  ///
-  /// The pilot chapters are written from Wikipedia articles. Facts are not
-  /// anybody's property, but saying where they were checked is what lets the
-  /// next person check them again — and it is the same discipline the photo
-  /// ledger applies to pictures.
+  /// Where the facts came from, shown at the end of the chapter. Facts are not
+  /// anybody’s property, but saying where they were checked is what lets the
+  /// next person check them again.
   final String? source;
 
   /// 16:9, per the image ratios fixed by the art direction.
   final String? coverImage;
 
-  /// The line the photograph's licence requires to be shown beside it.
+  /// The line the photograph’s licence requires to be shown beside it.
   ///
-  /// CC BY and CC BY-SA are free to ship and not free of obligation: the
-  /// author has to be named where the picture is seen. Empty only for CC0 and
-  /// public domain, where nothing is required. A chapter with a cover and no
-  /// credit is refused by a test rather than by a lawyer.
+  /// CC BY and CC BY-SA are free to ship and not free of obligation: the author
+  /// has to be named where the picture is seen. Empty only for CC0 and public
+  /// domain. A chapter with a cover and no credit is refused by a test.
   final String? coverCredit;
 
-  /// Roughly how long it takes to read. Shown before opening, because
-  /// somebody standing in the sun deserves to know what they are committing
-  /// to. The pilot targets one to three minutes.
+  /// Roughly how long it takes to read, shown before opening, because somebody
+  /// standing in the sun deserves to know what they are committing to.
   final int estimatedMinutes;
 
   final List<StoryNode> nodes;

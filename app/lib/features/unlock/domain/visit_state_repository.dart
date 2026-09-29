@@ -2,46 +2,28 @@ import 'package:wanderlock/features/unlock/domain/visit_state.dart';
 
 /// Reads the unlock layer.
 ///
-/// **There is no way to record a visit here, and that is the point.** A visit
-/// is granted by the server after it verifies where the user actually is; the
-/// client's job is to ask and then to cache the answer. Adding a local write
-/// path would make it possible to unlock a checkpoint by editing a phone, and
-/// every lens would believe it.
-///
-/// The check-in request that F4 introduces goes through its own queue, kept
-/// deliberately separate so a request awaiting verification can never be
-/// mistaken for a granted unlock.
+/// **There is no way to record a visit here, and that is the point.** The
+/// server grants a visit after verifying where the user is; the client asks
+/// and caches the answer. A local write path would let anyone unlock a
+/// checkpoint by editing a phone, and every lens would believe it.
 abstract interface class VisitStateRepository {
-  /// Every visit this user has, keyed by checkpoint id.
-  ///
-  /// A map because every lens asks the same question — "is this one open?" —
-  /// once per checkpoint while drawing.
+  /// Every visit this user has, keyed by checkpoint id — a map because
+  /// every lens asks the same question once per checkpoint while drawing.
   Stream<Map<String, VisitState>> watchAll();
 
   Future<Map<String, VisitState>> readAll();
 
-  /// Replaces the cache with what the server says.
-  ///
-  /// The server is the authority. If it no longer lists a visit, neither do
-  /// we: a visit that only exists on one phone is not a visit.
+  /// Replaces the cache with what the server says. If it no longer lists a
+  /// visit, neither do we: a visit on one phone alone is not a visit.
   Future<void> cacheAll(List<VisitState> visits);
 
-  /// Stores one visit the authority has just granted.
-  ///
-  /// Still a cache write, not a decision: the argument is the record the
-  /// server answered with, so this is the same act as [cacheAll] narrowed to
-  /// one row. It exists because re-fetching the whole list to see the unlock
-  /// the user is watching happen would put a network round trip inside a
-  /// three-second animation.
-  ///
-  /// Safe to run twice: the same visit written again leaves one row.
+  /// Stores one visit the authority has just granted — [cacheAll] narrowed
+  /// to a row, so the three-second animation does not wait on a round trip.
+  /// Still a cache write, not a decision, and safe to run twice.
   Future<void> cacheGranted(VisitState visit);
 
-  /// Pulls the user's visits from the server.
-  ///
-  /// Never throws and never empties the cache, for the same reason the
-  /// checkpoint list does not: someone walking with no signal must keep
-  /// seeing what they have already unlocked.
+  /// Pulls the user's visits from the server. Never throws and never empties
+  /// the cache: someone with no signal keeps seeing what they unlocked.
   Future<VisitSyncOutcome> refresh();
 }
 
